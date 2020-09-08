@@ -1,0 +1,1034 @@
+<!DOCTYPE html><html lang="en-ca" >
+
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="generator" content="Source Themes Academic 4.8.0">
+
+  
+
+  
+  
+  
+  
+  
+    
+    
+    
+  
+  
+
+  
+
+  
+  
+  
+    
+  
+  <meta name="description" content="Useful tools   Download PLINK 1.9 from https://www.cog-genomics.org/plink2.
+  Install bcftools from https://samtools.github.io/bcftools/ but for MAC OS X it is easier to install UNIX tools via homebrew. After having homebrew installed, just tap in by brew install bcftools.">
+
+  
+  <link rel="alternate" hreflang="en-ca" href="https://ypark.github.io/post/gwas_data_trans/">
+
+  
+
+
+  
+  
+  
+  <meta name="theme-color" content="#2962ff">
+  
+
+  
+  
+  
+  <script src="/js/mathjax-config.js"></script>
+  
+
+  
+  
+  
+  
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/academicons/1.8.6/css/academicons.min.css" integrity="sha256-uFVgMKfistnJAfoCUQigIl+JfUaP47GrRKjf6CTPVmw=" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.0-1/css/all.min.css" integrity="sha256-4w9DunooKSr3MFXHXWyFER38WmPdm361bQS/2KUWZbU=" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css" integrity="sha256-Vzbj7sDDS/woiFS3uNKo8eIuni59rjyNGtXfstRzStA=" crossorigin="anonymous">
+
+    
+    
+    
+      
+    
+    
+      
+      
+        
+          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.1/styles/github.min.css" crossorigin="anonymous" title="hl-light">
+          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.1/styles/dracula.min.css" crossorigin="anonymous" title="hl-dark" disabled>
+        
+      
+    
+
+    
+
+    
+
+    
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/lazysizes/5.1.2/lazysizes.min.js" integrity="sha256-Md1qLToewPeKjfAHU1zyPwOutccPAm5tahnaw7Osw0A=" crossorigin="anonymous" async></script>
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" integrity="" crossorigin="anonymous" async></script>
+      
+    
+      
+
+      
+      
+
+      
+    
+
+  
+
+  
+  
+  
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:400,700%7CRoboto:400,400italic,700%7CRoboto+Mono&display=swap">
+  
+
+  
+  
+  
+  
+  <link rel="stylesheet" href="/css/academic.css">
+
+  
+
+
+
+
+  
+
+
+  
+  
+
+  
+
+  <link rel="manifest" href="/index.webmanifest">
+  <link rel="icon" type="image/png" href="/images/icon_hubeb08443f4a10673faef737165dc89be_255147_32x32_fill_lanczos_center_2.png">
+  <link rel="apple-touch-icon" type="image/png" href="/images/icon_hubeb08443f4a10673faef737165dc89be_255147_192x192_fill_lanczos_center_2.png">
+
+  <link rel="canonical" href="https://ypark.github.io/post/gwas_data_trans/">
+
+  
+  
+  
+  
+  
+  
+  
+    
+    
+  
+  
+  <meta property="twitter:card" content="summary">
+  
+  <meta property="twitter:site" content="@ypp_lab">
+  <meta property="twitter:creator" content="@ypp_lab">
+  
+  <meta property="og:site_name" content="Y Park Lab">
+  <meta property="og:url" content="https://ypark.github.io/post/gwas_data_trans/">
+  <meta property="og:title" content="Recipes for GWAS data conversion/extraction | Y Park Lab">
+  <meta property="og:description" content="Useful tools   Download PLINK 1.9 from https://www.cog-genomics.org/plink2.
+  Install bcftools from https://samtools.github.io/bcftools/ but for MAC OS X it is easier to install UNIX tools via homebrew. After having homebrew installed, just tap in by brew install bcftools."><meta property="og:image" content="https://ypark.github.io/images/icon_hubeb08443f4a10673faef737165dc89be_255147_512x512_fill_lanczos_center_2.png">
+  <meta property="twitter:image" content="https://ypark.github.io/images/icon_hubeb08443f4a10673faef737165dc89be_255147_512x512_fill_lanczos_center_2.png"><meta property="og:locale" content="en-ca">
+  
+    
+      <meta property="article:published_time" content="2018-09-05T00:00:00&#43;00:00">
+    
+    <meta property="article:modified_time" content="2018-09-05T00:00:00&#43;00:00">
+  
+
+  
+
+
+    
+
+
+
+
+
+
+  
+
+
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://ypark.github.io/post/gwas_data_trans/"
+  },
+  "headline": "Recipes for GWAS data conversion/extraction",
+  
+  "datePublished": "2018-09-05T00:00:00Z",
+  "dateModified": "2018-09-05T00:00:00Z",
+  
+  "publisher": {
+    "@type": "Organization",
+    "name": "Y Park Lab",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://ypark.github.io/images/icon_hubeb08443f4a10673faef737165dc89be_255147_192x192_fill_lanczos_center_2.png"
+    }
+  },
+  "description": "Useful tools   Download PLINK 1.9 from https://www.cog-genomics.org/plink2.\n  Install bcftools from https://samtools.github.io/bcftools/ but for MAC OS X it is easier to install UNIX tools via homebrew. After having homebrew installed, just tap in by brew install bcftools."
+}
+</script>
+
+  
+
+  
+
+
+  
+
+
+  
+
+
+
+
+
+  <title>Recipes for GWAS data conversion/extraction | Y Park Lab</title>
+
+</head>
+
+<body id="top" data-spy="scroll" data-offset="70" data-target="#TableOfContents" >
+
+  <aside class="search-results" id="search">
+  <div class="container">
+    <section class="search-header">
+
+      <div class="row no-gutters justify-content-between mb-3">
+        <div class="col-6">
+          <h1>Search</h1>
+        </div>
+        <div class="col-6 col-search-close">
+          <a class="js-search" href="#"><i class="fas fa-times-circle text-muted" aria-hidden="true"></i></a>
+        </div>
+      </div>
+
+      <div id="search-box">
+        
+        <input name="q" id="search-query" placeholder="Search..." autocapitalize="off"
+        autocomplete="off" autocorrect="off" spellcheck="false" type="search">
+        
+      </div>
+
+    </section>
+    <section class="section-search-results">
+
+      <div id="search-hits">
+        
+      </div>
+
+    </section>
+  </div>
+</aside>
+
+
+  
+
+
+
+
+
+
+
+<nav class="navbar navbar-expand-lg navbar-light compensate-for-scrollbar" id="navbar-main">
+  <div class="container">
+
+    
+    <div class="d-none d-lg-inline-flex">
+      <a class="navbar-brand" href="/">Y Park Lab</a>
+    </div>
+    
+
+    
+    <button type="button" class="navbar-toggler" data-toggle="collapse"
+            data-target="#navbar-content" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
+    <span><i class="fas fa-bars"></i></span>
+    </button>
+    
+
+    
+    <div class="navbar-brand-mobile-wrapper d-inline-flex d-lg-none">
+      <a class="navbar-brand" href="/">Y Park Lab</a>
+    </div>
+    
+
+    
+    
+    <div class="navbar-collapse main-menu-item collapse justify-content-start" id="navbar-content">
+
+      
+      <ul class="navbar-nav d-md-inline-flex">
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+          
+          
+          
+            
+          
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/#projects"><span>Projects</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+          
+          
+          
+            
+          
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/#posts"><span>Posts</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+          
+          
+          
+            
+          
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/#people"><span>People</span></a>
+        </li>
+
+        
+        
+
+      
+
+        
+      </ul>
+    </div>
+
+    <ul class="nav-icons navbar-nav flex-row ml-auto d-flex pl-md-2">
+      
+      <li class="nav-item">
+        <a class="nav-link js-search" href="#" aria-label="Search"><i class="fas fa-search" aria-hidden="true"></i></a>
+      </li>
+      
+
+      
+      <li class="nav-item dropdown theme-dropdown">
+        <a href="#" class="nav-link js-theme-selector" data-toggle="dropdown" aria-haspopup="true">
+          <i class="fas fa-palette" aria-hidden="true"></i>
+        </a>
+        <div class="dropdown-menu">
+          <a href="#" class="dropdown-item js-set-theme-light">
+            <span>Light</span>
+          </a>
+          <a href="#" class="dropdown-item js-set-theme-dark">
+            <span>Dark</span>
+          </a>
+          <a href="#" class="dropdown-item js-set-theme-auto">
+            <span>Automatic</span>
+          </a>
+        </div>
+      </li>
+      
+
+      
+
+    </ul>
+
+  </div>
+</nav>
+
+
+  <article class="article">
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+  
+  
+<div class="article-container pt-3">
+  <h1>Recipes for GWAS data conversion/extraction</h1>
+
+  
+
+  
+    
+
+
+<div class="article-metadata">
+
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    Sep 5, 2018
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    3 min read
+  </span>
+  
+
+  
+  
+  
+
+  
+  
+
+</div>
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+</div>
+
+
+
+  <div class="article-container">
+
+    <div class="article-style">
+      <!-- # image: -->
+<!-- #  caption: 'Image credit: [**John Moeses Bauan**](https://unsplash.com/photos/OGZtQF8iC0g)' -->
+<!-- #  placement: 3 -->
+<h2 id="useful-tools">Useful tools</h2>
+<ul>
+<li>
+<p>Download <code>PLINK 1.9</code> from <code>https://www.cog-genomics.org/plink2</code>.</p>
+</li>
+<li>
+<p>Install <code>bcftools</code> from <code>https://samtools.github.io/bcftools/</code> but for MAC OS X it is easier to install UNIX tools via 
+<a href="https://docs.brew.sh/Installation" target="_blank" rel="noopener"><code>homebrew</code></a>.  After having <code>homebrew</code> installed, just tap in by <code>brew install bcftools</code>.</p>
+</li>
+<li>
+<p>Download SNP annotation for <code>hg19</code> (see below)</p>
+</li>
+</ul>
+<pre><code>wget ftp://ftp.ncbi.nih.gov/snp/organisms/human_9606_b151_GRCh37p13/VCF/common_all_20180423.vcf.gz
+</code></pre>
+<h2 id="example-downloading-uk-biobank-genotype-data-using-virtual-box">Example: Downloading UK biobank genotype data using virtual box</h2>
+<p>Since UK Biobank genotypes are only downloadable by a linux-compiled binary, I had to spin off a virtual box. I thought it is generally a good idea to have a shared directory between the host (Mac OS) and the box. Here is how I did based on the stackoverflow search.</p>
+<ol start="0">
+<li>
+<p>Create a virtual box with <code>ICH9</code> chipset and the bridged network adapter.</p>
+</li>
+<li>
+<p>Install an extension pack (<code>Oracle_VM_Virtual Box</code> etc.).</p>
+</li>
+<li>
+<p>Run &ldquo;Insert Guest Additions CD images&hellip;&rdquo; under the &ldquo;Devices&rdquo; tab.</p>
+</li>
+<li>
+<p>Restart the box.</p>
+</li>
+<li>
+<p>Create a shared folder via GUI</p>
+</li>
+<li>
+<p>Mount the folder</p>
+</li>
+</ol>
+<pre><code>mount -t vboxsf mountfolder /home/devInHost/mountfolder
+</code></pre>
+<p>Once I have successfully mounted the shared folder, I can use <code>ukbgene</code> to download the imputed genotypes. To make sure that I write down to the shared folder, I just run the command with the root priviledge.</p>
+<pre><code>parallel -j4 ./ukbgene imp -c{1} :: {1..22}
+</code></pre>
+<p>Enjoy!</p>
+<h2 id="example-extracting-dosage-information-from-a-vcf-file-to-use-a-predixcan-model">Example: Extracting dosage information from a VCF file to use a <code>PrediXcan</code> model</h2>
+<ul>
+<li>
+<p>Download weights <code>Brain_Amygdala.tar.gz</code> from <code>http://predictdb.org/</code>.</p>
+</li>
+<li>
+<p>Copy <code>*.py</code> and <code>*.R</code> from <code>PrediXcan</code> github repository.</p>
+</li>
+</ul>
+<h4 id="1-we-need-to-construct-annotations">1. We need to construct annotations</h4>
+<pre><code>cat common_all_20180423.vcf.gz | gzip -d | bgzip -c &gt; snps.vcf.gz &amp;&amp; tabix snps.vcf.gz
+</code></pre>
+<h4 id="2-annotate-rsid-to-match-with-the-db-file">2. Annotate <code>rsID</code> to match with the DB file.</h4>
+<p>We will store the updated VCF file in separate directory:</p>
+<pre><code>mkdir -p data/vcf/
+</code></pre>
+<p>We can create annotated VCF.</p>
+<pre><code>bcftools annotate -c CHROM,FROM,TO,ID -a snps.vcf.gz -o data/vcf/chr21.vcf.gz chr21.dose.vcf.gz
+</code></pre>
+<h4 id="3-create-dosage-file-as-predixcan-requires">3. Create dosage file as PrediXcan requires</h4>
+<pre><code>mkdir -p data/dosage/
+</code></pre>
+<p>We can extract dosage information with the format <code>-f &quot;[\t%DS]\n&quot;</code>, prepending 6 header columns: chromosome, rsID, position, reference, alternative allele, and minor allele frequency with the format <code>-f &quot;%CHROM\t%ID\t%POS\t%REF\t%ALT\t%MAF&quot;</code>.  To make sure that our prediction is reliable, we may filter out SNP with MAF less than 5% adding <code>-e &quot;MAF[0]&lt;0.05&quot;</code>.</p>
+<pre><code>$ bcftools query -e &quot;MAF[0]&lt;0.05&quot; -f &quot;%CHROM\t%ID\t%POS\t%REF\t%ALT\t%MAF[\t%DS]\n&quot; data/vcf/chr21.vcf.gz  | gzip &gt; data/dosage/chr21.dosage.gz
+</code></pre>
+<p>Additionally we can list samples in the same directory:</p>
+<pre><code>$ bcftools query -l data/vcf/chr21.vcf.gz | awk -F'\t' '{ print $1 FS $1 }' &gt; data/dosage/chr21.samples
+</code></pre>
+<p>Once I have successfully mounted the shared folder, I can use <code>ukbgene</code> to download the imputed genotypes. To make sure that I write down to the shared folder, I just run the command with the root priviledge.</p>
+<pre><code>parallel -j4 ./ukbgene imp -c{1} :: {1..22}
+</code></pre>
+<h4 id="4-run-predixcan">4. Run PrediXcan.</h4>
+<pre><code>python PrediXcan.py --predict --dosages data/dosage/ --dosages_prefix chr21 --output_prefix temp --samples chr21.samples --weights Brain_Amygdala/gtex_v7_Brain_Amygdala_imputed_europeans_tw_0.5_signif.db
+</code></pre>
+<h5 id="conclusion">Conclusion</h5>
+<ul>
+<li><code>bcftools</code> are just amazing.</li>
+<li>I found the way <code>PrediXcan</code> process files quite inefficient.</li>
+</ul>
+
+    </div>
+
+    
+
+
+
+
+
+
+<div class="article-tags">
+  
+  <a class="badge badge-light" href="/tag/gwas/">GWAS</a>
+  
+  <a class="badge badge-light" href="/tag/uk-biobank/">UK Biobank</a>
+  
+  <a class="badge badge-light" href="/tag/ukb/">UKB</a>
+  
+  <a class="badge badge-light" href="/tag/virtual-box/">Virtual box</a>
+  
+</div>
+
+
+
+<div class="share-box" aria-hidden="true">
+  <ul class="share">
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="https://twitter.com/intent/tweet?url=https://ypark.github.io/post/gwas_data_trans/&amp;text=Recipes%20for%20GWAS%20data%20conversion/extraction" target="_blank" rel="noopener" class="share-btn-twitter">
+          <i class="fab fa-twitter"></i>
+        </a>
+      </li>
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="https://www.facebook.com/sharer.php?u=https://ypark.github.io/post/gwas_data_trans/&amp;t=Recipes%20for%20GWAS%20data%20conversion/extraction" target="_blank" rel="noopener" class="share-btn-facebook">
+          <i class="fab fa-facebook"></i>
+        </a>
+      </li>
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="mailto:?subject=Recipes%20for%20GWAS%20data%20conversion/extraction&amp;body=https://ypark.github.io/post/gwas_data_trans/" target="_blank" rel="noopener" class="share-btn-email">
+          <i class="fas fa-envelope"></i>
+        </a>
+      </li>
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="https://www.linkedin.com/shareArticle?url=https://ypark.github.io/post/gwas_data_trans/&amp;title=Recipes%20for%20GWAS%20data%20conversion/extraction" target="_blank" rel="noopener" class="share-btn-linkedin">
+          <i class="fab fa-linkedin-in"></i>
+        </a>
+      </li>
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="whatsapp://send?text=Recipes%20for%20GWAS%20data%20conversion/extraction%20https://ypark.github.io/post/gwas_data_trans/" target="_blank" rel="noopener" class="share-btn-whatsapp">
+          <i class="fab fa-whatsapp"></i>
+        </a>
+      </li>
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="https://service.weibo.com/share/share.php?url=https://ypark.github.io/post/gwas_data_trans/&amp;title=Recipes%20for%20GWAS%20data%20conversion/extraction" target="_blank" rel="noopener" class="share-btn-weibo">
+          <i class="fab fa-weibo"></i>
+        </a>
+      </li>
+    
+  </ul>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+  
+    
+    
+    
+      
+    
+    
+    
+    <div class="media author-card content-widget-hr">
+      
+
+      <div class="media-body">
+        <h5 class="card-title"><a href="https://ypark.github.io/"></a></h5>
+        
+        <p class="card-text">We are a computational biology lab, born in 2020, in the midst of Sars-COV 2 (covid-19) pandemic.</p>
+        <ul class="network-icon" aria-hidden="true">
+  
+</ul>
+
+      </div>
+    </div>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+  </div>
+</article>
+
+      
+
+    
+    
+    
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.imagesloaded/4.1.4/imagesloaded.pkgd.min.js" integrity="sha256-lqvxZrPLtfffUl2G/e7szqSvPBILGbwmsGE1MKlOi0Q=" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.isotope/3.0.6/isotope.pkgd.min.js" integrity="sha256-CBrpuqrMhXwcLLUd5tvQ4euBHCdh7wGlDfNz8vbu/iI=" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js" integrity="sha256-yt2kYMy0w8AbtF89WXb2P1rfjcP/HTHLT7097U8Y5b8=" crossorigin="anonymous"></script>
+
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mermaid/8.4.8/mermaid.min.js" integrity="sha256-lyWCDMnMeZiXRi7Zl54sZGKYmgQs4izcT7+tKc+KUBk=" crossorigin="anonymous" title="mermaid"></script>
+      
+
+      
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.1/highlight.min.js" integrity="sha256-eOgo0OtLL4cdq7RdwRUiGKLX9XsIJ7nGhWEKbohmVAQ=" crossorigin="anonymous"></script>
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.1/languages/r.min.js"></script>
+        
+      
+
+    
+
+    
+    
+      <script async defer src="https://maps.googleapis.com/maps/api/js?key="></script>
+      
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/gmaps.js/0.4.25/gmaps.min.js" integrity="sha256-7vjlAeb8OaTrCXZkCNun9djzuB2owUsaO72kXaFDBJs=" crossorigin="anonymous"></script>
+      
+    
+
+    
+    
+    <script>const code_highlighting = true;</script>
+    
+
+    
+    
+    <script>const isSiteThemeDark = false;</script>
+    
+
+    
+    
+    
+    
+    
+    
+    <script>
+      const search_config = {"indexURI":"/index.json","minLength":1,"threshold":0.3};
+      const i18n = {"no_results":"No results found","placeholder":"Search...","results":"results found"};
+      const content_type = {
+        'post': "Posts",
+        'project': "Projects",
+        'publication' : "Publications",
+        'talk' : "Talks",
+        'slides' : "Slides"
+        };
+    </script>
+    
+
+    
+    
+
+    
+    
+    <script id="search-hit-fuse-template" type="text/x-template">
+      <div class="search-hit" id="summary-{{key}}">
+      <div class="search-hit-content">
+        <div class="search-hit-name">
+          <a href="{{relpermalink}}">{{title}}</a>
+          <div class="article-metadata search-hit-type">{{type}}</div>
+          <p class="search-hit-description">{{snippet}}</p>
+        </div>
+      </div>
+      </div>
+    </script>
+    
+
+    
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/3.2.1/fuse.min.js" integrity="sha256-VzgmKYmhsGNNN4Ph1kMW+BjoYJM2jV5i4IlFoeZA9XI=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/jquery.mark.min.js" integrity="sha256-4HLtjeVgH0eIB3aZ9mLYF6E8oU5chNdjU6p6rrXpl9U=" crossorigin="anonymous"></script>
+    
+
+    
+    
+
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+      
+    
+    
+    
+    
+    <script src="/js/academic.min.37431be2d92d7fb0160054761ab79602.js"></script>
+
+    
+
+
+
+
+
+
+  
+  
+  <div class="container">
+    <footer class="site-footer">
+  
+
+  <p class="powered-by">
+    Yongjin Park
+  </p>
+
+  
+  
+
+
+
+
+
+
+  <p class="powered-by">
+    Powered by the
+    <a href="https://sourcethemes.com/academic/" target="_blank" rel="noopener">Academic theme</a> for
+    <a href="https://gohugo.io" target="_blank" rel="noopener">Hugo</a>.
+
+    
+    <span class="float-right" aria-hidden="true">
+      <a href="#" class="back-to-top">
+        <span class="button_icon">
+          <i class="fas fa-chevron-up fa-2x"></i>
+        </span>
+      </a>
+    </span>
+    
+  </p>
+</footer>
+
+  </div>
+  
+
+  
+<div id="modal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Cite</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <pre><code class="tex hljs"></code></pre>
+      </div>
+      <div class="modal-footer">
+        <a class="btn btn-outline-primary my-1 js-copy-cite" href="#" target="_blank">
+          <i class="fas fa-copy"></i> Copy
+        </a>
+        <a class="btn btn-outline-primary my-1 js-download-cite" href="#" target="_blank">
+          <i class="fas fa-download"></i> Download
+        </a>
+        <div id="modal-error"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>

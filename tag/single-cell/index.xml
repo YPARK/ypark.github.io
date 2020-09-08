@@ -1,0 +1,233 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>single-cell | Y Park Lab</title>
+    <link>https://ypark.github.io/tag/single-cell/</link>
+      <atom:link href="https://ypark.github.io/tag/single-cell/index.xml" rel="self" type="application/rss+xml" />
+    <description>single-cell</description>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-ca</language><copyright>Yongjin Park</copyright><lastBuildDate>Sun, 06 Sep 2020 00:00:00 +0000</lastBuildDate>
+    <image>
+      <url>https://ypark.github.io/images/icon_hubeb08443f4a10673faef737165dc89be_255147_512x512_fill_lanczos_center_2.png</url>
+      <title>single-cell</title>
+      <link>https://ypark.github.io/tag/single-cell/</link>
+    </image>
+    
+    <item>
+      <title>Lightweight tools for integrative single-cell data analysis</title>
+      <link>https://ypark.github.io/project/lightweight_tools/single_cell_analysis/</link>
+      <pubDate>Sun, 06 Sep 2020 00:00:00 +0000</pubDate>
+      <guid>https://ypark.github.io/project/lightweight_tools/single_cell_analysis/</guid>
+      <description>&lt;p&gt;TL;DR. We develop scalable and memory-efficient tools for single-cell data analysis.&lt;/p&gt;
+&lt;hr&gt;
+&lt;h3 id=&#34;there-are-already-many-tools&#34;&gt;There are already many tools.&lt;/h3&gt;
+&lt;p&gt;Ever since single-cell technology was introduced to the world, every year, every month, we see more tools. See 
+&lt;a href=&#34;https://www.scrna-tools.org/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;scRNA-tools&lt;/a&gt;, for example. Single-cell data analysis often involves many steps of data processing, quantification, and statistical inference. The technology is imperfect, and each step deserves careful consideration of different types of approaches. We, bioinformaticians, test a different combination of small tools and tailor a pipeline that works best for each project. Perhaps, there is no master algorithm, and the competitions among computational biologists are indeed fierce.&lt;/p&gt;
+&lt;p&gt;The history of genomics repeats itself. For a large part of current single-cell data analysis, we probably see what had happened in RNA-seq, even gene expression microarray analysis. Once we knew how to normalize scRNA-seq data, we would like to know how to test differentially-expressed genes. Then, we would want to build more audacious models, such as gene regulatory networks.  Are there any points that we may contribute from a unique perspective? Can existing tools address all the challenges of single-cell data analysis, e.g., 
+&lt;a href=&#34;https://genomebiology.biomedcentral.com/articles/10.1186/s13059-020-1926-6&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;&amp;ldquo;eleven grand challenges in single-cell data science&amp;rdquo;&lt;/a&gt;? I believe not. We know there has always been enough room for innovation and creativity.&lt;/p&gt;
+&lt;p&gt;Okay, that sounds meek and quite passive. Why do we dare to jump into the battlefield?  We are not a software-engineering lab, but we can become impatient enough to feel the need for a better tool.  Moreover, we want to understand why and how a certain method works, and when that method doesn&amp;rsquo;t work as expected.&lt;/p&gt;
+&lt;h3 id=&#34;the-underlying-data-matrix-is-sparse-really-sparse-but-most-methods-make-it-dense&#34;&gt;The underlying data matrix is sparse, really sparse, but most methods make it dense.&lt;/h3&gt;
+&lt;p&gt;Yes, the data matrix is sparse, but it will easily blow up memory if you fill in all the zeros.  Our first impression was that memory overhead was never an issue for most people. Lots of methods focus on replacing the zeros with some other fractional values. Not undermining the validity of imputation methods, we worried more about the scalability of the strategy.  Can such a strategy work for millions of cells with billions of non-zero elements?  Most methods are tested on a rather small data set, including thousands of cells. If a data matrix is sparse, why not we build a method, taking advantage of the sparsity? What if most zero values did not occur by missingness?  What if 
+&lt;a href=&#34;https://www.nature.com/articles/s41587-019-0379-5&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;droplet scRNA-seq is not zero-inflated&lt;/a&gt;?&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;We develop a scalable approach to index millions of cells for fast random access.&lt;/strong&gt;
+We like to work on a sparse data matrix formatted as 
+&lt;a href=&#34;https://math.nist.gov/MatrixMarket/formats.html&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;a list of triplets&lt;/a&gt;, and compressed by &lt;code&gt;gzip&lt;/code&gt; or &lt;code&gt;bgzip&lt;/code&gt;. The rows correspond to features/genes; the columns correspond to UMI barcodes/cells. We assume the triplets &lt;code&gt;(row, column, value)&lt;/code&gt; are sorted by the columns (cells) in ascending order. To mark the line where the columns change, we modify the indexing scheme of 
+&lt;a href=&#34;http://www.htslib.org/doc/tabix.html&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;TABIX&lt;/a&gt; and create a separate &lt;code&gt;.index&lt;/code&gt; file to store all the random access points.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;We implement commonly-used matrix operations to manipulate data more swiftly.&lt;/strong&gt; In some cases, it is worthwhile to re-implement low-level functions, since we may not need all the steps implemented in a general-purpose library.  We were just too impatient to wait a long I/O time until we finish reading a full 10x matrix (&lt;code&gt;.mtx.gz&lt;/code&gt;) using either &lt;code&gt;scipy.io.mmread&lt;/code&gt; in Python, or &lt;code&gt;Matrix::readMM&lt;/code&gt; in R. As the size of the 10x matrix increase more and more, we also discovered there is a numerical limit for R&amp;rsquo;s &lt;code&gt;Matrix::readMM&lt;/code&gt; (less than two billions non-zero elements) and had to face a similar issue in a low-memory machine, such as a modest 8Gb laptop. So, we did the dirty job of &lt;code&gt;C++&lt;/code&gt; implementation. Combined with the indexing scheme, now we can efficiently take a subset of a large matrix stored in a file, not worrying about memory capacity, minimizing the overhead of character parsing and I/O.&lt;/p&gt;
+&lt;h3 id=&#34;we-want-to-focus-on-integrative-data-analysis-across-multiple-data-types-and-modalities&#34;&gt;We want to focus on integrative data analysis across multiple data types and modalities&lt;/h3&gt;
+&lt;p&gt;With these tools, including the ones under development, we want to do science. We want others to do science using our tools. We will continuously update a bit more complicated routines for convenience, including cell type annotation, data aggregation, cell type deconvolution, batch-balancing k-nearest neighborhood, etc.&lt;/p&gt;
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+&lt;figure id=&#34;figure-single-cell-data-can-provide-a-powerful-tool-to-dissect-existing-bulk-data-in-integrative-analysis-a-learn-novel-cell-types-recapitulate-known-cell-types-using-new-single-cell-data-and-infer-cellular-compositions-of-existing-data--b-transfer-the-knowledge-gained-from-single-cell-data-to-tissue-level-or-mixture-level-regulatory-genomics-models-a-schematic-diagram-for-our-deqtl-method-pi-cell-type-fraction-estimated-by-the-deconvolution-step-g-genotype-matrix-theta-cell-type-specific-multivariate-effect-size-lambda-cell-type-loading-eta-cell-type-specific-genetic-effect-aggregated-over-multiple-snps-c-systems-biology-analysis-by-projecting-cell-type-specific-deqtl-regions-we-partition-human-genome-into-cell-type-specific-components&#34;&gt;
+
+
+  &lt;a data-fancybox=&#34;&#34; href=&#34;https://ypark.github.io/img/project/mmutil_annotate.png&#34; data-caption=&#34;Single-cell data can provide a powerful tool to dissect existing bulk data in integrative analysis. &amp;lt;strong&amp;gt;(A)&amp;lt;/strong&amp;gt; Learn novel cell types, recapitulate known cell types using new single-cell data, and infer cellular compositions of existing data.  &amp;lt;strong&amp;gt;(B)&amp;lt;/strong&amp;gt; Transfer the knowledge gained from single-cell data to tissue-level, or mixture-level regulatory-genomics models. A schematic diagram for our deQTL method. $\pi$: cell type fraction estimated by the deconvolution step. G: genotype matrix. $\theta$: cell-type-specific multivariate effect size. $\lambda$: cell-type loading. $\eta$: cell-type-specific genetic effect aggregated over multiple SNPs. &amp;lt;strong&amp;gt;(C)&amp;lt;/strong&amp;gt; Systems biology analysis. By projecting cell-type-specific deQTL regions, we partition human genome into cell-type-specific components.&#34;&gt;
+
+
+  &lt;img src=&#34;https://ypark.github.io/img/project/mmutil_annotate.png&#34; alt=&#34;&#34;  &gt;
+&lt;/a&gt;
+
+
+  
+  
+  &lt;figcaption&gt;
+    Single-cell data can provide a powerful tool to dissect existing bulk data in integrative analysis. &lt;strong&gt;(A)&lt;/strong&gt; Learn novel cell types, recapitulate known cell types using new single-cell data, and infer cellular compositions of existing data.  &lt;strong&gt;(B)&lt;/strong&gt; Transfer the knowledge gained from single-cell data to tissue-level, or mixture-level regulatory-genomics models. A schematic diagram for our deQTL method. $\pi$: cell type fraction estimated by the deconvolution step. G: genotype matrix. $\theta$: cell-type-specific multivariate effect size. $\lambda$: cell-type loading. $\eta$: cell-type-specific genetic effect aggregated over multiple SNPs. &lt;strong&gt;(C)&lt;/strong&gt; Systems biology analysis. By projecting cell-type-specific deQTL regions, we partition human genome into cell-type-specific components.
+  &lt;/figcaption&gt;
+
+
+&lt;/figure&gt;
+
+</description>
+    </item>
+    
+    <item>
+      <title>Causal Inference in Genomics</title>
+      <link>https://ypark.github.io/project/causal_inference/causal_inference/</link>
+      <pubDate>Fri, 04 Sep 2020 00:00:00 +0000</pubDate>
+      <guid>https://ypark.github.io/project/causal_inference/causal_inference/</guid>
+      <description>&lt;p&gt;TL;DR.  We reinvent traditional bioinformatics methods to ascertain the causality of discoveries made in high-dimensional omics data.&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;Massive data generation in genomics has transformed the methodology and practice of researches in medicine and human biology. A common practice of research is genomic and functional genomic profiling of hundreds of individuals. If desired data is not available, large consortium-level projects and collaborations can often meet the needs. In terms of both volume and dimensionality, the sizes of genomics data have exploded in the past decade, and it is not hard to predict that the speed of data accumulation will be further accelerated.&lt;/p&gt;
+&lt;p&gt;Genomics has made a breakthrough in medicine and science, armed with two powerful scientific methods&amp;ndash;hypothesis testing and machine learning (ML). Hypothesis testing with well-designed null distributions proves meaningful scientific discoveries are made on the observed data. Likewise, a traditional ML method is designed to efficiently search the most plausible models from a particular class of models, mainly focusing on minimizing generalization errors on the observed data.  However, biology&amp;rsquo;s ultimate question is perhaps more about unobserved principles, asking counterfactual &amp;ldquo;what if&amp;rdquo; questions, rather than simply describing phenomena. We desire to uncover causal mechanisms and laws underlying observations and ultimately provide testable cause-effect relationships.&lt;/p&gt;
+&lt;h3 id=&#34;causal-inference-based-on-a-causal-structure-model&#34;&gt;Causal inference based on a causal structure model&lt;/h3&gt;
+&lt;p&gt;Most causal inference concepts based on a structural equation model are already adopted in a carefully designed biological experiment. We can trace back to Sewall Wright&amp;rsquo;s path diagram model. For instance, an experimental proof demonstrating the effect of a gene &amp;ldquo;X&amp;rdquo; to some trait &amp;ldquo;Y&amp;rdquo; would require two types of interventions that disruption of the gene X makes changes to the trait Y, and recovery of the gene can attenuate the disrupted functions.  However, a common practice of high-throughput data analysis often lack such intervention steps, but hurriedly arrive at some conclusion based on observed correlation patterns.  Many of these correlations may turn out non-causal but somewhat confounded by unobserved variables.&lt;/p&gt;
+&lt;h4 id=&#34;identification-of-causal-effects-by-an-instrumental-variable-mediation&#34;&gt;Identification of causal effects by an instrumental variable (mediation)&lt;/h4&gt;
+&lt;p&gt;The key concept is an intervention. However, introducing an intervention is often impossible for technical and ethical reasons, and there are so many things to perturb to test the effects. Moreover, the effects of causal mechanisms might be too small to quantify within a reasonable statistical error reliably. How do we ascertain causal effects by intervention?&lt;/p&gt;
+&lt;p&gt;Stepping back, let us think about two principal axes of the data generation process: the breadth of population-level measurements across tens of thousands of samples and the depth of regulatory genomics across multiple layers of causal mechanisms, seeking a precise answer up to a single-cell resolution.&lt;/p&gt;
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+&lt;figure id=&#34;figure-integrative-cancer-research-builds-on-two-principal-axes-of-genomics-data-a-population-level-studies-investigate-variation-across-large-cohorts-b-regulatory-genomics-researches-delve-into-multiple-layers-of-molecular-networks&#34;&gt;
+
+
+  &lt;a data-fancybox=&#34;&#34; href=&#34;https://ypark.github.io/img/project/cancer_genomics_research.png&#34; data-caption=&#34;Integrative cancer research builds on two principal axes of genomics data. &amp;lt;strong&amp;gt;(A)&amp;lt;/strong&amp;gt; Population-level studies investigate variation across large cohorts. &amp;lt;strong&amp;gt;(B)&amp;lt;/strong&amp;gt; Regulatory genomics researches delve into multiple layers of molecular networks.&#34;&gt;
+
+
+  &lt;img src=&#34;https://ypark.github.io/img/project/cancer_genomics_research.png&#34; alt=&#34;&#34;  &gt;
+&lt;/a&gt;
+
+
+  
+  
+  &lt;figcaption&gt;
+    Integrative cancer research builds on two principal axes of genomics data. &lt;strong&gt;(A)&lt;/strong&gt; Population-level studies investigate variation across large cohorts. &lt;strong&gt;(B)&lt;/strong&gt; Regulatory genomics researches delve into multiple layers of molecular networks.
+  &lt;/figcaption&gt;
+
+
+&lt;/figure&gt;
+
+&lt;p&gt;We can recognize a causal direction from genetic information to phenotypic variation if we consider that genotypes are shaped by nature’s randomized controlled trial (RCT), or natural interventions. Given that, the goal is to identify causal mediators located in the middle of the above causal diagram. In the context of genome-wide association studies (GWAS), the mediator variables include relevant cell types and target genes derived from tissue-level or cell-type-level eQTL data.&lt;/p&gt;
+&lt;h3 id=&#34;removing-unwanted-variability-by-control-data&#34;&gt;Removing unwanted variability by &amp;ldquo;control&amp;rdquo; data&lt;/h3&gt;
+&lt;p&gt;Many scientific discoveries are best represented as a set of contrastive statements, such as &amp;ldquo;A rather than B&amp;rdquo; (
+&lt;a href=&#34;https://en.wikipedia.org/wiki/Peter_Lipton&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Peter Lipton&lt;/a&gt;) because such a contrastive explanation clarifies our claim&amp;rsquo;s scope and basis. The validity of causal argument can be empirically justified by triangulation of contrastive arguments (Lipton 1991). Therefore, an essential aspect of our research should focus on finding a suitable set of null hypotheses (non-causal facts) to be contrasted against our theory of interest to uphold. What are non-causal effects that may obfuscate the activity of scientific research? Are they generated uniformly at random? In practice, it is hard to characterize non-causal effects without considering confounding variables, and confounders create unwanted non-zero correlations between cause and effect variables.&lt;/p&gt;
+&lt;p&gt;Confounder correction is a causal inference problem. So, we need to ask the question of identifiability, such as, &amp;ldquo;How do we know this variable is a confounder?&amp;rdquo; or &amp;ldquo;What is a legitimate criterion that distinguishes between causal and non-causal effects?&amp;quot;. We could start our journey by asking:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;Are there any control data on which we can safely claim that there is no causal effect whatsoever?&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Are they already available/observed? Or, should we construct/estimate them?&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Like many research problems, control data (or variables) are hidden, yet to be estimated. In the mediation problem, for instance, we need to think about how to characterize confounding variables that relate two mediators (genes, M1 and M0) (A) and the other type of confounders between different phenotypes (B). Unless we adjust these confounding effects, mediation effects are not identifiable by statistical inference. Fortunately, we can construct control data that only include non-genetic correlation structures by exploiting human genetics&amp;rsquo;s nature. Since genetic correlations are confined within each linkage disequilibrium (LD) block, we can defuse putative causal effects by projecting summary statistics onto a different, independent LD block (C). We actively construct control data to identify confounding variables.&lt;/p&gt;
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+&lt;figure id=&#34;figure-confounder-correction-in-action-the-figure-describes-essential-steps-of-confounding-factor-correction-in-gwas-mediation-analysis-a-type-i-confounding-variable-s1-between-mediators-ms-b-type-ii-confounding-variable-s2-between-phenotypes-ys-c-joint-projection-of-mediator-and-phenotype-variables-makes-interventions-to-remove-mediating-effect-but-leave-confounding-effects&#34;&gt;
+
+
+  &lt;a data-fancybox=&#34;&#34; href=&#34;https://ypark.github.io/img/project/mediation_confounder.png&#34; data-caption=&#34;Confounder correction in action. The figure describes essential steps of confounding factor correction in GWAS mediation analysis. &amp;lt;strong&amp;gt;(A)&amp;lt;/strong&amp;gt; Type I confounding variable (S1) between mediators (M&amp;amp;rsquo;s) &amp;lt;strong&amp;gt;(B)&amp;lt;/strong&amp;gt; Type II confounding variable (S2) between phenotypes (Y&amp;amp;rsquo;s). &amp;lt;strong&amp;gt;(C)&amp;lt;/strong&amp;gt; Joint projection of mediator and phenotype variables makes interventions to remove mediating effect but leave confounding effects.&#34;&gt;
+
+
+  &lt;img src=&#34;https://ypark.github.io/img/project/mediation_confounder.png&#34; alt=&#34;&#34;  &gt;
+&lt;/a&gt;
+
+
+  
+  
+  &lt;figcaption&gt;
+    Confounder correction in action. The figure describes essential steps of confounding factor correction in GWAS mediation analysis. &lt;strong&gt;(A)&lt;/strong&gt; Type I confounding variable (S1) between mediators (M&amp;rsquo;s) &lt;strong&gt;(B)&lt;/strong&gt; Type II confounding variable (S2) between phenotypes (Y&amp;rsquo;s). &lt;strong&gt;(C)&lt;/strong&gt; Joint projection of mediator and phenotype variables makes interventions to remove mediating effect but leave confounding effects.
+  &lt;/figcaption&gt;
+
+
+&lt;/figure&gt;
+
+&lt;p&gt;On this matter, we are broadly interested in general genomics problems, not just statistical genetics ones.  Although the definition of a confounding variable is problem-specific, we seek to design probabilistic models and ML algorithms that semi-automate the overall process. The methods will indicate a set of putative confounding variables with a level of uncertainty by taking input data and prior knowledge (e.g., known causal and non-causal variables).&lt;/p&gt;
+&lt;h3 id=&#34;a-potential-outcome-framework-for-causally-differential-expression-analysis&#34;&gt;A potential outcome framework for causally-differential expression analysis&lt;/h3&gt;
+&lt;p&gt;Recently, our interest in Donald Rubin&amp;rsquo;s 
+&lt;a href=&#34;https://en.wikipedia.org/wiki/Rubin_causal_model&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;potential outcome framework&lt;/a&gt; grew, and started thinking about a type of causal problems that can be better approached by Rudin&amp;rsquo;s causal model (RCM).&lt;/p&gt;
+&lt;h4 id=&#34;bayesian-causal-inference-for-single-cell-data-analysis&#34;&gt;&amp;ldquo;Bayesian&amp;rdquo; causal inference for single-cell data analysis&lt;/h4&gt;
+&lt;p&gt;As a first step, we revisit commonly-practised bioinformatics problems and reformulate them in RCMs.  The ultimate goal of RCM is to ask and estimate counterfactual questions.  Causality is tied to an action (doing), rather than an observation (seeing), and counterfactual causal inference seeks to take an impossible action and estimate its effects.&lt;/p&gt;
+&lt;p&gt;Suppose we want to test the causal statement: A gene expression of Y was changed because of a disease X, i.e., $X \to Y$ with a directed edge (going beyond $Y \sim X$). We define $X$ to take 1 or 0 for &amp;ldquo;yes&amp;rdquo; or &amp;ldquo;no&amp;rdquo; and the resulting gene expression $Y$ to take a real number. In observational studies, including most high-througput assays, we observe a pair of $X_{i}$ and $Y_{i}$ for an individual $i$; there, the observed $Y_{i}$ value stems from the observed $X_{i}$, either 1 or 0, not both. E.g.,&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th align=&#34;right&#34;&gt;$i$&lt;/th&gt;
+&lt;th align=&#34;left&#34;&gt;X&lt;/th&gt;
+&lt;th align=&#34;left&#34;&gt;Y(0)&lt;/th&gt;
+&lt;th align=&#34;left&#34;&gt;Y(1)&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td align=&#34;right&#34;&gt;1&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;0&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;$Y_1$&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;?&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td align=&#34;right&#34;&gt;2&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;1&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;?&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;$Y_2$&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td align=&#34;right&#34;&gt;3&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;1&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;?&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;$Y_3$&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td align=&#34;right&#34;&gt;4&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;0&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;$Y_4$&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;?&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td align=&#34;right&#34;&gt;&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;$\vdots$&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;In counterfactual inference, we want to infer the other unobserved and &lt;strong&gt;not&lt;/strong&gt; observable cases. For $X_{i}=1$, we want to know the potential outcome of $Y_{i}$ if we had $X_{i} = 0$, and vice versa. RCMs generally translate the underlying problem as a Bayesian imputation problem, or a matrix completion problem, which contains at least 50% of missing values.  Provided an accurate Bayesian imputation method, we can quantify individual-level causal effects, $Y_{i}(1) - Y_{i}(0)$, as well as average causal effects, $\mathbb{E}\left[Y(1) - Y(0)\right]$. This is truly substantial advancement because we no longer worry about identifiability but focus on a statistical inference problem.&lt;/p&gt;
+&lt;p&gt;Well, there is a catch. In traditional omics data analysis, such an imputation problem is pretty challenging unless we have a good understanding of the data-generating process, which is often a black box to us. For one individual, we only have one data point $Y_{i}$ unless we borrow information from related genes. We might have to rely on faithful pretreatment variables $W$ as in a causal path, $W \to X \to Y$, and construct propensity scores to reweight observed samples.&lt;/p&gt;
+&lt;p&gt;However, single-cell data provide a unique opportunity for modelling high-dimensional omics profiles. A clear advantage over bulk data is simply that we have more data points per sample (individual).  Assuming that single-cell profiling&amp;rsquo;s sensitivity will become better each year, it is not too far until we can achieve reliable and accurate Bayesian imputation methods&amp;ndash;not only the observed values but also the counterfactual values.&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Y Park Lab</title>
-    <link>/</link>
-      <atom:link href="/index.xml" rel="self" type="application/rss+xml" />
+    <link>https://ypark.github.io/</link>
+      <atom:link href="https://ypark.github.io/index.xml" rel="self" type="application/rss+xml" />
     <description>Y Park Lab</description>
-    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-ca</language><copyright>Yongjin Park</copyright><lastBuildDate>Thu, 28 Jun 2018 00:00:00 +0100</lastBuildDate>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-ca</language><copyright>Yongjin Park</copyright><lastBuildDate>Sun, 06 Sep 2020 00:00:00 +0000</lastBuildDate>
     <image>
-      <url>/images/icon_hu0b7a4cb9992c9ac0e91bd28ffd38dd00_9727_512x512_fill_lanczos_center_2.png</url>
+      <url>https://ypark.github.io/images/icon_hubeb08443f4a10673faef737165dc89be_255147_512x512_fill_lanczos_center_2.png</url>
       <title>Y Park Lab</title>
-      <link>/</link>
+      <link>https://ypark.github.io/</link>
     </image>
     
     <item>
       <title>Example Page 1</title>
-      <link>/courses/example/example1/</link>
+      <link>https://ypark.github.io/courses/example/example1/</link>
       <pubDate>Sun, 05 May 2019 00:00:00 +0100</pubDate>
-      <guid>/courses/example/example1/</guid>
+      <guid>https://ypark.github.io/courses/example/example1/</guid>
       <description>&lt;p&gt;In this tutorial, I&amp;rsquo;ll share my top 10 tips for getting started with Academic:&lt;/p&gt;
 &lt;h2 id=&#34;tip-1&#34;&gt;Tip 1&lt;/h2&gt;
 &lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis posuere tellus ac convallis placerat. Proin tincidunt magna sed ex sollicitudin condimentum. Sed ac faucibus dolor, scelerisque sollicitudin nisi. Cras purus urna, suscipit quis sapien eu, pulvinar tempor diam. Quisque risus orci, mollis id ante sit amet, gravida egestas nisl. Sed ac tempus magna. Proin in dui enim. Donec condimentum, sem id dapibus fringilla, tellus enim condimentum arcu, nec volutpat est felis vel metus. Vestibulum sit amet erat at nulla eleifend gravida.&lt;/p&gt;
@@ -35,9 +35,9 @@
     
     <item>
       <title>Example Page 2</title>
-      <link>/courses/example/example2/</link>
+      <link>https://ypark.github.io/courses/example/example2/</link>
       <pubDate>Sun, 05 May 2019 00:00:00 +0100</pubDate>
-      <guid>/courses/example/example2/</guid>
+      <guid>https://ypark.github.io/courses/example/example2/</guid>
       <description>&lt;p&gt;Here are some more tips for getting started with Academic:&lt;/p&gt;
 &lt;h2 id=&#34;tip-3&#34;&gt;Tip 3&lt;/h2&gt;
 &lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis posuere tellus ac convallis placerat. Proin tincidunt magna sed ex sollicitudin condimentum. Sed ac faucibus dolor, scelerisque sollicitudin nisi. Cras purus urna, suscipit quis sapien eu, pulvinar tempor diam. Quisque risus orci, mollis id ante sit amet, gravida egestas nisl. Sed ac tempus magna. Proin in dui enim. Donec condimentum, sem id dapibus fringilla, tellus enim condimentum arcu, nec volutpat est felis vel metus. Vestibulum sit amet erat at nulla eleifend gravida.&lt;/p&gt;
@@ -55,263 +55,287 @@
     </item>
     
     <item>
-      <title>Writing technical content in Academic</title>
-      <link>/post/writing-technical-content/</link>
-      <pubDate>Fri, 12 Jul 2019 00:00:00 +0000</pubDate>
-      <guid>/post/writing-technical-content/</guid>
-      <description>&lt;p&gt;Academic is designed to give technical content creators a seamless experience. You can focus on the content and Academic handles the rest.&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;Highlight your code snippets, take notes on math classes, and draw diagrams from textual representation.&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;On this page, you&amp;rsquo;ll find some examples of the types of technical content that can be rendered with Academic.&lt;/p&gt;
-&lt;h2 id=&#34;examples&#34;&gt;Examples&lt;/h2&gt;
-&lt;h3 id=&#34;code&#34;&gt;Code&lt;/h3&gt;
-&lt;p&gt;Academic supports a Markdown extension for highlighting code syntax. You can enable this feature by toggling the &lt;code&gt;highlight&lt;/code&gt; option in your &lt;code&gt;config/_default/params.toml&lt;/code&gt; file.&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;```python
-import pandas as pd
-data = pd.read_csv(&amp;quot;data.csv&amp;quot;)
-data.head()
-```
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;renders as&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;import pandas as pd
-data = pd.read_csv(&amp;quot;data.csv&amp;quot;)
-data.head()
-&lt;/code&gt;&lt;/pre&gt;
-&lt;h3 id=&#34;math&#34;&gt;Math&lt;/h3&gt;
-&lt;p&gt;Academic supports a Markdown extension for $\LaTeX$ math. You can enable this feature by toggling the &lt;code&gt;math&lt;/code&gt; option in your &lt;code&gt;config/_default/params.toml&lt;/code&gt; file.&lt;/p&gt;
-&lt;p&gt;To render &lt;em&gt;inline&lt;/em&gt; or &lt;em&gt;block&lt;/em&gt; math, wrap your LaTeX math with &lt;code&gt;$...$&lt;/code&gt; or &lt;code&gt;$$...$$&lt;/code&gt;, respectively.&lt;/p&gt;
-&lt;p&gt;Example &lt;strong&gt;math block&lt;/strong&gt;:&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&#34;language-tex&#34;&gt;$$\gamma_{n} = \frac{ 
-\left | \left (\mathbf x_{n} - \mathbf x_{n-1} \right )^T 
-\left [\nabla F (\mathbf x_{n}) - \nabla F (\mathbf x_{n-1}) \right ] \right |}
-{\left \|\nabla F(\mathbf{x}_{n}) - \nabla F(\mathbf{x}_{n-1}) \right \|^2}$$
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;renders as&lt;/p&gt;
-&lt;p&gt;$$\gamma_{n} = \frac{ \left | \left (\mathbf x_{n} - \mathbf x_{n-1} \right )^T \left [\nabla F (\mathbf x_{n}) - \nabla F (\mathbf x_{n-1}) \right ] \right |}{\left |\nabla F(\mathbf{x}_{n}) - \nabla F(\mathbf{x}_{n-1}) \right |^2}$$&lt;/p&gt;
-&lt;p&gt;Example &lt;strong&gt;inline math&lt;/strong&gt; &lt;code&gt;$\nabla F(\mathbf{x}_{n})$&lt;/code&gt; renders as $\nabla F(\mathbf{x}_{n})$.&lt;/p&gt;
-&lt;p&gt;Example &lt;strong&gt;multi-line math&lt;/strong&gt; using the &lt;code&gt;\\\\&lt;/code&gt; math linebreak:&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&#34;language-tex&#34;&gt;$$f(k;p_0^*) = \begin{cases} p_0^* &amp;amp; \text{if }k=1, \\\\
-1-p_0^* &amp;amp; \text {if }k=0.\end{cases}$$
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;renders as&lt;/p&gt;
-&lt;p&gt;$$f(k;p_0^*) = \begin{cases} p_0^* &amp;amp; \text{if }k=1, \\&lt;br&gt;
-1-p_0^* &amp;amp; \text {if }k=0.\end{cases}$$&lt;/p&gt;
-&lt;h3 id=&#34;diagrams&#34;&gt;Diagrams&lt;/h3&gt;
-&lt;p&gt;Academic supports a Markdown extension for diagrams. You can enable this feature by toggling the &lt;code&gt;diagram&lt;/code&gt; option in your &lt;code&gt;config/_default/params.toml&lt;/code&gt; file or by adding &lt;code&gt;diagram: true&lt;/code&gt; to your page front matter.&lt;/p&gt;
-&lt;p&gt;An example &lt;strong&gt;flowchart&lt;/strong&gt;:&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;```mermaid
-graph TD
-A[Hard] --&amp;gt;|Text| B(Round)
-B --&amp;gt; C{Decision}
-C --&amp;gt;|One| D[Result 1]
-C --&amp;gt;|Two| E[Result 2]
-```
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;renders as&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&#34;language-mermaid&#34;&gt;graph TD
-A[Hard] --&amp;gt;|Text| B(Round)
-B --&amp;gt; C{Decision}
-C --&amp;gt;|One| D[Result 1]
-C --&amp;gt;|Two| E[Result 2]
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;An example &lt;strong&gt;sequence diagram&lt;/strong&gt;:&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;```mermaid
-sequenceDiagram
-Alice-&amp;gt;&amp;gt;John: Hello John, how are you?
-loop Healthcheck
-    John-&amp;gt;&amp;gt;John: Fight against hypochondria
-end
-Note right of John: Rational thoughts!
-John--&amp;gt;&amp;gt;Alice: Great!
-John-&amp;gt;&amp;gt;Bob: How about you?
-Bob--&amp;gt;&amp;gt;John: Jolly good!
-```
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;renders as&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&#34;language-mermaid&#34;&gt;sequenceDiagram
-Alice-&amp;gt;&amp;gt;John: Hello John, how are you?
-loop Healthcheck
-    John-&amp;gt;&amp;gt;John: Fight against hypochondria
-end
-Note right of John: Rational thoughts!
-John--&amp;gt;&amp;gt;Alice: Great!
-John-&amp;gt;&amp;gt;Bob: How about you?
-Bob--&amp;gt;&amp;gt;John: Jolly good!
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;An example &lt;strong&gt;Gantt diagram&lt;/strong&gt;:&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;```mermaid
-gantt
-section Section
-Completed :done,    des1, 2014-01-06,2014-01-08
-Active        :active,  des2, 2014-01-07, 3d
-Parallel 1   :         des3, after des1, 1d
-Parallel 2   :         des4, after des1, 1d
-Parallel 3   :         des5, after des3, 1d
-Parallel 4   :         des6, after des4, 1d
-```
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;renders as&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&#34;language-mermaid&#34;&gt;gantt
-section Section
-Completed :done,    des1, 2014-01-06,2014-01-08
-Active        :active,  des2, 2014-01-07, 3d
-Parallel 1   :         des3, after des1, 1d
-Parallel 2   :         des4, after des1, 1d
-Parallel 3   :         des5, after des3, 1d
-Parallel 4   :         des6, after des4, 1d
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;An example &lt;strong&gt;class diagram&lt;/strong&gt;:&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;```mermaid
-classDiagram
-Class01 &amp;lt;|-- AveryLongClass : Cool
-&amp;lt;&amp;lt;interface&amp;gt;&amp;gt; Class01
-Class09 --&amp;gt; C2 : Where am i?
-Class09 --* C3
-Class09 --|&amp;gt; Class07
-Class07 : equals()
-Class07 : Object[] elementData
-Class01 : size()
-Class01 : int chimp
-Class01 : int gorilla
-class Class10 {
-  &amp;lt;&amp;lt;service&amp;gt;&amp;gt;
-  int id
-  size()
-}
-```
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;renders as&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&#34;language-mermaid&#34;&gt;classDiagram
-Class01 &amp;lt;|-- AveryLongClass : Cool
-&amp;lt;&amp;lt;interface&amp;gt;&amp;gt; Class01
-Class09 --&amp;gt; C2 : Where am i?
-Class09 --* C3
-Class09 --|&amp;gt; Class07
-Class07 : equals()
-Class07 : Object[] elementData
-Class01 : size()
-Class01 : int chimp
-Class01 : int gorilla
-class Class10 {
-  &amp;lt;&amp;lt;service&amp;gt;&amp;gt;
-  int id
-  size()
-}
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;An example &lt;strong&gt;state diagram&lt;/strong&gt;:&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;```mermaid
-stateDiagram
-[*] --&amp;gt; Still
-Still --&amp;gt; [*]
-Still --&amp;gt; Moving
-Moving --&amp;gt; Still
-Moving --&amp;gt; Crash
-Crash --&amp;gt; [*]
-```
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;renders as&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&#34;language-mermaid&#34;&gt;stateDiagram
-[*] --&amp;gt; Still
-Still --&amp;gt; [*]
-Still --&amp;gt; Moving
-Moving --&amp;gt; Still
-Moving --&amp;gt; Crash
-Crash --&amp;gt; [*]
-&lt;/code&gt;&lt;/pre&gt;
-&lt;h3 id=&#34;todo-lists&#34;&gt;Todo lists&lt;/h3&gt;
-&lt;p&gt;You can even write your todo lists in Academic too:&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&#34;language-markdown&#34;&gt;- [x] Write math example
-- [x] Write diagram example
-- [ ] Do something else
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;renders as&lt;/p&gt;
+      <title>Lightweight tools for integrative single-cell data analysis</title>
+      <link>https://ypark.github.io/project/lightweight_tools/single_cell_analysis/</link>
+      <pubDate>Sun, 06 Sep 2020 00:00:00 +0000</pubDate>
+      <guid>https://ypark.github.io/project/lightweight_tools/single_cell_analysis/</guid>
+      <description>&lt;p&gt;TL;DR. We develop scalable and memory-efficient tools for single-cell data analysis.&lt;/p&gt;
+&lt;hr&gt;
+&lt;h3 id=&#34;there-are-already-many-tools&#34;&gt;There are already many tools.&lt;/h3&gt;
+&lt;p&gt;Ever since single-cell technology was introduced to the world, every year, every month, we see more tools. See 
+&lt;a href=&#34;https://www.scrna-tools.org/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;scRNA-tools&lt;/a&gt;, for example. Single-cell data analysis often involves many steps of data processing, quantification, and statistical inference. The technology is imperfect, and each step deserves careful consideration of different types of approaches. We, bioinformaticians, test a different combination of small tools and tailor a pipeline that works best for each project. Perhaps, there is no master algorithm, and the competitions among computational biologists are indeed fierce.&lt;/p&gt;
+&lt;p&gt;The history of genomics repeats itself. For a large part of current single-cell data analysis, we probably see what had happened in RNA-seq, even gene expression microarray analysis. Once we knew how to normalize scRNA-seq data, we would like to know how to test differentially-expressed genes. Then, we would want to build more audacious models, such as gene regulatory networks.  Are there any points that we may contribute from a unique perspective? Can existing tools address all the challenges of single-cell data analysis, e.g., 
+&lt;a href=&#34;https://genomebiology.biomedcentral.com/articles/10.1186/s13059-020-1926-6&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;&amp;ldquo;eleven grand challenges in single-cell data science&amp;rdquo;&lt;/a&gt;? I believe not. We know there has always been enough room for innovation and creativity.&lt;/p&gt;
+&lt;p&gt;Okay, that sounds meek and quite passive. Why do we dare to jump into the battlefield?  We are not a software-engineering lab, but we can become impatient enough to feel the need for a better tool.  Moreover, we want to understand why and how a certain method works, and when that method doesn&amp;rsquo;t work as expected.&lt;/p&gt;
+&lt;h3 id=&#34;the-underlying-data-matrix-is-sparse-really-sparse-but-most-methods-make-it-dense&#34;&gt;The underlying data matrix is sparse, really sparse, but most methods make it dense.&lt;/h3&gt;
+&lt;p&gt;Yes, the data matrix is sparse, but it will easily blow up memory if you fill in all the zeros.  Our first impression was that memory overhead was never an issue for most people. Lots of methods focus on replacing the zeros with some other fractional values. Not undermining the validity of imputation methods, we worried more about the scalability of the strategy.  Can such a strategy work for millions of cells with billions of non-zero elements?  Most methods are tested on a rather small data set, including thousands of cells. If a data matrix is sparse, why not we build a method, taking advantage of the sparsity? What if most zero values did not occur by missingness?  What if 
+&lt;a href=&#34;https://www.nature.com/articles/s41587-019-0379-5&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;droplet scRNA-seq is not zero-inflated&lt;/a&gt;?&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;We develop a scalable approach to index millions of cells for fast random access.&lt;/strong&gt;
+We like to work on a sparse data matrix formatted as 
+&lt;a href=&#34;https://math.nist.gov/MatrixMarket/formats.html&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;a list of triplets&lt;/a&gt;, and compressed by &lt;code&gt;gzip&lt;/code&gt; or &lt;code&gt;bgzip&lt;/code&gt;. The rows correspond to features/genes; the columns correspond to UMI barcodes/cells. We assume the triplets &lt;code&gt;(row, column, value)&lt;/code&gt; are sorted by the columns (cells) in ascending order. To mark the line where the columns change, we modify the indexing scheme of 
+&lt;a href=&#34;http://www.htslib.org/doc/tabix.html&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;TABIX&lt;/a&gt; and create a separate &lt;code&gt;.index&lt;/code&gt; file to store all the random access points.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;We implement commonly-used matrix operations to manipulate data more swiftly.&lt;/strong&gt; In some cases, it is worthwhile to re-implement low-level functions, since we may not need all the steps implemented in a general-purpose library.  We were just too impatient to wait a long I/O time until we finish reading a full 10x matrix (&lt;code&gt;.mtx.gz&lt;/code&gt;) using either &lt;code&gt;scipy.io.mmread&lt;/code&gt; in Python, or &lt;code&gt;Matrix::readMM&lt;/code&gt; in R. As the size of the 10x matrix increase more and more, we also discovered there is a numerical limit for R&amp;rsquo;s &lt;code&gt;Matrix::readMM&lt;/code&gt; (less than two billions non-zero elements) and had to face a similar issue in a low-memory machine, such as a modest 8Gb laptop. So, we did the dirty job of &lt;code&gt;C++&lt;/code&gt; implementation. Combined with the indexing scheme, now we can efficiently take a subset of a large matrix stored in a file, not worrying about memory capacity, minimizing the overhead of character parsing and I/O.&lt;/p&gt;
+&lt;h3 id=&#34;we-want-to-focus-on-integrative-data-analysis-across-multiple-data-types-and-modalities&#34;&gt;We want to focus on integrative data analysis across multiple data types and modalities&lt;/h3&gt;
+&lt;p&gt;With these tools, including the ones under development, we want to do science. We want others to do science using our tools. We will continuously update a bit more complicated routines for convenience, including cell type annotation, data aggregation, cell type deconvolution, batch-balancing k-nearest neighborhood, etc.&lt;/p&gt;
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+&lt;figure id=&#34;figure-single-cell-data-can-provide-a-powerful-tool-to-dissect-existing-bulk-data-in-integrative-analysis-a-learn-novel-cell-types-recapitulate-known-cell-types-using-new-single-cell-data-and-infer-cellular-compositions-of-existing-data--b-transfer-the-knowledge-gained-from-single-cell-data-to-tissue-level-or-mixture-level-regulatory-genomics-models-a-schematic-diagram-for-our-deqtl-method-pi-cell-type-fraction-estimated-by-the-deconvolution-step-g-genotype-matrix-theta-cell-type-specific-multivariate-effect-size-lambda-cell-type-loading-eta-cell-type-specific-genetic-effect-aggregated-over-multiple-snps-c-systems-biology-analysis-by-projecting-cell-type-specific-deqtl-regions-we-partition-human-genome-into-cell-type-specific-components&#34;&gt;
+
+
+  &lt;a data-fancybox=&#34;&#34; href=&#34;https://ypark.github.io/img/project/mmutil_annotate.png&#34; data-caption=&#34;Single-cell data can provide a powerful tool to dissect existing bulk data in integrative analysis. &amp;lt;strong&amp;gt;(A)&amp;lt;/strong&amp;gt; Learn novel cell types, recapitulate known cell types using new single-cell data, and infer cellular compositions of existing data.  &amp;lt;strong&amp;gt;(B)&amp;lt;/strong&amp;gt; Transfer the knowledge gained from single-cell data to tissue-level, or mixture-level regulatory-genomics models. A schematic diagram for our deQTL method. $\pi$: cell type fraction estimated by the deconvolution step. G: genotype matrix. $\theta$: cell-type-specific multivariate effect size. $\lambda$: cell-type loading. $\eta$: cell-type-specific genetic effect aggregated over multiple SNPs. &amp;lt;strong&amp;gt;(C)&amp;lt;/strong&amp;gt; Systems biology analysis. By projecting cell-type-specific deQTL regions, we partition human genome into cell-type-specific components.&#34;&gt;
+
+
+  &lt;img src=&#34;https://ypark.github.io/img/project/mmutil_annotate.png&#34; alt=&#34;&#34;  &gt;
+&lt;/a&gt;
+
+
+  
+  
+  &lt;figcaption&gt;
+    Single-cell data can provide a powerful tool to dissect existing bulk data in integrative analysis. &lt;strong&gt;(A)&lt;/strong&gt; Learn novel cell types, recapitulate known cell types using new single-cell data, and infer cellular compositions of existing data.  &lt;strong&gt;(B)&lt;/strong&gt; Transfer the knowledge gained from single-cell data to tissue-level, or mixture-level regulatory-genomics models. A schematic diagram for our deQTL method. $\pi$: cell type fraction estimated by the deconvolution step. G: genotype matrix. $\theta$: cell-type-specific multivariate effect size. $\lambda$: cell-type loading. $\eta$: cell-type-specific genetic effect aggregated over multiple SNPs. &lt;strong&gt;(C)&lt;/strong&gt; Systems biology analysis. By projecting cell-type-specific deQTL regions, we partition human genome into cell-type-specific components.
+  &lt;/figcaption&gt;
+
+
+&lt;/figure&gt;
+
+</description>
+    </item>
+    
+    <item>
+      <title>Causal Inference in Genomics</title>
+      <link>https://ypark.github.io/project/causal_inference/causal_inference/</link>
+      <pubDate>Fri, 04 Sep 2020 00:00:00 +0000</pubDate>
+      <guid>https://ypark.github.io/project/causal_inference/causal_inference/</guid>
+      <description>&lt;p&gt;TL;DR.  We reinvent traditional bioinformatics methods to ascertain the causality of discoveries made in high-dimensional omics data.&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;Massive data generation in genomics has transformed the methodology and practice of researches in medicine and human biology. A common practice of research is genomic and functional genomic profiling of hundreds of individuals. If desired data is not available, large consortium-level projects and collaborations can often meet the needs. In terms of both volume and dimensionality, the sizes of genomics data have exploded in the past decade, and it is not hard to predict that the speed of data accumulation will be further accelerated.&lt;/p&gt;
+&lt;p&gt;Genomics has made a breakthrough in medicine and science, armed with two powerful scientific methods&amp;ndash;hypothesis testing and machine learning (ML). Hypothesis testing with well-designed null distributions proves meaningful scientific discoveries are made on the observed data. Likewise, a traditional ML method is designed to efficiently search the most plausible models from a particular class of models, mainly focusing on minimizing generalization errors on the observed data.  However, biology&amp;rsquo;s ultimate question is perhaps more about unobserved principles, asking counterfactual &amp;ldquo;what if&amp;rdquo; questions, rather than simply describing phenomena. We desire to uncover causal mechanisms and laws underlying observations and ultimately provide testable cause-effect relationships.&lt;/p&gt;
+&lt;h3 id=&#34;causal-inference-based-on-a-causal-structure-model&#34;&gt;Causal inference based on a causal structure model&lt;/h3&gt;
+&lt;p&gt;Most causal inference concepts based on a structural equation model are already adopted in a carefully designed biological experiment. We can trace back to Sewall Wright&amp;rsquo;s path diagram model. For instance, an experimental proof demonstrating the effect of a gene &amp;ldquo;X&amp;rdquo; to some trait &amp;ldquo;Y&amp;rdquo; would require two types of interventions that disruption of the gene X makes changes to the trait Y, and recovery of the gene can attenuate the disrupted functions.  However, a common practice of high-throughput data analysis often lack such intervention steps, but hurriedly arrive at some conclusion based on observed correlation patterns.  Many of these correlations may turn out non-causal but somewhat confounded by unobserved variables.&lt;/p&gt;
+&lt;h4 id=&#34;identification-of-causal-effects-by-an-instrumental-variable-mediation&#34;&gt;Identification of causal effects by an instrumental variable (mediation)&lt;/h4&gt;
+&lt;p&gt;The key concept is an intervention. However, introducing an intervention is often impossible for technical and ethical reasons, and there are so many things to perturb to test the effects. Moreover, the effects of causal mechanisms might be too small to quantify within a reasonable statistical error reliably. How do we ascertain causal effects by intervention?&lt;/p&gt;
+&lt;p&gt;Stepping back, let us think about two principal axes of the data generation process: the breadth of population-level measurements across tens of thousands of samples and the depth of regulatory genomics across multiple layers of causal mechanisms, seeking a precise answer up to a single-cell resolution.&lt;/p&gt;
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+&lt;figure id=&#34;figure-integrative-cancer-research-builds-on-two-principal-axes-of-genomics-data-a-population-level-studies-investigate-variation-across-large-cohorts-b-regulatory-genomics-researches-delve-into-multiple-layers-of-molecular-networks&#34;&gt;
+
+
+  &lt;a data-fancybox=&#34;&#34; href=&#34;https://ypark.github.io/img/project/cancer_genomics_research.png&#34; data-caption=&#34;Integrative cancer research builds on two principal axes of genomics data. &amp;lt;strong&amp;gt;(A)&amp;lt;/strong&amp;gt; Population-level studies investigate variation across large cohorts. &amp;lt;strong&amp;gt;(B)&amp;lt;/strong&amp;gt; Regulatory genomics researches delve into multiple layers of molecular networks.&#34;&gt;
+
+
+  &lt;img src=&#34;https://ypark.github.io/img/project/cancer_genomics_research.png&#34; alt=&#34;&#34;  &gt;
+&lt;/a&gt;
+
+
+  
+  
+  &lt;figcaption&gt;
+    Integrative cancer research builds on two principal axes of genomics data. &lt;strong&gt;(A)&lt;/strong&gt; Population-level studies investigate variation across large cohorts. &lt;strong&gt;(B)&lt;/strong&gt; Regulatory genomics researches delve into multiple layers of molecular networks.
+  &lt;/figcaption&gt;
+
+
+&lt;/figure&gt;
+
+&lt;p&gt;We can recognize a causal direction from genetic information to phenotypic variation if we consider that genotypes are shaped by nature’s randomized controlled trial (RCT), or natural interventions. Given that, the goal is to identify causal mediators located in the middle of the above causal diagram. In the context of genome-wide association studies (GWAS), the mediator variables include relevant cell types and target genes derived from tissue-level or cell-type-level eQTL data.&lt;/p&gt;
+&lt;h3 id=&#34;removing-unwanted-variability-by-control-data&#34;&gt;Removing unwanted variability by &amp;ldquo;control&amp;rdquo; data&lt;/h3&gt;
+&lt;p&gt;Many scientific discoveries are best represented as a set of contrastive statements, such as &amp;ldquo;A rather than B&amp;rdquo; (
+&lt;a href=&#34;https://en.wikipedia.org/wiki/Peter_Lipton&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Peter Lipton&lt;/a&gt;) because such a contrastive explanation clarifies our claim&amp;rsquo;s scope and basis. The validity of causal argument can be empirically justified by triangulation of contrastive arguments (Lipton 1991). Therefore, an essential aspect of our research should focus on finding a suitable set of null hypotheses (non-causal facts) to be contrasted against our theory of interest to uphold. What are non-causal effects that may obfuscate the activity of scientific research? Are they generated uniformly at random? In practice, it is hard to characterize non-causal effects without considering confounding variables, and confounders create unwanted non-zero correlations between cause and effect variables.&lt;/p&gt;
+&lt;p&gt;Confounder correction is a causal inference problem. So, we need to ask the question of identifiability, such as, &amp;ldquo;How do we know this variable is a confounder?&amp;rdquo; or &amp;ldquo;What is a legitimate criterion that distinguishes between causal and non-causal effects?&amp;quot;. We could start our journey by asking:&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;input checked=&#34;&#34; disabled=&#34;&#34; type=&#34;checkbox&#34;&gt; Write math example&lt;/li&gt;
-&lt;li&gt;&lt;input checked=&#34;&#34; disabled=&#34;&#34; type=&#34;checkbox&#34;&gt; Write diagram example&lt;/li&gt;
-&lt;li&gt;&lt;input disabled=&#34;&#34; type=&#34;checkbox&#34;&gt; Do something else&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Are there any control data on which we can safely claim that there is no causal effect whatsoever?&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Are they already available/observed? Or, should we construct/estimate them?&lt;/p&gt;
+&lt;/li&gt;
 &lt;/ul&gt;
-&lt;h3 id=&#34;tables&#34;&gt;Tables&lt;/h3&gt;
-&lt;p&gt;Represent your data in tables:&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&#34;language-markdown&#34;&gt;| First Header  | Second Header |
-| ------------- | ------------- |
-| Content Cell  | Content Cell  |
-| Content Cell  | Content Cell  |
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;renders as&lt;/p&gt;
+&lt;p&gt;Like many research problems, control data (or variables) are hidden, yet to be estimated. In the mediation problem, for instance, we need to think about how to characterize confounding variables that relate two mediators (genes, M1 and M0) (A) and the other type of confounders between different phenotypes (B). Unless we adjust these confounding effects, mediation effects are not identifiable by statistical inference. Fortunately, we can construct control data that only include non-genetic correlation structures by exploiting human genetics&amp;rsquo;s nature. Since genetic correlations are confined within each linkage disequilibrium (LD) block, we can defuse putative causal effects by projecting summary statistics onto a different, independent LD block (C). We actively construct control data to identify confounding variables.&lt;/p&gt;
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+&lt;figure id=&#34;figure-confounder-correction-in-action-the-figure-describes-essential-steps-of-confounding-factor-correction-in-gwas-mediation-analysis-a-type-i-confounding-variable-s1-between-mediators-ms-b-type-ii-confounding-variable-s2-between-phenotypes-ys-c-joint-projection-of-mediator-and-phenotype-variables-makes-interventions-to-remove-mediating-effect-but-leave-confounding-effects&#34;&gt;
+
+
+  &lt;a data-fancybox=&#34;&#34; href=&#34;https://ypark.github.io/img/project/mediation_confounder.png&#34; data-caption=&#34;Confounder correction in action. The figure describes essential steps of confounding factor correction in GWAS mediation analysis. &amp;lt;strong&amp;gt;(A)&amp;lt;/strong&amp;gt; Type I confounding variable (S1) between mediators (M&amp;amp;rsquo;s) &amp;lt;strong&amp;gt;(B)&amp;lt;/strong&amp;gt; Type II confounding variable (S2) between phenotypes (Y&amp;amp;rsquo;s). &amp;lt;strong&amp;gt;(C)&amp;lt;/strong&amp;gt; Joint projection of mediator and phenotype variables makes interventions to remove mediating effect but leave confounding effects.&#34;&gt;
+
+
+  &lt;img src=&#34;https://ypark.github.io/img/project/mediation_confounder.png&#34; alt=&#34;&#34;  &gt;
+&lt;/a&gt;
+
+
+  
+  
+  &lt;figcaption&gt;
+    Confounder correction in action. The figure describes essential steps of confounding factor correction in GWAS mediation analysis. &lt;strong&gt;(A)&lt;/strong&gt; Type I confounding variable (S1) between mediators (M&amp;rsquo;s) &lt;strong&gt;(B)&lt;/strong&gt; Type II confounding variable (S2) between phenotypes (Y&amp;rsquo;s). &lt;strong&gt;(C)&lt;/strong&gt; Joint projection of mediator and phenotype variables makes interventions to remove mediating effect but leave confounding effects.
+  &lt;/figcaption&gt;
+
+
+&lt;/figure&gt;
+
+&lt;p&gt;On this matter, we are broadly interested in general genomics problems, not just statistical genetics ones.  Although the definition of a confounding variable is problem-specific, we seek to design probabilistic models and ML algorithms that semi-automate the overall process. The methods will indicate a set of putative confounding variables with a level of uncertainty by taking input data and prior knowledge (e.g., known causal and non-causal variables).&lt;/p&gt;
+&lt;h3 id=&#34;a-potential-outcome-framework-for-causally-differential-expression-analysis&#34;&gt;A potential outcome framework for causally-differential expression analysis&lt;/h3&gt;
+&lt;p&gt;Recently, our interest in Donald Rubin&amp;rsquo;s 
+&lt;a href=&#34;https://en.wikipedia.org/wiki/Rubin_causal_model&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;potential outcome framework&lt;/a&gt; grew, and started thinking about a type of causal problems that can be better approached by Rudin&amp;rsquo;s causal model (RCM).&lt;/p&gt;
+&lt;h4 id=&#34;bayesian-causal-inference-for-single-cell-data-analysis&#34;&gt;&amp;ldquo;Bayesian&amp;rdquo; causal inference for single-cell data analysis&lt;/h4&gt;
+&lt;p&gt;As a first step, we revisit commonly-practised bioinformatics problems and reformulate them in RCMs.  The ultimate goal of RCM is to ask and estimate counterfactual questions.  Causality is tied to an action (doing), rather than an observation (seeing), and counterfactual causal inference seeks to take an impossible action and estimate its effects.&lt;/p&gt;
+&lt;p&gt;Suppose we want to test the causal statement: A gene expression of Y was changed because of a disease X, i.e., $X \to Y$ with a directed edge (going beyond $Y \sim X$). We define $X$ to take 1 or 0 for &amp;ldquo;yes&amp;rdquo; or &amp;ldquo;no&amp;rdquo; and the resulting gene expression $Y$ to take a real number. In observational studies, including most high-througput assays, we observe a pair of $X_{i}$ and $Y_{i}$ for an individual $i$; there, the observed $Y_{i}$ value stems from the observed $X_{i}$, either 1 or 0, not both. E.g.,&lt;/p&gt;
 &lt;table&gt;
 &lt;thead&gt;
 &lt;tr&gt;
-&lt;th&gt;First Header&lt;/th&gt;
-&lt;th&gt;Second Header&lt;/th&gt;
+&lt;th align=&#34;right&#34;&gt;$i$&lt;/th&gt;
+&lt;th align=&#34;left&#34;&gt;X&lt;/th&gt;
+&lt;th align=&#34;left&#34;&gt;Y(0)&lt;/th&gt;
+&lt;th align=&#34;left&#34;&gt;Y(1)&lt;/th&gt;
 &lt;/tr&gt;
 &lt;/thead&gt;
 &lt;tbody&gt;
 &lt;tr&gt;
-&lt;td&gt;Content Cell&lt;/td&gt;
-&lt;td&gt;Content Cell&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;1&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;0&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;$Y_1$&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;?&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
-&lt;td&gt;Content Cell&lt;/td&gt;
-&lt;td&gt;Content Cell&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;2&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;1&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;?&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;$Y_2$&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td align=&#34;right&#34;&gt;3&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;1&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;?&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;$Y_3$&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td align=&#34;right&#34;&gt;4&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;0&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;$Y_4$&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;?&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td align=&#34;right&#34;&gt;&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;$\vdots$&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;&lt;/td&gt;
 &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
-&lt;h3 id=&#34;asides&#34;&gt;Asides&lt;/h3&gt;
-&lt;p&gt;Academic supports a 
-&lt;a href=&#34;https://sourcethemes.com/academic/docs/writing-markdown-latex/#alerts&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;shortcode for asides&lt;/a&gt;, also referred to as &lt;em&gt;notices&lt;/em&gt;, &lt;em&gt;hints&lt;/em&gt;, or &lt;em&gt;alerts&lt;/em&gt;. By wrapping a paragraph in &lt;code&gt;{{% alert note %}} ... {{% /alert %}}&lt;/code&gt;, it will render as an aside.&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&#34;language-markdown&#34;&gt;{{% alert note %}}
-A Markdown aside is useful for displaying notices, hints, or definitions to your readers.
-{{% /alert %}}
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;renders as&lt;/p&gt;
-&lt;div class=&#34;alert alert-note&#34;&gt;
-  &lt;div&gt;
-    A Markdown aside is useful for displaying notices, hints, or definitions to your readers.
-  &lt;/div&gt;
-&lt;/div&gt;
-&lt;h3 id=&#34;spoilers&#34;&gt;Spoilers&lt;/h3&gt;
-&lt;p&gt;Add a spoiler to a page to reveal text, such as an answer to a question, after a button is clicked.&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&#34;language-markdown&#34;&gt;{{&amp;lt; spoiler text=&amp;quot;Click to view the spoiler&amp;quot; &amp;gt;}}
-You found me!
-{{&amp;lt; /spoiler &amp;gt;}}
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;renders as&lt;/p&gt;
-&lt;div class=&#34;spoiler &#34; &gt;
-  &lt;p&gt;
-    &lt;a class=&#34;btn btn-primary&#34; data-toggle=&#34;collapse&#34; href=&#34;#spoiler-1&#34; role=&#34;button&#34; aria-expanded=&#34;false&#34; aria-controls=&#34;spoiler-1&#34;&gt;
-      Click to view the spoiler
-    &lt;/a&gt;
-  &lt;/p&gt;
-  &lt;div class=&#34;collapse card &#34; id=&#34;spoiler-1&#34;&gt;
-    &lt;div class=&#34;card-body&#34;&gt;
-      You found me!
-    &lt;/div&gt;
-  &lt;/div&gt;
-&lt;/div&gt;
-&lt;h3 id=&#34;icons&#34;&gt;Icons&lt;/h3&gt;
-&lt;p&gt;Academic enables you to use a wide range of 
-&lt;a href=&#34;https://sourcethemes.com/academic/docs/page-builder/#icons&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;icons from &lt;em&gt;Font Awesome&lt;/em&gt; and &lt;em&gt;Academicons&lt;/em&gt;&lt;/a&gt; in addition to 
-&lt;a href=&#34;https://sourcethemes.com/academic/docs/writing-markdown-latex/#emojis&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;emojis&lt;/a&gt;.&lt;/p&gt;
-&lt;p&gt;Here are some examples using the &lt;code&gt;icon&lt;/code&gt; shortcode to render icons:&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&#34;language-markdown&#34;&gt;{{&amp;lt; icon name=&amp;quot;terminal&amp;quot; pack=&amp;quot;fas&amp;quot; &amp;gt;}} Terminal  
-{{&amp;lt; icon name=&amp;quot;python&amp;quot; pack=&amp;quot;fab&amp;quot; &amp;gt;}} Python  
-{{&amp;lt; icon name=&amp;quot;r-project&amp;quot; pack=&amp;quot;fab&amp;quot; &amp;gt;}} R
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;renders as&lt;/p&gt;
-&lt;p&gt;
-  &lt;i class=&#34;fas fa-terminal  pr-1 fa-fw&#34;&gt;&lt;/i&gt; Terminal&lt;br&gt;
+&lt;p&gt;In counterfactual inference, we want to infer the other unobserved and &lt;strong&gt;not&lt;/strong&gt; observable cases. For $X_{i}=1$, we want to know the potential outcome of $Y_{i}$ if we had $X_{i} = 0$, and vice versa. RCMs generally translate the underlying problem as a Bayesian imputation problem, or a matrix completion problem, which contains at least 50% of missing values.  Provided an accurate Bayesian imputation method, we can quantify individual-level causal effects, $Y_{i}(1) - Y_{i}(0)$, as well as average causal effects, $\mathbb{E}\left[Y(1) - Y(0)\right]$. This is truly substantial advancement because we no longer worry about identifiability but focus on a statistical inference problem.&lt;/p&gt;
+&lt;p&gt;Well, there is a catch. In traditional omics data analysis, such an imputation problem is pretty challenging unless we have a good understanding of the data-generating process, which is often a black box to us. For one individual, we only have one data point $Y_{i}$ unless we borrow information from related genes. We might have to rely on faithful pretreatment variables $W$ as in a causal path, $W \to X \to Y$, and construct propensity scores to reweight observed samples.&lt;/p&gt;
+&lt;p&gt;However, single-cell data provide a unique opportunity for modelling high-dimensional omics profiles. A clear advantage over bulk data is simply that we have more data points per sample (individual).  Assuming that single-cell profiling&amp;rsquo;s sensitivity will become better each year, it is not too far until we can achieve reliable and accurate Bayesian imputation methods&amp;ndash;not only the observed values but also the counterfactual values.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Bayesian modelling of summary statistics data</title>
+      <link>https://ypark.github.io/project/summary_data_inference/summary_data_ml/</link>
+      <pubDate>Thu, 03 Sep 2020 00:00:00 +0000</pubDate>
+      <guid>https://ypark.github.io/project/summary_data_inference/summary_data_ml/</guid>
+      <description>&lt;p&gt;TL;DR. We develop Bayesian machine learning methods that excavate a latent structure or underlying joint models of summary statistics data.&lt;/p&gt;
+&lt;hr&gt;
+&lt;h3 id=&#34;what-are-summary-statistics-data&#34;&gt;What are summary statistics data?&lt;/h3&gt;
+&lt;p&gt;There is no clear boundary to define that data are made available at the summary or observation level.  Suppose the size of a data matrix/tensor $Z$ is smaller than the underlying sample size (number of observations). Each element in the data matrix $Z$ is generated as a result of some transformation of raw data. In that case, we often consider that the data $Z$ is observed at the summary level.  Summary statistics data could be first and second-order moments (mean and variance), p-values, z-scores, effect sizes, and standard errors, etc. As the most well-known summary statistics data, we could think of the results of genome-wide association studies (GWAS).&lt;/p&gt;
+&lt;h3 id=&#34;why-do-we-bother-summary-statistics&#34;&gt;Why do we bother summary statistics?&lt;/h3&gt;
+&lt;p&gt;The foremost reason is that people feel pretty comfortable with sharing summary statistics. Unlike we have to deal with strict regulations to access individual-level data, a user (researcher) may find easily-downloadable GWAS summary statistics vectors from a public database. For the other party, those who provide data, there is almost no need to anonymize it since each data point does not correspond to an individual. For most clinical and public health studies, research groups share their final results as a giant summary statistics table. Other researchers gain essential knowledge by using them in subsequent research.&lt;/p&gt;
+&lt;p&gt;Great, but it sounds like everything is done and remains nothing to be done. I just said that summary statistics data are often final to some studies. Yes, to some people, but not to those who care about a generative model involving lots of parameters. Most summary data only investigate relationships between one variable with the other variable, but not many to many. Only a set of marginal probabilities, but not the joint probability of all. Can we recover a joint, multivariate model from a set of univariate models? Taking it further, can we estimate a joint probability of multiple studies conducted independently by different groups by combining summary data collected from each of them?&lt;/p&gt;
+&lt;h3 id=&#34;summary-based-regression-modelling&#34;&gt;Summary-based regression modelling&lt;/h3&gt;
+&lt;p&gt;Zhu and Stephens (2017) 
+&lt;a href=&#34;https://pubmed.ncbi.nlm.nih.gov/29399241/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;PMID: 29399241&lt;/a&gt; proposed an interesting idea, termed regression with summary statistics (RSS) model.  RSS recovers the high-dimensional parameters of a multivariate (linear) regression model, highlighting a correspondence between the multivariate and univariate association statistics.&lt;/p&gt;
+&lt;p&gt;We also found the RSS type of modelling can be effective enough to capture causal SNPs in high-dimensional variable selection problems. Here, we show simulation results on the reference panel genotype matrix (
+&lt;a href=&#34;https://www.internationalgenome.org/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;the 1000 genomes project&lt;/a&gt;; on chromosome 1, European samples, n=503). We implemented a suite of related summary-based methods 
+&lt;a href=&#34;https://ypark.github.io/zqtl&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;zQTL&lt;/a&gt;.&lt;/p&gt;
 
-  &lt;i class=&#34;fab fa-python  pr-1 fa-fw&#34;&gt;&lt;/i&gt; Python&lt;br&gt;
 
-  &lt;i class=&#34;fab fa-r-project  pr-1 fa-fw&#34;&gt;&lt;/i&gt; R&lt;/p&gt;
-&lt;h3 id=&#34;did-you-find-this-page-helpful-consider-sharing-it-&#34;&gt;Did you find this page helpful? Consider sharing it 🙌&lt;/h3&gt;
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+&lt;figure id=&#34;figure-a-summary-based-learning-method-can-estimate-multivariate-parameters-as-accurate-as-a-traditional-bayesian-learning-method-for-a-sparse-regression-problem-auprc-area-under-precision-recall-curve-_column-panels_-simulations-varying-the-number-of-causal-snps-h2-the-proportion-of-phenotypic-variance-explained-by-causal-snps-bslmm-bayesian-sparse-linear-mixed-effect-model-yqtl-a-sparse-regression-model-with-spike-slab-prior-trained-by-stochastic-variational-inference-zqtl-a-summary-based-multivariate-regression-modelling&#34;&gt;
+
+
+  &lt;a data-fancybox=&#34;&#34; href=&#34;https://ypark.github.io/img/project/summary_regression.png&#34; data-caption=&#34;A summary-based learning method can estimate multivariate parameters as accurate as a traditional Bayesian learning method for a sparse regression problem. &amp;lt;code&amp;gt;AUPRC&amp;lt;/code&amp;gt;: Area Under Precision Recall Curve. &amp;lt;em&amp;gt;Column panels&amp;lt;/em&amp;gt;: simulations varying the number of causal SNPs. &amp;lt;code&amp;gt;h2&amp;lt;/code&amp;gt;: the proportion of phenotypic variance explained by causal SNPs. &amp;lt;code&amp;gt;BSLMM&amp;lt;/code&amp;gt;: Bayesian sparse linear mixed effect model; &amp;lt;code&amp;gt;yqtl&amp;lt;/code&amp;gt;: a sparse regression model with spike-slab prior, trained by stochastic variational inference; &amp;lt;code&amp;gt;zqtl&amp;lt;/code&amp;gt;: a summary-based multivariate regression modelling.&#34;&gt;
+
+
+  &lt;img src=&#34;https://ypark.github.io/img/project/summary_regression.png&#34; alt=&#34;&#34;  &gt;
+&lt;/a&gt;
+
+
+  
+  
+  &lt;figcaption&gt;
+    A summary-based learning method can estimate multivariate parameters as accurate as a traditional Bayesian learning method for a sparse regression problem. &lt;code&gt;AUPRC&lt;/code&gt;: Area Under Precision Recall Curve. &lt;em&gt;Column panels&lt;/em&gt;: simulations varying the number of causal SNPs. &lt;code&gt;h2&lt;/code&gt;: the proportion of phenotypic variance explained by causal SNPs. &lt;code&gt;BSLMM&lt;/code&gt;: Bayesian sparse linear mixed effect model; &lt;code&gt;yqtl&lt;/code&gt;: a sparse regression model with spike-slab prior, trained by stochastic variational inference; &lt;code&gt;zqtl&lt;/code&gt;: a summary-based multivariate regression modelling.
+  &lt;/figcaption&gt;
+
+
+&lt;/figure&gt;
+
+&lt;h3 id=&#34;summary-statistics-based-machine-learning&#34;&gt;Summary statistics-based machine learning&lt;/h3&gt;
+&lt;p&gt;Our next challenge is to widen the scope of computational biology, genomics applications that can be benefited from summary-based learning methods. About a decade ago, the ML community also realized the value of exploiting the spectral structure of the summary data matrix/tensor. Hsu &lt;em&gt;et al.&lt;/em&gt; (2012) 
+&lt;a href=&#34;https://arxiv.org/abs/0811.4413&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Hsu+Kakade+Zhang&lt;/a&gt; beautifully demonstrates an optimal state of a hidden Markov model can be easily recovered by the spectral decomposition of marginal probability matrices.&lt;/p&gt;
 </description>
     </item>
     
     <item>
       <title>An example preprint / working paper</title>
-      <link>/publication/preprint/</link>
+      <link>https://ypark.github.io/publication/preprint/</link>
       <pubDate>Sun, 07 Apr 2019 00:00:00 +0000</pubDate>
-      <guid>/publication/preprint/</guid>
+      <guid>https://ypark.github.io/publication/preprint/</guid>
       <description>&lt;div class=&#34;alert alert-note&#34;&gt;
   &lt;div&gt;
     Click the &lt;em&gt;Slides&lt;/em&gt; button above to demo Academic&amp;rsquo;s Markdown slides feature.
@@ -323,51 +347,159 @@ You found me!
     </item>
     
     <item>
-      <title>ASDF</title>
-      <link>/publication/dyhm/</link>
-      <pubDate>Sun, 07 Apr 2019 00:00:00 +0000</pubDate>
-      <guid>/publication/dyhm/</guid>
-      <description>&lt;div class=&#34;alert alert-note&#34;&gt;
-  &lt;div&gt;
-    Click the &lt;em&gt;Slides&lt;/em&gt; button above to demo Academic&amp;rsquo;s Markdown slides feature.
-  &lt;/div&gt;
-&lt;/div&gt;
-&lt;p&gt;Supplementary notes can be added here, including 
-&lt;a href=&#34;https://sourcethemes.com/academic/docs/writing-markdown-latex/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;code and math&lt;/a&gt;.&lt;/p&gt;
+      <title>Recipes for GWAS data conversion/extraction</title>
+      <link>https://ypark.github.io/post/gwas_data_trans/</link>
+      <pubDate>Wed, 05 Sep 2018 00:00:00 +0000</pubDate>
+      <guid>https://ypark.github.io/post/gwas_data_trans/</guid>
+      <description>&lt;!-- # image: --&gt;
+&lt;!-- #  caption: &#39;Image credit: [**John Moeses Bauan**](https://unsplash.com/photos/OGZtQF8iC0g)&#39; --&gt;
+&lt;!-- #  placement: 3 --&gt;
+&lt;h2 id=&#34;useful-tools&#34;&gt;Useful tools&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;Download &lt;code&gt;PLINK 1.9&lt;/code&gt; from &lt;code&gt;https://www.cog-genomics.org/plink2&lt;/code&gt;.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Install &lt;code&gt;bcftools&lt;/code&gt; from &lt;code&gt;https://samtools.github.io/bcftools/&lt;/code&gt; but for MAC OS X it is easier to install UNIX tools via 
+&lt;a href=&#34;https://docs.brew.sh/Installation&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;&lt;code&gt;homebrew&lt;/code&gt;&lt;/a&gt;.  After having &lt;code&gt;homebrew&lt;/code&gt; installed, just tap in by &lt;code&gt;brew install bcftools&lt;/code&gt;.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Download SNP annotation for &lt;code&gt;hg19&lt;/code&gt; (see below)&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre&gt;&lt;code&gt;wget ftp://ftp.ncbi.nih.gov/snp/organisms/human_9606_b151_GRCh37p13/VCF/common_all_20180423.vcf.gz
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id=&#34;example-downloading-uk-biobank-genotype-data-using-virtual-box&#34;&gt;Example: Downloading UK biobank genotype data using virtual box&lt;/h2&gt;
+&lt;p&gt;Since UK Biobank genotypes are only downloadable by a linux-compiled binary, I had to spin off a virtual box. I thought it is generally a good idea to have a shared directory between the host (Mac OS) and the box. Here is how I did based on the stackoverflow search.&lt;/p&gt;
+&lt;ol start=&#34;0&#34;&gt;
+&lt;li&gt;
+&lt;p&gt;Create a virtual box with &lt;code&gt;ICH9&lt;/code&gt; chipset and the bridged network adapter.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Install an extension pack (&lt;code&gt;Oracle_VM_Virtual Box&lt;/code&gt; etc.).&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Run &amp;ldquo;Insert Guest Additions CD images&amp;hellip;&amp;rdquo; under the &amp;ldquo;Devices&amp;rdquo; tab.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Restart the box.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Create a shared folder via GUI&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Mount the folder&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;pre&gt;&lt;code&gt;mount -t vboxsf mountfolder /home/devInHost/mountfolder
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Once I have successfully mounted the shared folder, I can use &lt;code&gt;ukbgene&lt;/code&gt; to download the imputed genotypes. To make sure that I write down to the shared folder, I just run the command with the root priviledge.&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;parallel -j4 ./ukbgene imp -c{1} :: {1..22}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Enjoy!&lt;/p&gt;
+&lt;h2 id=&#34;example-extracting-dosage-information-from-a-vcf-file-to-use-a-predixcan-model&#34;&gt;Example: Extracting dosage information from a VCF file to use a &lt;code&gt;PrediXcan&lt;/code&gt; model&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;Download weights &lt;code&gt;Brain_Amygdala.tar.gz&lt;/code&gt; from &lt;code&gt;http://predictdb.org/&lt;/code&gt;.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Copy &lt;code&gt;*.py&lt;/code&gt; and &lt;code&gt;*.R&lt;/code&gt; from &lt;code&gt;PrediXcan&lt;/code&gt; github repository.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id=&#34;1-we-need-to-construct-annotations&#34;&gt;1. We need to construct annotations&lt;/h4&gt;
+&lt;pre&gt;&lt;code&gt;cat common_all_20180423.vcf.gz | gzip -d | bgzip -c &amp;gt; snps.vcf.gz &amp;amp;&amp;amp; tabix snps.vcf.gz
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h4 id=&#34;2-annotate-rsid-to-match-with-the-db-file&#34;&gt;2. Annotate &lt;code&gt;rsID&lt;/code&gt; to match with the DB file.&lt;/h4&gt;
+&lt;p&gt;We will store the updated VCF file in separate directory:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;mkdir -p data/vcf/
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;We can create annotated VCF.&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;bcftools annotate -c CHROM,FROM,TO,ID -a snps.vcf.gz -o data/vcf/chr21.vcf.gz chr21.dose.vcf.gz
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h4 id=&#34;3-create-dosage-file-as-predixcan-requires&#34;&gt;3. Create dosage file as PrediXcan requires&lt;/h4&gt;
+&lt;pre&gt;&lt;code&gt;mkdir -p data/dosage/
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;We can extract dosage information with the format &lt;code&gt;-f &amp;quot;[\t%DS]\n&amp;quot;&lt;/code&gt;, prepending 6 header columns: chromosome, rsID, position, reference, alternative allele, and minor allele frequency with the format &lt;code&gt;-f &amp;quot;%CHROM\t%ID\t%POS\t%REF\t%ALT\t%MAF&amp;quot;&lt;/code&gt;.  To make sure that our prediction is reliable, we may filter out SNP with MAF less than 5% adding &lt;code&gt;-e &amp;quot;MAF[0]&amp;lt;0.05&amp;quot;&lt;/code&gt;.&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;$ bcftools query -e &amp;quot;MAF[0]&amp;lt;0.05&amp;quot; -f &amp;quot;%CHROM\t%ID\t%POS\t%REF\t%ALT\t%MAF[\t%DS]\n&amp;quot; data/vcf/chr21.vcf.gz  | gzip &amp;gt; data/dosage/chr21.dosage.gz
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Additionally we can list samples in the same directory:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;$ bcftools query -l data/vcf/chr21.vcf.gz | awk -F&#39;\t&#39; &#39;{ print $1 FS $1 }&#39; &amp;gt; data/dosage/chr21.samples
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Once I have successfully mounted the shared folder, I can use &lt;code&gt;ukbgene&lt;/code&gt; to download the imputed genotypes. To make sure that I write down to the shared folder, I just run the command with the root priviledge.&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;parallel -j4 ./ukbgene imp -c{1} :: {1..22}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h4 id=&#34;4-run-predixcan&#34;&gt;4. Run PrediXcan.&lt;/h4&gt;
+&lt;pre&gt;&lt;code&gt;python PrediXcan.py --predict --dosages data/dosage/ --dosages_prefix chr21 --output_prefix temp --samples chr21.samples --weights Brain_Amygdala/gtex_v7_Brain_Amygdala_imputed_europeans_tw_0.5_signif.db
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h5 id=&#34;conclusion&#34;&gt;Conclusion&lt;/h5&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;bcftools&lt;/code&gt; are just amazing.&lt;/li&gt;
+&lt;li&gt;I found the way &lt;code&gt;PrediXcan&lt;/code&gt; process files quite inefficient.&lt;/li&gt;
+&lt;/ul&gt;
 </description>
     </item>
     
     <item>
-      <title>Privacy Policy</title>
-      <link>/privacy/</link>
-      <pubDate>Thu, 28 Jun 2018 00:00:00 +0100</pubDate>
-      <guid>/privacy/</guid>
-      <description>&lt;p&gt;&amp;hellip;&lt;/p&gt;
+      <title>On the analysis methods used in the &#34;omnigenic&#34; paper</title>
+      <link>https://ypark.github.io/post/genetics/2018-06-21-omnigenic/</link>
+      <pubDate>Thu, 21 Jun 2018 00:00:00 +0000</pubDate>
+      <guid>https://ypark.github.io/post/genetics/2018-06-21-omnigenic/</guid>
+      <description>&lt;p&gt;A recent quanta magazine 
+&lt;a href=&#34;https://www.quantamagazine.org/omnigenic-model-suggests-that-all-genes-affect-every-complex-trait-20180620/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;article&lt;/a&gt; on the omnigenic hypothesis re-ignited my interest.  So I read 
+&lt;a href=&#34;https://www.cell.com/cell/abstract/S0092-8674%2817%2930629-3&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;the original omnigenic paper&lt;/a&gt; again.&lt;/p&gt;
+&lt;h2 id=&#34;i-am-not-against-the-model-itself&#34;&gt;I am not against the model itself&lt;/h2&gt;
+&lt;p&gt;First, I should make it clear: please do not get me wrong. I would like to agree with the proposed hypothesis that &amp;ldquo;gene regulatory networks are sufficiently interconnected such that all genes expressed in disease-relevant cells are liable to affect the functions of core disease-related genes and that most heritability can be explained by effects on genes outside core pathways.&amp;rdquo;  I think we should definitely bring in the concept of genetically associated networks to elucidate the overall impacts of random assortments of genetics on complex traits.  Many people have been suggesting that genetics need to embrace tools and ideas of systems biology.  I also think 
+&lt;a href=&#34;https://www.cell.com/cell-systems/fulltext/S2405-4712%2817%2930005-4&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Systems genetics&lt;/a&gt; will be able to make new breakthroughs, especially when it comes to risk prediction of complex traits.&lt;/p&gt;
+&lt;p&gt;However, the more I read through the paper, the more I became unsatisfied.  I just discover more holes.&lt;/p&gt;
+&lt;h2 id=&#34;miscalculation-of-the-number-of-causal-snps&#34;&gt;Miscalculation of the number of causal SNPs&lt;/h2&gt;
+&lt;blockquote&gt;
+&lt;p&gt;We next used &lt;code&gt;ashR&lt;/code&gt; to analyze the distribution of regression coefficients from the set of all SNPs (Stephens, 2017). &lt;code&gt;ashR&lt;/code&gt; models the GWAS results as a mixture of SNPs that have a true effect size of exactly zero, with SNPs that have a true effect size that is not zero.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;To my best knowledge, &lt;code&gt;ashR&lt;/code&gt; was developed to calibrate false discovery rates of multiple independent hits.  See 
+&lt;a href=&#34;https://doi.org/10.1093/biostatistics/kxw041&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;the new deal paper&lt;/a&gt;.  We all know that SNPs are correlated within haplotype blocks.  If distributions on genetic effects of common SNPs are not independent, variance estimation of the null components in the &lt;code&gt;ashR&lt;/code&gt; model can be easily deflated, which then leads to inflated number of non-zero effects.  If I read the description correctly, their subsequent analysis taking into account of linkage disequilibrium (LD) structure already relies on the results drawn by fitting the &lt;code&gt;ashR&lt;/code&gt; model.&lt;/p&gt;
+&lt;p&gt;Therefore, unless I see the same results from fitting a fine-mapping model or a sparse polygenic model, the following arguments will remain less convincing to me.&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;Remark 1:&lt;/em&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Given that the typical extent of linkage disequilibrium (LD) is around 10–100 kb, this implies that most 100-kb windows in the genome include variants that affect height.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;If 10-100 kb blocks were defined by $r^2$ values based on sliding window approach, we might be omitting long-range LD patterns.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;How many independent signals will be found after fine-mapping / conditional analysis?&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;em&gt;Remark 2:&lt;/em&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Stratifying the &lt;code&gt;ashR&lt;/code&gt; analysis by the LD score for each SNP, we see a clear effect that SNPs with more LD partners are more likely to be associated with height.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;ul&gt;
+&lt;li&gt;The stratification model in the supplementary material is merely a posthoc approach to prevent from double-counting, not a joint analysis of the &lt;code&gt;ashR&lt;/code&gt; and the LD score regression.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;enrichment-analysis-can-be-interpreted-in-many-different-ways&#34;&gt;Enrichment analysis can be interpreted in many different ways&lt;/h2&gt;
+&lt;p&gt;I am not a big fan of enrichment analysis although it is heavily used in most data analysis.  One of my strongest complaints against enrichment analysis is that it really depends on size of sets&amp;ndash;positive, negative and overlapping hits.  In practice, we rarely use theoretical null distribution of set sizes to calibrate a p-value since it can easily achieve high degree of overlap just by other confounding effects.  A crucial question is: What is your background for the enrichment?  And we can only reject that specific background distribution we crafted in for hypothesis test.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Genetic contribution to disease is heavily concentrated in regions that are transcribed or marked by active chromatin in relevant tissues but there is little enrichment for cell-type-specific regulatory elements versus broadly actively regions.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Moreover, as their analysis heavily used the stratified LD-score regression, the enrichment effect sizes (and the corresponding p-values) should be interpreted more carefully.  Larger effect sizes do not necessarily mean stronger enrichment.  I can easily imagine that we would explain a larger fraction of heritability by a broader annotation category.  Well, in some sense, the following sentence supports my argument against their interpretation.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;These enrichments [autoimmune disease and schizophrenia GWAS in the relevant categories] were relatively modest, and for all three diseases, we observed a strong linear relationship between the sizes of the functional categories and the proportion of heritability that they contributed.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;ul&gt;
+&lt;li&gt;We could adjust size of annotations by comprehensive permutation analysis.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;conclusion&#34;&gt;Conclusion&lt;/h2&gt;
+&lt;p&gt;Some people might be able to accept the message and gain useful insights beyond potential issues in the analysis method.  Unfortunately I am not one of them.  Of course, I can be wrong as well.  Probably it would be more useful if they could disclose analysis pipeline for follow-up studies, even though it is a &amp;ldquo;perspective&amp;rdquo; paper.&lt;/p&gt;
+&lt;p&gt;Many people say that the omnigenic hypothesis is a glorified polygenic model, originally proposed by R.A. Fisher.  I only partially agree with that simplified view.  I think genetics is more complex than that as much as it is fascinating.  This omnigenic paper is one of systems genetics efforts, yet it never rule out &amp;ldquo;monogenic&amp;rdquo; aspects of disease etiology.&lt;/p&gt;
 </description>
-    </item>
-    
-    <item>
-      <title>Terms</title>
-      <link>/terms/</link>
-      <pubDate>Thu, 28 Jun 2018 00:00:00 +0100</pubDate>
-      <guid>/terms/</guid>
-      <description>&lt;p&gt;&amp;hellip;&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>External Project</title>
-      <link>/project/external-project/</link>
-      <pubDate>Wed, 27 Apr 2016 00:00:00 +0000</pubDate>
-      <guid>/project/external-project/</guid>
-      <description></description>
     </item>
     
     <item>
       <title>An example journal article</title>
-      <link>/publication/journal-article/</link>
+      <link>https://ypark.github.io/publication/journal-article/</link>
       <pubDate>Tue, 01 Sep 2015 00:00:00 +0000</pubDate>
-      <guid>/publication/journal-article/</guid>
+      <guid>https://ypark.github.io/publication/journal-article/</guid>
       <description>&lt;div class=&#34;alert alert-note&#34;&gt;
   &lt;div&gt;
     Click the &lt;em&gt;Cite&lt;/em&gt; button above to demo the feature to enable visitors to import publication metadata into their reference management software.
@@ -385,9 +517,9 @@ You found me!
     
     <item>
       <title>An example conference paper</title>
-      <link>/publication/conference-paper/</link>
+      <link>https://ypark.github.io/publication/conference-paper/</link>
       <pubDate>Mon, 01 Jul 2013 00:00:00 +0000</pubDate>
-      <guid>/publication/conference-paper/</guid>
+      <guid>https://ypark.github.io/publication/conference-paper/</guid>
       <description>&lt;div class=&#34;alert alert-note&#34;&gt;
   &lt;div&gt;
     Click the &lt;em&gt;Cite&lt;/em&gt; button above to demo the feature to enable visitors to import publication metadata into their reference management software.

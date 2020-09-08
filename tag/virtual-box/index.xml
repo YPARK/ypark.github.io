@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Virtual box | Y Park Lab</title>
+    <link>https://ypark.github.io/tag/virtual-box/</link>
+      <atom:link href="https://ypark.github.io/tag/virtual-box/index.xml" rel="self" type="application/rss+xml" />
+    <description>Virtual box</description>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-ca</language><copyright>Yongjin Park</copyright><lastBuildDate>Wed, 05 Sep 2018 00:00:00 +0000</lastBuildDate>
+    <image>
+      <url>https://ypark.github.io/images/icon_hubeb08443f4a10673faef737165dc89be_255147_512x512_fill_lanczos_center_2.png</url>
+      <title>Virtual box</title>
+      <link>https://ypark.github.io/tag/virtual-box/</link>
+    </image>
+    
+    <item>
+      <title>Recipes for GWAS data conversion/extraction</title>
+      <link>https://ypark.github.io/post/gwas_data_trans/</link>
+      <pubDate>Wed, 05 Sep 2018 00:00:00 +0000</pubDate>
+      <guid>https://ypark.github.io/post/gwas_data_trans/</guid>
+      <description>&lt;!-- # image: --&gt;
+&lt;!-- #  caption: &#39;Image credit: [**John Moeses Bauan**](https://unsplash.com/photos/OGZtQF8iC0g)&#39; --&gt;
+&lt;!-- #  placement: 3 --&gt;
+&lt;h2 id=&#34;useful-tools&#34;&gt;Useful tools&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;Download &lt;code&gt;PLINK 1.9&lt;/code&gt; from &lt;code&gt;https://www.cog-genomics.org/plink2&lt;/code&gt;.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Install &lt;code&gt;bcftools&lt;/code&gt; from &lt;code&gt;https://samtools.github.io/bcftools/&lt;/code&gt; but for MAC OS X it is easier to install UNIX tools via 
+&lt;a href=&#34;https://docs.brew.sh/Installation&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;&lt;code&gt;homebrew&lt;/code&gt;&lt;/a&gt;.  After having &lt;code&gt;homebrew&lt;/code&gt; installed, just tap in by &lt;code&gt;brew install bcftools&lt;/code&gt;.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Download SNP annotation for &lt;code&gt;hg19&lt;/code&gt; (see below)&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre&gt;&lt;code&gt;wget ftp://ftp.ncbi.nih.gov/snp/organisms/human_9606_b151_GRCh37p13/VCF/common_all_20180423.vcf.gz
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id=&#34;example-downloading-uk-biobank-genotype-data-using-virtual-box&#34;&gt;Example: Downloading UK biobank genotype data using virtual box&lt;/h2&gt;
+&lt;p&gt;Since UK Biobank genotypes are only downloadable by a linux-compiled binary, I had to spin off a virtual box. I thought it is generally a good idea to have a shared directory between the host (Mac OS) and the box. Here is how I did based on the stackoverflow search.&lt;/p&gt;
+&lt;ol start=&#34;0&#34;&gt;
+&lt;li&gt;
+&lt;p&gt;Create a virtual box with &lt;code&gt;ICH9&lt;/code&gt; chipset and the bridged network adapter.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Install an extension pack (&lt;code&gt;Oracle_VM_Virtual Box&lt;/code&gt; etc.).&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Run &amp;ldquo;Insert Guest Additions CD images&amp;hellip;&amp;rdquo; under the &amp;ldquo;Devices&amp;rdquo; tab.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Restart the box.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Create a shared folder via GUI&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Mount the folder&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;pre&gt;&lt;code&gt;mount -t vboxsf mountfolder /home/devInHost/mountfolder
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Once I have successfully mounted the shared folder, I can use &lt;code&gt;ukbgene&lt;/code&gt; to download the imputed genotypes. To make sure that I write down to the shared folder, I just run the command with the root priviledge.&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;parallel -j4 ./ukbgene imp -c{1} :: {1..22}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Enjoy!&lt;/p&gt;
+&lt;h2 id=&#34;example-extracting-dosage-information-from-a-vcf-file-to-use-a-predixcan-model&#34;&gt;Example: Extracting dosage information from a VCF file to use a &lt;code&gt;PrediXcan&lt;/code&gt; model&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;Download weights &lt;code&gt;Brain_Amygdala.tar.gz&lt;/code&gt; from &lt;code&gt;http://predictdb.org/&lt;/code&gt;.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Copy &lt;code&gt;*.py&lt;/code&gt; and &lt;code&gt;*.R&lt;/code&gt; from &lt;code&gt;PrediXcan&lt;/code&gt; github repository.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id=&#34;1-we-need-to-construct-annotations&#34;&gt;1. We need to construct annotations&lt;/h4&gt;
+&lt;pre&gt;&lt;code&gt;cat common_all_20180423.vcf.gz | gzip -d | bgzip -c &amp;gt; snps.vcf.gz &amp;amp;&amp;amp; tabix snps.vcf.gz
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h4 id=&#34;2-annotate-rsid-to-match-with-the-db-file&#34;&gt;2. Annotate &lt;code&gt;rsID&lt;/code&gt; to match with the DB file.&lt;/h4&gt;
+&lt;p&gt;We will store the updated VCF file in separate directory:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;mkdir -p data/vcf/
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;We can create annotated VCF.&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;bcftools annotate -c CHROM,FROM,TO,ID -a snps.vcf.gz -o data/vcf/chr21.vcf.gz chr21.dose.vcf.gz
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h4 id=&#34;3-create-dosage-file-as-predixcan-requires&#34;&gt;3. Create dosage file as PrediXcan requires&lt;/h4&gt;
+&lt;pre&gt;&lt;code&gt;mkdir -p data/dosage/
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;We can extract dosage information with the format &lt;code&gt;-f &amp;quot;[\t%DS]\n&amp;quot;&lt;/code&gt;, prepending 6 header columns: chromosome, rsID, position, reference, alternative allele, and minor allele frequency with the format &lt;code&gt;-f &amp;quot;%CHROM\t%ID\t%POS\t%REF\t%ALT\t%MAF&amp;quot;&lt;/code&gt;.  To make sure that our prediction is reliable, we may filter out SNP with MAF less than 5% adding &lt;code&gt;-e &amp;quot;MAF[0]&amp;lt;0.05&amp;quot;&lt;/code&gt;.&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;$ bcftools query -e &amp;quot;MAF[0]&amp;lt;0.05&amp;quot; -f &amp;quot;%CHROM\t%ID\t%POS\t%REF\t%ALT\t%MAF[\t%DS]\n&amp;quot; data/vcf/chr21.vcf.gz  | gzip &amp;gt; data/dosage/chr21.dosage.gz
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Additionally we can list samples in the same directory:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;$ bcftools query -l data/vcf/chr21.vcf.gz | awk -F&#39;\t&#39; &#39;{ print $1 FS $1 }&#39; &amp;gt; data/dosage/chr21.samples
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Once I have successfully mounted the shared folder, I can use &lt;code&gt;ukbgene&lt;/code&gt; to download the imputed genotypes. To make sure that I write down to the shared folder, I just run the command with the root priviledge.&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;parallel -j4 ./ukbgene imp -c{1} :: {1..22}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h4 id=&#34;4-run-predixcan&#34;&gt;4. Run PrediXcan.&lt;/h4&gt;
+&lt;pre&gt;&lt;code&gt;python PrediXcan.py --predict --dosages data/dosage/ --dosages_prefix chr21 --output_prefix temp --samples chr21.samples --weights Brain_Amygdala/gtex_v7_Brain_Amygdala_imputed_europeans_tw_0.5_signif.db
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h5 id=&#34;conclusion&#34;&gt;Conclusion&lt;/h5&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;bcftools&lt;/code&gt; are just amazing.&lt;/li&gt;
+&lt;li&gt;I found the way &lt;code&gt;PrediXcan&lt;/code&gt; process files quite inefficient.&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

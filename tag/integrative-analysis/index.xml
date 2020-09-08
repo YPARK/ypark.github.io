@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>integrative analysis | Y Park Lab</title>
+    <link>https://ypark.github.io/tag/integrative-analysis/</link>
+      <atom:link href="https://ypark.github.io/tag/integrative-analysis/index.xml" rel="self" type="application/rss+xml" />
+    <description>integrative analysis</description>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-ca</language><copyright>Yongjin Park</copyright><lastBuildDate>Sun, 06 Sep 2020 00:00:00 +0000</lastBuildDate>
+    <image>
+      <url>https://ypark.github.io/images/icon_hubeb08443f4a10673faef737165dc89be_255147_512x512_fill_lanczos_center_2.png</url>
+      <title>integrative analysis</title>
+      <link>https://ypark.github.io/tag/integrative-analysis/</link>
+    </image>
+    
+    <item>
+      <title>Lightweight tools for integrative single-cell data analysis</title>
+      <link>https://ypark.github.io/project/lightweight_tools/single_cell_analysis/</link>
+      <pubDate>Sun, 06 Sep 2020 00:00:00 +0000</pubDate>
+      <guid>https://ypark.github.io/project/lightweight_tools/single_cell_analysis/</guid>
+      <description>&lt;p&gt;TL;DR. We develop scalable and memory-efficient tools for single-cell data analysis.&lt;/p&gt;
+&lt;hr&gt;
+&lt;h3 id=&#34;there-are-already-many-tools&#34;&gt;There are already many tools.&lt;/h3&gt;
+&lt;p&gt;Ever since single-cell technology was introduced to the world, every year, every month, we see more tools. See 
+&lt;a href=&#34;https://www.scrna-tools.org/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;scRNA-tools&lt;/a&gt;, for example. Single-cell data analysis often involves many steps of data processing, quantification, and statistical inference. The technology is imperfect, and each step deserves careful consideration of different types of approaches. We, bioinformaticians, test a different combination of small tools and tailor a pipeline that works best for each project. Perhaps, there is no master algorithm, and the competitions among computational biologists are indeed fierce.&lt;/p&gt;
+&lt;p&gt;The history of genomics repeats itself. For a large part of current single-cell data analysis, we probably see what had happened in RNA-seq, even gene expression microarray analysis. Once we knew how to normalize scRNA-seq data, we would like to know how to test differentially-expressed genes. Then, we would want to build more audacious models, such as gene regulatory networks.  Are there any points that we may contribute from a unique perspective? Can existing tools address all the challenges of single-cell data analysis, e.g., 
+&lt;a href=&#34;https://genomebiology.biomedcentral.com/articles/10.1186/s13059-020-1926-6&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;&amp;ldquo;eleven grand challenges in single-cell data science&amp;rdquo;&lt;/a&gt;? I believe not. We know there has always been enough room for innovation and creativity.&lt;/p&gt;
+&lt;p&gt;Okay, that sounds meek and quite passive. Why do we dare to jump into the battlefield?  We are not a software-engineering lab, but we can become impatient enough to feel the need for a better tool.  Moreover, we want to understand why and how a certain method works, and when that method doesn&amp;rsquo;t work as expected.&lt;/p&gt;
+&lt;h3 id=&#34;the-underlying-data-matrix-is-sparse-really-sparse-but-most-methods-make-it-dense&#34;&gt;The underlying data matrix is sparse, really sparse, but most methods make it dense.&lt;/h3&gt;
+&lt;p&gt;Yes, the data matrix is sparse, but it will easily blow up memory if you fill in all the zeros.  Our first impression was that memory overhead was never an issue for most people. Lots of methods focus on replacing the zeros with some other fractional values. Not undermining the validity of imputation methods, we worried more about the scalability of the strategy.  Can such a strategy work for millions of cells with billions of non-zero elements?  Most methods are tested on a rather small data set, including thousands of cells. If a data matrix is sparse, why not we build a method, taking advantage of the sparsity? What if most zero values did not occur by missingness?  What if 
+&lt;a href=&#34;https://www.nature.com/articles/s41587-019-0379-5&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;droplet scRNA-seq is not zero-inflated&lt;/a&gt;?&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;We develop a scalable approach to index millions of cells for fast random access.&lt;/strong&gt;
+We like to work on a sparse data matrix formatted as 
+&lt;a href=&#34;https://math.nist.gov/MatrixMarket/formats.html&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;a list of triplets&lt;/a&gt;, and compressed by &lt;code&gt;gzip&lt;/code&gt; or &lt;code&gt;bgzip&lt;/code&gt;. The rows correspond to features/genes; the columns correspond to UMI barcodes/cells. We assume the triplets &lt;code&gt;(row, column, value)&lt;/code&gt; are sorted by the columns (cells) in ascending order. To mark the line where the columns change, we modify the indexing scheme of 
+&lt;a href=&#34;http://www.htslib.org/doc/tabix.html&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;TABIX&lt;/a&gt; and create a separate &lt;code&gt;.index&lt;/code&gt; file to store all the random access points.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;We implement commonly-used matrix operations to manipulate data more swiftly.&lt;/strong&gt; In some cases, it is worthwhile to re-implement low-level functions, since we may not need all the steps implemented in a general-purpose library.  We were just too impatient to wait a long I/O time until we finish reading a full 10x matrix (&lt;code&gt;.mtx.gz&lt;/code&gt;) using either &lt;code&gt;scipy.io.mmread&lt;/code&gt; in Python, or &lt;code&gt;Matrix::readMM&lt;/code&gt; in R. As the size of the 10x matrix increase more and more, we also discovered there is a numerical limit for R&amp;rsquo;s &lt;code&gt;Matrix::readMM&lt;/code&gt; (less than two billions non-zero elements) and had to face a similar issue in a low-memory machine, such as a modest 8Gb laptop. So, we did the dirty job of &lt;code&gt;C++&lt;/code&gt; implementation. Combined with the indexing scheme, now we can efficiently take a subset of a large matrix stored in a file, not worrying about memory capacity, minimizing the overhead of character parsing and I/O.&lt;/p&gt;
+&lt;h3 id=&#34;we-want-to-focus-on-integrative-data-analysis-across-multiple-data-types-and-modalities&#34;&gt;We want to focus on integrative data analysis across multiple data types and modalities&lt;/h3&gt;
+&lt;p&gt;With these tools, including the ones under development, we want to do science. We want others to do science using our tools. We will continuously update a bit more complicated routines for convenience, including cell type annotation, data aggregation, cell type deconvolution, batch-balancing k-nearest neighborhood, etc.&lt;/p&gt;
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+&lt;figure id=&#34;figure-single-cell-data-can-provide-a-powerful-tool-to-dissect-existing-bulk-data-in-integrative-analysis-a-learn-novel-cell-types-recapitulate-known-cell-types-using-new-single-cell-data-and-infer-cellular-compositions-of-existing-data--b-transfer-the-knowledge-gained-from-single-cell-data-to-tissue-level-or-mixture-level-regulatory-genomics-models-a-schematic-diagram-for-our-deqtl-method-pi-cell-type-fraction-estimated-by-the-deconvolution-step-g-genotype-matrix-theta-cell-type-specific-multivariate-effect-size-lambda-cell-type-loading-eta-cell-type-specific-genetic-effect-aggregated-over-multiple-snps-c-systems-biology-analysis-by-projecting-cell-type-specific-deqtl-regions-we-partition-human-genome-into-cell-type-specific-components&#34;&gt;
+
+
+  &lt;a data-fancybox=&#34;&#34; href=&#34;https://ypark.github.io/img/project/mmutil_annotate.png&#34; data-caption=&#34;Single-cell data can provide a powerful tool to dissect existing bulk data in integrative analysis. &amp;lt;strong&amp;gt;(A)&amp;lt;/strong&amp;gt; Learn novel cell types, recapitulate known cell types using new single-cell data, and infer cellular compositions of existing data.  &amp;lt;strong&amp;gt;(B)&amp;lt;/strong&amp;gt; Transfer the knowledge gained from single-cell data to tissue-level, or mixture-level regulatory-genomics models. A schematic diagram for our deQTL method. $\pi$: cell type fraction estimated by the deconvolution step. G: genotype matrix. $\theta$: cell-type-specific multivariate effect size. $\lambda$: cell-type loading. $\eta$: cell-type-specific genetic effect aggregated over multiple SNPs. &amp;lt;strong&amp;gt;(C)&amp;lt;/strong&amp;gt; Systems biology analysis. By projecting cell-type-specific deQTL regions, we partition human genome into cell-type-specific components.&#34;&gt;
+
+
+  &lt;img src=&#34;https://ypark.github.io/img/project/mmutil_annotate.png&#34; alt=&#34;&#34;  &gt;
+&lt;/a&gt;
+
+
+  
+  
+  &lt;figcaption&gt;
+    Single-cell data can provide a powerful tool to dissect existing bulk data in integrative analysis. &lt;strong&gt;(A)&lt;/strong&gt; Learn novel cell types, recapitulate known cell types using new single-cell data, and infer cellular compositions of existing data.  &lt;strong&gt;(B)&lt;/strong&gt; Transfer the knowledge gained from single-cell data to tissue-level, or mixture-level regulatory-genomics models. A schematic diagram for our deQTL method. $\pi$: cell type fraction estimated by the deconvolution step. G: genotype matrix. $\theta$: cell-type-specific multivariate effect size. $\lambda$: cell-type loading. $\eta$: cell-type-specific genetic effect aggregated over multiple SNPs. &lt;strong&gt;(C)&lt;/strong&gt; Systems biology analysis. By projecting cell-type-specific deQTL regions, we partition human genome into cell-type-specific components.
+  &lt;/figcaption&gt;
+
+
+&lt;/figure&gt;
+
+</description>
+    </item>
+    
+  </channel>
+</rss>

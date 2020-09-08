@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>snRNA-seq | Y Park Lab</title>
+    <link>/tag/snrna-seq/</link>
+      <atom:link href="/tag/snrna-seq/index.xml" rel="self" type="application/rss+xml" />
+    <description>snRNA-seq</description>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-ca</language><copyright>Yongjin Park</copyright>
+    <image>
+      <url>/images/icon_hubeb08443f4a10673faef737165dc89be_255147_512x512_fill_lanczos_center_2.png</url>
+      <title>snRNA-seq</title>
+      <link>/tag/snrna-seq/</link>
+    </image>
+    
+    <item>
+      <title>Single-cell RNA-seq analysis with high-dimensional genotype and phenotype matrix</title>
+      <link>/project/snqtl_mediation/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/project/snqtl_mediation/</guid>
+      <description>&lt;h2 id=&#34;wed-jun--3-140317-edt-2020&#34;&gt;Wed Jun  3 14:03:17 EDT 2020&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;Michael Gutbrod&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;snRNA-seq, sex-specific, age-specific&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Redefine marker genes for subtypes of neurons and glial cells&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

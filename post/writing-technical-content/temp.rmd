@@ -1,0 +1,10 @@
+---
+date: "2019-07-12"
+math: true
+title: temp3
+---
+
+
+```{r}
+hist(rnorm(100))
+```
