@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>causal inference | Y Park Lab</title>
-    <link>https://ypark.github.io/tag/causal-inference/</link>
-      <atom:link href="https://ypark.github.io/tag/causal-inference/index.xml" rel="self" type="application/rss+xml" />
+    <link>/tag/causal-inference/</link>
+      <atom:link href="/tag/causal-inference/index.xml" rel="self" type="application/rss+xml" />
     <description>causal inference</description>
     <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-ca</language><copyright>Yongjin Park</copyright><lastBuildDate>Fri, 04 Sep 2020 00:00:00 +0000</lastBuildDate>
     <image>
-      <url>https://ypark.github.io/images/icon_hubeb08443f4a10673faef737165dc89be_255147_512x512_fill_lanczos_center_2.png</url>
+      <url>/images/icon_hubeb08443f4a10673faef737165dc89be_255147_512x512_fill_lanczos_center_2.png</url>
       <title>causal inference</title>
-      <link>https://ypark.github.io/tag/causal-inference/</link>
+      <link>/tag/causal-inference/</link>
     </image>
     
     <item>
       <title>Causal Inference in Genomics</title>
-      <link>https://ypark.github.io/project/causal_inference/causal_inference/</link>
+      <link>/project/causal_inference/causal_inference/</link>
       <pubDate>Fri, 04 Sep 2020 00:00:00 +0000</pubDate>
-      <guid>https://ypark.github.io/project/causal_inference/causal_inference/</guid>
+      <guid>/project/causal_inference/causal_inference/</guid>
       <description>&lt;p&gt;TL;DR.  We reinvent traditional bioinformatics methods to ascertain the causality of discoveries made in high-dimensional omics data.&lt;/p&gt;
 &lt;hr&gt;
 &lt;p&gt;Massive data generation in genomics has transformed the methodology and practice of researches in medicine and human biology. A common practice of research is genomic and functional genomic profiling of hundreds of individuals. If desired data is not available, large consortium-level projects and collaborations can often meet the needs. In terms of both volume and dimensionality, the sizes of genomics data have exploded in the past decade, and it is not hard to predict that the speed of data accumulation will be further accelerated.&lt;/p&gt;
@@ -46,10 +46,10 @@
 &lt;figure id=&#34;figure-integrative-cancer-research-builds-on-two-principal-axes-of-genomics-data-a-population-level-studies-investigate-variation-across-large-cohorts-b-regulatory-genomics-researches-delve-into-multiple-layers-of-molecular-networks&#34;&gt;
 
 
-  &lt;a data-fancybox=&#34;&#34; href=&#34;https://ypark.github.io/img/project/cancer_genomics_research.png&#34; data-caption=&#34;Integrative cancer research builds on two principal axes of genomics data. &amp;lt;strong&amp;gt;(A)&amp;lt;/strong&amp;gt; Population-level studies investigate variation across large cohorts. &amp;lt;strong&amp;gt;(B)&amp;lt;/strong&amp;gt; Regulatory genomics researches delve into multiple layers of molecular networks.&#34;&gt;
+  &lt;a data-fancybox=&#34;&#34; href=&#34;/img/project/cancer_genomics_research.png&#34; data-caption=&#34;Integrative cancer research builds on two principal axes of genomics data. &amp;lt;strong&amp;gt;(A)&amp;lt;/strong&amp;gt; Population-level studies investigate variation across large cohorts. &amp;lt;strong&amp;gt;(B)&amp;lt;/strong&amp;gt; Regulatory genomics researches delve into multiple layers of molecular networks.&#34;&gt;
 
 
-  &lt;img src=&#34;https://ypark.github.io/img/project/cancer_genomics_research.png&#34; alt=&#34;&#34;  &gt;
+  &lt;img src=&#34;/img/project/cancer_genomics_research.png&#34; alt=&#34;&#34;  &gt;
 &lt;/a&gt;
 
 
@@ -96,10 +96,10 @@
 &lt;figure id=&#34;figure-confounder-correction-in-action-the-figure-describes-essential-steps-of-confounding-factor-correction-in-gwas-mediation-analysis-a-type-i-confounding-variable-s1-between-mediators-ms-b-type-ii-confounding-variable-s2-between-phenotypes-ys-c-joint-projection-of-mediator-and-phenotype-variables-makes-interventions-to-remove-mediating-effect-but-leave-confounding-effects&#34;&gt;
 
 
-  &lt;a data-fancybox=&#34;&#34; href=&#34;https://ypark.github.io/img/project/mediation_confounder.png&#34; data-caption=&#34;Confounder correction in action. The figure describes essential steps of confounding factor correction in GWAS mediation analysis. &amp;lt;strong&amp;gt;(A)&amp;lt;/strong&amp;gt; Type I confounding variable (S1) between mediators (M&amp;amp;rsquo;s) &amp;lt;strong&amp;gt;(B)&amp;lt;/strong&amp;gt; Type II confounding variable (S2) between phenotypes (Y&amp;amp;rsquo;s). &amp;lt;strong&amp;gt;(C)&amp;lt;/strong&amp;gt; Joint projection of mediator and phenotype variables makes interventions to remove mediating effect but leave confounding effects.&#34;&gt;
+  &lt;a data-fancybox=&#34;&#34; href=&#34;/img/project/mediation_confounder.png&#34; data-caption=&#34;Confounder correction in action. The figure describes essential steps of confounding factor correction in GWAS mediation analysis. &amp;lt;strong&amp;gt;(A)&amp;lt;/strong&amp;gt; Type I confounding variable (S1) between mediators (M&amp;amp;rsquo;s) &amp;lt;strong&amp;gt;(B)&amp;lt;/strong&amp;gt; Type II confounding variable (S2) between phenotypes (Y&amp;amp;rsquo;s). &amp;lt;strong&amp;gt;(C)&amp;lt;/strong&amp;gt; Joint projection of mediator and phenotype variables makes interventions to remove mediating effect but leave confounding effects.&#34;&gt;
 
 
-  &lt;img src=&#34;https://ypark.github.io/img/project/mediation_confounder.png&#34; alt=&#34;&#34;  &gt;
+  &lt;img src=&#34;/img/project/mediation_confounder.png&#34; alt=&#34;&#34;  &gt;
 &lt;/a&gt;
 
 

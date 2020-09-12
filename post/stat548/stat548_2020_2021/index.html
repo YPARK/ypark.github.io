@@ -27,11 +27,10 @@
   
     
   
-  <meta name="description" content="TL;DR. We develop scalable and memory-efficient tools for single-cell data analysis.
- There are already many tools. Ever since single-cell technology was introduced to the world, every year, every month, we see more tools.">
+  <meta name="description" content="Introduction I am interested in almost all problems in computational biology and genomics. I expect a student to propose novel statistical approaches that can address challenges in data analysis and modelling of high-dimensional, large-volume biological problems.">
 
   
-  <link rel="alternate" hreflang="en-ca" href="/project/lightweight_tools/single_cell_analysis/">
+  <link rel="alternate" hreflang="en-ca" href="/post/stat548/stat548_2020_2021/">
 
   
 
@@ -219,7 +218,7 @@
   <link rel="icon" type="image/png" href="/images/icon_hubeb08443f4a10673faef737165dc89be_255147_32x32_fill_lanczos_center_2.png">
   <link rel="apple-touch-icon" type="image/png" href="/images/icon_hubeb08443f4a10673faef737165dc89be_255147_192x192_fill_lanczos_center_2.png">
 
-  <link rel="canonical" href="/project/lightweight_tools/single_cell_analysis/">
+  <link rel="canonical" href="/post/stat548/stat548_2020_2021/">
 
   
   
@@ -238,16 +237,15 @@
   <meta property="twitter:creator" content="@ypp_lab">
   
   <meta property="og:site_name" content="Y Park Lab">
-  <meta property="og:url" content="/project/lightweight_tools/single_cell_analysis/">
-  <meta property="og:title" content="Lightweight tools for integrative single-cell data analysis | Y Park Lab">
-  <meta property="og:description" content="TL;DR. We develop scalable and memory-efficient tools for single-cell data analysis.
- There are already many tools. Ever since single-cell technology was introduced to the world, every year, every month, we see more tools."><meta property="og:image" content="/images/icon_hubeb08443f4a10673faef737165dc89be_255147_512x512_fill_lanczos_center_2.png">
+  <meta property="og:url" content="/post/stat548/stat548_2020_2021/">
+  <meta property="og:title" content="STAT 548 PhD Qualifying Papers | Y Park Lab">
+  <meta property="og:description" content="Introduction I am interested in almost all problems in computational biology and genomics. I expect a student to propose novel statistical approaches that can address challenges in data analysis and modelling of high-dimensional, large-volume biological problems."><meta property="og:image" content="/images/icon_hubeb08443f4a10673faef737165dc89be_255147_512x512_fill_lanczos_center_2.png">
   <meta property="twitter:image" content="/images/icon_hubeb08443f4a10673faef737165dc89be_255147_512x512_fill_lanczos_center_2.png"><meta property="og:locale" content="en-ca">
   
     
-      <meta property="article:published_time" content="2020-09-06T00:00:00&#43;00:00">
+      <meta property="article:published_time" content="2020-09-12T00:00:00&#43;00:00">
     
-    <meta property="article:modified_time" content="2020-09-06T00:00:00&#43;00:00">
+    <meta property="article:modified_time" content="2020-09-12T00:00:00&#43;00:00">
   
 
   
@@ -259,6 +257,8 @@
 
 
 
+
+  
 
 
 
@@ -266,15 +266,15 @@
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "Article",
+  "@type": "BlogPosting",
   "mainEntityOfPage": {
     "@type": "WebPage",
-    "@id": "/project/lightweight_tools/single_cell_analysis/"
+    "@id": "/post/stat548/stat548_2020_2021/"
   },
-  "headline": "Lightweight tools for integrative single-cell data analysis",
+  "headline": "STAT 548 PhD Qualifying Papers",
   
-  "datePublished": "2020-09-06T00:00:00Z",
-  "dateModified": "2020-09-06T00:00:00Z",
+  "datePublished": "2020-09-12T00:00:00Z",
+  "dateModified": "2020-09-12T00:00:00Z",
   
   "publisher": {
     "@type": "Organization",
@@ -284,7 +284,7 @@
       "url": "/images/icon_hubeb08443f4a10673faef737165dc89be_255147_192x192_fill_lanczos_center_2.png"
     }
   },
-  "description": "TL;DR. We develop scalable and memory-efficient tools for single-cell data analysis.\n There are already many tools. Ever since single-cell technology was introduced to the world, every year, every month, we see more tools."
+  "description": "Introduction I am interested in almost all problems in computational biology and genomics. I expect a student to propose novel statistical approaches that can address challenges in data analysis and modelling of high-dimensional, large-volume biological problems."
 }
 </script>
 
@@ -302,7 +302,7 @@
 
 
 
-  <title>Lightweight tools for integrative single-cell data analysis | Y Park Lab</title>
+  <title>STAT 548 PhD Qualifying Papers | Y Park Lab</title>
 
 </head>
 
@@ -505,7 +505,7 @@
 </nav>
 
 
-  <article class="article article-project">
+  <article class="article">
 
   
 
@@ -526,7 +526,7 @@
   
   
 <div class="article-container pt-3">
-  <h1>Lightweight tools for integrative single-cell data analysis</h1>
+  <h1>STAT 548 PhD Qualifying Papers</h1>
 
   
 
@@ -545,12 +545,17 @@
     
       
     
-    Sep 6, 2020
+    Sep 12, 2020
   </span>
   
 
   
 
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    4 min read
+  </span>
   
 
   
@@ -585,60 +590,56 @@
   <div class="article-container">
 
     <div class="article-style">
-      <p>TL;DR. We develop scalable and memory-efficient tools for single-cell data analysis.</p>
-<hr>
-<h3 id="there-are-already-many-tools">There are already many tools.</h3>
-<p>Ever since single-cell technology was introduced to the world, every year, every month, we see more tools. See 
-<a href="https://www.scrna-tools.org/" target="_blank" rel="noopener">scRNA-tools</a>, for example. Single-cell data analysis often involves many steps of data processing, quantification, and statistical inference. The technology is imperfect, and each step deserves careful consideration of different types of approaches. We, bioinformaticians, test a different combination of small tools and tailor a pipeline that works best for each project. Perhaps, there is no master algorithm, and the competitions among computational biologists are indeed fierce.</p>
-<p>The history of genomics repeats itself. For a large part of current single-cell data analysis, we probably see what had happened in RNA-seq, even gene expression microarray analysis. Once we knew how to normalize scRNA-seq data, we would like to know how to test differentially-expressed genes. Then, we would want to build more audacious models, such as gene regulatory networks.  Are there any points that we may contribute from a unique perspective? Can existing tools address all the challenges of single-cell data analysis, e.g., 
-<a href="https://genomebiology.biomedcentral.com/articles/10.1186/s13059-020-1926-6" target="_blank" rel="noopener">&ldquo;eleven grand challenges in single-cell data science&rdquo;</a>? I believe not. We know there has always been enough room for innovation and creativity.</p>
-<p>Okay, that sounds meek and quite passive. Why do we dare to jump into the battlefield?  We are not a software-engineering lab, but we can become impatient enough to feel the need for a better tool.  Moreover, we want to understand why and how a certain method works, and when that method doesn&rsquo;t work as expected.</p>
-<h3 id="the-underlying-data-matrix-is-sparse-really-sparse-but-most-methods-make-it-dense">The underlying data matrix is sparse, really sparse, but most methods make it dense.</h3>
-<p>Yes, the data matrix is sparse, but it will easily blow up memory if you fill in all the zeros.  Our first impression was that memory overhead was never an issue for most people. Lots of methods focus on replacing the zeros with some other fractional values. Not undermining the validity of imputation methods, we worried more about the scalability of the strategy.  Can such a strategy work for millions of cells with billions of non-zero elements?  Most methods are tested on a rather small data set, including thousands of cells. If a data matrix is sparse, why not we build a method, taking advantage of the sparsity? What if most zero values did not occur by missingness?  What if 
-<a href="https://www.nature.com/articles/s41587-019-0379-5" target="_blank" rel="noopener">droplet scRNA-seq is not zero-inflated</a>?</p>
-<p><strong>We develop a scalable approach to index millions of cells for fast random access.</strong>
-We like to work on a sparse data matrix formatted as 
-<a href="https://math.nist.gov/MatrixMarket/formats.html" target="_blank" rel="noopener">a list of triplets</a>, and compressed by <code>gzip</code> or <code>bgzip</code>. The rows correspond to features/genes; the columns correspond to UMI barcodes/cells. We assume the triplets <code>(row, column, value)</code> are sorted by the columns (cells) in ascending order. To mark the line where the columns change, we modify the indexing scheme of 
-<a href="http://www.htslib.org/doc/tabix.html" target="_blank" rel="noopener">TABIX</a> and create a separate <code>.index</code> file to store all the random access points.</p>
-<p><strong>We implement commonly-used matrix operations to manipulate data more swiftly.</strong> In some cases, it is worthwhile to re-implement low-level functions, since we may not need all the steps implemented in a general-purpose library.  We were just too impatient to wait a long I/O time until we finish reading a full 10x matrix (<code>.mtx.gz</code>) using either <code>scipy.io.mmread</code> in Python, or <code>Matrix::readMM</code> in R. As the size of the 10x matrix increase more and more, we also discovered there is a numerical limit for R&rsquo;s <code>Matrix::readMM</code> (less than two billions non-zero elements) and had to face a similar issue in a low-memory machine, such as a modest 8Gb laptop. So, we did the dirty job of <code>C++</code> implementation. Combined with the indexing scheme, now we can efficiently take a subset of a large matrix stored in a file, not worrying about memory capacity, minimizing the overhead of character parsing and I/O.</p>
-<h3 id="we-want-to-focus-on-integrative-data-analysis-across-multiple-data-types-and-modalities">We want to focus on integrative data analysis across multiple data types and modalities</h3>
-<p>With these tools, including the ones under development, we want to do science. We want others to do science using our tools. We will continuously update a bit more complicated routines for convenience, including cell type annotation, data aggregation, cell type deconvolution, batch-balancing k-nearest neighborhood, etc.</p>
+      
+<script src="/rmarkdown-libs/header-attrs/header-attrs.js"></script>
 
 
-
-
-
-  
-
-
-
-
-
-
-
-
-
-
-
-<figure id="figure-single-cell-data-can-provide-a-powerful-tool-to-dissect-existing-bulk-data-in-integrative-analysis-a-learn-novel-cell-types-recapitulate-known-cell-types-using-new-single-cell-data-and-infer-cellular-compositions-of-existing-data--b-transfer-the-knowledge-gained-from-single-cell-data-to-tissue-level-or-mixture-level-regulatory-genomics-models-a-schematic-diagram-for-our-deqtl-method-pi-cell-type-fraction-estimated-by-the-deconvolution-step-g-genotype-matrix-theta-cell-type-specific-multivariate-effect-size-lambda-cell-type-loading-eta-cell-type-specific-genetic-effect-aggregated-over-multiple-snps-c-systems-biology-analysis-by-projecting-cell-type-specific-deqtl-regions-we-partition-human-genome-into-cell-type-specific-components">
-
-
-  <a data-fancybox="" href="/img/project/mmutil_annotate.png" data-caption="Single-cell data can provide a powerful tool to dissect existing bulk data in integrative analysis. &lt;strong&gt;(A)&lt;/strong&gt; Learn novel cell types, recapitulate known cell types using new single-cell data, and infer cellular compositions of existing data.  &lt;strong&gt;(B)&lt;/strong&gt; Transfer the knowledge gained from single-cell data to tissue-level, or mixture-level regulatory-genomics models. A schematic diagram for our deQTL method. $\pi$: cell type fraction estimated by the deconvolution step. G: genotype matrix. $\theta$: cell-type-specific multivariate effect size. $\lambda$: cell-type loading. $\eta$: cell-type-specific genetic effect aggregated over multiple SNPs. &lt;strong&gt;(C)&lt;/strong&gt; Systems biology analysis. By projecting cell-type-specific deQTL regions, we partition human genome into cell-type-specific components.">
-
-
-  <img src="/img/project/mmutil_annotate.png" alt=""  >
-</a>
-
-
-  
-  
-  <figcaption>
-    Single-cell data can provide a powerful tool to dissect existing bulk data in integrative analysis. <strong>(A)</strong> Learn novel cell types, recapitulate known cell types using new single-cell data, and infer cellular compositions of existing data.  <strong>(B)</strong> Transfer the knowledge gained from single-cell data to tissue-level, or mixture-level regulatory-genomics models. A schematic diagram for our deQTL method. $\pi$: cell type fraction estimated by the deconvolution step. G: genotype matrix. $\theta$: cell-type-specific multivariate effect size. $\lambda$: cell-type loading. $\eta$: cell-type-specific genetic effect aggregated over multiple SNPs. <strong>(C)</strong> Systems biology analysis. By projecting cell-type-specific deQTL regions, we partition human genome into cell-type-specific components.
-  </figcaption>
-
-
-</figure>
-
+<div id="introduction" class="section level2">
+<h2>Introduction</h2>
+<p>I am interested in almost all problems in computational biology and genomics. I expect a student to propose novel statistical approaches that can address challenges in data analysis and modelling of high-dimensional, large-volume biological problems. In many cases, I can provide relevant data sets and help students find collaborators to facilitate publications in a biological venue. Feel free to contact me (<code>ypp@stat.ubc.ca</code>).</p>
+</div>
+<div id="an-expected-format-for-the-report" class="section level2">
+<h2>An expected format for the report</h2>
+<p>You may organize your report including the following sections.</p>
+<ul>
+<li><p><strong>Problem definition</strong> (1 page): Extract mathematical/statistical problems from the paper and organize them. What are the input data? What is the expected output?</p></li>
+<li><p><strong>Significance</strong> (1-2 paragraphs): Why is this an interesting problem? What can be learned by studying this problem? Why is it exciting for you? Author contribution: How did the author(s) find the solution? What was a novel contribution beyond traditional approaches?</p></li>
+<li><p><strong>Limitations/challenges</strong> (1-2 paragraphs): What are the assumptions? Are they realistic? What are the technical limitations that the authors acknowledge or not?</p></li>
+<li><p><strong>Novel idea/methods</strong> (2 pages): Propose your idea and statistical methods. You could interpret the underlying problem in a different formulation. What are related problems/frameworks, but not adopted by the authors?</p></li>
+<li><p><strong>Results</strong> (1-2 pages): Include one figure that sketches your approaches. Show tables and figures that clearly demonstrate your methods.</p></li>
+<li><p><strong>Discussion</strong> (1 page): Briefly discuss what you have learned and what you would achieve if you were to develop this to a full paper. How would you validate your findings in independent studies, including wet-lab experiments?</p></li>
+</ul>
+</div>
+<div id="available-papers" class="section level2">
+<h2>Available Papers</h2>
+<ol style="list-style-type: decimal">
+<li><p>Abadie and Imbens, <a href="https://doi.org/10.1111/j.1468-0262.2006.00655.x">Large sample properties of matching estimators for average treatment effects</a>, Econometrica (2005)</p>
+<ul>
+<li><p><strong>Category</strong>: causal inference, single-cell genomics</p></li>
+<li><p><strong>Idea</strong>: Extending the basic idea of this paper, implement a matching-based counterfactual inference method to adjust unknown covariates to estimate causal effects. Test your methods for (causally-) differential expression analysis on simulated/real-world single-cell RNA-seq data. You may also propose novel data normalization, confounder-correction methods that clearly hinge on the notion of causality.</p></li>
+</ul></li>
+<li><p>Hill, <a href="https://www.tandfonline.com/doi/abs/10.1198/jcgs.2010.08162">Bayesian Nonparametric Modeling for Causal Inference</a> (2012); Louizos <em>et al.</em> <a href="http://papers.nips.cc/paper/7223-causal-effect-inference-with-deep-latent-variable-models">Causal Effect Inference with Deep Latent-Variable Models</a> (2017)</p>
+<ul>
+<li><p><strong>Category</strong>: causal inference, Bayesian inference</p></li>
+<li><p><strong>Idea</strong>: Using counterfactual data modelling/sampling, we can train a model that captures latent representation of confounding factors. Can we combine the idea of a counterfactual model with stochastic variational inference that consumes stochastically-generated minibatch data to update parameters in each epoch? If so, what is optimal sampling strategy to feed in counterfactual data to the inference engine?</p></li>
+</ul></li>
+<li><p>Murray, Adams, and MacKay, <a href="http://proceedings.mlr.press/v9/murray10a.html">Elliptical slice sampling</a> (2010)</p>
+<ul>
+<li><p><strong>Category</strong>: Bayesian inference, cell type deconvolution</p></li>
+<li><p><strong>Idea</strong>: Multiple directions are possible. (1) Revisit optimization-based non-conjugate, non-analytical models such as this <a href="https://www.nature.com/articles/s41467-018-08023-x">cell type deconvolution model</a> and quantify the level of uncertainty using ESS. Test on simulated data, varying the number of putative cell types and the gap between rare and abundant cell types. (2) Another interesting direction can be an application to black-box stochastic variation inference. You may design and demonstrate a novel stochastic gradient estimation method that can better handle a high-dimensional parametric model than a basic approach.</p></li>
+</ul></li>
+<li><p>Zhu and Stephens, <a href="https://projecteuclid.org/euclid.aoas/1507168840">Bayesian large-scale multiple regression with summary statistics from genome-wide association studies</a> (2017)</p>
+<ul>
+<li><p><strong>Category</strong>: statistical genetics, summary statistics-based inference.</p></li>
+<li><p><strong>Idea</strong>: Multiple directions are possible. (1) A new model that allows multiple types of summary statistics matrix. (2) A new inference method that takes advantage of both partially-observed individual-level and summary statistics data. (3) Built on this framework, you may formulate <a href="https://www.nature.com/articles/ng.3404">stratified LD-score regression model</a> with (Bayesian) sparse prior. (4) Show correspondence with existing polygenic risk prediction methods.</p></li>
+</ul></li>
+<li><p>Ryder <em>et al.</em>, <a href="https://arxiv.org/abs/1802.03335">Black-box variational inference for stochastic differential equations</a></p>
+<ul>
+<li><p><strong>Category</strong>: single-cell genomics, dynamics, variational inference</p></li>
+<li><p><strong>Idea</strong>: Propose a likelihood-free inference method for the ordinary differential equation (ODE) model used in Bergen <em>et al.</em>, <a href="https://www.nature.com/articles/s41587-020-0591-3">Generalizing RNA velocity to transient cell states through dynamical modeling</a>. You are welcomed to extend the gene-by-gene ODE model to a finite (or infinite) mixture of ODE models. You may like to read <a href="http://papers.nips.cc/paper/2055-infinite-mixtures-of-gaussian-process-experts.pdf">Rasmussen and Ghahramani</a> for this. Alternatively, you can design spatiotemporal partial differential equations and estimate posterior distributions of the parameters by the black-box inference algorithm. We can then apply your method to spatial transcriptomic data, such as <a href="https://www.nature.com/articles/s41587-019-0392-8">Integrating microarray-based spatial transcriptomics and single-cell RNA-seq reveals tissue architecture in pancreatic ductal adenocarcinomas</a>.</p></li>
+</ul></li>
+</ol>
+</div>
 
     </div>
 
@@ -648,16 +649,6 @@ We like to work on a sparse data matrix formatted as
 
 
 
-
-<div class="article-tags">
-  
-  <a class="badge badge-light" href="/tag/integrative-analysis/">integrative analysis</a>
-  
-  <a class="badge badge-light" href="/tag/lightweight/">lightweight</a>
-  
-  <a class="badge badge-light" href="/tag/single-cell/">single-cell</a>
-  
-</div>
 
 
 
@@ -672,7 +663,7 @@ We like to work on a sparse data matrix formatted as
       
       
       <li>
-        <a href="https://twitter.com/intent/tweet?url=/project/lightweight_tools/single_cell_analysis/&amp;text=Lightweight%20tools%20for%20integrative%20single-cell%20data%20analysis" target="_blank" rel="noopener" class="share-btn-twitter">
+        <a href="https://twitter.com/intent/tweet?url=/post/stat548/stat548_2020_2021/&amp;text=STAT%20548%20PhD%20Qualifying%20Papers" target="_blank" rel="noopener" class="share-btn-twitter">
           <i class="fab fa-twitter"></i>
         </a>
       </li>
@@ -685,7 +676,7 @@ We like to work on a sparse data matrix formatted as
       
       
       <li>
-        <a href="https://www.facebook.com/sharer.php?u=/project/lightweight_tools/single_cell_analysis/&amp;t=Lightweight%20tools%20for%20integrative%20single-cell%20data%20analysis" target="_blank" rel="noopener" class="share-btn-facebook">
+        <a href="https://www.facebook.com/sharer.php?u=/post/stat548/stat548_2020_2021/&amp;t=STAT%20548%20PhD%20Qualifying%20Papers" target="_blank" rel="noopener" class="share-btn-facebook">
           <i class="fab fa-facebook"></i>
         </a>
       </li>
@@ -698,7 +689,7 @@ We like to work on a sparse data matrix formatted as
       
       
       <li>
-        <a href="mailto:?subject=Lightweight%20tools%20for%20integrative%20single-cell%20data%20analysis&amp;body=/project/lightweight_tools/single_cell_analysis/" target="_blank" rel="noopener" class="share-btn-email">
+        <a href="mailto:?subject=STAT%20548%20PhD%20Qualifying%20Papers&amp;body=/post/stat548/stat548_2020_2021/" target="_blank" rel="noopener" class="share-btn-email">
           <i class="fas fa-envelope"></i>
         </a>
       </li>
@@ -711,7 +702,7 @@ We like to work on a sparse data matrix formatted as
       
       
       <li>
-        <a href="https://www.linkedin.com/shareArticle?url=/project/lightweight_tools/single_cell_analysis/&amp;title=Lightweight%20tools%20for%20integrative%20single-cell%20data%20analysis" target="_blank" rel="noopener" class="share-btn-linkedin">
+        <a href="https://www.linkedin.com/shareArticle?url=/post/stat548/stat548_2020_2021/&amp;title=STAT%20548%20PhD%20Qualifying%20Papers" target="_blank" rel="noopener" class="share-btn-linkedin">
           <i class="fab fa-linkedin-in"></i>
         </a>
       </li>
@@ -724,7 +715,7 @@ We like to work on a sparse data matrix formatted as
       
       
       <li>
-        <a href="whatsapp://send?text=Lightweight%20tools%20for%20integrative%20single-cell%20data%20analysis%20/project/lightweight_tools/single_cell_analysis/" target="_blank" rel="noopener" class="share-btn-whatsapp">
+        <a href="whatsapp://send?text=STAT%20548%20PhD%20Qualifying%20Papers%20/post/stat548/stat548_2020_2021/" target="_blank" rel="noopener" class="share-btn-whatsapp">
           <i class="fab fa-whatsapp"></i>
         </a>
       </li>
@@ -737,7 +728,7 @@ We like to work on a sparse data matrix formatted as
       
       
       <li>
-        <a href="https://service.weibo.com/share/share.php?url=/project/lightweight_tools/single_cell_analysis/&amp;title=Lightweight%20tools%20for%20integrative%20single-cell%20data%20analysis" target="_blank" rel="noopener" class="share-btn-weibo">
+        <a href="https://service.weibo.com/share/share.php?url=/post/stat548/stat548_2020_2021/&amp;title=STAT%20548%20PhD%20Qualifying%20Papers" target="_blank" rel="noopener" class="share-btn-weibo">
           <i class="fab fa-weibo"></i>
         </a>
       </li>
@@ -806,22 +797,6 @@ We like to work on a sparse data matrix formatted as
 
 
 
-    <div class="project-related-pages content-widget-hr">
-      
-      
-
-      
-      
-      
-
-      
-      
-      
-
-      
-      
-      
-    </div>
   </div>
 </article>
 

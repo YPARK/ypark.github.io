@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Y Park Lab</title>
-    <link>https://ypark.github.io/</link>
-      <atom:link href="https://ypark.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <link>/</link>
+      <atom:link href="/index.xml" rel="self" type="application/rss+xml" />
     <description>Y Park Lab</description>
-    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-ca</language><copyright>Yongjin Park</copyright><lastBuildDate>Sun, 06 Sep 2020 00:00:00 +0000</lastBuildDate>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-ca</language><copyright>Yongjin Park</copyright><lastBuildDate>Thu, 28 Jun 2018 00:00:00 +0100</lastBuildDate>
     <image>
-      <url>https://ypark.github.io/images/icon_hubeb08443f4a10673faef737165dc89be_255147_512x512_fill_lanczos_center_2.png</url>
+      <url>/images/icon_hubeb08443f4a10673faef737165dc89be_255147_512x512_fill_lanczos_center_2.png</url>
       <title>Y Park Lab</title>
-      <link>https://ypark.github.io/</link>
+      <link>/</link>
     </image>
     
     <item>
       <title>Example Page 1</title>
-      <link>https://ypark.github.io/courses/example/example1/</link>
+      <link>/courses/example/example1/</link>
       <pubDate>Sun, 05 May 2019 00:00:00 +0100</pubDate>
-      <guid>https://ypark.github.io/courses/example/example1/</guid>
+      <guid>/courses/example/example1/</guid>
       <description>&lt;p&gt;In this tutorial, I&amp;rsquo;ll share my top 10 tips for getting started with Academic:&lt;/p&gt;
 &lt;h2 id=&#34;tip-1&#34;&gt;Tip 1&lt;/h2&gt;
 &lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis posuere tellus ac convallis placerat. Proin tincidunt magna sed ex sollicitudin condimentum. Sed ac faucibus dolor, scelerisque sollicitudin nisi. Cras purus urna, suscipit quis sapien eu, pulvinar tempor diam. Quisque risus orci, mollis id ante sit amet, gravida egestas nisl. Sed ac tempus magna. Proin in dui enim. Donec condimentum, sem id dapibus fringilla, tellus enim condimentum arcu, nec volutpat est felis vel metus. Vestibulum sit amet erat at nulla eleifend gravida.&lt;/p&gt;
@@ -35,9 +35,9 @@
     
     <item>
       <title>Example Page 2</title>
-      <link>https://ypark.github.io/courses/example/example2/</link>
+      <link>/courses/example/example2/</link>
       <pubDate>Sun, 05 May 2019 00:00:00 +0100</pubDate>
-      <guid>https://ypark.github.io/courses/example/example2/</guid>
+      <guid>/courses/example/example2/</guid>
       <description>&lt;p&gt;Here are some more tips for getting started with Academic:&lt;/p&gt;
 &lt;h2 id=&#34;tip-3&#34;&gt;Tip 3&lt;/h2&gt;
 &lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis posuere tellus ac convallis placerat. Proin tincidunt magna sed ex sollicitudin condimentum. Sed ac faucibus dolor, scelerisque sollicitudin nisi. Cras purus urna, suscipit quis sapien eu, pulvinar tempor diam. Quisque risus orci, mollis id ante sit amet, gravida egestas nisl. Sed ac tempus magna. Proin in dui enim. Donec condimentum, sem id dapibus fringilla, tellus enim condimentum arcu, nec volutpat est felis vel metus. Vestibulum sit amet erat at nulla eleifend gravida.&lt;/p&gt;
@@ -55,10 +55,68 @@
     </item>
     
     <item>
+      <title>STAT 548 PhD Qualifying Papers</title>
+      <link>/post/stat548/stat548_2020_2021/</link>
+      <pubDate>Sat, 12 Sep 2020 00:00:00 +0000</pubDate>
+      <guid>/post/stat548/stat548_2020_2021/</guid>
+      <description>
+&lt;script src=&#34;/rmarkdown-libs/header-attrs/header-attrs.js&#34;&gt;&lt;/script&gt;
+
+
+&lt;div id=&#34;introduction&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Introduction&lt;/h2&gt;
+&lt;p&gt;I am interested in almost all problems in computational biology and genomics. I expect a student to propose novel statistical approaches that can address challenges in data analysis and modelling of high-dimensional, large-volume biological problems. In many cases, I can provide relevant data sets and help students find collaborators to facilitate publications in a biological venue. Feel free to contact me (&lt;code&gt;ypp@stat.ubc.ca&lt;/code&gt;).&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;an-expected-format-for-the-report&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;An expected format for the report&lt;/h2&gt;
+&lt;p&gt;You may organize your report including the following sections.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;Problem definition&lt;/strong&gt; (1 page): Extract mathematical/statistical problems from the paper and organize them. What are the input data? What is the expected output?&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;Significance&lt;/strong&gt; (1-2 paragraphs): Why is this an interesting problem? What can be learned by studying this problem? Why is it exciting for you? Author contribution: How did the author(s) find the solution? What was a novel contribution beyond traditional approaches?&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;Limitations/challenges&lt;/strong&gt; (1-2 paragraphs): What are the assumptions? Are they realistic? What are the technical limitations that the authors acknowledge or not?&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;Novel idea/methods&lt;/strong&gt; (2 pages): Propose your idea and statistical methods. You could interpret the underlying problem in a different formulation. What are related problems/frameworks, but not adopted by the authors?&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;Results&lt;/strong&gt; (1-2 pages): Include one figure that sketches your approaches. Show tables and figures that clearly demonstrate your methods.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;Discussion&lt;/strong&gt; (1 page): Briefly discuss what you have learned and what you would achieve if you were to develop this to a full paper. How would you validate your findings in independent studies, including wet-lab experiments?&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;div id=&#34;available-papers&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Available Papers&lt;/h2&gt;
+&lt;ol style=&#34;list-style-type: decimal&#34;&gt;
+&lt;li&gt;&lt;p&gt;Abadie and Imbens, &lt;a href=&#34;https://doi.org/10.1111/j.1468-0262.2006.00655.x&#34;&gt;Large sample properties of matching estimators for average treatment effects&lt;/a&gt;, Econometrica (2005)&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;Category&lt;/strong&gt;: causal inference, single-cell genomics&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;Idea&lt;/strong&gt;: Extending the basic idea of this paper, implement a matching-based counterfactual inference method to adjust unknown covariates to estimate causal effects. Test your methods for (causally-) differential expression analysis on simulated/real-world single-cell RNA-seq data. You may also propose novel data normalization, confounder-correction methods that clearly hinge on the notion of causality.&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Hill, &lt;a href=&#34;https://www.tandfonline.com/doi/abs/10.1198/jcgs.2010.08162&#34;&gt;Bayesian Nonparametric Modeling for Causal Inference&lt;/a&gt; (2012); Louizos &lt;em&gt;et al.&lt;/em&gt; &lt;a href=&#34;http://papers.nips.cc/paper/7223-causal-effect-inference-with-deep-latent-variable-models&#34;&gt;Causal Effect Inference with Deep Latent-Variable Models&lt;/a&gt; (2017)&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;Category&lt;/strong&gt;: causal inference, Bayesian inference&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;Idea&lt;/strong&gt;: Using counterfactual data modelling/sampling, we can train a model that captures latent representation of confounding factors. Can we combine the idea of a counterfactual model with stochastic variational inference that consumes stochastically-generated minibatch data to update parameters in each epoch? If so, what is optimal sampling strategy to feed in counterfactual data to the inference engine?&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Murray, Adams, and MacKay, &lt;a href=&#34;http://proceedings.mlr.press/v9/murray10a.html&#34;&gt;Elliptical slice sampling&lt;/a&gt; (2010)&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;Category&lt;/strong&gt;: Bayesian inference, cell type deconvolution&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;Idea&lt;/strong&gt;: Multiple directions are possible. (1) Revisit optimization-based non-conjugate, non-analytical models such as this &lt;a href=&#34;https://www.nature.com/articles/s41467-018-08023-x&#34;&gt;cell type deconvolution model&lt;/a&gt; and quantify the level of uncertainty using ESS. Test on simulated data, varying the number of putative cell types and the gap between rare and abundant cell types. (2) Another interesting direction can be an application to black-box stochastic variation inference. You may design and demonstrate a novel stochastic gradient estimation method that can better handle a high-dimensional parametric model than a basic approach.&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Zhu and Stephens, &lt;a href=&#34;https://projecteuclid.org/euclid.aoas/1507168840&#34;&gt;Bayesian large-scale multiple regression with summary statistics from genome-wide association studies&lt;/a&gt; (2017)&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;Category&lt;/strong&gt;: statistical genetics, summary statistics-based inference.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;Idea&lt;/strong&gt;: Multiple directions are possible. (1) A new model that allows multiple types of summary statistics matrix. (2) A new inference method that takes advantage of both partially-observed individual-level and summary statistics data. (3) Built on this framework, you may formulate &lt;a href=&#34;https://www.nature.com/articles/ng.3404&#34;&gt;stratified LD-score regression model&lt;/a&gt; with (Bayesian) sparse prior. (4) Show correspondence with existing polygenic risk prediction methods.&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Ryder &lt;em&gt;et al.&lt;/em&gt;, &lt;a href=&#34;https://arxiv.org/abs/1802.03335&#34;&gt;Black-box variational inference for stochastic differential equations&lt;/a&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;Category&lt;/strong&gt;: single-cell genomics, dynamics, variational inference&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;Idea&lt;/strong&gt;: Propose a likelihood-free inference method for the ordinary differential equation (ODE) model used in Bergen &lt;em&gt;et al.&lt;/em&gt;, &lt;a href=&#34;https://www.nature.com/articles/s41587-020-0591-3&#34;&gt;Generalizing RNA velocity to transient cell states through dynamical modeling&lt;/a&gt;. You are welcomed to extend the gene-by-gene ODE model to a finite (or infinite) mixture of ODE models. You may like to read &lt;a href=&#34;http://papers.nips.cc/paper/2055-infinite-mixtures-of-gaussian-process-experts.pdf&#34;&gt;Rasmussen and Ghahramani&lt;/a&gt; for this. Alternatively, you can design spatiotemporal partial differential equations and estimate posterior distributions of the parameters by the black-box inference algorithm. We can then apply your method to spatial transcriptomic data, such as &lt;a href=&#34;https://www.nature.com/articles/s41587-019-0392-8&#34;&gt;Integrating microarray-based spatial transcriptomics and single-cell RNA-seq reveals tissue architecture in pancreatic ductal adenocarcinomas&lt;/a&gt;.&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/div&gt;
+</description>
+    </item>
+    
+    <item>
       <title>Lightweight tools for integrative single-cell data analysis</title>
-      <link>https://ypark.github.io/project/lightweight_tools/single_cell_analysis/</link>
+      <link>/project/lightweight_tools/single_cell_analysis/</link>
       <pubDate>Sun, 06 Sep 2020 00:00:00 +0000</pubDate>
-      <guid>https://ypark.github.io/project/lightweight_tools/single_cell_analysis/</guid>
+      <guid>/project/lightweight_tools/single_cell_analysis/</guid>
       <description>&lt;p&gt;TL;DR. We develop scalable and memory-efficient tools for single-cell data analysis.&lt;/p&gt;
 &lt;hr&gt;
 &lt;h3 id=&#34;there-are-already-many-tools&#34;&gt;There are already many tools.&lt;/h3&gt;
@@ -97,10 +155,10 @@ We like to work on a sparse data matrix formatted as
 &lt;figure id=&#34;figure-single-cell-data-can-provide-a-powerful-tool-to-dissect-existing-bulk-data-in-integrative-analysis-a-learn-novel-cell-types-recapitulate-known-cell-types-using-new-single-cell-data-and-infer-cellular-compositions-of-existing-data--b-transfer-the-knowledge-gained-from-single-cell-data-to-tissue-level-or-mixture-level-regulatory-genomics-models-a-schematic-diagram-for-our-deqtl-method-pi-cell-type-fraction-estimated-by-the-deconvolution-step-g-genotype-matrix-theta-cell-type-specific-multivariate-effect-size-lambda-cell-type-loading-eta-cell-type-specific-genetic-effect-aggregated-over-multiple-snps-c-systems-biology-analysis-by-projecting-cell-type-specific-deqtl-regions-we-partition-human-genome-into-cell-type-specific-components&#34;&gt;
 
 
-  &lt;a data-fancybox=&#34;&#34; href=&#34;https://ypark.github.io/img/project/mmutil_annotate.png&#34; data-caption=&#34;Single-cell data can provide a powerful tool to dissect existing bulk data in integrative analysis. &amp;lt;strong&amp;gt;(A)&amp;lt;/strong&amp;gt; Learn novel cell types, recapitulate known cell types using new single-cell data, and infer cellular compositions of existing data.  &amp;lt;strong&amp;gt;(B)&amp;lt;/strong&amp;gt; Transfer the knowledge gained from single-cell data to tissue-level, or mixture-level regulatory-genomics models. A schematic diagram for our deQTL method. $\pi$: cell type fraction estimated by the deconvolution step. G: genotype matrix. $\theta$: cell-type-specific multivariate effect size. $\lambda$: cell-type loading. $\eta$: cell-type-specific genetic effect aggregated over multiple SNPs. &amp;lt;strong&amp;gt;(C)&amp;lt;/strong&amp;gt; Systems biology analysis. By projecting cell-type-specific deQTL regions, we partition human genome into cell-type-specific components.&#34;&gt;
+  &lt;a data-fancybox=&#34;&#34; href=&#34;/img/project/mmutil_annotate.png&#34; data-caption=&#34;Single-cell data can provide a powerful tool to dissect existing bulk data in integrative analysis. &amp;lt;strong&amp;gt;(A)&amp;lt;/strong&amp;gt; Learn novel cell types, recapitulate known cell types using new single-cell data, and infer cellular compositions of existing data.  &amp;lt;strong&amp;gt;(B)&amp;lt;/strong&amp;gt; Transfer the knowledge gained from single-cell data to tissue-level, or mixture-level regulatory-genomics models. A schematic diagram for our deQTL method. $\pi$: cell type fraction estimated by the deconvolution step. G: genotype matrix. $\theta$: cell-type-specific multivariate effect size. $\lambda$: cell-type loading. $\eta$: cell-type-specific genetic effect aggregated over multiple SNPs. &amp;lt;strong&amp;gt;(C)&amp;lt;/strong&amp;gt; Systems biology analysis. By projecting cell-type-specific deQTL regions, we partition human genome into cell-type-specific components.&#34;&gt;
 
 
-  &lt;img src=&#34;https://ypark.github.io/img/project/mmutil_annotate.png&#34; alt=&#34;&#34;  &gt;
+  &lt;img src=&#34;/img/project/mmutil_annotate.png&#34; alt=&#34;&#34;  &gt;
 &lt;/a&gt;
 
 
@@ -118,9 +176,9 @@ We like to work on a sparse data matrix formatted as
     
     <item>
       <title>Causal Inference in Genomics</title>
-      <link>https://ypark.github.io/project/causal_inference/causal_inference/</link>
+      <link>/project/causal_inference/causal_inference/</link>
       <pubDate>Fri, 04 Sep 2020 00:00:00 +0000</pubDate>
-      <guid>https://ypark.github.io/project/causal_inference/causal_inference/</guid>
+      <guid>/project/causal_inference/causal_inference/</guid>
       <description>&lt;p&gt;TL;DR.  We reinvent traditional bioinformatics methods to ascertain the causality of discoveries made in high-dimensional omics data.&lt;/p&gt;
 &lt;hr&gt;
 &lt;p&gt;Massive data generation in genomics has transformed the methodology and practice of researches in medicine and human biology. A common practice of research is genomic and functional genomic profiling of hundreds of individuals. If desired data is not available, large consortium-level projects and collaborations can often meet the needs. In terms of both volume and dimensionality, the sizes of genomics data have exploded in the past decade, and it is not hard to predict that the speed of data accumulation will be further accelerated.&lt;/p&gt;
@@ -150,10 +208,10 @@ We like to work on a sparse data matrix formatted as
 &lt;figure id=&#34;figure-integrative-cancer-research-builds-on-two-principal-axes-of-genomics-data-a-population-level-studies-investigate-variation-across-large-cohorts-b-regulatory-genomics-researches-delve-into-multiple-layers-of-molecular-networks&#34;&gt;
 
 
-  &lt;a data-fancybox=&#34;&#34; href=&#34;https://ypark.github.io/img/project/cancer_genomics_research.png&#34; data-caption=&#34;Integrative cancer research builds on two principal axes of genomics data. &amp;lt;strong&amp;gt;(A)&amp;lt;/strong&amp;gt; Population-level studies investigate variation across large cohorts. &amp;lt;strong&amp;gt;(B)&amp;lt;/strong&amp;gt; Regulatory genomics researches delve into multiple layers of molecular networks.&#34;&gt;
+  &lt;a data-fancybox=&#34;&#34; href=&#34;/img/project/cancer_genomics_research.png&#34; data-caption=&#34;Integrative cancer research builds on two principal axes of genomics data. &amp;lt;strong&amp;gt;(A)&amp;lt;/strong&amp;gt; Population-level studies investigate variation across large cohorts. &amp;lt;strong&amp;gt;(B)&amp;lt;/strong&amp;gt; Regulatory genomics researches delve into multiple layers of molecular networks.&#34;&gt;
 
 
-  &lt;img src=&#34;https://ypark.github.io/img/project/cancer_genomics_research.png&#34; alt=&#34;&#34;  &gt;
+  &lt;img src=&#34;/img/project/cancer_genomics_research.png&#34; alt=&#34;&#34;  &gt;
 &lt;/a&gt;
 
 
@@ -200,10 +258,10 @@ We like to work on a sparse data matrix formatted as
 &lt;figure id=&#34;figure-confounder-correction-in-action-the-figure-describes-essential-steps-of-confounding-factor-correction-in-gwas-mediation-analysis-a-type-i-confounding-variable-s1-between-mediators-ms-b-type-ii-confounding-variable-s2-between-phenotypes-ys-c-joint-projection-of-mediator-and-phenotype-variables-makes-interventions-to-remove-mediating-effect-but-leave-confounding-effects&#34;&gt;
 
 
-  &lt;a data-fancybox=&#34;&#34; href=&#34;https://ypark.github.io/img/project/mediation_confounder.png&#34; data-caption=&#34;Confounder correction in action. The figure describes essential steps of confounding factor correction in GWAS mediation analysis. &amp;lt;strong&amp;gt;(A)&amp;lt;/strong&amp;gt; Type I confounding variable (S1) between mediators (M&amp;amp;rsquo;s) &amp;lt;strong&amp;gt;(B)&amp;lt;/strong&amp;gt; Type II confounding variable (S2) between phenotypes (Y&amp;amp;rsquo;s). &amp;lt;strong&amp;gt;(C)&amp;lt;/strong&amp;gt; Joint projection of mediator and phenotype variables makes interventions to remove mediating effect but leave confounding effects.&#34;&gt;
+  &lt;a data-fancybox=&#34;&#34; href=&#34;/img/project/mediation_confounder.png&#34; data-caption=&#34;Confounder correction in action. The figure describes essential steps of confounding factor correction in GWAS mediation analysis. &amp;lt;strong&amp;gt;(A)&amp;lt;/strong&amp;gt; Type I confounding variable (S1) between mediators (M&amp;amp;rsquo;s) &amp;lt;strong&amp;gt;(B)&amp;lt;/strong&amp;gt; Type II confounding variable (S2) between phenotypes (Y&amp;amp;rsquo;s). &amp;lt;strong&amp;gt;(C)&amp;lt;/strong&amp;gt; Joint projection of mediator and phenotype variables makes interventions to remove mediating effect but leave confounding effects.&#34;&gt;
 
 
-  &lt;img src=&#34;https://ypark.github.io/img/project/mediation_confounder.png&#34; alt=&#34;&#34;  &gt;
+  &lt;img src=&#34;/img/project/mediation_confounder.png&#34; alt=&#34;&#34;  &gt;
 &lt;/a&gt;
 
 
@@ -273,9 +331,9 @@ We like to work on a sparse data matrix formatted as
     
     <item>
       <title>Bayesian modelling of summary statistics data</title>
-      <link>https://ypark.github.io/project/summary_data_inference/summary_data_ml/</link>
+      <link>/project/summary_data_inference/summary_data_ml/</link>
       <pubDate>Thu, 03 Sep 2020 00:00:00 +0000</pubDate>
-      <guid>https://ypark.github.io/project/summary_data_inference/summary_data_ml/</guid>
+      <guid>/project/summary_data_inference/summary_data_ml/</guid>
       <description>&lt;p&gt;TL;DR. We develop Bayesian machine learning methods that excavate a latent structure or underlying joint models of summary statistics data.&lt;/p&gt;
 &lt;hr&gt;
 &lt;h3 id=&#34;what-are-summary-statistics-data&#34;&gt;What are summary statistics data?&lt;/h3&gt;
@@ -309,10 +367,10 @@ We like to work on a sparse data matrix formatted as
 &lt;figure id=&#34;figure-a-summary-based-learning-method-can-estimate-multivariate-parameters-as-accurate-as-a-traditional-bayesian-learning-method-for-a-sparse-regression-problem-auprc-area-under-precision-recall-curve-_column-panels_-simulations-varying-the-number-of-causal-snps-h2-the-proportion-of-phenotypic-variance-explained-by-causal-snps-bslmm-bayesian-sparse-linear-mixed-effect-model-yqtl-a-sparse-regression-model-with-spike-slab-prior-trained-by-stochastic-variational-inference-zqtl-a-summary-based-multivariate-regression-modelling&#34;&gt;
 
 
-  &lt;a data-fancybox=&#34;&#34; href=&#34;https://ypark.github.io/img/project/summary_regression.png&#34; data-caption=&#34;A summary-based learning method can estimate multivariate parameters as accurate as a traditional Bayesian learning method for a sparse regression problem. &amp;lt;code&amp;gt;AUPRC&amp;lt;/code&amp;gt;: Area Under Precision Recall Curve. &amp;lt;em&amp;gt;Column panels&amp;lt;/em&amp;gt;: simulations varying the number of causal SNPs. &amp;lt;code&amp;gt;h2&amp;lt;/code&amp;gt;: the proportion of phenotypic variance explained by causal SNPs. &amp;lt;code&amp;gt;BSLMM&amp;lt;/code&amp;gt;: Bayesian sparse linear mixed effect model; &amp;lt;code&amp;gt;yqtl&amp;lt;/code&amp;gt;: a sparse regression model with spike-slab prior, trained by stochastic variational inference; &amp;lt;code&amp;gt;zqtl&amp;lt;/code&amp;gt;: a summary-based multivariate regression modelling.&#34;&gt;
+  &lt;a data-fancybox=&#34;&#34; href=&#34;/img/project/summary_regression.png&#34; data-caption=&#34;A summary-based learning method can estimate multivariate parameters as accurate as a traditional Bayesian learning method for a sparse regression problem. &amp;lt;code&amp;gt;AUPRC&amp;lt;/code&amp;gt;: Area Under Precision Recall Curve. &amp;lt;em&amp;gt;Column panels&amp;lt;/em&amp;gt;: simulations varying the number of causal SNPs. &amp;lt;code&amp;gt;h2&amp;lt;/code&amp;gt;: the proportion of phenotypic variance explained by causal SNPs. &amp;lt;code&amp;gt;BSLMM&amp;lt;/code&amp;gt;: Bayesian sparse linear mixed effect model; &amp;lt;code&amp;gt;yqtl&amp;lt;/code&amp;gt;: a sparse regression model with spike-slab prior, trained by stochastic variational inference; &amp;lt;code&amp;gt;zqtl&amp;lt;/code&amp;gt;: a summary-based multivariate regression modelling.&#34;&gt;
 
 
-  &lt;img src=&#34;https://ypark.github.io/img/project/summary_regression.png&#34; alt=&#34;&#34;  &gt;
+  &lt;img src=&#34;/img/project/summary_regression.png&#34; alt=&#34;&#34;  &gt;
 &lt;/a&gt;
 
 
@@ -333,9 +391,9 @@ We like to work on a sparse data matrix formatted as
     
     <item>
       <title>An example preprint / working paper</title>
-      <link>https://ypark.github.io/publication/preprint/</link>
+      <link>/publication/preprint/</link>
       <pubDate>Sun, 07 Apr 2019 00:00:00 +0000</pubDate>
-      <guid>https://ypark.github.io/publication/preprint/</guid>
+      <guid>/publication/preprint/</guid>
       <description>&lt;div class=&#34;alert alert-note&#34;&gt;
   &lt;div&gt;
     Click the &lt;em&gt;Slides&lt;/em&gt; button above to demo Academic&amp;rsquo;s Markdown slides feature.
@@ -348,9 +406,9 @@ We like to work on a sparse data matrix formatted as
     
     <item>
       <title>Recipes for GWAS data conversion/extraction</title>
-      <link>https://ypark.github.io/post/gwas_data_trans/</link>
+      <link>/post/gwas_data_trans/</link>
       <pubDate>Wed, 05 Sep 2018 00:00:00 +0000</pubDate>
-      <guid>https://ypark.github.io/post/gwas_data_trans/</guid>
+      <guid>/post/gwas_data_trans/</guid>
       <description>&lt;!-- # image: --&gt;
 &lt;!-- #  caption: &#39;Image credit: [**John Moeses Bauan**](https://unsplash.com/photos/OGZtQF8iC0g)&#39; --&gt;
 &lt;!-- #  placement: 3 --&gt;
@@ -440,10 +498,28 @@ We like to work on a sparse data matrix formatted as
     </item>
     
     <item>
+      <title>Privacy Policy</title>
+      <link>/privacy/</link>
+      <pubDate>Thu, 28 Jun 2018 00:00:00 +0100</pubDate>
+      <guid>/privacy/</guid>
+      <description>&lt;p&gt;&amp;hellip;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Terms</title>
+      <link>/terms/</link>
+      <pubDate>Thu, 28 Jun 2018 00:00:00 +0100</pubDate>
+      <guid>/terms/</guid>
+      <description>&lt;p&gt;&amp;hellip;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
       <title>On the analysis methods used in the &#34;omnigenic&#34; paper</title>
-      <link>https://ypark.github.io/post/genetics/2018-06-21-omnigenic/</link>
+      <link>/post/genetics/2018-06-21-omnigenic/</link>
       <pubDate>Thu, 21 Jun 2018 00:00:00 +0000</pubDate>
-      <guid>https://ypark.github.io/post/genetics/2018-06-21-omnigenic/</guid>
+      <guid>/post/genetics/2018-06-21-omnigenic/</guid>
       <description>&lt;p&gt;A recent quanta magazine 
 &lt;a href=&#34;https://www.quantamagazine.org/omnigenic-model-suggests-that-all-genes-affect-every-complex-trait-20180620/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;article&lt;/a&gt; on the omnigenic hypothesis re-ignited my interest.  So I read 
 &lt;a href=&#34;https://www.cell.com/cell/abstract/S0092-8674%2817%2930629-3&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;the original omnigenic paper&lt;/a&gt; again.&lt;/p&gt;
@@ -497,9 +573,9 @@ We like to work on a sparse data matrix formatted as
     
     <item>
       <title>An example journal article</title>
-      <link>https://ypark.github.io/publication/journal-article/</link>
+      <link>/publication/journal-article/</link>
       <pubDate>Tue, 01 Sep 2015 00:00:00 +0000</pubDate>
-      <guid>https://ypark.github.io/publication/journal-article/</guid>
+      <guid>/publication/journal-article/</guid>
       <description>&lt;div class=&#34;alert alert-note&#34;&gt;
   &lt;div&gt;
     Click the &lt;em&gt;Cite&lt;/em&gt; button above to demo the feature to enable visitors to import publication metadata into their reference management software.
@@ -517,9 +593,9 @@ We like to work on a sparse data matrix formatted as
     
     <item>
       <title>An example conference paper</title>
-      <link>https://ypark.github.io/publication/conference-paper/</link>
+      <link>/publication/conference-paper/</link>
       <pubDate>Mon, 01 Jul 2013 00:00:00 +0000</pubDate>
-      <guid>https://ypark.github.io/publication/conference-paper/</guid>
+      <guid>/publication/conference-paper/</guid>
       <description>&lt;div class=&#34;alert alert-note&#34;&gt;
   &lt;div&gt;
     Click the &lt;em&gt;Cite&lt;/em&gt; button above to demo the feature to enable visitors to import publication metadata into their reference management software.
