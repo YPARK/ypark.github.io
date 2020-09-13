@@ -2,14 +2,14 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Categories | Y Park Lab</title>
-    <link>/categories/</link>
-      <atom:link href="/categories/index.xml" rel="self" type="application/rss+xml" />
+    <link>https://ypark.github.io/categories/</link>
+      <atom:link href="https://ypark.github.io/categories/index.xml" rel="self" type="application/rss+xml" />
     <description>Categories</description>
     <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-ca</language><copyright>Yongjin Park</copyright>
     <image>
-      <url>/images/icon_hubeb08443f4a10673faef737165dc89be_255147_512x512_fill_lanczos_center_2.png</url>
+      <url>https://ypark.github.io/images/icon_hubeb08443f4a10673faef737165dc89be_255147_512x512_fill_lanczos_center_2.png</url>
       <title>Categories</title>
-      <link>/categories/</link>
+      <link>https://ypark.github.io/categories/</link>
     </image>
     
   </channel>

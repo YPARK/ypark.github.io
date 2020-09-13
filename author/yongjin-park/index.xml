@@ -2,14 +2,14 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Yongjin Park | Y Park Lab</title>
-    <link>/author/yongjin-park/</link>
-      <atom:link href="/author/yongjin-park/index.xml" rel="self" type="application/rss+xml" />
+    <link>https://ypark.github.io/author/yongjin-park/</link>
+      <atom:link href="https://ypark.github.io/author/yongjin-park/index.xml" rel="self" type="application/rss+xml" />
     <description>Yongjin Park</description>
     <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-ca</language><copyright>Yongjin Park</copyright>
     <image>
-      <url>/author/yongjin-park/avatar_huf67ed7fa5710ab0f2c19c7f35dcfbb20_20804_270x270_fill_q90_lanczos_center.jpg</url>
+      <url>https://ypark.github.io/author/yongjin-park/avatar_huf67ed7fa5710ab0f2c19c7f35dcfbb20_20804_270x270_fill_q90_lanczos_center.jpg</url>
       <title>Yongjin Park</title>
-      <link>/author/yongjin-park/</link>
+      <link>https://ypark.github.io/author/yongjin-park/</link>
     </image>
     
   </channel>
