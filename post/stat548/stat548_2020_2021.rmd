@@ -21,7 +21,13 @@ You may organize your report including the following sections.
 
 - **Limitations/challenges** (1-2 paragraphs): What are the assumptions? Are they realistic? What are the technical limitations that the authors acknowledge or not?
 
-- **Novel idea/methods** (2 pages): Propose your idea and statistical methods. You could interpret the underlying problem in a different formulation. What are related problems/frameworks, but not adopted by the authors?
+- **Novel idea/methods** (2 pages): Propose your idea and statistical methods.
+
+	- You could design a new model and implement the inference algorithm as pseudo-code. Of course, your innovation can be totally original. But, in many cases, you can borrow and extend existing ideas and apply them to your own problem. 
+
+	- Your innovation can be theoretical. You could show that the existing method/algorithm indeed works with certain theoretical guarantees.
+
+	- You could also interpret the underlying problem from a different perspective. E.g., what are potentially-related problems/frameworks, but not adopted by the authors?
 
 - **Results** (1-2 pages): First, include one figure that sketches your idea/approaches. Then, show figures and tables that demonstrate your methods.
 
