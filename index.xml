@@ -5,7 +5,7 @@
     <link>https://ypark.github.io/</link>
       <atom:link href="https://ypark.github.io/index.xml" rel="self" type="application/rss+xml" />
     <description>Y Park Lab</description>
-    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-ca</language><copyright>Yongjin Park</copyright><lastBuildDate>Sat, 12 Sep 2020 00:00:00 +0000</lastBuildDate>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-ca</language><copyright>Yongjin Park</copyright><lastBuildDate>Mon, 14 Sep 2020 00:00:00 +0000</lastBuildDate>
     <image>
       <url>https://ypark.github.io/images/icon_hubeb08443f4a10673faef737165dc89be_255147_512x512_fill_lanczos_center_2.png</url>
       <title>Y Park Lab</title>
@@ -57,7 +57,7 @@
     <item>
       <title>STAT 548 PhD Qualifying Papers</title>
       <link>https://ypark.github.io/post/stat548/stat548_2020_2021/</link>
-      <pubDate>Sat, 12 Sep 2020 00:00:00 +0000</pubDate>
+      <pubDate>Mon, 14 Sep 2020 00:00:00 +0000</pubDate>
       <guid>https://ypark.github.io/post/stat548/stat548_2020_2021/</guid>
       <description>
 &lt;script src=&#34;https://ypark.github.io/rmarkdown-libs/header-attrs/header-attrs.js&#34;&gt;&lt;/script&gt;
@@ -72,10 +72,11 @@
 &lt;p&gt;You may organize your report including the following sections.&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;p&gt;&lt;strong&gt;Problem definition&lt;/strong&gt; (1 page): Extract mathematical/statistical problems from the paper and organize them. What are the input data? What is the expected output?&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;&lt;strong&gt;Significance&lt;/strong&gt; (1-2 paragraphs): Why is this an interesting problem? What can be learned by studying this problem? Why is it exciting for you? Author contribution: How did the author(s) find the solution? What was a novel contribution beyond traditional approaches?&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;Significance&lt;/strong&gt; (1-2 paragraphs): Why is this an interesting problem? What can be learned by studying this problem? Why is it exciting for you?&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;Author contribution&lt;/strong&gt; (1-2 paragraphs): How did the author(s) find the solution? What was a novel contribution beyond traditional approaches?&lt;/p&gt;&lt;/li&gt;
 &lt;li&gt;&lt;p&gt;&lt;strong&gt;Limitations/challenges&lt;/strong&gt; (1-2 paragraphs): What are the assumptions? Are they realistic? What are the technical limitations that the authors acknowledge or not?&lt;/p&gt;&lt;/li&gt;
 &lt;li&gt;&lt;p&gt;&lt;strong&gt;Novel idea/methods&lt;/strong&gt; (2 pages): Propose your idea and statistical methods. You could interpret the underlying problem in a different formulation. What are related problems/frameworks, but not adopted by the authors?&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;&lt;strong&gt;Results&lt;/strong&gt; (1-2 pages): Include one figure that sketches your approaches. Show tables and figures that clearly demonstrate your methods.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;Results&lt;/strong&gt; (1-2 pages): First, include one figure that sketches your idea/approaches. Then, show figures and tables that demonstrate your methods.&lt;/p&gt;&lt;/li&gt;
 &lt;li&gt;&lt;p&gt;&lt;strong&gt;Discussion&lt;/strong&gt; (1 page): Briefly discuss what you have learned and what you would achieve if you were to develop this to a full paper. How would you validate your findings in independent studies, including wet-lab experiments?&lt;/p&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/div&gt;

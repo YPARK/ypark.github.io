@@ -15,13 +15,15 @@ You may organize your report including the following sections.
 
 - **Problem definition** (1 page): Extract mathematical/statistical problems from the paper and organize them. What are the input data? What is the expected output?
 
-- **Significance** (1-2 paragraphs): Why is this an interesting problem? What can be learned by studying this problem? Why is it exciting for you? Author contribution: How did the author(s) find the solution? What was a novel contribution beyond traditional approaches?
+- **Significance** (1-2 paragraphs): Why is this an interesting problem? What can be learned by studying this problem? Why is it exciting for you? 
+
+- **Author contribution** (1-2 paragraphs): How did the author(s) find the solution? What was a novel contribution beyond traditional approaches?
 
 - **Limitations/challenges** (1-2 paragraphs): What are the assumptions? Are they realistic? What are the technical limitations that the authors acknowledge or not?
 
 - **Novel idea/methods** (2 pages): Propose your idea and statistical methods. You could interpret the underlying problem in a different formulation. What are related problems/frameworks, but not adopted by the authors?
 
-- **Results** (1-2 pages): Include one figure that sketches your approaches. Show tables and figures that clearly demonstrate your methods.
+- **Results** (1-2 pages): First, include one figure that sketches your idea/approaches. Then, show figures and tables that demonstrate your methods.
 
 - **Discussion** (1 page): Briefly discuss what you have learned and what you would achieve if you were to develop this to a full paper. How would you validate your findings in independent studies, including wet-lab experiments?
 
