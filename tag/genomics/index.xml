@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>genomics | Y Park Lab</title>
+    <title>genomics | Causal Path Lab</title>
     <link>https://ypark.github.io/tag/genomics/</link>
       <atom:link href="https://ypark.github.io/tag/genomics/index.xml" rel="self" type="application/rss+xml" />
     <description>genomics</description>
@@ -66,7 +66,7 @@
 &lt;h3 id=&#34;removing-unwanted-variability-by-control-data&#34;&gt;Removing unwanted variability by &amp;ldquo;control&amp;rdquo; data&lt;/h3&gt;
 &lt;p&gt;Many scientific discoveries are best represented as a set of contrastive statements, such as &amp;ldquo;A rather than B&amp;rdquo; (
 &lt;a href=&#34;https://en.wikipedia.org/wiki/Peter_Lipton&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Peter Lipton&lt;/a&gt;) because such a contrastive explanation clarifies our claim&amp;rsquo;s scope and basis. The validity of causal argument can be empirically justified by triangulation of contrastive arguments (Lipton 1991). Therefore, an essential aspect of our research should focus on finding a suitable set of null hypotheses (non-causal facts) to be contrasted against our theory of interest to uphold. What are non-causal effects that may obfuscate the activity of scientific research? Are they generated uniformly at random? In practice, it is hard to characterize non-causal effects without considering confounding variables, and confounders create unwanted non-zero correlations between cause and effect variables.&lt;/p&gt;
-&lt;p&gt;Confounder correction is a causal inference problem. So, we need to ask the question of identifiability, such as, &amp;ldquo;How do we know this variable is a confounder?&amp;rdquo; or &amp;ldquo;What is a legitimate criterion that distinguishes between causal and non-causal effects?&amp;quot;. We could start our journey by asking:&lt;/p&gt;
+&lt;p&gt;Confounder correction is a causal inference problem. So, we need to ask the question of identifiability, such as, &amp;ldquo;How do we know this variable is a confounder?&amp;rdquo; or &amp;ldquo;What is a legitimate criterion that distinguishes between causal and non-causal effects?&amp;rdquo;. We could start our journey by asking:&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;
 &lt;p&gt;Are there any control data on which we can safely claim that there is no causal effect whatsoever?&lt;/p&gt;
@@ -122,42 +122,42 @@
 &lt;table&gt;
 &lt;thead&gt;
 &lt;tr&gt;
-&lt;th align=&#34;right&#34;&gt;$i$&lt;/th&gt;
-&lt;th align=&#34;left&#34;&gt;X&lt;/th&gt;
-&lt;th align=&#34;left&#34;&gt;Y(0)&lt;/th&gt;
-&lt;th align=&#34;left&#34;&gt;Y(1)&lt;/th&gt;
+&lt;th style=&#34;text-align:right&#34;&gt;$i$&lt;/th&gt;
+&lt;th style=&#34;text-align:left&#34;&gt;X&lt;/th&gt;
+&lt;th style=&#34;text-align:left&#34;&gt;Y(0)&lt;/th&gt;
+&lt;th style=&#34;text-align:left&#34;&gt;Y(1)&lt;/th&gt;
 &lt;/tr&gt;
 &lt;/thead&gt;
 &lt;tbody&gt;
 &lt;tr&gt;
-&lt;td align=&#34;right&#34;&gt;1&lt;/td&gt;
-&lt;td align=&#34;left&#34;&gt;0&lt;/td&gt;
-&lt;td align=&#34;left&#34;&gt;$Y_1$&lt;/td&gt;
-&lt;td align=&#34;left&#34;&gt;?&lt;/td&gt;
+&lt;td style=&#34;text-align:right&#34;&gt;1&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;0&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;$Y_1$&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;?&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
-&lt;td align=&#34;right&#34;&gt;2&lt;/td&gt;
-&lt;td align=&#34;left&#34;&gt;1&lt;/td&gt;
-&lt;td align=&#34;left&#34;&gt;?&lt;/td&gt;
-&lt;td align=&#34;left&#34;&gt;$Y_2$&lt;/td&gt;
+&lt;td style=&#34;text-align:right&#34;&gt;2&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;1&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;?&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;$Y_2$&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
-&lt;td align=&#34;right&#34;&gt;3&lt;/td&gt;
-&lt;td align=&#34;left&#34;&gt;1&lt;/td&gt;
-&lt;td align=&#34;left&#34;&gt;?&lt;/td&gt;
-&lt;td align=&#34;left&#34;&gt;$Y_3$&lt;/td&gt;
+&lt;td style=&#34;text-align:right&#34;&gt;3&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;1&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;?&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;$Y_3$&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
-&lt;td align=&#34;right&#34;&gt;4&lt;/td&gt;
-&lt;td align=&#34;left&#34;&gt;0&lt;/td&gt;
-&lt;td align=&#34;left&#34;&gt;$Y_4$&lt;/td&gt;
-&lt;td align=&#34;left&#34;&gt;?&lt;/td&gt;
+&lt;td style=&#34;text-align:right&#34;&gt;4&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;0&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;$Y_4$&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;?&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
-&lt;td align=&#34;right&#34;&gt;&lt;/td&gt;
-&lt;td align=&#34;left&#34;&gt;&lt;/td&gt;
-&lt;td align=&#34;left&#34;&gt;$\vdots$&lt;/td&gt;
-&lt;td align=&#34;left&#34;&gt;&lt;/td&gt;
+&lt;td style=&#34;text-align:right&#34;&gt;&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;$\vdots$&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;&lt;/td&gt;
 &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;

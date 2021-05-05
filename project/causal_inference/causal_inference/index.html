@@ -237,9 +237,9 @@
   <meta property="twitter:site" content="@ypp_lab">
   <meta property="twitter:creator" content="@ypp_lab">
   
-  <meta property="og:site_name" content="Y Park Lab">
+  <meta property="og:site_name" content="Causal Path Lab">
   <meta property="og:url" content="https://ypark.github.io/project/causal_inference/causal_inference/">
-  <meta property="og:title" content="Causal Inference in Genomics | Y Park Lab">
+  <meta property="og:title" content="Causal Inference in Genomics | Causal Path Lab">
   <meta property="og:description" content="TL;DR. We reinvent traditional bioinformatics methods to ascertain the causality of discoveries made in high-dimensional omics data.
  Massive data generation in genomics has transformed the methodology and practice of researches in medicine and human biology."><meta property="og:image" content="https://ypark.github.io/images/icon_hubeb08443f4a10673faef737165dc89be_255147_512x512_fill_lanczos_center_2.png">
   <meta property="twitter:image" content="https://ypark.github.io/images/icon_hubeb08443f4a10673faef737165dc89be_255147_512x512_fill_lanczos_center_2.png"><meta property="og:locale" content="en-ca">
@@ -278,7 +278,7 @@
   
   "publisher": {
     "@type": "Organization",
-    "name": "Y Park Lab",
+    "name": "Causal Path Lab",
     "logo": {
       "@type": "ImageObject",
       "url": "https://ypark.github.io/images/icon_hubeb08443f4a10673faef737165dc89be_255147_192x192_fill_lanczos_center_2.png"
@@ -302,7 +302,7 @@
 
 
 
-  <title>Causal Inference in Genomics | Y Park Lab</title>
+  <title>Causal Inference in Genomics | Causal Path Lab</title>
 
 </head>
 
@@ -353,7 +353,7 @@
 
     
     <div class="d-none d-lg-inline-flex">
-      <a class="navbar-brand" href="/">Y Park Lab</a>
+      <a class="navbar-brand" href="/">Causal Path Lab</a>
     </div>
     
 
@@ -366,7 +366,7 @@
 
     
     <div class="navbar-brand-mobile-wrapper d-inline-flex d-lg-none">
-      <a class="navbar-brand" href="/">Y Park Lab</a>
+      <a class="navbar-brand" href="/">Causal Path Lab</a>
     </div>
     
 
@@ -634,7 +634,7 @@
 <h3 id="removing-unwanted-variability-by-control-data">Removing unwanted variability by &ldquo;control&rdquo; data</h3>
 <p>Many scientific discoveries are best represented as a set of contrastive statements, such as &ldquo;A rather than B&rdquo; (
 <a href="https://en.wikipedia.org/wiki/Peter_Lipton" target="_blank" rel="noopener">Peter Lipton</a>) because such a contrastive explanation clarifies our claim&rsquo;s scope and basis. The validity of causal argument can be empirically justified by triangulation of contrastive arguments (Lipton 1991). Therefore, an essential aspect of our research should focus on finding a suitable set of null hypotheses (non-causal facts) to be contrasted against our theory of interest to uphold. What are non-causal effects that may obfuscate the activity of scientific research? Are they generated uniformly at random? In practice, it is hard to characterize non-causal effects without considering confounding variables, and confounders create unwanted non-zero correlations between cause and effect variables.</p>
-<p>Confounder correction is a causal inference problem. So, we need to ask the question of identifiability, such as, &ldquo;How do we know this variable is a confounder?&rdquo; or &ldquo;What is a legitimate criterion that distinguishes between causal and non-causal effects?&quot;. We could start our journey by asking:</p>
+<p>Confounder correction is a causal inference problem. So, we need to ask the question of identifiability, such as, &ldquo;How do we know this variable is a confounder?&rdquo; or &ldquo;What is a legitimate criterion that distinguishes between causal and non-causal effects?&rdquo;. We could start our journey by asking:</p>
 <ul>
 <li>
 <p>Are there any control data on which we can safely claim that there is no causal effect whatsoever?</p>
@@ -690,42 +690,42 @@
 <table>
 <thead>
 <tr>
-<th align="right">$i$</th>
-<th align="left">X</th>
-<th align="left">Y(0)</th>
-<th align="left">Y(1)</th>
+<th style="text-align:right">$i$</th>
+<th style="text-align:left">X</th>
+<th style="text-align:left">Y(0)</th>
+<th style="text-align:left">Y(1)</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td align="right">1</td>
-<td align="left">0</td>
-<td align="left">$Y_1$</td>
-<td align="left">?</td>
+<td style="text-align:right">1</td>
+<td style="text-align:left">0</td>
+<td style="text-align:left">$Y_1$</td>
+<td style="text-align:left">?</td>
 </tr>
 <tr>
-<td align="right">2</td>
-<td align="left">1</td>
-<td align="left">?</td>
-<td align="left">$Y_2$</td>
+<td style="text-align:right">2</td>
+<td style="text-align:left">1</td>
+<td style="text-align:left">?</td>
+<td style="text-align:left">$Y_2$</td>
 </tr>
 <tr>
-<td align="right">3</td>
-<td align="left">1</td>
-<td align="left">?</td>
-<td align="left">$Y_3$</td>
+<td style="text-align:right">3</td>
+<td style="text-align:left">1</td>
+<td style="text-align:left">?</td>
+<td style="text-align:left">$Y_3$</td>
 </tr>
 <tr>
-<td align="right">4</td>
-<td align="left">0</td>
-<td align="left">$Y_4$</td>
-<td align="left">?</td>
+<td style="text-align:right">4</td>
+<td style="text-align:left">0</td>
+<td style="text-align:left">$Y_4$</td>
+<td style="text-align:left">?</td>
 </tr>
 <tr>
-<td align="right"></td>
-<td align="left"></td>
-<td align="left">$\vdots$</td>
-<td align="left"></td>
+<td style="text-align:right"></td>
+<td style="text-align:left"></td>
+<td style="text-align:left">$\vdots$</td>
+<td style="text-align:left"></td>
 </tr>
 </tbody>
 </table>
@@ -744,9 +744,9 @@
 
 <div class="article-tags">
   
-  <a class="badge badge-light" href="/tag/single-cell/">single-cell</a>
-  
   <a class="badge badge-light" href="/tag/causal-inference/">causal inference</a>
+  
+  <a class="badge badge-light" href="/tag/single-cell/">single-cell</a>
   
   <a class="badge badge-light" href="/tag/genomics/">genomics</a>
   
@@ -1024,7 +1024,7 @@
     
     
     
-    <script src="/js/academic.min.37431be2d92d7fb0160054761ab79602.js"></script>
+    <script src="/js/academic.min.4aaf2d64e50f8e54cf66dcc54147a22e.js"></script>
 
     
 

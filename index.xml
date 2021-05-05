@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Y Park Lab</title>
+    <title>Causal Path Lab</title>
     <link>https://ypark.github.io/</link>
       <atom:link href="https://ypark.github.io/index.xml" rel="self" type="application/rss+xml" />
-    <description>Y Park Lab</description>
-    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-ca</language><copyright>Yongjin Park</copyright><lastBuildDate>Mon, 14 Sep 2020 00:00:00 +0000</lastBuildDate>
+    <description>Causal Path Lab</description>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-ca</language><copyright>Yongjin Park</copyright><lastBuildDate>Sun, 06 Sep 2020 00:00:00 +0000</lastBuildDate>
     <image>
       <url>https://ypark.github.io/images/icon_hubeb08443f4a10673faef737165dc89be_255147_512x512_fill_lanczos_center_2.png</url>
-      <title>Y Park Lab</title>
+      <title>Causal Path Lab</title>
       <link>https://ypark.github.io/</link>
     </image>
     
@@ -51,70 +51,6 @@
 &lt;p&gt;Cras aliquam rhoncus ipsum, in hendrerit nunc mattis vitae. Duis vitae efficitur metus, ac tempus leo. Cras nec fringilla lacus. Quisque sit amet risus at ipsum pharetra commodo. Sed aliquam mauris at consequat eleifend. Praesent porta, augue sed viverra bibendum, neque ante euismod ante, in vehicula justo lorem ac eros. Suspendisse augue libero, venenatis eget tincidunt ut, malesuada at lorem. Donec vitae bibendum arcu. Aenean maximus nulla non pretium iaculis. Quisque imperdiet, nulla in pulvinar aliquet, velit quam ultrices quam, sit amet fringilla leo sem vel nunc. Mauris in lacinia lacus.&lt;/p&gt;
 &lt;p&gt;Suspendisse a tincidunt lacus. Curabitur at urna sagittis, dictum ante sit amet, euismod magna. Sed rutrum massa id tortor commodo, vitae elementum turpis tempus. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean purus turpis, venenatis a ullamcorper nec, tincidunt et massa. Integer posuere quam rutrum arcu vehicula imperdiet. Mauris ullamcorper quam vitae purus congue, quis euismod magna eleifend. Vestibulum semper vel augue eget tincidunt. Fusce eget justo sodales, dapibus odio eu, ultrices lorem. Duis condimentum lorem id eros commodo, in facilisis mauris scelerisque. Morbi sed auctor leo. Nullam volutpat a lacus quis pharetra. Nulla congue rutrum magna a ornare.&lt;/p&gt;
 &lt;p&gt;Aliquam in turpis accumsan, malesuada nibh ut, hendrerit justo. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Quisque sed erat nec justo posuere suscipit. Donec ut efficitur arcu, in malesuada neque. Nunc dignissim nisl massa, id vulputate nunc pretium nec. Quisque eget urna in risus suscipit ultricies. Pellentesque odio odio, tincidunt in eleifend sed, posuere a diam. Nam gravida nisl convallis semper elementum. Morbi vitae felis faucibus, vulputate orci placerat, aliquet nisi. Aliquam erat volutpat. Maecenas sagittis pulvinar purus, sed porta quam laoreet at.&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>STAT 548 PhD Qualifying Papers</title>
-      <link>https://ypark.github.io/post/stat548/stat548_2020_2021/</link>
-      <pubDate>Mon, 14 Sep 2020 00:00:00 +0000</pubDate>
-      <guid>https://ypark.github.io/post/stat548/stat548_2020_2021/</guid>
-      <description>
-&lt;script src=&#34;https://ypark.github.io/rmarkdown-libs/header-attrs/header-attrs.js&#34;&gt;&lt;/script&gt;
-
-
-&lt;div id=&#34;introduction&#34; class=&#34;section level2&#34;&gt;
-&lt;h2&gt;Introduction&lt;/h2&gt;
-&lt;p&gt;I am interested in almost all problems in computational biology and genomics. I expect a student to propose novel statistical approaches that can address challenges in data analysis and modelling of high-dimensional, large-volume biological problems. In many cases, I can provide relevant data sets and help students find collaborators to facilitate publications in a biological venue. Feel free to contact me (&lt;code&gt;ypp@stat.ubc.ca&lt;/code&gt;).&lt;/p&gt;
-&lt;/div&gt;
-&lt;div id=&#34;an-expected-format-of-the-report-a-rough-guide&#34; class=&#34;section level2&#34;&gt;
-&lt;h2&gt;An expected format of the report (a rough guide)&lt;/h2&gt;
-&lt;p&gt;You may organize your report including the following sections.&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;p&gt;&lt;strong&gt;Problem definition&lt;/strong&gt; (1 page): Extract mathematical/statistical problems from the paper and organize them. What are the input data? What is the expected output?&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;&lt;strong&gt;Significance&lt;/strong&gt; (1-2 paragraphs): Why is this an interesting problem? What can be learned by studying this problem? Why is it exciting for you?&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;&lt;strong&gt;Author contribution&lt;/strong&gt; (1-2 paragraphs): How did the author(s) find the solution? What was a novel contribution beyond traditional approaches?&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;&lt;strong&gt;Limitations/challenges&lt;/strong&gt; (1-2 paragraphs): What are the assumptions? Are they realistic? What are the technical limitations that the authors acknowledge or not?&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;&lt;strong&gt;Novel idea/methods&lt;/strong&gt; (2 pages): Propose your idea and statistical methods.&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;p&gt;You could design a new model and implement the inference algorithm as pseudo-code. Of course, your innovation can be totally original. But, in many cases, you can borrow and extend existing ideas and apply them to your own problem.&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;Your innovation can be theoretical. You could show that the existing method/algorithm indeed works with certain theoretical guarantees.&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;You could also interpret the underlying problem from a different perspective. E.g., what are potentially-related problems/frameworks, but not adopted by the authors?&lt;/p&gt;&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;&lt;strong&gt;Results&lt;/strong&gt; (1-2 pages): First, include one figure that sketches your idea/approaches. Then, show figures and tables that demonstrate your methods.&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;&lt;strong&gt;Discussion&lt;/strong&gt; (1 page): Briefly discuss what you have learned and what you would achieve if you were to develop this to a full paper. How would you validate your findings in independent studies, including wet-lab experiments?&lt;/p&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/div&gt;
-&lt;div id=&#34;available-papers&#34; class=&#34;section level2&#34;&gt;
-&lt;h2&gt;Available Papers&lt;/h2&gt;
-&lt;ol style=&#34;list-style-type: decimal&#34;&gt;
-&lt;li&gt;&lt;p&gt;Abadie and Imbens, &lt;a href=&#34;https://doi.org/10.1111/j.1468-0262.2006.00655.x&#34;&gt;Large sample properties of matching estimators for average treatment effects&lt;/a&gt;, Econometrica (2005)&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;p&gt;&lt;strong&gt;Category&lt;/strong&gt;: causal inference, single-cell genomics&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;&lt;strong&gt;Idea&lt;/strong&gt;: Extending the basic idea of this paper, implement a matching-based counterfactual inference method to adjust unknown covariates to estimate causal effects. Test your methods for (causally-) differential expression analysis on simulated/real-world single-cell RNA-seq data. You may also propose novel data normalization, confounder-correction methods that clearly hinge on the notion of causality.&lt;/p&gt;&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;Hill, &lt;a href=&#34;https://www.tandfonline.com/doi/abs/10.1198/jcgs.2010.08162&#34;&gt;Bayesian Nonparametric Modeling for Causal Inference&lt;/a&gt; (2012); Louizos &lt;em&gt;et al.&lt;/em&gt; &lt;a href=&#34;http://papers.nips.cc/paper/7223-causal-effect-inference-with-deep-latent-variable-models&#34;&gt;Causal Effect Inference with Deep Latent-Variable Models&lt;/a&gt; (2017)&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;p&gt;&lt;strong&gt;Category&lt;/strong&gt;: causal inference, Bayesian inference&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;&lt;strong&gt;Idea&lt;/strong&gt;: Using counterfactual data modelling/sampling, we can train a model that captures latent representation of confounding factors. Can we combine the idea of a counterfactual model with stochastic variational inference that consumes stochastically-generated minibatch data to update parameters in each epoch? If so, what is optimal sampling strategy to feed in counterfactual data to the inference engine?&lt;/p&gt;&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;Murray, Adams, and MacKay, &lt;a href=&#34;http://proceedings.mlr.press/v9/murray10a.html&#34;&gt;Elliptical slice sampling&lt;/a&gt; (2010)&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;p&gt;&lt;strong&gt;Category&lt;/strong&gt;: Bayesian inference, cell type deconvolution&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;&lt;strong&gt;Idea&lt;/strong&gt;: Multiple directions are possible. (1) Revisit optimization-based non-conjugate, non-analytical models such as this &lt;a href=&#34;https://www.nature.com/articles/s41467-018-08023-x&#34;&gt;cell type deconvolution model&lt;/a&gt; and quantify the level of uncertainty using ESS. Test on simulated data, varying the number of putative cell types and the gap between rare and abundant cell types. (2) Another interesting direction can be an application to black-box stochastic variation inference. You may design and demonstrate a novel stochastic gradient estimation method that can better handle a high-dimensional parametric model than a basic approach.&lt;/p&gt;&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;Zhu and Stephens, &lt;a href=&#34;https://projecteuclid.org/euclid.aoas/1507168840&#34;&gt;Bayesian large-scale multiple regression with summary statistics from genome-wide association studies&lt;/a&gt; (2017)&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;p&gt;&lt;strong&gt;Category&lt;/strong&gt;: statistical genetics, summary statistics-based inference.&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;&lt;strong&gt;Idea&lt;/strong&gt;: Multiple directions are possible. (1) A new model that allows multiple types of summary statistics matrix. (2) A new inference method that takes advantage of both partially-observed individual-level and summary statistics data. (3) Built on this framework, you may formulate &lt;a href=&#34;https://www.nature.com/articles/ng.3404&#34;&gt;stratified LD-score regression model&lt;/a&gt; with (Bayesian) sparse prior. (4) Show correspondence with existing polygenic risk prediction methods.&lt;/p&gt;&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;Ryder &lt;em&gt;et al.&lt;/em&gt;, &lt;a href=&#34;https://arxiv.org/abs/1802.03335&#34;&gt;Black-box variational inference for stochastic differential equations&lt;/a&gt;&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;p&gt;&lt;strong&gt;Category&lt;/strong&gt;: single-cell genomics, dynamics, variational inference&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;&lt;strong&gt;Idea&lt;/strong&gt;: Propose a likelihood-free inference method for the ordinary differential equation (ODE) model used in Bergen &lt;em&gt;et al.&lt;/em&gt;, &lt;a href=&#34;https://www.nature.com/articles/s41587-020-0591-3&#34;&gt;Generalizing RNA velocity to transient cell states through dynamical modeling&lt;/a&gt;. You are welcomed to extend the gene-by-gene ODE model to a finite (or infinite) mixture of ODE models. You may like to read &lt;a href=&#34;http://papers.nips.cc/paper/2055-infinite-mixtures-of-gaussian-process-experts.pdf&#34;&gt;Rasmussen and Ghahramani&lt;/a&gt; for this. Alternatively, you can design spatiotemporal partial differential equations and estimate posterior distributions of the parameters by the black-box inference algorithm. We can then apply your method to spatial transcriptomic data, such as &lt;a href=&#34;https://www.nature.com/articles/s41587-019-0392-8&#34;&gt;Integrating microarray-based spatial transcriptomics and single-cell RNA-seq reveals tissue architecture in pancreatic ductal adenocarcinomas&lt;/a&gt;.&lt;/p&gt;&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;/ol&gt;
-&lt;/div&gt;
 </description>
     </item>
     
@@ -234,7 +170,7 @@ We like to work on a sparse data matrix formatted as
 &lt;h3 id=&#34;removing-unwanted-variability-by-control-data&#34;&gt;Removing unwanted variability by &amp;ldquo;control&amp;rdquo; data&lt;/h3&gt;
 &lt;p&gt;Many scientific discoveries are best represented as a set of contrastive statements, such as &amp;ldquo;A rather than B&amp;rdquo; (
 &lt;a href=&#34;https://en.wikipedia.org/wiki/Peter_Lipton&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Peter Lipton&lt;/a&gt;) because such a contrastive explanation clarifies our claim&amp;rsquo;s scope and basis. The validity of causal argument can be empirically justified by triangulation of contrastive arguments (Lipton 1991). Therefore, an essential aspect of our research should focus on finding a suitable set of null hypotheses (non-causal facts) to be contrasted against our theory of interest to uphold. What are non-causal effects that may obfuscate the activity of scientific research? Are they generated uniformly at random? In practice, it is hard to characterize non-causal effects without considering confounding variables, and confounders create unwanted non-zero correlations between cause and effect variables.&lt;/p&gt;
-&lt;p&gt;Confounder correction is a causal inference problem. So, we need to ask the question of identifiability, such as, &amp;ldquo;How do we know this variable is a confounder?&amp;rdquo; or &amp;ldquo;What is a legitimate criterion that distinguishes between causal and non-causal effects?&amp;quot;. We could start our journey by asking:&lt;/p&gt;
+&lt;p&gt;Confounder correction is a causal inference problem. So, we need to ask the question of identifiability, such as, &amp;ldquo;How do we know this variable is a confounder?&amp;rdquo; or &amp;ldquo;What is a legitimate criterion that distinguishes between causal and non-causal effects?&amp;rdquo;. We could start our journey by asking:&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;
 &lt;p&gt;Are there any control data on which we can safely claim that there is no causal effect whatsoever?&lt;/p&gt;
@@ -290,42 +226,42 @@ We like to work on a sparse data matrix formatted as
 &lt;table&gt;
 &lt;thead&gt;
 &lt;tr&gt;
-&lt;th align=&#34;right&#34;&gt;$i$&lt;/th&gt;
-&lt;th align=&#34;left&#34;&gt;X&lt;/th&gt;
-&lt;th align=&#34;left&#34;&gt;Y(0)&lt;/th&gt;
-&lt;th align=&#34;left&#34;&gt;Y(1)&lt;/th&gt;
+&lt;th style=&#34;text-align:right&#34;&gt;$i$&lt;/th&gt;
+&lt;th style=&#34;text-align:left&#34;&gt;X&lt;/th&gt;
+&lt;th style=&#34;text-align:left&#34;&gt;Y(0)&lt;/th&gt;
+&lt;th style=&#34;text-align:left&#34;&gt;Y(1)&lt;/th&gt;
 &lt;/tr&gt;
 &lt;/thead&gt;
 &lt;tbody&gt;
 &lt;tr&gt;
-&lt;td align=&#34;right&#34;&gt;1&lt;/td&gt;
-&lt;td align=&#34;left&#34;&gt;0&lt;/td&gt;
-&lt;td align=&#34;left&#34;&gt;$Y_1$&lt;/td&gt;
-&lt;td align=&#34;left&#34;&gt;?&lt;/td&gt;
+&lt;td style=&#34;text-align:right&#34;&gt;1&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;0&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;$Y_1$&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;?&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
-&lt;td align=&#34;right&#34;&gt;2&lt;/td&gt;
-&lt;td align=&#34;left&#34;&gt;1&lt;/td&gt;
-&lt;td align=&#34;left&#34;&gt;?&lt;/td&gt;
-&lt;td align=&#34;left&#34;&gt;$Y_2$&lt;/td&gt;
+&lt;td style=&#34;text-align:right&#34;&gt;2&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;1&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;?&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;$Y_2$&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
-&lt;td align=&#34;right&#34;&gt;3&lt;/td&gt;
-&lt;td align=&#34;left&#34;&gt;1&lt;/td&gt;
-&lt;td align=&#34;left&#34;&gt;?&lt;/td&gt;
-&lt;td align=&#34;left&#34;&gt;$Y_3$&lt;/td&gt;
+&lt;td style=&#34;text-align:right&#34;&gt;3&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;1&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;?&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;$Y_3$&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
-&lt;td align=&#34;right&#34;&gt;4&lt;/td&gt;
-&lt;td align=&#34;left&#34;&gt;0&lt;/td&gt;
-&lt;td align=&#34;left&#34;&gt;$Y_4$&lt;/td&gt;
-&lt;td align=&#34;left&#34;&gt;?&lt;/td&gt;
+&lt;td style=&#34;text-align:right&#34;&gt;4&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;0&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;$Y_4$&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;?&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
-&lt;td align=&#34;right&#34;&gt;&lt;/td&gt;
-&lt;td align=&#34;left&#34;&gt;&lt;/td&gt;
-&lt;td align=&#34;left&#34;&gt;$\vdots$&lt;/td&gt;
-&lt;td align=&#34;left&#34;&gt;&lt;/td&gt;
+&lt;td style=&#34;text-align:right&#34;&gt;&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;$\vdots$&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;&lt;/td&gt;
 &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
