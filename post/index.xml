@@ -5,7 +5,7 @@
     <link>https://ypark.github.io/post/</link>
       <atom:link href="https://ypark.github.io/post/index.xml" rel="self" type="application/rss+xml" />
     <description>Posts</description>
-    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-ca</language><copyright>Yongjin Park</copyright><lastBuildDate>Mon, 18 Oct 2021 00:00:00 +0000</lastBuildDate>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-ca</language><copyright>Yongjin Park</copyright><lastBuildDate>Tue, 11 Jan 2022 00:00:00 +0000</lastBuildDate>
     <image>
       <url>https://ypark.github.io/images/icon_hu9e65041e7038cfeb655cd5b2189fa456_18716_512x512_fill_lanczos_center_3.png</url>
       <title>Posts</title>
@@ -15,7 +15,7 @@
     <item>
       <title>STAT 548 PhD Qualifying Papers</title>
       <link>https://ypark.github.io/post/stat548/stat548_2020_2021/</link>
-      <pubDate>Mon, 18 Oct 2021 00:00:00 +0000</pubDate>
+      <pubDate>Tue, 11 Jan 2022 00:00:00 +0000</pubDate>
       <guid>https://ypark.github.io/post/stat548/stat548_2020_2021/</guid>
       <description>
 &lt;script src=&#34;https://ypark.github.io/rmarkdown-libs/header-attrs/header-attrs.js&#34;&gt;&lt;/script&gt;
@@ -66,6 +66,58 @@
 &lt;li&gt;&lt;p&gt;&lt;strong&gt;Idea&lt;/strong&gt;: Propose a likelihood-free inference method for the ordinary differential equation (ODE) model used in Bergen &lt;em&gt;et al.&lt;/em&gt;, &lt;a href=&#34;https://www.nature.com/articles/s41587-020-0591-3&#34;&gt;Generalizing RNA velocity to transient cell states through dynamical modeling&lt;/a&gt;. You are welcomed to extend the gene-by-gene ODE model to a finite (or infinite) mixture of ODE models. You may like to read &lt;a href=&#34;http://papers.nips.cc/paper/2055-infinite-mixtures-of-gaussian-process-experts.pdf&#34;&gt;Rasmussen and Ghahramani&lt;/a&gt; for this. Alternatively, you can design spatiotemporal partial differential equations and estimate posterior distributions of the parameters by the black-box inference algorithm. We can then apply your method to spatial transcriptomic data, such as &lt;a href=&#34;https://www.nature.com/articles/s41587-019-0392-8&#34;&gt;Integrating microarray-based spatial transcriptomics and single-cell RNA-seq reveals tissue architecture in pancreatic ductal adenocarcinomas&lt;/a&gt;.&lt;/p&gt;&lt;/li&gt;
 &lt;/ul&gt;&lt;/li&gt;
 &lt;/ol&gt;
+&lt;/div&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Knockoff Filter controls FDR in a high-dimensional variable selection problem</title>
+      <link>https://ypark.github.io/post/stat_methods/bayesian_knockoff/</link>
+      <pubDate>Tue, 26 Oct 2021 00:00:00 +0000</pubDate>
+      <guid>https://ypark.github.io/post/stat_methods/bayesian_knockoff/</guid>
+      <description>
+&lt;script src=&#34;https://ypark.github.io/rmarkdown-libs/header-attrs/header-attrs.js&#34;&gt;&lt;/script&gt;
+
+
+&lt;p&gt;Knockoff filter method has been a huge burden to me for a long time
+because I can feel that it is such an important method, but I have not
+found time to read through the papers to understand the basic idea
+behind the methods.&lt;/p&gt;
+&lt;div id=&#34;problem-definition&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Problem definition&lt;/h3&gt;
+&lt;p&gt;Here is a multivariate regression problem:&lt;/p&gt;
+&lt;p&gt;&lt;span class=&#34;math display&#34;&gt;\[\mathbf{y} = X \boldsymbol{\beta} + \boldsymbol{\epsilon}\]&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;where &lt;span class=&#34;math inline&#34;&gt;\(\mathbf{y}\)&lt;/span&gt;: a response &lt;span class=&#34;math inline&#34;&gt;\(n\)&lt;/span&gt;-vector; &lt;span class=&#34;math inline&#34;&gt;\(X\)&lt;/span&gt;: a high-dimensional
+design matrix &lt;span class=&#34;math inline&#34;&gt;\(n \times p\)&lt;/span&gt;; &lt;span class=&#34;math inline&#34;&gt;\(\boldsymbol{\epsilon}\)&lt;/span&gt;: irreducible
+errors &lt;span class=&#34;math inline&#34;&gt;\(n\)&lt;/span&gt;-vector.&lt;/p&gt;
+&lt;p&gt;The goal of variable section:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;“Mathematically speaking, we are looking for the Markov blanket &lt;span class=&#34;math inline&#34;&gt;\(S\)&lt;/span&gt;,
+i.e. the ‘smallest’ subset S such that, conditionally on &lt;span class=&#34;math inline&#34;&gt;\(\{ X_j \}_{j∈S}\)&lt;/span&gt;,
+&lt;span class=&#34;math inline&#34;&gt;\(Y\)&lt;/span&gt; is independent of all other variables.”&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;In a generalized linear model, finding independent covariate is
+equivalent to characterizing zero coefficients. In other words,
+&lt;span class=&#34;math inline&#34;&gt;\(Y \perp\!\!\!\perp X_{j} | X_{-j}\)&lt;/span&gt; &lt;span class=&#34;math inline&#34;&gt;\(\iff\)&lt;/span&gt; &lt;span class=&#34;math inline&#34;&gt;\(\beta_{j}=0\)&lt;/span&gt;.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;how-do-we-distinguish-the-true-dependent-variables-from-spuriously-correlated-variables&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;How do we distinguish the true dependent variables from spuriously-correlated variables?&lt;/h3&gt;
+&lt;p&gt;&lt;em&gt;Definition&lt;/em&gt; Model-X knockoffs &lt;span class=&#34;math inline&#34;&gt;\(\tilde{X}\)&lt;/span&gt; (Candes, Fan, Janson, Lv, 2018)&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;&lt;span class=&#34;math inline&#34;&gt;\((X, \tilde{X})_{\textsf{swap}(S)} \overset{d}{=} (X, \tilde{X})\)&lt;/span&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;span class=&#34;math inline&#34;&gt;\(\tilde{X} \perp\!\!\!\perp Y | X\)&lt;/span&gt; (guaranteed if &lt;span class=&#34;math inline&#34;&gt;\(\tilde{X}\)&lt;/span&gt; is constructed without looking at &lt;span class=&#34;math inline&#34;&gt;\(Y\)&lt;/span&gt;).&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;div id=&#34;how-do-we-generate-tildex-using-x&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;How do we generate &lt;span class=&#34;math inline&#34;&gt;\(\tilde{X}\)&lt;/span&gt; using &lt;span class=&#34;math inline&#34;&gt;\(X\)&lt;/span&gt;?&lt;/h3&gt;
+&lt;p&gt;&lt;span class=&#34;math display&#34;&gt;\[X = U D V^{\top}\]&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;&lt;span class=&#34;math display&#34;&gt;\[X^{\top}X = \tilde{X}^{\top}\tilde{X}\]&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;&lt;span class=&#34;math display&#34;&gt;\[\tilde{X} = \tilde{U} D V^{\top}\]&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;&lt;span class=&#34;math display&#34;&gt;\[\tilde{U}^{\top} \tilde{U} = I\]&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;&lt;span class=&#34;math display&#34;&gt;\[\tilde{U}^{\top} U = \mathbf{0}\]&lt;/span&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Barber and Candes’ &lt;a href=&#34;https://projecteuclid.org/journals/annals-of-statistics/volume-43/issue-5/Controlling-the-false-discovery-rate-via-knockoffs/10.1214/15-AOS1337.full&#34;&gt;Controlling the false discovery rate via knockoffs&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
 &lt;/div&gt;
 </description>
     </item>
