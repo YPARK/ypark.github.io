@@ -1,0 +1,58 @@
+---
+title: STAT 548 PhD Qualifying Papers
+author: ypp
+date: "`r Sys.Date()`"
+---
+
+## Introduction
+
+I am interested in almost all problems in computational biology and genomics. I expect a student to propose novel statistical approaches that can address challenges in data analysis and modelling of high-dimensional, large-volume biological problems. In many cases, I can provide relevant data sets and help students find collaborators to facilitate publications in a biological venue. Feel free to contact me (`ypp@stat.ubc.ca`).
+
+## An expected format for the report
+
+You may organize your report including the following sections.
+
+- **Problem definition** (1 page): Extract mathematical/statistical problems from the paper and organize them. What are the input data? What is the expected output?
+
+- **Significance** (1-2 paragraphs): Why is this an interesting problem? What can be learned by studying this problem? Why is it exciting for you? Author contribution: How did the author(s) find the solution? What was a novel contribution beyond traditional approaches?
+
+- **Limitations/challenges** (1-2 paragraphs): What are the assumptions? Are they realistic? What are the technical limitations that the authors acknowledge or not?
+
+- **Novel idea/methods** (2 pages): Propose your idea and statistical methods. You could interpret the underlying problem in a different formulation. What are related problems/frameworks, but not adopted by the authors?
+
+- **Results** (1-2 pages): Include one figure that sketches your approaches. Show tables and figures that clearly demonstrate your methods.
+
+- **Discussion** (1 page): Briefly discuss what you have learned and what you would achieve if you were to develop this to a full paper. How would you validate your findings in independent studies, including wet-lab experiments?
+
+
+## Available Papers
+
+1. Romano, Sesia, and Candes, [Deep Knockoffs](https://www.tandfonline.com/doi/full/10.1080/01621459.2019.1660174)
+
+	* **Category**: variable selection, causal inference
+
+	* **Idea**: Implement the method using `torch` (`R` or `Python`) and test on synthetic data. Test a variety of scoring functions and benchmark for genetics applications. Real-world genetics data will be made available upon request.
+
+1. Gu, Blaauw, and Welch, [Variational Mixtures of ODEs for Inferring Cellular Gene Expression Dynamics](https://arxiv.org/abs/2207.04166)
+
+   * **Category**: single-cell genomics, dynamics, variational inference
+
+   * **Idea**: The goal is to understand the method and implementation in detail in a broad context of likelihood-free inference methods. One can compare this paper with relevant methods based on variational inference, such as Ryder _et al._, [Black-box variational inference for stochastic differential equations](https://arxiv.org/abs/1802.03335). Several review papers are available like [this](https://link.springer.com/article/10.1007/s11222-022-10092-4). 
+
+1. Parikh, Varjao, Xu, and Tchetgen, [Validating Causal Inference Methods](https://arxiv.org/abs/2202.04208)
+
+	* **Category**: causal inference
+
+	* **Idea**: Implement the method using `torch` (`R` or `Python`) and test on synthetic data (e.g., toy examples in the appendix). You can measure the error distributions of existing causal inference methods (e.g., BART) on real-world data.
+
+1. Hill, [Bayesian Nonparametric Modeling for Causal Inference](https://www.tandfonline.com/doi/abs/10.1198/jcgs.2010.08162) (2012); Louizos _et al._ [Causal Effect Inference with Deep Latent-Variable Models](http://papers.nips.cc/paper/7223-causal-effect-inference-with-deep-latent-variable-models) (2017)
+
+	* **Category**: causal inference, Bayesian inference
+
+	* **Idea**: Using counterfactual data modelling/sampling, we can train a model that captures latent representation of confounding factors. Can we combine the idea of a counterfactual model with stochastic variational inference that consumes stochastically-generated minibatch data to update parameters in each epoch? If so, what is optimal sampling strategy to feed in counterfactual data to the inference engine?
+
+4. Zhu and Stephens, [Bayesian large-scale multiple regression with summary statistics from genome-wide association studies](https://projecteuclid.org/euclid.aoas/1507168840) (2017); Wang, Sarkar, Carbonetto, and Stephens, [SuSiE](https://stephenslab.github.io/susie-paper/)
+
+   * **Category**: statistical genetics, summary statistics-based inference. 
+
+   * **Idea**: Multiple directions are possible. Extend the idea to summary statistics matrix with more than two columns. Show correspondence with existing polygenic risk prediction methods.
