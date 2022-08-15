@@ -1,5 +1,5 @@
 ---
-title: STAT 548 PhD Qualifying Papers
+title: STAT 548 PhD Qualifying Papers (2020-2021)
 author: ypp
 date: "`r Sys.Date()`"
 ---
