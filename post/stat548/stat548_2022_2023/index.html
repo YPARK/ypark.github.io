@@ -215,8 +215,8 @@
   
 
   <link rel="manifest" href="/index.webmanifest">
-  <link rel="icon" type="image/png" href="/images/icon_hu9e65041e7038cfeb655cd5b2189fa456_18716_32x32_fill_lanczos_center_3.png">
-  <link rel="apple-touch-icon" type="image/png" href="/images/icon_hu9e65041e7038cfeb655cd5b2189fa456_18716_192x192_fill_lanczos_center_3.png">
+  <link rel="icon" type="image/png" href="/images/icon_hu9e65041e7038cfeb655cd5b2189fa456_18716_32x32_fill_lanczos_center_2.png">
+  <link rel="apple-touch-icon" type="image/png" href="/images/icon_hu9e65041e7038cfeb655cd5b2189fa456_18716_192x192_fill_lanczos_center_2.png">
 
   <link rel="canonical" href="https://ypark.github.io/post/stat548/stat548_2022_2023/">
 
@@ -239,13 +239,13 @@
   <meta property="og:site_name" content="Causal Path Lab">
   <meta property="og:url" content="https://ypark.github.io/post/stat548/stat548_2022_2023/">
   <meta property="og:title" content="STAT 548 PhD Qualifying Papers (2022 - 2023) | Causal Path Lab">
-  <meta property="og:description" content="Introduction I am interested in almost all problems in computational biology and genomics. I expect a student to propose novel statistical approaches that can address challenges in data analysis and modelling of high-dimensional, large-volume biological problems."><meta property="og:image" content="https://ypark.github.io/images/icon_hu9e65041e7038cfeb655cd5b2189fa456_18716_512x512_fill_lanczos_center_3.png">
-  <meta property="twitter:image" content="https://ypark.github.io/images/icon_hu9e65041e7038cfeb655cd5b2189fa456_18716_512x512_fill_lanczos_center_3.png"><meta property="og:locale" content="en-ca">
+  <meta property="og:description" content="Introduction I am interested in almost all problems in computational biology and genomics. I expect a student to propose novel statistical approaches that can address challenges in data analysis and modelling of high-dimensional, large-volume biological problems."><meta property="og:image" content="https://ypark.github.io/images/icon_hu9e65041e7038cfeb655cd5b2189fa456_18716_512x512_fill_lanczos_center_2.png">
+  <meta property="twitter:image" content="https://ypark.github.io/images/icon_hu9e65041e7038cfeb655cd5b2189fa456_18716_512x512_fill_lanczos_center_2.png"><meta property="og:locale" content="en-ca">
   
     
-      <meta property="article:published_time" content="2022-08-15T00:00:00&#43;00:00">
+      <meta property="article:published_time" content="2022-09-20T00:00:00&#43;00:00">
     
-    <meta property="article:modified_time" content="2022-08-15T00:00:00&#43;00:00">
+    <meta property="article:modified_time" content="2022-09-20T00:00:00&#43;00:00">
   
 
   
@@ -273,15 +273,15 @@
   },
   "headline": "STAT 548 PhD Qualifying Papers (2022 - 2023)",
   
-  "datePublished": "2022-08-15T00:00:00Z",
-  "dateModified": "2022-08-15T00:00:00Z",
+  "datePublished": "2022-09-20T00:00:00Z",
+  "dateModified": "2022-09-20T00:00:00Z",
   
   "publisher": {
     "@type": "Organization",
     "name": "Causal Path Lab",
     "logo": {
       "@type": "ImageObject",
-      "url": "https://ypark.github.io/images/icon_hu9e65041e7038cfeb655cd5b2189fa456_18716_192x192_fill_lanczos_center_3.png"
+      "url": "https://ypark.github.io/images/icon_hu9e65041e7038cfeb655cd5b2189fa456_18716_192x192_fill_lanczos_center_2.png"
     }
   },
   "description": "Introduction I am interested in almost all problems in computational biology and genomics. I expect a student to propose novel statistical approaches that can address challenges in data analysis and modelling of high-dimensional, large-volume biological problems."
@@ -545,7 +545,7 @@
     
       
     
-    Aug 15, 2022
+    Sep 20, 2022
   </span>
   
 
@@ -554,7 +554,7 @@
   
   <span class="middot-divider"></span>
   <span class="article-reading-time">
-    3 min read
+    4 min read
   </span>
   
 
@@ -591,7 +591,6 @@
 
     <div class="article-style">
       
-<script src="/rmarkdown-libs/header-attrs/header-attrs.js"></script>
 
 
 <div id="introduction" class="section level2">
@@ -623,18 +622,25 @@
 <li><p><strong>Category</strong>: single-cell genomics, dynamics, variational inference</p></li>
 <li><p><strong>Idea</strong>: The goal is to understand the method and implementation in detail in a broad context of likelihood-free inference methods. One can compare this paper with relevant methods based on variational inference, such as Ryder <em>et al.</em>, <a href="https://arxiv.org/abs/1802.03335">Black-box variational inference for stochastic differential equations</a>. Several review papers are available like <a href="https://link.springer.com/article/10.1007/s11222-022-10092-4">this</a>.</p></li>
 </ul></li>
-<li><p>Parikh, Varjao, Xu, and Tchetgen, <a href="https://arxiv.org/abs/2202.04208">Validating Causal Inference Methods</a></p>
+<li><p>Zheng, Aragam, Ravikumar, and Xing, <a href="https://arxiv.org/abs/1803.01422">DAGs with NO TEARS: Continuous Optimization for Structure Learning</a> <strong>TAKEN</strong></p>
+<ul>
+<li><p><strong>Category</strong>: combinatorial optimization, causal inference</p></li>
+<li><p><strong>Idea</strong>: Implement the method using <code>torch</code> (<code>R</code> or <code>Python</code>) and test on synthetic data (e.g., linear Gaussian or generalize linear models). The current framework was primarily built on observational data. You are welcomed to extend the approach to a data set with multiple experimental conditions, so that the method can discover causal relationships implicated by the data-generating scheme.</p></li>
+</ul></li>
+<li><p>Jung, Kasiviswanathan, Tian, Janzing, Bloebaum, and Bareinboim, <a href="https://proceedings.mlr.press/v162/jung22a.html">On Measuring Causal Contributions via do-interventions</a></p>
 <ul>
 <li><p><strong>Category</strong>: causal inference</p></li>
-<li><p><strong>Idea</strong>: Implement the method using <code>torch</code> (<code>R</code> or <code>Python</code>) and test on synthetic data (e.g., toy examples in the appendix). You can measure the error distributions of existing causal inference methods (e.g., BART) on real-world data.</p></li>
+<li><p><strong>Idea</strong>: The paper takes a theoretical (axiomatic) approach to a causal inference problem. What are the differences between the do-Shapley and other conventional approaches? Several routes can be taken: (1) Understand the framework and methods; revisit the theorem and prove in your own language. (2) One can propose an efficient algorithm to handle a large number of variables in do-Shapely computations.</p></li>
 </ul></li>
 <li><p>Hill, <a href="https://www.tandfonline.com/doi/abs/10.1198/jcgs.2010.08162">Bayesian Nonparametric Modeling for Causal Inference</a> (2012); Louizos <em>et al.</em> <a href="http://papers.nips.cc/paper/7223-causal-effect-inference-with-deep-latent-variable-models">Causal Effect Inference with Deep Latent-Variable Models</a> (2017)</p>
 <ul>
 <li><p><strong>Category</strong>: causal inference, Bayesian inference</p></li>
 <li><p><strong>Idea</strong>: Using counterfactual data modelling/sampling, we can train a model that captures latent representation of confounding factors. Can we combine the idea of a counterfactual model with stochastic variational inference that consumes stochastically-generated minibatch data to update parameters in each epoch? If so, what is optimal sampling strategy to feed in counterfactual data to the inference engine?</p></li>
 </ul></li>
-<li><p>Zhu and Stephens, <a href="https://projecteuclid.org/euclid.aoas/1507168840">Bayesian large-scale multiple regression with summary statistics from genome-wide association studies</a> (2017); Wang, Sarkar, Carbonetto, and Stephens, <a href="https://stephenslab.github.io/susie-paper/">SuSiE</a></p>
+<li><p>Wang, Sarkar, Carbonetto, and Stephens, <a href="https://rss.onlinelibrary.wiley.com/doi/10.1111/rssb.12388">A simple new approach to variable selection in regression, with application to genetic fine mapping</a>, 2020</p>
 <ul>
+<li><p>Reference site <a href="https://stephenslab.github.io/susie-paper/">SuSiE</a></p></li>
+<li><p>Other related papers: Zhu and Stephens, <a href="https://projecteuclid.org/euclid.aoas/1507168840">Bayesian large-scale multiple regression with summary statistics from genome-wide association studies</a> (2017). Zou, Carbonetto, Wang, and Stephens, <a href="https://journals.plos.org/plosgenetics/article?id=10.1371/journal.pgen.1010299">Fine-mapping from summary data with the “Sum of Single Effects” model</a> (2022)</p></li>
 <li><p><strong>Category</strong>: statistical genetics, summary statistics-based inference.</p></li>
 <li><p><strong>Idea</strong>: Multiple directions are possible. Extend the idea to summary statistics matrix with more than two columns. Show correspondence with existing polygenic risk prediction methods.</p></li>
 </ul></li>
@@ -906,7 +912,7 @@
     
     
     
-    <script src="/js/academic.min.4aaf2d64e50f8e54cf66dcc54147a22e.js"></script>
+    <script src="/js/academic.min.37431be2d92d7fb0160054761ab79602.js"></script>
 
     
 

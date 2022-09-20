@@ -39,11 +39,18 @@ You may organize your report including the following sections.
 
    * **Idea**: The goal is to understand the method and implementation in detail in a broad context of likelihood-free inference methods. One can compare this paper with relevant methods based on variational inference, such as Ryder _et al._, [Black-box variational inference for stochastic differential equations](https://arxiv.org/abs/1802.03335). Several review papers are available like [this](https://link.springer.com/article/10.1007/s11222-022-10092-4). 
 
-1. Parikh, Varjao, Xu, and Tchetgen, [Validating Causal Inference Methods](https://arxiv.org/abs/2202.04208)
+1. Zheng, Aragam, Ravikumar, and Xing, [DAGs with NO TEARS: Continuous Optimization for Structure Learning](https://arxiv.org/abs/1803.01422) **TAKEN**
 
-	* **Category**: causal inference
+	* **Category**: combinatorial optimization, causal inference 
 
-	* **Idea**: Implement the method using `torch` (`R` or `Python`) and test on synthetic data (e.g., toy examples in the appendix). You can measure the error distributions of existing causal inference methods (e.g., BART) on real-world data.
+	* **Idea**: Implement the method using `torch` (`R` or `Python`) and test on synthetic data (e.g., linear Gaussian or generalize linear models). The current framework was primarily built on observational data. You are welcomed to extend the approach to a data set with multiple experimental conditions, so that the method can discover causal relationships implicated by the data-generating scheme.
+
+1. Jung, Kasiviswanathan, Tian, Janzing, Bloebaum, and Bareinboim, [On Measuring Causal Contributions via do-interventions](https://proceedings.mlr.press/v162/jung22a.html)
+
+    * **Category**: causal inference
+	
+	* **Idea**: The paper takes a theoretical (axiomatic) approach to a causal inference problem. What are the differences between the do-Shapley and other conventional approaches? Several routes can be taken: (1) Understand the framework and methods; revisit the theorem and prove in your own language. (2) One can propose an efficient algorithm to handle a large number of variables in do-Shapely computations.
+
 
 1. Hill, [Bayesian Nonparametric Modeling for Causal Inference](https://www.tandfonline.com/doi/abs/10.1198/jcgs.2010.08162) (2012); Louizos _et al._ [Causal Effect Inference with Deep Latent-Variable Models](http://papers.nips.cc/paper/7223-causal-effect-inference-with-deep-latent-variable-models) (2017)
 
@@ -51,8 +58,13 @@ You may organize your report including the following sections.
 
 	* **Idea**: Using counterfactual data modelling/sampling, we can train a model that captures latent representation of confounding factors. Can we combine the idea of a counterfactual model with stochastic variational inference that consumes stochastically-generated minibatch data to update parameters in each epoch? If so, what is optimal sampling strategy to feed in counterfactual data to the inference engine?
 
-4. Zhu and Stephens, [Bayesian large-scale multiple regression with summary statistics from genome-wide association studies](https://projecteuclid.org/euclid.aoas/1507168840) (2017); Wang, Sarkar, Carbonetto, and Stephens, [SuSiE](https://stephenslab.github.io/susie-paper/)
+4. Wang, Sarkar, Carbonetto, and Stephens, [A simple new approach to variable selection in regression, with application to genetic fine mapping](https://rss.onlinelibrary.wiley.com/doi/10.1111/rssb.12388), 2020
 
-   * **Category**: statistical genetics, summary statistics-based inference. 
 
-   * **Idea**: Multiple directions are possible. Extend the idea to summary statistics matrix with more than two columns. Show correspondence with existing polygenic risk prediction methods.
+    * Reference site [SuSiE](https://stephenslab.github.io/susie-paper/)
+	
+	* Other related papers: Zhu and Stephens, [Bayesian large-scale multiple regression with summary statistics from genome-wide association studies](https://projecteuclid.org/euclid.aoas/1507168840) (2017). Zou, Carbonetto, Wang, and Stephens, [Fine-mapping from summary data with the “Sum of Single Effects” model](https://journals.plos.org/plosgenetics/article?id=10.1371/journal.pgen.1010299) (2022)
+
+    * **Category**: statistical genetics, summary statistics-based inference. 
+
+    * **Idea**: Multiple directions are possible. Extend the idea to summary statistics matrix with more than two columns. Show correspondence with existing polygenic risk prediction methods.

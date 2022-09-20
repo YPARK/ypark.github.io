@@ -5,9 +5,9 @@
     <link>https://ypark.github.io/</link>
       <atom:link href="https://ypark.github.io/index.xml" rel="self" type="application/rss+xml" />
     <description>Causal Path Lab</description>
-    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-ca</language><copyright>Yongjin Park</copyright><lastBuildDate>Mon, 15 Aug 2022 00:00:00 +0000</lastBuildDate>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-ca</language><copyright>Yongjin Park</copyright><lastBuildDate>Tue, 20 Sep 2022 00:00:00 +0000</lastBuildDate>
     <image>
-      <url>https://ypark.github.io/images/icon_hu9e65041e7038cfeb655cd5b2189fa456_18716_512x512_fill_lanczos_center_3.png</url>
+      <url>https://ypark.github.io/images/icon_hu9e65041e7038cfeb655cd5b2189fa456_18716_512x512_fill_lanczos_center_2.png</url>
       <title>Causal Path Lab</title>
       <link>https://ypark.github.io/</link>
     </image>
@@ -57,10 +57,9 @@
     <item>
       <title>STAT 548 PhD Qualifying Papers (2020-2021)</title>
       <link>https://ypark.github.io/post/stat548/stat548_2020_2021/</link>
-      <pubDate>Mon, 15 Aug 2022 00:00:00 +0000</pubDate>
+      <pubDate>Tue, 20 Sep 2022 00:00:00 +0000</pubDate>
       <guid>https://ypark.github.io/post/stat548/stat548_2020_2021/</guid>
       <description>
-&lt;script src=&#34;https://ypark.github.io/rmarkdown-libs/header-attrs/header-attrs.js&#34;&gt;&lt;/script&gt;
 
 
 &lt;div id=&#34;introduction&#34; class=&#34;section level2&#34;&gt;
@@ -115,10 +114,9 @@
     <item>
       <title>STAT 548 PhD Qualifying Papers (2022 - 2023)</title>
       <link>https://ypark.github.io/post/stat548/stat548_2022_2023/</link>
-      <pubDate>Mon, 15 Aug 2022 00:00:00 +0000</pubDate>
+      <pubDate>Tue, 20 Sep 2022 00:00:00 +0000</pubDate>
       <guid>https://ypark.github.io/post/stat548/stat548_2022_2023/</guid>
       <description>
-&lt;script src=&#34;https://ypark.github.io/rmarkdown-libs/header-attrs/header-attrs.js&#34;&gt;&lt;/script&gt;
 
 
 &lt;div id=&#34;introduction&#34; class=&#34;section level2&#34;&gt;
@@ -150,18 +148,25 @@
 &lt;li&gt;&lt;p&gt;&lt;strong&gt;Category&lt;/strong&gt;: single-cell genomics, dynamics, variational inference&lt;/p&gt;&lt;/li&gt;
 &lt;li&gt;&lt;p&gt;&lt;strong&gt;Idea&lt;/strong&gt;: The goal is to understand the method and implementation in detail in a broad context of likelihood-free inference methods. One can compare this paper with relevant methods based on variational inference, such as Ryder &lt;em&gt;et al.&lt;/em&gt;, &lt;a href=&#34;https://arxiv.org/abs/1802.03335&#34;&gt;Black-box variational inference for stochastic differential equations&lt;/a&gt;. Several review papers are available like &lt;a href=&#34;https://link.springer.com/article/10.1007/s11222-022-10092-4&#34;&gt;this&lt;/a&gt;.&lt;/p&gt;&lt;/li&gt;
 &lt;/ul&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;Parikh, Varjao, Xu, and Tchetgen, &lt;a href=&#34;https://arxiv.org/abs/2202.04208&#34;&gt;Validating Causal Inference Methods&lt;/a&gt;&lt;/p&gt;
+&lt;li&gt;&lt;p&gt;Zheng, Aragam, Ravikumar, and Xing, &lt;a href=&#34;https://arxiv.org/abs/1803.01422&#34;&gt;DAGs with NO TEARS: Continuous Optimization for Structure Learning&lt;/a&gt; &lt;strong&gt;TAKEN&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;Category&lt;/strong&gt;: combinatorial optimization, causal inference&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;Idea&lt;/strong&gt;: Implement the method using &lt;code&gt;torch&lt;/code&gt; (&lt;code&gt;R&lt;/code&gt; or &lt;code&gt;Python&lt;/code&gt;) and test on synthetic data (e.g., linear Gaussian or generalize linear models). The current framework was primarily built on observational data. You are welcomed to extend the approach to a data set with multiple experimental conditions, so that the method can discover causal relationships implicated by the data-generating scheme.&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Jung, Kasiviswanathan, Tian, Janzing, Bloebaum, and Bareinboim, &lt;a href=&#34;https://proceedings.mlr.press/v162/jung22a.html&#34;&gt;On Measuring Causal Contributions via do-interventions&lt;/a&gt;&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;p&gt;&lt;strong&gt;Category&lt;/strong&gt;: causal inference&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;&lt;strong&gt;Idea&lt;/strong&gt;: Implement the method using &lt;code&gt;torch&lt;/code&gt; (&lt;code&gt;R&lt;/code&gt; or &lt;code&gt;Python&lt;/code&gt;) and test on synthetic data (e.g., toy examples in the appendix). You can measure the error distributions of existing causal inference methods (e.g., BART) on real-world data.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;Idea&lt;/strong&gt;: The paper takes a theoretical (axiomatic) approach to a causal inference problem. What are the differences between the do-Shapley and other conventional approaches? Several routes can be taken: (1) Understand the framework and methods; revisit the theorem and prove in your own language. (2) One can propose an efficient algorithm to handle a large number of variables in do-Shapely computations.&lt;/p&gt;&lt;/li&gt;
 &lt;/ul&gt;&lt;/li&gt;
 &lt;li&gt;&lt;p&gt;Hill, &lt;a href=&#34;https://www.tandfonline.com/doi/abs/10.1198/jcgs.2010.08162&#34;&gt;Bayesian Nonparametric Modeling for Causal Inference&lt;/a&gt; (2012); Louizos &lt;em&gt;et al.&lt;/em&gt; &lt;a href=&#34;http://papers.nips.cc/paper/7223-causal-effect-inference-with-deep-latent-variable-models&#34;&gt;Causal Effect Inference with Deep Latent-Variable Models&lt;/a&gt; (2017)&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;p&gt;&lt;strong&gt;Category&lt;/strong&gt;: causal inference, Bayesian inference&lt;/p&gt;&lt;/li&gt;
 &lt;li&gt;&lt;p&gt;&lt;strong&gt;Idea&lt;/strong&gt;: Using counterfactual data modelling/sampling, we can train a model that captures latent representation of confounding factors. Can we combine the idea of a counterfactual model with stochastic variational inference that consumes stochastically-generated minibatch data to update parameters in each epoch? If so, what is optimal sampling strategy to feed in counterfactual data to the inference engine?&lt;/p&gt;&lt;/li&gt;
 &lt;/ul&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;Zhu and Stephens, &lt;a href=&#34;https://projecteuclid.org/euclid.aoas/1507168840&#34;&gt;Bayesian large-scale multiple regression with summary statistics from genome-wide association studies&lt;/a&gt; (2017); Wang, Sarkar, Carbonetto, and Stephens, &lt;a href=&#34;https://stephenslab.github.io/susie-paper/&#34;&gt;SuSiE&lt;/a&gt;&lt;/p&gt;
+&lt;li&gt;&lt;p&gt;Wang, Sarkar, Carbonetto, and Stephens, &lt;a href=&#34;https://rss.onlinelibrary.wiley.com/doi/10.1111/rssb.12388&#34;&gt;A simple new approach to variable selection in regression, with application to genetic fine mapping&lt;/a&gt;, 2020&lt;/p&gt;
 &lt;ul&gt;
+&lt;li&gt;&lt;p&gt;Reference site &lt;a href=&#34;https://stephenslab.github.io/susie-paper/&#34;&gt;SuSiE&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Other related papers: Zhu and Stephens, &lt;a href=&#34;https://projecteuclid.org/euclid.aoas/1507168840&#34;&gt;Bayesian large-scale multiple regression with summary statistics from genome-wide association studies&lt;/a&gt; (2017). Zou, Carbonetto, Wang, and Stephens, &lt;a href=&#34;https://journals.plos.org/plosgenetics/article?id=10.1371/journal.pgen.1010299&#34;&gt;Fine-mapping from summary data with the “Sum of Single Effects” model&lt;/a&gt; (2022)&lt;/p&gt;&lt;/li&gt;
 &lt;li&gt;&lt;p&gt;&lt;strong&gt;Category&lt;/strong&gt;: statistical genetics, summary statistics-based inference.&lt;/p&gt;&lt;/li&gt;
 &lt;li&gt;&lt;p&gt;&lt;strong&gt;Idea&lt;/strong&gt;: Multiple directions are possible. Extend the idea to summary statistics matrix with more than two columns. Show correspondence with existing polygenic risk prediction methods.&lt;/p&gt;&lt;/li&gt;
 &lt;/ul&gt;&lt;/li&gt;
@@ -286,7 +291,7 @@ We like to work on a sparse data matrix formatted as
 &lt;h3 id=&#34;removing-unwanted-variability-by-control-data&#34;&gt;Removing unwanted variability by &amp;ldquo;control&amp;rdquo; data&lt;/h3&gt;
 &lt;p&gt;Many scientific discoveries are best represented as a set of contrastive statements, such as &amp;ldquo;A rather than B&amp;rdquo; (
 &lt;a href=&#34;https://en.wikipedia.org/wiki/Peter_Lipton&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Peter Lipton&lt;/a&gt;) because such a contrastive explanation clarifies our claim&amp;rsquo;s scope and basis. The validity of causal argument can be empirically justified by triangulation of contrastive arguments (Lipton 1991). Therefore, an essential aspect of our research should focus on finding a suitable set of null hypotheses (non-causal facts) to be contrasted against our theory of interest to uphold. What are non-causal effects that may obfuscate the activity of scientific research? Are they generated uniformly at random? In practice, it is hard to characterize non-causal effects without considering confounding variables, and confounders create unwanted non-zero correlations between cause and effect variables.&lt;/p&gt;
-&lt;p&gt;Confounder correction is a causal inference problem. So, we need to ask the question of identifiability, such as, &amp;ldquo;How do we know this variable is a confounder?&amp;rdquo; or &amp;ldquo;What is a legitimate criterion that distinguishes between causal and non-causal effects?&amp;rdquo;. We could start our journey by asking:&lt;/p&gt;
+&lt;p&gt;Confounder correction is a causal inference problem. So, we need to ask the question of identifiability, such as, &amp;ldquo;How do we know this variable is a confounder?&amp;rdquo; or &amp;ldquo;What is a legitimate criterion that distinguishes between causal and non-causal effects?&amp;quot;. We could start our journey by asking:&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;
 &lt;p&gt;Are there any control data on which we can safely claim that there is no causal effect whatsoever?&lt;/p&gt;
@@ -342,42 +347,42 @@ We like to work on a sparse data matrix formatted as
 &lt;table&gt;
 &lt;thead&gt;
 &lt;tr&gt;
-&lt;th style=&#34;text-align:right&#34;&gt;$i$&lt;/th&gt;
-&lt;th style=&#34;text-align:left&#34;&gt;X&lt;/th&gt;
-&lt;th style=&#34;text-align:left&#34;&gt;Y(0)&lt;/th&gt;
-&lt;th style=&#34;text-align:left&#34;&gt;Y(1)&lt;/th&gt;
+&lt;th align=&#34;right&#34;&gt;$i$&lt;/th&gt;
+&lt;th align=&#34;left&#34;&gt;X&lt;/th&gt;
+&lt;th align=&#34;left&#34;&gt;Y(0)&lt;/th&gt;
+&lt;th align=&#34;left&#34;&gt;Y(1)&lt;/th&gt;
 &lt;/tr&gt;
 &lt;/thead&gt;
 &lt;tbody&gt;
 &lt;tr&gt;
-&lt;td style=&#34;text-align:right&#34;&gt;1&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;0&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;$Y_1$&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;?&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;1&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;0&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;$Y_1$&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;?&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
-&lt;td style=&#34;text-align:right&#34;&gt;2&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;1&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;?&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;$Y_2$&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;2&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;1&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;?&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;$Y_2$&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
-&lt;td style=&#34;text-align:right&#34;&gt;3&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;1&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;?&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;$Y_3$&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;3&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;1&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;?&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;$Y_3$&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
-&lt;td style=&#34;text-align:right&#34;&gt;4&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;0&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;$Y_4$&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;?&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;4&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;0&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;$Y_4$&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;?&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
-&lt;td style=&#34;text-align:right&#34;&gt;&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;$\vdots$&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;$\vdots$&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;&lt;/td&gt;
 &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
