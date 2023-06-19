@@ -13,58 +13,271 @@
     </image>
     
     <item>
-      <title>STAT 548 PhD Qualifying Papers (2020-2021)</title>
-      <link>https://ypark.github.io/post/stat548/stat548_2020_2021/</link>
+      <title>Adjusting batch effect in pseudobulk samples is a causal inference problem</title>
+      <link>https://ypark.github.io/post/causal_inference/batch_effect_pseudobulk/</link>
       <pubDate>Mon, 19 Jun 2023 00:00:00 +0000</pubDate>
-      <guid>https://ypark.github.io/post/stat548/stat548_2020_2021/</guid>
+      <guid>https://ypark.github.io/post/causal_inference/batch_effect_pseudobulk/</guid>
       <description>
 
 
-&lt;div id=&#34;introduction&#34; class=&#34;section level2&#34;&gt;
-&lt;h2&gt;Introduction&lt;/h2&gt;
-&lt;p&gt;I am interested in almost all problems in computational biology and genomics. I expect a student to propose novel statistical approaches that can address challenges in data analysis and modelling of high-dimensional, large-volume biological problems. In many cases, I can provide relevant data sets and help students find collaborators to facilitate publications in a biological venue. Feel free to contact me (&lt;code&gt;ypp@stat.ubc.ca&lt;/code&gt;).&lt;/p&gt;
-&lt;/div&gt;
-&lt;div id=&#34;an-expected-format-for-the-report&#34; class=&#34;section level2&#34;&gt;
-&lt;h2&gt;An expected format for the report&lt;/h2&gt;
-&lt;p&gt;You may organize your report including the following sections.&lt;/p&gt;
+&lt;div id=&#34;inspiration&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Inspiration&lt;/h3&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;p&gt;&lt;strong&gt;Problem definition&lt;/strong&gt; (1 page): Extract mathematical/statistical problems from the paper and organize them. What are the input data? What is the expected output?&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;&lt;strong&gt;Significance&lt;/strong&gt; (1-2 paragraphs): Why is this an interesting problem? What can be learned by studying this problem? Why is it exciting for you? Author contribution: How did the author(s) find the solution? What was a novel contribution beyond traditional approaches?&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;&lt;strong&gt;Limitations/challenges&lt;/strong&gt; (1-2 paragraphs): What are the assumptions? Are they realistic? What are the technical limitations that the authors acknowledge or not?&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;&lt;strong&gt;Novel idea/methods&lt;/strong&gt; (2 pages): Propose your idea and statistical methods. You could interpret the underlying problem in a different formulation. What are related problems/frameworks, but not adopted by the authors?&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;&lt;strong&gt;Results&lt;/strong&gt; (1-2 pages): Include one figure that sketches your approaches. Show tables and figures that clearly demonstrate your methods.&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;&lt;strong&gt;Discussion&lt;/strong&gt; (1 page): Briefly discuss what you have learned and what you would achieve if you were to develop this to a full paper. How would you validate your findings in independent studies, including wet-lab experiments?&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Our previous work demonstrates that fiding causal difference at a pseudobulk level is easier than dealing with noisy cell-level data: &lt;a href=&#34;https://genomebiology.biomedcentral.com/articles/10.1186/s13059-021-02438-4&#34;&gt;Counterfactual inference for single-cell gene expression analysis&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Interestingly, other people considered identifying batch effects should be treated as a causal effect estimation problem: &lt;a href=&#34;https://www.biorxiv.org/content/10.1101/2021.09.03.458920v3&#34;&gt;Batch Effects are Causal Effects: Applications in Human Connectomics&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/div&gt;
-&lt;div id=&#34;available-papers&#34; class=&#34;section level2&#34;&gt;
-&lt;h2&gt;Available Papers&lt;/h2&gt;
+&lt;div id=&#34;a-generative-scheme-for-a-single-cell-count-matrix-with-multiplicative-batch-effects&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;A generative scheme for a single-cell count matrix with multiplicative batch effects&lt;/h3&gt;
+&lt;p&gt;We encounter single-cell expression data consisting of multiple batches. One of the primary goals is to identify cell types (clusters/factors) and cell-type-specific gene expression patterns. However, distinguishing batch-specific and cell-type-specific genes only by a factorization method is challenging and often not identifiable from data alone. For each gene &lt;span class=&#34;math inline&#34;&gt;\(g\)&lt;/span&gt; and cell &lt;span class=&#34;math inline&#34;&gt;\(j\)&lt;/span&gt;, the gene expression &lt;span class=&#34;math inline&#34;&gt;\(Y_{gj}\)&lt;/span&gt; were sampled from Poisson distribution with the rate parameter:&lt;/p&gt;
+&lt;p&gt;&lt;span class=&#34;math display&#34;&gt;\[\lambda_{gj} = \lambda_{gj}^{\textsf{unbiased}} \times \prod_{k} \delta_{gk}^{X_{kj}},\]&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;affected by the batch effects &lt;span class=&#34;math inline&#34;&gt;\(\delta_{gk}\)&lt;/span&gt;. More formally, letting &lt;span class=&#34;math inline&#34;&gt;\(X_{kj}\)&lt;/span&gt; be a batch membership matrix, assigning a cell &lt;span class=&#34;math inline&#34;&gt;\(j\)&lt;/span&gt; to a batch &lt;span class=&#34;math inline&#34;&gt;\(k\)&lt;/span&gt; if and only if &lt;span class=&#34;math inline&#34;&gt;\(X_{kj}=1\)&lt;/span&gt;, we assume the average gene expression rates are linearly affected by in the log-transformed space:&lt;/p&gt;
+&lt;p&gt;&lt;span class=&#34;math display&#34;&gt;\[\mathbb{E}\!\left[\ln Y_{gj}\right] = \ln \left( \sum_{t} \beta_{gt} \theta_{jt} \right) + \sum_{k} \ln\delta_{gk} X_{kj}.\]&lt;/span&gt;&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;set.seed(1331)
+
+m &amp;lt;- 500 # genes
+n &amp;lt;- 1000 # cells
+nb &amp;lt;- 2 # batches
+
+## 1. batch membership
+X &amp;lt;- matrix(0, n, nb)
+batch &amp;lt;- sample(nb, n, replace = TRUE)
+for(b in 1:nb){
+    X[batch == b, b] &amp;lt;- 1
+}
+
+## 2. batch effects
+W.true &amp;lt;- matrix(rnorm(m*nb), m, nb)
+ln.delta &amp;lt;- apply(W.true %*% t(X), 2, scale)
+
+## 3. true effects
+K &amp;lt;- 5
+.beta &amp;lt;- matrix(rgamma(m * K, 1), m, K)
+.theta &amp;lt;- matrix(rgamma(n * K, 1), n, K)
+lambda.true &amp;lt;- .beta %*% t(.theta)
+
+lambda &amp;lt;- lambda.true * exp(ln.delta)
+yy &amp;lt;- apply(lambda, 2, function(l) sapply(l, rpois, n=1))
+oo &amp;lt;- order(apply(t(.theta), 2, which.max))&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;If we can accurately estimate a true batch effect matrix, say &lt;span class=&#34;math inline&#34;&gt;\(\delta_{gk}\)&lt;/span&gt;, it is straightforward to adjust the difference between batches. How can we identify the true batch effect &lt;span class=&#34;math inline&#34;&gt;\(\delta_{gk}\)&lt;/span&gt; for all the genes &lt;span class=&#34;math inline&#34;&gt;\(g\)&lt;/span&gt; specifically expressed in the batch &lt;span class=&#34;math inline&#34;&gt;\(k\)&lt;/span&gt;? If we match cells &lt;span class=&#34;math inline&#34;&gt;\(i\)&lt;/span&gt; and &lt;span class=&#34;math inline&#34;&gt;\(j\)&lt;/span&gt; sampled from the batches &lt;span class=&#34;math inline&#34;&gt;\(a\)&lt;/span&gt; and &lt;span class=&#34;math inline&#34;&gt;\(b\)&lt;/span&gt;, respectively, we expect the batch-specific difference &lt;span class=&#34;math inline&#34;&gt;\(\delta_{ga} \neq \delta_{gk}\)&lt;/span&gt; will persist and even amplify, but the difference originated from cell types will vanish. This problem is equivalent to estimating the potential outcome of gene expressions in each batch &lt;span class=&#34;math inline&#34;&gt;\(k\)&lt;/span&gt;, &lt;span class=&#34;math inline&#34;&gt;\(\mathbb{E}\!\left[Y_{gj}^{(k)}\right]\)&lt;/span&gt;.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;a-causal-inference-approach-to-identify-batch-effects&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;A causal inference approach to identify batch effects&lt;/h3&gt;
+&lt;p&gt;To dissect batch-specific effect in a causal inference (potential outcome) framework, we assume our confounding variables &lt;span class=&#34;math inline&#34;&gt;\(Q\)&lt;/span&gt; are well-distributed across different batches:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Overlap: &lt;span class=&#34;math inline&#34;&gt;\(0 &amp;lt; p(X_{kj}=1|Q) &amp;lt; 1\)&lt;/span&gt; for all &lt;span class=&#34;math inline&#34;&gt;\(k\)&lt;/span&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Moreover, we assume these covariates are sufficient enough to induce conditional dependence between potential (imputed) gene expression and batch assignment mechanisms:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Strong ignorability: &lt;span class=&#34;math inline&#34;&gt;\((Y(k), Y(k&amp;#39;)) \perp\!\!\!\perp X | Q\)&lt;/span&gt; for all &lt;span class=&#34;math inline&#34;&gt;\(k,k&amp;#39;\)&lt;/span&gt; pairs.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;div id=&#34;estimation-of-the-batch-effects-by-matching&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Estimation of the batch effects by matching&lt;/h3&gt;
+&lt;p&gt;Suppose we can counterfactually estimate gene expressions of a certain cell &lt;span class=&#34;math inline&#34;&gt;\(j\)&lt;/span&gt; if the cell was measured in different batches other than the observed batch &lt;span class=&#34;math inline&#34;&gt;\(k\)&lt;/span&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;span class=&#34;math display&#34;&gt;\[Z_{gj} = \frac{ \sum_{i} (1 - X_{ik}) w_{ji} Y_{gi} }{ \sum_{i} (1 - X_{ik}) w_{ji} }\]&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;Like many other batch correction methods invented for single-cell RNA-seq analysis, we will assume &lt;span class=&#34;math inline&#34;&gt;\(Z_{gj}\)&lt;/span&gt; reliably contain biologically-relevant cell state information while excluding the batch-specific effects to which the cell &lt;span class=&#34;math inline&#34;&gt;\(j\)&lt;/span&gt; belong.&lt;/p&gt;
+&lt;p&gt;Observed log-likelihood:
+&lt;span class=&#34;math display&#34;&gt;\[\prod_{j} p(Y_{gj}|\mu_{gs},\delta_{gk},X_{jk})
+=\prod_{j} \operatorname{Poisson}(Y_{gj}|\mu_{gs} \sum_{k} \delta_{gk} X_{jk})\]&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;Counterfactual log-likelihood:
+&lt;span class=&#34;math display&#34;&gt;\[\prod_{j} p(Z_{gj}|\mu_{gs}, \gamma_{gs}) = \prod_{j} \operatorname{Poisson}(Z_{gj}|\mu_{gs} \gamma_{gs})\]&lt;/span&gt;&lt;/p&gt;
+&lt;div id=&#34;local-update-maximize-batch-s-specific-parameters&#34; class=&#34;section level4&#34;&gt;
+&lt;h4&gt;Local update: Maximize batch &lt;span class=&#34;math inline&#34;&gt;\(s\)&lt;/span&gt;-specific parameters&lt;/h4&gt;
+&lt;p&gt;&lt;span class=&#34;math display&#34;&gt;\[\mathbb{E}\!\left[\mu_{gs}\right] \approx \frac{ \sum_{j \in \mathcal{C}_{s}} Y_{gj} + \sum_{j \in \mathcal{C}_{s}} Z_{gj} }
+{\sum_{k} \delta_{gk} n_{sk} + n_{s} \gamma_{gs}}\]&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;Letting &lt;span class=&#34;math inline&#34;&gt;\(p_{sk} = n_{sk} / n_{s}\)&lt;/span&gt;,
+&lt;span class=&#34;math display&#34;&gt;\[\mu_{gs} \gets \frac{ \bar{Y}_{gs} + \bar{Z}_{gs}}
+{\sum_{k} \delta_{gk} p_{sk} + \gamma_{gs}}\]&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;If &lt;span class=&#34;math inline&#34;&gt;\(\delta_{gk} \to 0\)&lt;/span&gt; and &lt;span class=&#34;math inline&#34;&gt;\(p_{sk}=1\)&lt;/span&gt;, meaning that this sample &lt;span class=&#34;math inline&#34;&gt;\(s\)&lt;/span&gt; is just sampled from the batch &lt;span class=&#34;math inline&#34;&gt;\(k\)&lt;/span&gt; only, &lt;span class=&#34;math inline&#34;&gt;\(\mu_{gs} \to \bar{Y}_{gs} + \bar{Z}_{gs}\)&lt;/span&gt; and &lt;span class=&#34;math inline&#34;&gt;\(\bar{Y}_{gs} \to \bar{Y}_{gsk} = 0\)&lt;/span&gt;. Therefore, &lt;span class=&#34;math inline&#34;&gt;\(\mu_{gs} \to \bar{Z}_{gs}\)&lt;/span&gt;.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;global-update&#34; class=&#34;section level4&#34;&gt;
+&lt;h4&gt;Global update&lt;/h4&gt;
+&lt;p&gt;&lt;span class=&#34;math display&#34;&gt;\[\mathbb{E}\!\left[\delta_{gk}\right] \approx 
+\frac{\sum_{s} \sum_{j \in \mathcal{C}_{s}} X_{kj} Y_{gj}}{\sum_{s} \mu_{gs} \sum_{j \in \mathcal{C}_{s}} X_{kj}}\]&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;&lt;span class=&#34;math display&#34;&gt;\[\delta_{gk} \gets 
+\frac{\sum_{s} \bar{Y}_{gsk} n_{sk}}
+{\sum_{s} \mu_{gs} n_{sk}}\]&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;If &lt;span class=&#34;math inline&#34;&gt;\(\bar{Y}_{gsk} \to \mu_{gs}\)&lt;/span&gt; for all &lt;span class=&#34;math inline&#34;&gt;\(s\)&lt;/span&gt;, &lt;span class=&#34;math inline&#34;&gt;\(\delta_{gk} \to 1\)&lt;/span&gt;. If &lt;span class=&#34;math inline&#34;&gt;\(\bar{Y}_{gsk} &amp;lt; \mu_{gs}\)&lt;/span&gt; in all &lt;span class=&#34;math inline&#34;&gt;\(s\)&lt;/span&gt;, &lt;span class=&#34;math inline&#34;&gt;\(\delta_{gk} &amp;lt; 1\)&lt;/span&gt;. If &lt;span class=&#34;math inline&#34;&gt;\(\bar{Y}_{gsk} \to 0\)&lt;/span&gt; for all &lt;span class=&#34;math inline&#34;&gt;\(s\)&lt;/span&gt;, &lt;span class=&#34;math inline&#34;&gt;\(\delta_{gk} \to 0\)&lt;/span&gt;.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;algorithm&#34; class=&#34;section level4&#34;&gt;
+&lt;h4&gt;Algorithm&lt;/h4&gt;
 &lt;ol style=&#34;list-style-type: decimal&#34;&gt;
-&lt;li&gt;&lt;p&gt;Abadie and Imbens, &lt;a href=&#34;https://doi.org/10.1111/j.1468-0262.2006.00655.x&#34;&gt;Large sample properties of matching estimators for average treatment effects&lt;/a&gt;, Econometrica (2005)&lt;/p&gt;
+&lt;li&gt;&lt;p&gt;Initialize batch effect &lt;span class=&#34;math inline&#34;&gt;\(\delta_{gk} \gets 1\)&lt;/span&gt; for each gene &lt;span class=&#34;math inline&#34;&gt;\(g\)&lt;/span&gt; and batch &lt;span class=&#34;math inline&#34;&gt;\(k\)&lt;/span&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Initialize &lt;span class=&#34;math inline&#34;&gt;\(\gamma_{gs} \gets 1\)&lt;/span&gt; for each sample &lt;span class=&#34;math inline&#34;&gt;\(s\)&lt;/span&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Static global stat: &lt;span class=&#34;math inline&#34;&gt;\(S_{gk} \gets 0\)&lt;/span&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;For each pseudo-bulk sample &lt;span class=&#34;math inline&#34;&gt;\(s\)&lt;/span&gt; with cells &lt;span class=&#34;math inline&#34;&gt;\(\mathcal{C}_{s}\)&lt;/span&gt;,&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;p&gt;&lt;strong&gt;Category&lt;/strong&gt;: causal inference, single-cell genomics&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;&lt;strong&gt;Idea&lt;/strong&gt;: Extending the basic idea of this paper, implement a matching-based counterfactual inference method to adjust unknown covariates to estimate causal effects. Test your methods for (causally-) differential expression analysis on simulated/real-world single-cell RNA-seq data. You may also propose novel data normalization, confounder-correction methods that clearly hinge on the notion of causality.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;span class=&#34;math inline&#34;&gt;\(n_{sk} \gets \sum_{j \in \mathcal{C}_{s}} X_{kj}\)&lt;/span&gt;, &lt;span class=&#34;math inline&#34;&gt;\(n_{s} \gets \sum_{k} n_{sk}\)&lt;/span&gt;, &lt;span class=&#34;math inline&#34;&gt;\(p_{sk} \gets n_{sk}/n_{s}\)&lt;/span&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;span class=&#34;math inline&#34;&gt;\(\bar{Y}_{gs} \gets \sum_{j \in \mathcal{C}_{s}} Y_{gj} / n_{s}\)&lt;/span&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;span class=&#34;math inline&#34;&gt;\(\bar{Y}_{gsk} \gets \sum_{j \in \mathcal{C}_{s}} Y_{gj} X_{kj} / n_{s}\)&lt;/span&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;span class=&#34;math inline&#34;&gt;\(\bar{Z}_{gs} \gets \sum_{j \in \mathcal{C}_{s}} Z_{gj} / n_{s}\)&lt;/span&gt; after matching and imputation&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;span class=&#34;math inline&#34;&gt;\(S_{gk} \gets S_{gk} + \bar{Y}_{gsk} n_{sk}\)&lt;/span&gt;&lt;/p&gt;&lt;/li&gt;
 &lt;/ul&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;Hill, &lt;a href=&#34;https://www.tandfonline.com/doi/abs/10.1198/jcgs.2010.08162&#34;&gt;Bayesian Nonparametric Modeling for Causal Inference&lt;/a&gt; (2012); Louizos &lt;em&gt;et al.&lt;/em&gt; &lt;a href=&#34;http://papers.nips.cc/paper/7223-causal-effect-inference-with-deep-latent-variable-models&#34;&gt;Causal Effect Inference with Deep Latent-Variable Models&lt;/a&gt; (2017)&lt;/p&gt;
+&lt;li&gt;&lt;p&gt;Iterative-updated global stat: &lt;span class=&#34;math inline&#34;&gt;\(T_{gk} \gets 0\)&lt;/span&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;(Local step) For each PB sample &lt;span class=&#34;math inline&#34;&gt;\(s\)&lt;/span&gt;:&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;p&gt;&lt;strong&gt;Category&lt;/strong&gt;: causal inference, Bayesian inference&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;&lt;strong&gt;Idea&lt;/strong&gt;: Using counterfactual data modelling/sampling, we can train a model that captures latent representation of confounding factors. Can we combine the idea of a counterfactual model with stochastic variational inference that consumes stochastically-generated minibatch data to update parameters in each epoch? If so, what is optimal sampling strategy to feed in counterfactual data to the inference engine?&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;span class=&#34;math inline&#34;&gt;\(\bar{\delta}_{gs} \gets \sum_{k} \delta_{gk} p_{sk}\)&lt;/span&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;span class=&#34;math inline&#34;&gt;\(\mu_{gs} \gets (\bar{Y}_{gs} + \bar{Z}_{gs}) / (\gamma_{gs} + \bar{\delta}_{gs})\)&lt;/span&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;span class=&#34;math inline&#34;&gt;\(\gamma_{gs} \gets (\bar{Y}_{gs})/(\mu_{gs})\)&lt;/span&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;For each &lt;span class=&#34;math inline&#34;&gt;\(k\)&lt;/span&gt;: &lt;span class=&#34;math inline&#34;&gt;\(T_{gk} \gets T_{gk} + \mu_{gs} n_{sk}\)&lt;/span&gt;&lt;/p&gt;&lt;/li&gt;
 &lt;/ul&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;Murray, Adams, and MacKay, &lt;a href=&#34;http://proceedings.mlr.press/v9/murray10a.html&#34;&gt;Elliptical slice sampling&lt;/a&gt; (2010)&lt;/p&gt;
+&lt;li&gt;&lt;p&gt;(Global step) For each batch &lt;span class=&#34;math inline&#34;&gt;\(k\)&lt;/span&gt;:&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;p&gt;&lt;strong&gt;Category&lt;/strong&gt;: Bayesian inference, cell type deconvolution&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;&lt;strong&gt;Idea&lt;/strong&gt;: Multiple directions are possible. (1) Revisit optimization-based non-conjugate, non-analytical models such as this &lt;a href=&#34;https://www.nature.com/articles/s41467-018-08023-x&#34;&gt;cell type deconvolution model&lt;/a&gt; and quantify the level of uncertainty using ESS. Test on simulated data, varying the number of putative cell types and the gap between rare and abundant cell types. (2) Another interesting direction can be an application to black-box stochastic variation inference. You may design and demonstrate a novel stochastic gradient estimation method that can better handle a high-dimensional parametric model than a basic approach.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&#34;math inline&#34;&gt;\(\delta_{gk} \gets S_{gk} / T_{gk}\)&lt;/span&gt;&lt;/li&gt;
 &lt;/ul&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;Zhu and Stephens, &lt;a href=&#34;https://projecteuclid.org/euclid.aoas/1507168840&#34;&gt;Bayesian large-scale multiple regression with summary statistics from genome-wide association studies&lt;/a&gt; (2017)&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;p&gt;&lt;strong&gt;Category&lt;/strong&gt;: statistical genetics, summary statistics-based inference.&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;&lt;strong&gt;Idea&lt;/strong&gt;: Multiple directions are possible. (1) A new model that allows multiple types of summary statistics matrix. (2) A new inference method that takes advantage of both partially-observed individual-level and summary statistics data. (3) Built on this framework, you may formulate &lt;a href=&#34;https://www.nature.com/articles/ng.3404&#34;&gt;stratified LD-score regression model&lt;/a&gt; with (Bayesian) sparse prior. (4) Show correspondence with existing polygenic risk prediction methods.&lt;/p&gt;&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;Ryder &lt;em&gt;et al.&lt;/em&gt;, &lt;a href=&#34;https://arxiv.org/abs/1802.03335&#34;&gt;Black-box variational inference for stochastic differential equations&lt;/a&gt;&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;p&gt;&lt;strong&gt;Category&lt;/strong&gt;: single-cell genomics, dynamics, variational inference&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;&lt;strong&gt;Idea&lt;/strong&gt;: Propose a likelihood-free inference method for the ordinary differential equation (ODE) model used in Bergen &lt;em&gt;et al.&lt;/em&gt;, &lt;a href=&#34;https://www.nature.com/articles/s41587-020-0591-3&#34;&gt;Generalizing RNA velocity to transient cell states through dynamical modeling&lt;/a&gt;. You are welcomed to extend the gene-by-gene ODE model to a finite (or infinite) mixture of ODE models. You may like to read &lt;a href=&#34;http://papers.nips.cc/paper/2055-infinite-mixtures-of-gaussian-process-experts.pdf&#34;&gt;Rasmussen and Ghahramani&lt;/a&gt; for this. Alternatively, you can design spatiotemporal partial differential equations and estimate posterior distributions of the parameters by the black-box inference algorithm. We can then apply your method to spatial transcriptomic data, such as &lt;a href=&#34;https://www.nature.com/articles/s41587-019-0392-8&#34;&gt;Integrating microarray-based spatial transcriptomics and single-cell RNA-seq reveals tissue architecture in pancreatic ductal adenocarcinomas&lt;/a&gt;.&lt;/p&gt;&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Repeat the previous three steps (5-7) until convergence&lt;/p&gt;&lt;/li&gt;
 &lt;/ol&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id=&#34;a-toy-example&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;A toy example&lt;/h3&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;## 1. project
+K &amp;lt;- 5
+R &amp;lt;- matrix(rnorm(m * K), K, m)
+Q.raw &amp;lt;- R %*% yy # K x n&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Before we adjust batch membership in the random projection matrix:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;cor(t(Q.raw), X)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;##            [,1]       [,2]
+## [1,]  0.7617260 -0.7617260
+## [2,]  0.8283630 -0.8283630
+## [3,]  0.8099248 -0.8099248
+## [4,] -0.7250199  0.7250199
+## [5,]  0.6651915 -0.6651915&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;## 2. regress out
+##
+##  X theta = X inv(X&amp;#39;X) X&amp;#39; Y
+##          = U D V&amp;#39; V inv(D^2) V&amp;#39; (U D V&amp;#39;)&amp;#39; Y
+##          = U inv(D) V&amp;#39; V D U&amp;#39; Y
+##          = U U&amp;#39; Y
+
+x.svd &amp;lt;- svd(X)
+U &amp;lt;- x.svd$u
+U.t &amp;lt;- t(x.svd$u)
+
+Q.t &amp;lt;- t(Q.raw)
+Q.t &amp;lt;- Q.t - U %*% U.t %*% Q.t
+Q &amp;lt;- t(Q.t)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;After we adjust the batch effects:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;cor(Q.t, X)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;##               [,1]          [,2]
+## [1,] -2.732905e-16  2.732905e-16
+## [2,] -5.801340e-16  5.801340e-16
+## [3,] -2.653637e-16  2.653637e-16
+## [4,]  3.783374e-16 -3.783374e-16
+## [5,] -2.732729e-16  2.732729e-16&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;q.svd &amp;lt;- svd(Q)
+
+## 3. sorting
+B &amp;lt;- (sign(q.svd$v) + 1)/2
+ss &amp;lt;- apply(sweep(B, 2, 2^(seq(0,K-1)), `*`), 1, sum) + 1&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;feat.dn &amp;lt;- apply(Q, 2, function(x) x / sqrt(sum(x^2)))
+knn &amp;lt;- 3
+d &amp;lt;- nrow(feat.dn)
+
+library(RcppAnnoy)
+## a. construct dictionary for each batch
+dict.list &amp;lt;- lapply(sort(unique(batch)),
+                    function(b) { new(AnnoyAngular, d) })
+
+for(j in 1:length(batch)){
+    b &amp;lt;- batch[j]
+    dict.list[[b]]$addItem(j, feat.dn[,j])
+}
+
+for(dd in dict.list){
+    dd$build(50)
+}
+
+## b. a simplified routine to retrieve and estimate counterfactual y
+.counterfactual &amp;lt;- function(j){
+    v &amp;lt;- feat.dn[,j]
+
+    nn &amp;lt;- c()
+    dd &amp;lt;- c()
+
+    for(k in 1:nb){
+        if(k == batch[j]) next
+        .nn &amp;lt;- dict.list[[k]]$getNNsByVector(v, knn)
+        .dd &amp;lt;- apply(feat.dn[, .nn], 2, function(u) sum((u - v)^2))
+        nn &amp;lt;- c(nn, .nn)
+        dd &amp;lt;- c(dd, .dd)
+    }
+
+    w &amp;lt;- exp(-(dd - max(dd)))
+    w &amp;lt;- w/sum(w)
+
+    yy[, nn, drop = FALSE] %*% matrix(w, ncol=1)
+}&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ngene &amp;lt;- nrow(yy)
+nbatch &amp;lt;- ncol(X)
+nsample &amp;lt;- max(ss)
+
+.delta.db &amp;lt;- matrix(1, ngene, nbatch)       # gene x batch effects
+.delta.num.db &amp;lt;- matrix(0, ngene, nbatch)    # gene x batch numerators
+.delta.denom.db &amp;lt;- matrix(0, ngene, nbatch)  # gene x batch denominators
+
+.prob.bs &amp;lt;- matrix(0, nbatch, nsample)      # batch x sample probabilities
+.size.bs &amp;lt;- matrix(0, nbatch, nsample)      # batch x sample freq
+.ybar.ds &amp;lt;- matrix(0, ngene, nsample)       # gene x sample observed average
+.zbar.ds &amp;lt;- matrix(0, ngene, nsample)       # gene x sample imputed average
+.mu.ds &amp;lt;- matrix(1, ngene, nsample)         # gene x sample adjusted average
+
+## Precalculate some statistics
+for(s in 1:nsample){
+    if(sum(ss == s) &amp;lt; 1) next
+
+    .yy &amp;lt;- yy[, ss == s, drop = FALSE]
+    .zz &amp;lt;- do.call(cbind, lapply(which(ss == s), .counterfactual))
+
+    .ybar.ds[,s] &amp;lt;- apply(.yy, 1, mean)
+    .zbar.ds[,s] &amp;lt;- apply(.zz, 1, mean)
+    .prob.bs[,s] &amp;lt;- colMeans(X[ss == s, ])
+    .size.bs[,s] &amp;lt;- colSums(X[ss == s, ])
+
+    .y.dsb &amp;lt;- yy[, ss == s, drop = FALSE] %*% X[ss == s, , drop = FALSE]
+    .delta.num.db &amp;lt;- .delta.num.db + .y.dsb
+}
+
+.gamma.ds &amp;lt;- matrix(1, ngene, nsample)
+
+for(iter in 1:100){
+    .mu.ds &amp;lt;- (.ybar.ds + .zbar.ds) / (.delta.db %*% .prob.bs + .gamma.ds + 1e-8)
+    .gamma.ds &amp;lt;- .zbar.ds / (.mu.ds + 1e-8)
+    .delta.db &amp;lt;- .delta.num.db / (.mu.ds %*% t(.size.bs) + 1e-8)
+}&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Can we recover the original batch effects?&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;par(mfrow=c(1,2))
+plot(.delta.db[,1], W.true[,1], pch=19, xlab=&amp;quot;estimated delta&amp;quot;, ylab=&amp;quot;true delta effect&amp;quot;, main=&amp;quot;batch1&amp;quot;)
+plot(.delta.db[,2], W.true[,2], pch=19, xlab=&amp;quot;estimated delta&amp;quot;, ylab=&amp;quot;true delta effect&amp;quot;, main=&amp;quot;batch2&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;https://ypark.github.io/post/causal_inference/batch_effect_pseudobulk_files/figure-html/unnamed-chunk-6-1.png&#34; width=&#34;576&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;Are they independent of the cell type effects?&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;y.true &amp;lt;- sweep(lambda.true %*% X, 2, colSums(X), `/`)
+par(mfrow=c(1,2))
+plot(.delta.db[,1], y.true[,1], pch=19, xlab=&amp;quot;estimated delta&amp;quot;, ylab=&amp;quot;true y mean&amp;quot;, main=&amp;quot;batch1&amp;quot;)
+plot(.delta.db[,2], y.true[,2], pch=19, xlab=&amp;quot;estimated delta&amp;quot;, ylab=&amp;quot;true y mean&amp;quot;, main=&amp;quot;batch2&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;https://ypark.github.io/post/causal_inference/batch_effect_pseudobulk_files/figure-html/unnamed-chunk-7-1.png&#34; width=&#34;576&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;While adjusting the estimated batch effects, can we recover the unbiased cell type effects? The following is before adjustment:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ybar &amp;lt;- sweep(yy %*% X, 2, colSums(X), `/`)
+par(mfrow=c(1,2))
+plot(ybar[,1], y.true[,1], pch=19, xlab=&amp;quot;sample mean&amp;quot;, ylab=&amp;quot;true y mean&amp;quot;, log=&amp;quot;x&amp;quot;, main=&amp;quot;batch1&amp;quot;)
+plot(ybar[,2], y.true[,2], pch=19, xlab=&amp;quot;sample mean&amp;quot;, ylab=&amp;quot;true y mean&amp;quot;, log=&amp;quot;x&amp;quot;, main=&amp;quot;batch2&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;https://ypark.github.io/post/causal_inference/batch_effect_pseudobulk_files/figure-html/unnamed-chunk-8-1.png&#34; width=&#34;576&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;Here, we adjusted the batch effects:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ybar.adj &amp;lt;- sweep((yy / .delta.db[, batch]) %*% X, 2, colSums(X), `/`)
+par(mfrow=c(1,2))
+plot(ybar.adj[,1], y.true[,1], pch=19, xlab=&amp;quot;adjusted sample mean&amp;quot;, ylab=&amp;quot;true y mean&amp;quot;, log=&amp;quot;x&amp;quot;, main=&amp;quot;batch1&amp;quot;)
+plot(ybar.adj[,2], y.true[,2], pch=19, xlab=&amp;quot;adjusted sample mean&amp;quot;, ylab=&amp;quot;true y mean&amp;quot;, log=&amp;quot;x&amp;quot;, main=&amp;quot;batch2&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;https://ypark.github.io/post/causal_inference/batch_effect_pseudobulk_files/figure-html/unnamed-chunk-9-1.png&#34; width=&#34;576&#34; /&gt;&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;par(mfrow=c(1,2))
+.tsne &amp;lt;- Rtsne::Rtsne(log(1 + t(yy)), num_threads=4)$Y
+plot(.tsne[,1], .tsne[,2], col=batch, pch=19, cex=.5, main=&amp;quot;before batch adj&amp;quot;,
+     xlab = &amp;quot;tsne1&amp;quot;, ylab = &amp;quot;tsne2&amp;quot;)
+legend(&amp;quot;topleft&amp;quot;, c(&amp;quot;batch #1&amp;quot;, &amp;quot;batch #2&amp;quot;), col=1:2, pch=19)
+.tsne &amp;lt;- Rtsne::Rtsne(log(1 + t(yy/.delta.db[,batch])), num_threads=4)$Y
+plot(.tsne[,1], .tsne[,2], col=batch, pch=19, cex=.5, main=&amp;quot;after batch adj&amp;quot;,
+     xlab = &amp;quot;tsne1&amp;quot;, ylab = &amp;quot;tsne2&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;https://ypark.github.io/post/causal_inference/batch_effect_pseudobulk_files/figure-html/unnamed-chunk-10-1.png&#34; width=&#34;576&#34; /&gt;&lt;/p&gt;
 &lt;/div&gt;
 </description>
     </item>
@@ -72,7 +285,7 @@
     <item>
       <title>STAT 548 PhD Qualifying Papers (2022 - 2023)</title>
       <link>https://ypark.github.io/post/stat548/stat548_2022_2023/</link>
-      <pubDate>Mon, 19 Jun 2023 00:00:00 +0000</pubDate>
+      <pubDate>Thu, 01 Sep 2022 00:00:00 +0000</pubDate>
       <guid>https://ypark.github.io/post/stat548/stat548_2022_2023/</guid>
       <description>
 
@@ -135,9 +348,9 @@
     
     <item>
       <title>Recipes for GWAS data conversion/extraction</title>
-      <link>https://ypark.github.io/post/gwas_data_trans/</link>
+      <link>https://ypark.github.io/post/genetics/gwas_data_export/</link>
       <pubDate>Wed, 05 Sep 2018 00:00:00 +0000</pubDate>
-      <guid>https://ypark.github.io/post/gwas_data_trans/</guid>
+      <guid>https://ypark.github.io/post/genetics/gwas_data_export/</guid>
       <description>&lt;!-- # image: --&gt;
 &lt;!-- #  caption: &#39;Image credit: [**John Moeses Bauan**](https://unsplash.com/photos/OGZtQF8iC0g)&#39; --&gt;
 &lt;!-- #  placement: 3 --&gt;
@@ -228,9 +441,9 @@
     
     <item>
       <title>On the analysis methods used in the &#34;omnigenic&#34; paper</title>
-      <link>https://ypark.github.io/post/genetics/2018-06-21-omnigenic/</link>
+      <link>https://ypark.github.io/post/genetics/omnigenics/</link>
       <pubDate>Thu, 21 Jun 2018 00:00:00 +0000</pubDate>
-      <guid>https://ypark.github.io/post/genetics/2018-06-21-omnigenic/</guid>
+      <guid>https://ypark.github.io/post/genetics/omnigenics/</guid>
       <description>&lt;p&gt;A recent quanta magazine 
 &lt;a href=&#34;https://www.quantamagazine.org/omnigenic-model-suggests-that-all-genes-affect-every-complex-trait-20180620/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;article&lt;/a&gt; on the omnigenic hypothesis re-ignited my interest.  So I read 
 &lt;a href=&#34;https://www.cell.com/cell/abstract/S0092-8674%2817%2930629-3&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;the original omnigenic paper&lt;/a&gt; again.&lt;/p&gt;

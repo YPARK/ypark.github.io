@@ -27,10 +27,11 @@
   
     
   
-  <meta name="description" content="Introduction I am interested in almost all problems in computational biology and genomics. I expect a student to propose novel statistical approaches that can address challenges in data analysis and modelling of high-dimensional, large-volume biological problems.">
+  <meta name="description" content="Useful tools   Download PLINK 1.9 from https://www.cog-genomics.org/plink2.
+  Install bcftools from https://samtools.github.io/bcftools/ but for MAC OS X it is easier to install UNIX tools via homebrew. After having homebrew installed, just tap in by brew install bcftools.">
 
   
-  <link rel="alternate" hreflang="en-ca" href="https://ypark.github.io/post/stat548/stat548_2022_2023/">
+  <link rel="alternate" hreflang="en-ca" href="https://ypark.github.io/post/genetics/gwas_data_export/">
 
   
 
@@ -218,7 +219,7 @@
   <link rel="icon" type="image/png" href="/images/icon_hu9e65041e7038cfeb655cd5b2189fa456_18716_32x32_fill_lanczos_center_2.png">
   <link rel="apple-touch-icon" type="image/png" href="/images/icon_hu9e65041e7038cfeb655cd5b2189fa456_18716_192x192_fill_lanczos_center_2.png">
 
-  <link rel="canonical" href="https://ypark.github.io/post/stat548/stat548_2022_2023/">
+  <link rel="canonical" href="https://ypark.github.io/post/genetics/gwas_data_export/">
 
   
   
@@ -237,15 +238,16 @@
   <meta property="twitter:creator" content="@ypp_lab">
   
   <meta property="og:site_name" content="Causal Path Lab">
-  <meta property="og:url" content="https://ypark.github.io/post/stat548/stat548_2022_2023/">
-  <meta property="og:title" content="STAT 548 PhD Qualifying Papers (2022 - 2023) | Causal Path Lab">
-  <meta property="og:description" content="Introduction I am interested in almost all problems in computational biology and genomics. I expect a student to propose novel statistical approaches that can address challenges in data analysis and modelling of high-dimensional, large-volume biological problems."><meta property="og:image" content="https://ypark.github.io/images/icon_hu9e65041e7038cfeb655cd5b2189fa456_18716_512x512_fill_lanczos_center_2.png">
+  <meta property="og:url" content="https://ypark.github.io/post/genetics/gwas_data_export/">
+  <meta property="og:title" content="Recipes for GWAS data conversion/extraction | Causal Path Lab">
+  <meta property="og:description" content="Useful tools   Download PLINK 1.9 from https://www.cog-genomics.org/plink2.
+  Install bcftools from https://samtools.github.io/bcftools/ but for MAC OS X it is easier to install UNIX tools via homebrew. After having homebrew installed, just tap in by brew install bcftools."><meta property="og:image" content="https://ypark.github.io/images/icon_hu9e65041e7038cfeb655cd5b2189fa456_18716_512x512_fill_lanczos_center_2.png">
   <meta property="twitter:image" content="https://ypark.github.io/images/icon_hu9e65041e7038cfeb655cd5b2189fa456_18716_512x512_fill_lanczos_center_2.png"><meta property="og:locale" content="en-ca">
   
     
-      <meta property="article:published_time" content="2022-09-01T00:00:00&#43;00:00">
+      <meta property="article:published_time" content="2018-09-05T00:00:00&#43;00:00">
     
-    <meta property="article:modified_time" content="2022-09-01T00:00:00&#43;00:00">
+    <meta property="article:modified_time" content="2018-09-05T00:00:00&#43;00:00">
   
 
   
@@ -269,12 +271,12 @@
   "@type": "BlogPosting",
   "mainEntityOfPage": {
     "@type": "WebPage",
-    "@id": "https://ypark.github.io/post/stat548/stat548_2022_2023/"
+    "@id": "https://ypark.github.io/post/genetics/gwas_data_export/"
   },
-  "headline": "STAT 548 PhD Qualifying Papers (2022 - 2023)",
+  "headline": "Recipes for GWAS data conversion/extraction",
   
-  "datePublished": "2022-09-01T00:00:00Z",
-  "dateModified": "2022-09-01T00:00:00Z",
+  "datePublished": "2018-09-05T00:00:00Z",
+  "dateModified": "2018-09-05T00:00:00Z",
   
   "publisher": {
     "@type": "Organization",
@@ -284,7 +286,7 @@
       "url": "https://ypark.github.io/images/icon_hu9e65041e7038cfeb655cd5b2189fa456_18716_192x192_fill_lanczos_center_2.png"
     }
   },
-  "description": "Introduction I am interested in almost all problems in computational biology and genomics. I expect a student to propose novel statistical approaches that can address challenges in data analysis and modelling of high-dimensional, large-volume biological problems."
+  "description": "Useful tools   Download PLINK 1.9 from https://www.cog-genomics.org/plink2.\n  Install bcftools from https://samtools.github.io/bcftools/ but for MAC OS X it is easier to install UNIX tools via homebrew. After having homebrew installed, just tap in by brew install bcftools."
 }
 </script>
 
@@ -302,7 +304,7 @@
 
 
 
-  <title>STAT 548 PhD Qualifying Papers (2022 - 2023) | Causal Path Lab</title>
+  <title>Recipes for GWAS data conversion/extraction | Causal Path Lab</title>
 
 </head>
 
@@ -526,7 +528,7 @@
   
   
 <div class="article-container pt-3">
-  <h1>STAT 548 PhD Qualifying Papers (2022 - 2023)</h1>
+  <h1>Recipes for GWAS data conversion/extraction</h1>
 
   
 
@@ -545,7 +547,7 @@
     
       
     
-    Sep 1, 2022
+    Sep 5, 2018
   </span>
   
 
@@ -554,7 +556,7 @@
   
   <span class="middot-divider"></span>
   <span class="article-reading-time">
-    4 min read
+    3 min read
   </span>
   
 
@@ -590,62 +592,91 @@
   <div class="article-container">
 
     <div class="article-style">
-      
-
-
-<div id="introduction" class="section level2">
-<h2>Introduction</h2>
-<p>I am interested in almost all problems in computational biology and genomics. I expect a student to propose novel statistical approaches that can address challenges in data analysis and modelling of high-dimensional, large-volume biological problems. In many cases, I can provide relevant data sets and help students find collaborators to facilitate publications in a biological venue. Feel free to contact me (<code>ypp@stat.ubc.ca</code>).</p>
-</div>
-<div id="an-expected-format-for-the-report" class="section level2">
-<h2>An expected format for the report</h2>
-<p>You may organize your report including the following sections.</p>
+      <!-- # image: -->
+<!-- #  caption: 'Image credit: [**John Moeses Bauan**](https://unsplash.com/photos/OGZtQF8iC0g)' -->
+<!-- #  placement: 3 -->
+<h2 id="useful-tools">Useful tools</h2>
 <ul>
-<li><p><strong>Problem definition</strong> (1 page): Extract mathematical/statistical problems from the paper and organize them. What are the input data? What is the expected output?</p></li>
-<li><p><strong>Significance</strong> (1-2 paragraphs): Why is this an interesting problem? What can be learned by studying this problem? Why is it exciting for you? Author contribution: How did the author(s) find the solution? What was a novel contribution beyond traditional approaches?</p></li>
-<li><p><strong>Limitations/challenges</strong> (1-2 paragraphs): What are the assumptions? Are they realistic? What are the technical limitations that the authors acknowledge or not?</p></li>
-<li><p><strong>Novel idea/methods</strong> (2 pages): Propose your idea and statistical methods. You could interpret the underlying problem in a different formulation. What are related problems/frameworks, but not adopted by the authors?</p></li>
-<li><p><strong>Results</strong> (1-2 pages): Include one figure that sketches your approaches. Show tables and figures that clearly demonstrate your methods.</p></li>
-<li><p><strong>Discussion</strong> (1 page): Briefly discuss what you have learned and what you would achieve if you were to develop this to a full paper. How would you validate your findings in independent studies, including wet-lab experiments?</p></li>
+<li>
+<p>Download <code>PLINK 1.9</code> from <code>https://www.cog-genomics.org/plink2</code>.</p>
+</li>
+<li>
+<p>Install <code>bcftools</code> from <code>https://samtools.github.io/bcftools/</code> but for MAC OS X it is easier to install UNIX tools via 
+<a href="https://docs.brew.sh/Installation" target="_blank" rel="noopener"><code>homebrew</code></a>.  After having <code>homebrew</code> installed, just tap in by <code>brew install bcftools</code>.</p>
+</li>
+<li>
+<p>Download SNP annotation for <code>hg19</code> (see below)</p>
+</li>
 </ul>
-</div>
-<div id="available-papers" class="section level2">
-<h2>Available Papers</h2>
-<ol style="list-style-type: decimal">
-<li><p>Romano, Sesia, and Candes, <a href="https://www.tandfonline.com/doi/full/10.1080/01621459.2019.1660174">Deep Knockoffs</a></p>
-<ul>
-<li><p><strong>Category</strong>: variable selection, causal inference</p></li>
-<li><p><strong>Idea</strong>: Implement the method using <code>torch</code> (<code>R</code> or <code>Python</code>) and test on synthetic data. Test a variety of scoring functions and benchmark for genetics applications. Real-world genetics data will be made available upon request.</p></li>
-</ul></li>
-<li><p>Gu, Blaauw, and Welch, <a href="https://arxiv.org/abs/2207.04166">Variational Mixtures of ODEs for Inferring Cellular Gene Expression Dynamics</a></p>
-<ul>
-<li><p><strong>Category</strong>: single-cell genomics, dynamics, variational inference</p></li>
-<li><p><strong>Idea</strong>: The goal is to understand the method and implementation in detail in a broad context of likelihood-free inference methods. One can compare this paper with relevant methods based on variational inference, such as Ryder <em>et al.</em>, <a href="https://arxiv.org/abs/1802.03335">Black-box variational inference for stochastic differential equations</a>. Several review papers are available like <a href="https://link.springer.com/article/10.1007/s11222-022-10092-4">this</a>.</p></li>
-</ul></li>
-<li><p>Zheng, Aragam, Ravikumar, and Xing, <a href="https://arxiv.org/abs/1803.01422">DAGs with NO TEARS: Continuous Optimization for Structure Learning</a> <strong>TAKEN</strong></p>
-<ul>
-<li><p><strong>Category</strong>: combinatorial optimization, causal inference</p></li>
-<li><p><strong>Idea</strong>: Implement the method using <code>torch</code> (<code>R</code> or <code>Python</code>) and test on synthetic data (e.g., linear Gaussian or generalize linear models). The current framework was primarily built on observational data. You are welcomed to extend the approach to a data set with multiple experimental conditions, so that the method can discover causal relationships implicated by the data-generating scheme.</p></li>
-</ul></li>
-<li><p>Jung, Kasiviswanathan, Tian, Janzing, Bloebaum, and Bareinboim, <a href="https://proceedings.mlr.press/v162/jung22a.html">On Measuring Causal Contributions via do-interventions</a></p>
-<ul>
-<li><p><strong>Category</strong>: causal inference</p></li>
-<li><p><strong>Idea</strong>: The paper takes a theoretical (axiomatic) approach to a causal inference problem. What are the differences between the do-Shapley and other conventional approaches? Several routes can be taken: (1) Understand the framework and methods; revisit the theorem and prove in your own language. (2) One can propose an efficient algorithm to handle a large number of variables in do-Shapely computations.</p></li>
-</ul></li>
-<li><p>Hill, <a href="https://www.tandfonline.com/doi/abs/10.1198/jcgs.2010.08162">Bayesian Nonparametric Modeling for Causal Inference</a> (2012); Louizos <em>et al.</em> <a href="http://papers.nips.cc/paper/7223-causal-effect-inference-with-deep-latent-variable-models">Causal Effect Inference with Deep Latent-Variable Models</a> (2017)</p>
-<ul>
-<li><p><strong>Category</strong>: causal inference, Bayesian inference</p></li>
-<li><p><strong>Idea</strong>: Using counterfactual data modelling/sampling, we can train a model that captures latent representation of confounding factors. Can we combine the idea of a counterfactual model with stochastic variational inference that consumes stochastically-generated minibatch data to update parameters in each epoch? If so, what is optimal sampling strategy to feed in counterfactual data to the inference engine?</p></li>
-</ul></li>
-<li><p>Wang, Sarkar, Carbonetto, and Stephens, <a href="https://rss.onlinelibrary.wiley.com/doi/10.1111/rssb.12388">A simple new approach to variable selection in regression, with application to genetic fine mapping</a>, 2020</p>
-<ul>
-<li><p>Reference site <a href="https://stephenslab.github.io/susie-paper/">SuSiE</a></p></li>
-<li><p>Other related papers: Zhu and Stephens, <a href="https://projecteuclid.org/euclid.aoas/1507168840">Bayesian large-scale multiple regression with summary statistics from genome-wide association studies</a> (2017). Zou, Carbonetto, Wang, and Stephens, <a href="https://journals.plos.org/plosgenetics/article?id=10.1371/journal.pgen.1010299">Fine-mapping from summary data with the “Sum of Single Effects” model</a> (2022)</p></li>
-<li><p><strong>Category</strong>: statistical genetics, summary statistics-based inference.</p></li>
-<li><p><strong>Idea</strong>: Multiple directions are possible. Extend the idea to summary statistics matrix with more than two columns. Show correspondence with existing polygenic risk prediction methods.</p></li>
-</ul></li>
+<pre><code>wget ftp://ftp.ncbi.nih.gov/snp/organisms/human_9606_b151_GRCh37p13/VCF/common_all_20180423.vcf.gz
+</code></pre>
+<h2 id="example-downloading-uk-biobank-genotype-data-using-virtual-box">Example: Downloading UK biobank genotype data using virtual box</h2>
+<p>Since UK Biobank genotypes are only downloadable by a linux-compiled binary, I had to spin off a virtual box. I thought it is generally a good idea to have a shared directory between the host (Mac OS) and the box. Here is how I did based on the stackoverflow search.</p>
+<ol start="0">
+<li>
+<p>Create a virtual box with <code>ICH9</code> chipset and the bridged network adapter.</p>
+</li>
+<li>
+<p>Install an extension pack (<code>Oracle_VM_Virtual Box</code> etc.).</p>
+</li>
+<li>
+<p>Run &ldquo;Insert Guest Additions CD images&hellip;&rdquo; under the &ldquo;Devices&rdquo; tab.</p>
+</li>
+<li>
+<p>Restart the box.</p>
+</li>
+<li>
+<p>Create a shared folder via GUI</p>
+</li>
+<li>
+<p>Mount the folder</p>
+</li>
 </ol>
-</div>
+<pre><code>mount -t vboxsf mountfolder /home/devInHost/mountfolder
+</code></pre>
+<p>Once I have successfully mounted the shared folder, I can use <code>ukbgene</code> to download the imputed genotypes. To make sure that I write down to the shared folder, I just run the command with the root priviledge.</p>
+<pre><code>parallel -j4 ./ukbgene imp -c{1} :: {1..22}
+</code></pre>
+<p>Enjoy!</p>
+<h2 id="example-extracting-dosage-information-from-a-vcf-file-to-use-a-predixcan-model">Example: Extracting dosage information from a VCF file to use a <code>PrediXcan</code> model</h2>
+<ul>
+<li>
+<p>Download weights <code>Brain_Amygdala.tar.gz</code> from <code>http://predictdb.org/</code>.</p>
+</li>
+<li>
+<p>Copy <code>*.py</code> and <code>*.R</code> from <code>PrediXcan</code> github repository.</p>
+</li>
+</ul>
+<h4 id="1-we-need-to-construct-annotations">1. We need to construct annotations</h4>
+<pre><code>cat common_all_20180423.vcf.gz | gzip -d | bgzip -c &gt; snps.vcf.gz &amp;&amp; tabix snps.vcf.gz
+</code></pre>
+<h4 id="2-annotate-rsid-to-match-with-the-db-file">2. Annotate <code>rsID</code> to match with the DB file.</h4>
+<p>We will store the updated VCF file in separate directory:</p>
+<pre><code>mkdir -p data/vcf/
+</code></pre>
+<p>We can create annotated VCF.</p>
+<pre><code>bcftools annotate -c CHROM,FROM,TO,ID -a snps.vcf.gz -o data/vcf/chr21.vcf.gz chr21.dose.vcf.gz
+</code></pre>
+<h4 id="3-create-dosage-file-as-predixcan-requires">3. Create dosage file as PrediXcan requires</h4>
+<pre><code>mkdir -p data/dosage/
+</code></pre>
+<p>We can extract dosage information with the format <code>-f &quot;[\t%DS]\n&quot;</code>, prepending 6 header columns: chromosome, rsID, position, reference, alternative allele, and minor allele frequency with the format <code>-f &quot;%CHROM\t%ID\t%POS\t%REF\t%ALT\t%MAF&quot;</code>.  To make sure that our prediction is reliable, we may filter out SNP with MAF less than 5% adding <code>-e &quot;MAF[0]&lt;0.05&quot;</code>.</p>
+<pre><code>$ bcftools query -e &quot;MAF[0]&lt;0.05&quot; -f &quot;%CHROM\t%ID\t%POS\t%REF\t%ALT\t%MAF[\t%DS]\n&quot; data/vcf/chr21.vcf.gz  | gzip &gt; data/dosage/chr21.dosage.gz
+</code></pre>
+<p>Additionally we can list samples in the same directory:</p>
+<pre><code>$ bcftools query -l data/vcf/chr21.vcf.gz | awk -F'\t' '{ print $1 FS $1 }' &gt; data/dosage/chr21.samples
+</code></pre>
+<p>Once I have successfully mounted the shared folder, I can use <code>ukbgene</code> to download the imputed genotypes. To make sure that I write down to the shared folder, I just run the command with the root priviledge.</p>
+<pre><code>parallel -j4 ./ukbgene imp -c{1} :: {1..22}
+</code></pre>
+<h4 id="4-run-predixcan">4. Run PrediXcan.</h4>
+<pre><code>python PrediXcan.py --predict --dosages data/dosage/ --dosages_prefix chr21 --output_prefix temp --samples chr21.samples --weights Brain_Amygdala/gtex_v7_Brain_Amygdala_imputed_europeans_tw_0.5_signif.db
+</code></pre>
+<h5 id="conclusion">Conclusion</h5>
+<ul>
+<li><code>bcftools</code> are just amazing.</li>
+<li>I found the way <code>PrediXcan</code> process files quite inefficient.</li>
+</ul>
 
     </div>
 
@@ -655,6 +686,18 @@
 
 
 
+
+<div class="article-tags">
+  
+  <a class="badge badge-light" href="/tag/gwas/">GWAS</a>
+  
+  <a class="badge badge-light" href="/tag/uk-biobank/">UK Biobank</a>
+  
+  <a class="badge badge-light" href="/tag/ukb/">UKB</a>
+  
+  <a class="badge badge-light" href="/tag/virtual-box/">Virtual box</a>
+  
+</div>
 
 
 
@@ -669,7 +712,7 @@
       
       
       <li>
-        <a href="https://twitter.com/intent/tweet?url=https://ypark.github.io/post/stat548/stat548_2022_2023/&amp;text=STAT%20548%20PhD%20Qualifying%20Papers%20%282022%20-%202023%29" target="_blank" rel="noopener" class="share-btn-twitter">
+        <a href="https://twitter.com/intent/tweet?url=https://ypark.github.io/post/genetics/gwas_data_export/&amp;text=Recipes%20for%20GWAS%20data%20conversion/extraction" target="_blank" rel="noopener" class="share-btn-twitter">
           <i class="fab fa-twitter"></i>
         </a>
       </li>
@@ -682,7 +725,7 @@
       
       
       <li>
-        <a href="https://www.facebook.com/sharer.php?u=https://ypark.github.io/post/stat548/stat548_2022_2023/&amp;t=STAT%20548%20PhD%20Qualifying%20Papers%20%282022%20-%202023%29" target="_blank" rel="noopener" class="share-btn-facebook">
+        <a href="https://www.facebook.com/sharer.php?u=https://ypark.github.io/post/genetics/gwas_data_export/&amp;t=Recipes%20for%20GWAS%20data%20conversion/extraction" target="_blank" rel="noopener" class="share-btn-facebook">
           <i class="fab fa-facebook"></i>
         </a>
       </li>
@@ -695,7 +738,7 @@
       
       
       <li>
-        <a href="mailto:?subject=STAT%20548%20PhD%20Qualifying%20Papers%20%282022%20-%202023%29&amp;body=https://ypark.github.io/post/stat548/stat548_2022_2023/" target="_blank" rel="noopener" class="share-btn-email">
+        <a href="mailto:?subject=Recipes%20for%20GWAS%20data%20conversion/extraction&amp;body=https://ypark.github.io/post/genetics/gwas_data_export/" target="_blank" rel="noopener" class="share-btn-email">
           <i class="fas fa-envelope"></i>
         </a>
       </li>
@@ -708,7 +751,7 @@
       
       
       <li>
-        <a href="https://www.linkedin.com/shareArticle?url=https://ypark.github.io/post/stat548/stat548_2022_2023/&amp;title=STAT%20548%20PhD%20Qualifying%20Papers%20%282022%20-%202023%29" target="_blank" rel="noopener" class="share-btn-linkedin">
+        <a href="https://www.linkedin.com/shareArticle?url=https://ypark.github.io/post/genetics/gwas_data_export/&amp;title=Recipes%20for%20GWAS%20data%20conversion/extraction" target="_blank" rel="noopener" class="share-btn-linkedin">
           <i class="fab fa-linkedin-in"></i>
         </a>
       </li>
@@ -721,7 +764,7 @@
       
       
       <li>
-        <a href="whatsapp://send?text=STAT%20548%20PhD%20Qualifying%20Papers%20%282022%20-%202023%29%20https://ypark.github.io/post/stat548/stat548_2022_2023/" target="_blank" rel="noopener" class="share-btn-whatsapp">
+        <a href="whatsapp://send?text=Recipes%20for%20GWAS%20data%20conversion/extraction%20https://ypark.github.io/post/genetics/gwas_data_export/" target="_blank" rel="noopener" class="share-btn-whatsapp">
           <i class="fab fa-whatsapp"></i>
         </a>
       </li>
@@ -734,7 +777,7 @@
       
       
       <li>
-        <a href="https://service.weibo.com/share/share.php?url=https://ypark.github.io/post/stat548/stat548_2022_2023/&amp;title=STAT%20548%20PhD%20Qualifying%20Papers%20%282022%20-%202023%29" target="_blank" rel="noopener" class="share-btn-weibo">
+        <a href="https://service.weibo.com/share/share.php?url=https://ypark.github.io/post/genetics/gwas_data_export/&amp;title=Recipes%20for%20GWAS%20data%20conversion/extraction" target="_blank" rel="noopener" class="share-btn-weibo">
           <i class="fab fa-weibo"></i>
         </a>
       </li>
@@ -816,6 +859,8 @@
       <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.isotope/3.0.6/isotope.pkgd.min.js" integrity="sha256-CBrpuqrMhXwcLLUd5tvQ4euBHCdh7wGlDfNz8vbu/iI=" crossorigin="anonymous"></script>
       <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js" integrity="sha256-yt2kYMy0w8AbtF89WXb2P1rfjcP/HTHLT7097U8Y5b8=" crossorigin="anonymous"></script>
 
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mermaid/8.4.8/mermaid.min.js" integrity="sha256-lyWCDMnMeZiXRi7Zl54sZGKYmgQs4izcT7+tKc+KUBk=" crossorigin="anonymous" title="mermaid"></script>
       
 
       

@@ -1,7 +1,7 @@
 ---
 title: STAT 548 PhD Qualifying Papers (2022 - 2023)
 author: ypp
-date: "`r Sys.Date()`"
+date: "2022-09-01"
 ---
 
 ## Introduction
