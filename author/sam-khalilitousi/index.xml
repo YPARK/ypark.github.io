@@ -2,15 +2,18 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Sam Khalilitousi | Causal Path Lab</title>
-    <link>https://ypark.github.io/author/sam-khalilitousi/</link>
-      <atom:link href="https://ypark.github.io/author/sam-khalilitousi/index.xml" rel="self" type="application/rss+xml" />
+    <link>http://localhost:4321/author/sam-khalilitousi/</link>
+      <atom:link href="http://localhost:4321/author/sam-khalilitousi/index.xml" rel="self" type="application/rss+xml" />
     <description>Sam Khalilitousi</description>
     <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-ca</language><copyright>Yongjin Park</copyright>
-    <image>
-      <url>https://ypark.github.io/author/sam-khalilitousi/avatar_huc310cc3c4bb8871407a116ed6dc2e068_50690_270x270_fill_q90_lanczos_center.jpeg</url>
+    <item>
       <title>Sam Khalilitousi</title>
-      <link>https://ypark.github.io/author/sam-khalilitousi/</link>
-    </image>
+      <link>http://localhost:4321/author/sam-khalilitousi/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:4321/author/sam-khalilitousi/</guid>
+      <description>&lt;p&gt;I have always been intrigued by the ever-growing biological insights that are made possible with computers. This led me to pursue Biomedical Engineering (specializing in Cellular Bioengineering) at UBC, where I have been gaining experience in machine learning and bioinformatics analysis. With a passion centred in machine learning and computational biology, I want to use creativity to help make novel discoveries. Looking forward to connecting and collaborating with the team at the Park Lab!&lt;/p&gt;
+</description>
+    </item>
     
   </channel>
 </rss>

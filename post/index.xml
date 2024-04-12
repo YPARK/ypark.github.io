@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Posts | Causal Path Lab</title>
-    <link>https://ypark.github.io/post/</link>
-      <atom:link href="https://ypark.github.io/post/index.xml" rel="self" type="application/rss+xml" />
+    <link>http://localhost:4321/post/</link>
+      <atom:link href="http://localhost:4321/post/index.xml" rel="self" type="application/rss+xml" />
     <description>Posts</description>
     <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-ca</language><copyright>Yongjin Park</copyright><lastBuildDate>Mon, 19 Jun 2023 00:00:00 +0000</lastBuildDate>
     <image>
-      <url>https://ypark.github.io/images/icon_hu9e65041e7038cfeb655cd5b2189fa456_18716_512x512_fill_lanczos_center_2.png</url>
+      <url>http://localhost:4321/images/icon_hu9e65041e7038cfeb655cd5b2189fa456_18716_512x512_fill_lanczos_center_3.png</url>
       <title>Posts</title>
-      <link>https://ypark.github.io/post/</link>
+      <link>http://localhost:4321/post/</link>
     </image>
     
     <item>
       <title>Adjusting batch effect in pseudobulk samples is a causal inference problem</title>
-      <link>https://ypark.github.io/post/causal_inference/batch_effect_pseudobulk/</link>
+      <link>http://localhost:4321/post/causal_inference/batch_effect_pseudobulk/</link>
       <pubDate>Mon, 19 Jun 2023 00:00:00 +0000</pubDate>
-      <guid>https://ypark.github.io/post/causal_inference/batch_effect_pseudobulk/</guid>
+      <guid>http://localhost:4321/post/causal_inference/batch_effect_pseudobulk/</guid>
       <description>
 
 
@@ -161,11 +161,11 @@ Q &amp;lt;- t(Q.t)&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;After we adjust the batch effects:&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;cor(Q.t, X)&lt;/code&gt;&lt;/pre&gt;
 &lt;pre&gt;&lt;code&gt;##               [,1]          [,2]
-## [1,] -2.732905e-16  2.732905e-16
-## [2,] -5.801340e-16  5.801340e-16
-## [3,] -2.653637e-16  2.653637e-16
-## [4,]  3.783374e-16 -3.783374e-16
-## [5,] -2.732729e-16  2.732729e-16&lt;/code&gt;&lt;/pre&gt;
+## [1,] -2.276319e-16  2.276319e-16
+## [2,] -5.524025e-16  5.524025e-16
+## [3,] -2.934286e-16  2.934286e-16
+## [4,]  3.075415e-16 -3.075415e-16
+## [5,] -3.636223e-16  3.636223e-16&lt;/code&gt;&lt;/pre&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;q.svd &amp;lt;- svd(Q)
 
 ## 3. sorting
@@ -250,25 +250,25 @@ for(iter in 1:100){
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;par(mfrow=c(1,2))
 plot(.delta.db[,1], W.true[,1], pch=19, xlab=&amp;quot;estimated delta&amp;quot;, ylab=&amp;quot;true delta effect&amp;quot;, main=&amp;quot;batch1&amp;quot;)
 plot(.delta.db[,2], W.true[,2], pch=19, xlab=&amp;quot;estimated delta&amp;quot;, ylab=&amp;quot;true delta effect&amp;quot;, main=&amp;quot;batch2&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;https://ypark.github.io/post/causal_inference/batch_effect_pseudobulk_files/figure-html/unnamed-chunk-6-1.png&#34; width=&#34;576&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://localhost:4321/post/causal_inference/batch_effect_pseudobulk_files/figure-html/unnamed-chunk-6-1.png&#34; width=&#34;576&#34; /&gt;&lt;/p&gt;
 &lt;p&gt;Are they independent of the cell type effects?&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;y.true &amp;lt;- sweep(lambda.true %*% X, 2, colSums(X), `/`)
 par(mfrow=c(1,2))
 plot(.delta.db[,1], y.true[,1], pch=19, xlab=&amp;quot;estimated delta&amp;quot;, ylab=&amp;quot;true y mean&amp;quot;, main=&amp;quot;batch1&amp;quot;)
 plot(.delta.db[,2], y.true[,2], pch=19, xlab=&amp;quot;estimated delta&amp;quot;, ylab=&amp;quot;true y mean&amp;quot;, main=&amp;quot;batch2&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;https://ypark.github.io/post/causal_inference/batch_effect_pseudobulk_files/figure-html/unnamed-chunk-7-1.png&#34; width=&#34;576&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://localhost:4321/post/causal_inference/batch_effect_pseudobulk_files/figure-html/unnamed-chunk-7-1.png&#34; width=&#34;576&#34; /&gt;&lt;/p&gt;
 &lt;p&gt;While adjusting the estimated batch effects, can we recover the unbiased cell type effects? The following is before adjustment:&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ybar &amp;lt;- sweep(yy %*% X, 2, colSums(X), `/`)
 par(mfrow=c(1,2))
 plot(ybar[,1], y.true[,1], pch=19, xlab=&amp;quot;sample mean&amp;quot;, ylab=&amp;quot;true y mean&amp;quot;, log=&amp;quot;x&amp;quot;, main=&amp;quot;batch1&amp;quot;)
 plot(ybar[,2], y.true[,2], pch=19, xlab=&amp;quot;sample mean&amp;quot;, ylab=&amp;quot;true y mean&amp;quot;, log=&amp;quot;x&amp;quot;, main=&amp;quot;batch2&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;https://ypark.github.io/post/causal_inference/batch_effect_pseudobulk_files/figure-html/unnamed-chunk-8-1.png&#34; width=&#34;576&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://localhost:4321/post/causal_inference/batch_effect_pseudobulk_files/figure-html/unnamed-chunk-8-1.png&#34; width=&#34;576&#34; /&gt;&lt;/p&gt;
 &lt;p&gt;Here, we adjusted the batch effects:&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ybar.adj &amp;lt;- sweep((yy / .delta.db[, batch]) %*% X, 2, colSums(X), `/`)
 par(mfrow=c(1,2))
 plot(ybar.adj[,1], y.true[,1], pch=19, xlab=&amp;quot;adjusted sample mean&amp;quot;, ylab=&amp;quot;true y mean&amp;quot;, log=&amp;quot;x&amp;quot;, main=&amp;quot;batch1&amp;quot;)
 plot(ybar.adj[,2], y.true[,2], pch=19, xlab=&amp;quot;adjusted sample mean&amp;quot;, ylab=&amp;quot;true y mean&amp;quot;, log=&amp;quot;x&amp;quot;, main=&amp;quot;batch2&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;https://ypark.github.io/post/causal_inference/batch_effect_pseudobulk_files/figure-html/unnamed-chunk-9-1.png&#34; width=&#34;576&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://localhost:4321/post/causal_inference/batch_effect_pseudobulk_files/figure-html/unnamed-chunk-9-1.png&#34; width=&#34;576&#34; /&gt;&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;par(mfrow=c(1,2))
 .tsne &amp;lt;- Rtsne::Rtsne(log(1 + t(yy)), num_threads=4)$Y
 plot(.tsne[,1], .tsne[,2], col=batch, pch=19, cex=.5, main=&amp;quot;before batch adj&amp;quot;,
@@ -277,16 +277,16 @@ legend(&amp;quot;topleft&amp;quot;, c(&amp;quot;batch #1&amp;quot;, &amp;quot;ba
 .tsne &amp;lt;- Rtsne::Rtsne(log(1 + t(yy/.delta.db[,batch])), num_threads=4)$Y
 plot(.tsne[,1], .tsne[,2], col=batch, pch=19, cex=.5, main=&amp;quot;after batch adj&amp;quot;,
      xlab = &amp;quot;tsne1&amp;quot;, ylab = &amp;quot;tsne2&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;https://ypark.github.io/post/causal_inference/batch_effect_pseudobulk_files/figure-html/unnamed-chunk-10-1.png&#34; width=&#34;576&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://localhost:4321/post/causal_inference/batch_effect_pseudobulk_files/figure-html/unnamed-chunk-10-1.png&#34; width=&#34;576&#34; /&gt;&lt;/p&gt;
 &lt;/div&gt;
 </description>
     </item>
     
     <item>
       <title>STAT 548 PhD Qualifying Papers (2022 - 2023)</title>
-      <link>https://ypark.github.io/post/stat548/stat548_2022_2023/</link>
+      <link>http://localhost:4321/post/stat548/stat548_2022_2023/</link>
       <pubDate>Thu, 01 Sep 2022 00:00:00 +0000</pubDate>
-      <guid>https://ypark.github.io/post/stat548/stat548_2022_2023/</guid>
+      <guid>http://localhost:4321/post/stat548/stat548_2022_2023/</guid>
       <description>
 
 
@@ -348,9 +348,9 @@ plot(.tsne[,1], .tsne[,2], col=batch, pch=19, cex=.5, main=&amp;quot;after batch
     
     <item>
       <title>Recipes for GWAS data conversion/extraction</title>
-      <link>https://ypark.github.io/post/genetics/gwas_data_export/</link>
+      <link>http://localhost:4321/post/genetics/gwas_data_export/</link>
       <pubDate>Wed, 05 Sep 2018 00:00:00 +0000</pubDate>
-      <guid>https://ypark.github.io/post/genetics/gwas_data_export/</guid>
+      <guid>http://localhost:4321/post/genetics/gwas_data_export/</guid>
       <description>&lt;!-- # image: --&gt;
 &lt;!-- #  caption: &#39;Image credit: [**John Moeses Bauan**](https://unsplash.com/photos/OGZtQF8iC0g)&#39; --&gt;
 &lt;!-- #  placement: 3 --&gt;
@@ -441,9 +441,9 @@ plot(.tsne[,1], .tsne[,2], col=batch, pch=19, cex=.5, main=&amp;quot;after batch
     
     <item>
       <title>On the analysis methods used in the &#34;omnigenic&#34; paper</title>
-      <link>https://ypark.github.io/post/genetics/omnigenics/</link>
+      <link>http://localhost:4321/post/genetics/omnigenics/</link>
       <pubDate>Thu, 21 Jun 2018 00:00:00 +0000</pubDate>
-      <guid>https://ypark.github.io/post/genetics/omnigenics/</guid>
+      <guid>http://localhost:4321/post/genetics/omnigenics/</guid>
       <description>&lt;p&gt;A recent quanta magazine 
 &lt;a href=&#34;https://www.quantamagazine.org/omnigenic-model-suggests-that-all-genes-affect-every-complex-trait-20180620/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;article&lt;/a&gt; on the omnigenic hypothesis re-ignited my interest.  So I read 
 &lt;a href=&#34;https://www.cell.com/cell/abstract/S0092-8674%2817%2930629-3&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;the original omnigenic paper&lt;/a&gt; again.&lt;/p&gt;

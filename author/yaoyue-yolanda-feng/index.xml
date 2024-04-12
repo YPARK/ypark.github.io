@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Yaoyue (Yolanda) Feng | Causal Path Lab</title>
+    <link>http://localhost:4321/author/yaoyue-yolanda-feng/</link>
+      <atom:link href="http://localhost:4321/author/yaoyue-yolanda-feng/index.xml" rel="self" type="application/rss+xml" />
+    <description>Yaoyue (Yolanda) Feng</description>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-ca</language><copyright>Yongjin Park</copyright>
+    <item>
+      <title>Yaoyue (Yolanda) Feng</title>
+      <link>http://localhost:4321/author/yaoyue-yolanda-feng/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:4321/author/yaoyue-yolanda-feng/</guid>
+      <description>&lt;p&gt;I hope to use the combination of bioinformatics and traditional biological experiments to explore the disease progression and drug resistance in Acute Myeloid Leukemia, in order to help more clinical patients. I obtained my Master of Research Degree in Cancer Biology from Imperial College London, working on Hepatocellular Carcinoma under hypoxia condition. And I studied cisplatin resistance in Ovarian Cancer at Sichuan University during my undergraduate stage.&lt;/p&gt;
+&lt;p&gt;In my spare time, I prefer to stay at home watching movies or cooking instead of outdoor activities. I only go out with my friends when the weather is really nice. I also like basketball, but I watch it more often than I play it myself.&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

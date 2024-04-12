@@ -2,15 +2,18 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Ming Yuan | Causal Path Lab</title>
-    <link>https://ypark.github.io/author/ming-yuan/</link>
-      <atom:link href="https://ypark.github.io/author/ming-yuan/index.xml" rel="self" type="application/rss+xml" />
+    <link>http://localhost:4321/author/ming-yuan/</link>
+      <atom:link href="http://localhost:4321/author/ming-yuan/index.xml" rel="self" type="application/rss+xml" />
     <description>Ming Yuan</description>
     <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-ca</language><copyright>Yongjin Park</copyright>
-    <image>
-      <url>https://ypark.github.io/author/ming-yuan/avatar_hu450afa060f0c025d6dd67355d16fd06c_237671_270x270_fill_lanczos_center_2.png</url>
+    <item>
       <title>Ming Yuan</title>
-      <link>https://ypark.github.io/author/ming-yuan/</link>
-    </image>
+      <link>http://localhost:4321/author/ming-yuan/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:4321/author/ming-yuan/</guid>
+      <description>&lt;p&gt;I am a Master’s student in Biostatistics at UBC, and now working as a research assistant under the supervision of Prof. Park. Before this ongoing MSc experience, I completed my BSc degree at Sun Yat-sen University, China, majoring in Statistics in 2020. My main research interests are causal inference and its application to genomic data.&lt;/p&gt;
+</description>
+    </item>
     
   </channel>
 </rss>

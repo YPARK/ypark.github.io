@@ -1,231 +1,151 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
-  
   <url>
-    <loc>https://ypark.github.io/courses/example/example1/</loc>
+    <loc>http://localhost:4321/courses/example/example1/</loc>
     <lastmod>2019-05-05T00:00:00+01:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://ypark.github.io/courses/example/</loc>
+  </url><url>
+    <loc>http://localhost:4321/courses/example/</loc>
     <lastmod>2018-09-09T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://ypark.github.io/courses/example/example2/</loc>
+  </url><url>
+    <loc>http://localhost:4321/courses/example/example2/</loc>
     <lastmod>2019-05-05T00:00:00+01:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://ypark.github.io/post/causal_inference/batch_effect_pseudobulk/</loc>
+  </url><url>
+    <loc>http://localhost:4321/post/causal_inference/batch_effect_pseudobulk/</loc>
     <lastmod>2023-06-19T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://ypark.github.io/</loc>
+  </url><url>
+    <loc>http://localhost:4321/</loc>
     <lastmod>2023-06-19T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://ypark.github.io/post/</loc>
+  </url><url>
+    <loc>http://localhost:4321/post/</loc>
     <lastmod>2023-06-19T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://ypark.github.io/post/stat548/stat548_2022_2023/</loc>
+  </url><url>
+    <loc>http://localhost:4321/post/stat548/stat548_2022_2023/</loc>
     <lastmod>2022-09-01T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://ypark.github.io/tag/integrative-analysis/</loc>
+  </url><url>
+    <loc>http://localhost:4321/tag/integrative-analysis/</loc>
     <lastmod>2020-09-06T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://ypark.github.io/tag/lightweight/</loc>
+  </url><url>
+    <loc>http://localhost:4321/tag/lightweight/</loc>
     <lastmod>2020-09-06T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://ypark.github.io/project/lightweight_tools/single_cell_analysis/</loc>
+  </url><url>
+    <loc>http://localhost:4321/project/lightweight_tools/single_cell_analysis/</loc>
     <lastmod>2020-09-06T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://ypark.github.io/project/</loc>
+  </url><url>
+    <loc>http://localhost:4321/project/</loc>
     <lastmod>2020-09-06T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://ypark.github.io/tag/single-cell/</loc>
+  </url><url>
+    <loc>http://localhost:4321/tag/single-cell/</loc>
     <lastmod>2020-09-06T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://ypark.github.io/tags/</loc>
+  </url><url>
+    <loc>http://localhost:4321/tags/</loc>
     <lastmod>2020-09-06T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://ypark.github.io/tag/causal-inference/</loc>
+  </url><url>
+    <loc>http://localhost:4321/tag/causal-inference/</loc>
     <lastmod>2020-09-04T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://ypark.github.io/project/causal_inference/causal_inference/</loc>
+  </url><url>
+    <loc>http://localhost:4321/project/causal_inference/causal_inference/</loc>
     <lastmod>2020-09-04T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://ypark.github.io/tag/genomics/</loc>
+  </url><url>
+    <loc>http://localhost:4321/tag/genomics/</loc>
     <lastmod>2020-09-04T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://ypark.github.io/tag/bayesian/</loc>
+  </url><url>
+    <loc>http://localhost:4321/tag/bayesian/</loc>
     <lastmod>2020-09-03T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://ypark.github.io/project/summary_data_inference/summary_data_ml/</loc>
+  </url><url>
+    <loc>http://localhost:4321/project/summary_data_inference/summary_data_ml/</loc>
     <lastmod>2020-09-03T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://ypark.github.io/tag/gwas/</loc>
+  </url><url>
+    <loc>http://localhost:4321/tag/gwas/</loc>
     <lastmod>2020-09-03T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://ypark.github.io/tag/summary-statistics/</loc>
+  </url><url>
+    <loc>http://localhost:4321/tag/summary-statistics/</loc>
     <lastmod>2020-09-03T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://ypark.github.io/tag/variational-inference/</loc>
+  </url><url>
+    <loc>http://localhost:4321/tag/variational-inference/</loc>
     <lastmod>2020-09-03T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://ypark.github.io/courses/</loc>
+  </url><url>
+    <loc>http://localhost:4321/courses/</loc>
     <lastmod>2019-05-05T00:00:00+01:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://ypark.github.io/author/</loc>
+  </url><url>
+    <loc>http://localhost:4321/author/</loc>
     <lastmod>2019-04-07T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://ypark.github.io/publication-type/3/</loc>
+  </url><url>
+    <loc>http://localhost:4321/publication-type/3/</loc>
     <lastmod>2019-04-07T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://ypark.github.io/publication/preprint/</loc>
+  </url><url>
+    <loc>http://localhost:4321/publication/preprint/</loc>
     <lastmod>2019-04-07T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://ypark.github.io/authors/</loc>
+  </url><url>
+    <loc>http://localhost:4321/authors/</loc>
     <lastmod>2019-04-07T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://ypark.github.io/publication_types/</loc>
+  </url><url>
+    <loc>http://localhost:4321/publication_types/</loc>
     <lastmod>2019-04-07T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://ypark.github.io/publication/</loc>
+  </url><url>
+    <loc>http://localhost:4321/publication/</loc>
     <lastmod>2019-04-07T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://ypark.github.io/post/genetics/gwas_data_export/</loc>
+  </url><url>
+    <loc>http://localhost:4321/post/genetics/gwas_data_export/</loc>
     <lastmod>2018-09-05T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://ypark.github.io/tag/uk-biobank/</loc>
+  </url><url>
+    <loc>http://localhost:4321/tag/uk-biobank/</loc>
     <lastmod>2018-09-05T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://ypark.github.io/tag/ukb/</loc>
+  </url><url>
+    <loc>http://localhost:4321/tag/ukb/</loc>
     <lastmod>2018-09-05T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://ypark.github.io/tag/virtual-box/</loc>
+  </url><url>
+    <loc>http://localhost:4321/tag/virtual-box/</loc>
     <lastmod>2018-09-05T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://ypark.github.io/post/genetics/omnigenics/</loc>
+  </url><url>
+    <loc>http://localhost:4321/privacy/</loc>
+    <lastmod>2018-06-28T00:00:00+01:00</lastmod>
+  </url><url>
+    <loc>http://localhost:4321/terms/</loc>
+    <lastmod>2018-06-28T00:00:00+01:00</lastmod>
+  </url><url>
+    <loc>http://localhost:4321/post/genetics/omnigenics/</loc>
     <lastmod>2018-06-21T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://ypark.github.io/publication-type/2/</loc>
+  </url><url>
+    <loc>http://localhost:4321/publication-type/2/</loc>
     <lastmod>2015-09-01T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://ypark.github.io/publication/journal-article/</loc>
+  </url><url>
+    <loc>http://localhost:4321/publication/journal-article/</loc>
     <lastmod>2015-09-01T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://ypark.github.io/author/robert-ford/</loc>
+  </url><url>
+    <loc>http://localhost:4321/author/robert-ford/</loc>
     <lastmod>2015-09-01T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://ypark.github.io/publication-type/1/</loc>
+  </url><url>
+    <loc>http://localhost:4321/publication-type/1/</loc>
     <lastmod>2013-07-01T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://ypark.github.io/publication/conference-paper/</loc>
+  </url><url>
+    <loc>http://localhost:4321/publication/conference-paper/</loc>
     <lastmod>2013-07-01T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:4321/categories/</loc>
+  </url><url>
+    <loc>http://localhost:4321/author/kevin-lam/</loc>
+  </url><url>
+    <loc>http://localhost:4321/author/lamke07/</loc>
+  </url><url>
+    <loc>http://localhost:4321/author/maxwell-douglas/</loc>
+  </url><url>
+    <loc>http://localhost:4321/author/ming-yuan/</loc>
+  </url><url>
+    <loc>http://localhost:4321/author/pattie-ye/</loc>
+  </url><url>
+    <loc>http://localhost:4321/talk/</loc>
+  </url><url>
+    <loc>http://localhost:4321/author/sam-khalilitousi/</loc>
+  </url><url>
+    <loc>http://localhost:4321/author/sishir-subedi/</loc>
+  </url><url>
+    <loc>http://localhost:4321/author/wanxin-li/</loc>
+  </url><url>
+    <loc>http://localhost:4321/author/yaoyue-yolanda-feng/</loc>
+  </url><url>
+    <loc>http://localhost:4321/author/yichen-zhang/</loc>
+  </url><url>
+    <loc>http://localhost:4321/author/yongjin-park/</loc>
   </url>
-  
-  <url>
-    <loc>https://ypark.github.io/categories/</loc>
-  </url>
-  
-  <url>
-    <loc>https://ypark.github.io/author/kevin-lam/</loc>
-  </url>
-  
-  <url>
-    <loc>https://ypark.github.io/author/ming-yuan/</loc>
-  </url>
-  
-  <url>
-    <loc>https://ypark.github.io/author/pattie-ye/</loc>
-  </url>
-  
-  <url>
-    <loc>https://ypark.github.io/talk/</loc>
-  </url>
-  
-  <url>
-    <loc>https://ypark.github.io/author/sam-khalilitousi/</loc>
-  </url>
-  
-  <url>
-    <loc>https://ypark.github.io/author/sishir-subedi/</loc>
-  </url>
-  
-  <url>
-    <loc>https://ypark.github.io/author/yichen-zhang/</loc>
-  </url>
-  
-  <url>
-    <loc>https://ypark.github.io/author/yongjin-park/</loc>
-  </url>
-  
 </urlset>

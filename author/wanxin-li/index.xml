@@ -2,15 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Wanxin Li | Causal Path Lab</title>
-    <link>https://ypark.github.io/author/wanxin-li/</link>
-      <atom:link href="https://ypark.github.io/author/wanxin-li/index.xml" rel="self" type="application/rss+xml" />
+    <link>http://localhost:4321/author/wanxin-li/</link>
+      <atom:link href="http://localhost:4321/author/wanxin-li/index.xml" rel="self" type="application/rss+xml" />
     <description>Wanxin Li</description>
     <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-ca</language><copyright>Yongjin Park</copyright>
-    <image>
-      <url>https://ypark.github.io/author/wanxin-li/avatar_hu3ab265f114a385a159a964c9045557d6_1906895_270x270_fill_lanczos_center_2.png</url>
+    <item>
       <title>Wanxin Li</title>
-      <link>https://ypark.github.io/author/wanxin-li/</link>
-    </image>
+      <link>http://localhost:4321/author/wanxin-li/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:4321/author/wanxin-li/</guid>
+      <description></description>
+    </item>
     
   </channel>
 </rss>

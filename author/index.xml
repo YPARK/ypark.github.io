@@ -2,21 +2,29 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Causal Path Lab</title>
-    <link>https://ypark.github.io/author/</link>
-      <atom:link href="https://ypark.github.io/author/index.xml" rel="self" type="application/rss+xml" />
+    <link>http://localhost:4321/author/</link>
+      <atom:link href="http://localhost:4321/author/index.xml" rel="self" type="application/rss+xml" />
     <description>Causal Path Lab</description>
     <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-ca</language><copyright>Yongjin Park</copyright><lastBuildDate>Sun, 07 Apr 2019 00:00:00 +0000</lastBuildDate>
-    <image>
-      <url>https://ypark.github.io/images/icon_hu9e65041e7038cfeb655cd5b2189fa456_18716_512x512_fill_lanczos_center_2.png</url>
-      <title>Causal Path Lab</title>
-      <link>https://ypark.github.io/author/</link>
-    </image>
+    <item>
+      <title></title>
+      <link>http://localhost:4321/author/</link>
+      <pubDate>Sun, 07 Apr 2019 00:00:00 +0000</pubDate>
+      <guid>http://localhost:4321/author/</guid>
+      <description>&lt;p&gt;We are a computational biology laboratory in the Department of 
+&lt;a href=&#34;https://pathology.ubc.ca&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Pathology and Laboratory Medicine&lt;/a&gt;, and the Department of 
+&lt;a href=&#34;https://www.stat.ubc.ca&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Statistics&lt;/a&gt; at 
+&lt;a href=&#34;https://www.ubc.ca/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;the University of British Columbia&lt;/a&gt;. We usually work in 
+&lt;a href=&#34;https://www.bccrc.ca&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;BC Cancer Research Centre&lt;/a&gt;, or some places where we can open a terminal.&lt;/p&gt;
+&lt;p&gt;We love high-dimensional, large-volume biological data. If you give us data, we would love to understand the mechanisms of the data-generating process. If you give us a cool hypothesis, we will be excited to test the causality using data. We also love pretty scientific figures with a healthy dose of obsession.&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>An example preprint / working paper</title>
-      <link>https://ypark.github.io/publication/preprint/</link>
+      <link>http://localhost:4321/publication/preprint/</link>
       <pubDate>Sun, 07 Apr 2019 00:00:00 +0000</pubDate>
-      <guid>https://ypark.github.io/publication/preprint/</guid>
+      <guid>http://localhost:4321/publication/preprint/</guid>
       <description>&lt;div class=&#34;alert alert-note&#34;&gt;
   &lt;div&gt;
     Click the &lt;em&gt;Slides&lt;/em&gt; button above to demo Academic&amp;rsquo;s Markdown slides feature.
@@ -29,9 +37,9 @@
     
     <item>
       <title>An example journal article</title>
-      <link>https://ypark.github.io/publication/journal-article/</link>
+      <link>http://localhost:4321/publication/journal-article/</link>
       <pubDate>Tue, 01 Sep 2015 00:00:00 +0000</pubDate>
-      <guid>https://ypark.github.io/publication/journal-article/</guid>
+      <guid>http://localhost:4321/publication/journal-article/</guid>
       <description>&lt;div class=&#34;alert alert-note&#34;&gt;
   &lt;div&gt;
     Click the &lt;em&gt;Cite&lt;/em&gt; button above to demo the feature to enable visitors to import publication metadata into their reference management software.
@@ -49,9 +57,9 @@
     
     <item>
       <title>An example conference paper</title>
-      <link>https://ypark.github.io/publication/conference-paper/</link>
+      <link>http://localhost:4321/publication/conference-paper/</link>
       <pubDate>Mon, 01 Jul 2013 00:00:00 +0000</pubDate>
-      <guid>https://ypark.github.io/publication/conference-paper/</guid>
+      <guid>http://localhost:4321/publication/conference-paper/</guid>
       <description>&lt;div class=&#34;alert alert-note&#34;&gt;
   &lt;div&gt;
     Click the &lt;em&gt;Cite&lt;/em&gt; button above to demo the feature to enable visitors to import publication metadata into their reference management software.

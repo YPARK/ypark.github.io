@@ -2,15 +2,29 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Yichen Zhang | Causal Path Lab</title>
-    <link>https://ypark.github.io/author/yichen-zhang/</link>
-      <atom:link href="https://ypark.github.io/author/yichen-zhang/index.xml" rel="self" type="application/rss+xml" />
+    <link>http://localhost:4321/author/yichen-zhang/</link>
+      <atom:link href="http://localhost:4321/author/yichen-zhang/index.xml" rel="self" type="application/rss+xml" />
     <description>Yichen Zhang</description>
     <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-ca</language><copyright>Yongjin Park</copyright>
-    <image>
-      <url>https://ypark.github.io/author/yichen-zhang/avatar_hu9733e020cfbbb2b2f3a81fee0d30368b_68109_270x270_fill_q90_lanczos_center.jpeg</url>
+    <item>
       <title>Yichen Zhang</title>
-      <link>https://ypark.github.io/author/yichen-zhang/</link>
-    </image>
+      <link>http://localhost:4321/author/yichen-zhang/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:4321/author/yichen-zhang/</guid>
+      <description>&lt;p&gt;I am a Ph.D. student in the Department of Statistics. I employ
+techniques from deep learning and bayesian statistics to shed light on
+the mechanism of complex human diseases. I am generally interested in
+developing interpretable and scalable algorithms to uncover the
+underlying structure of biological data. Before that, I obtained my
+Master’s Degree in Biostatistics from the University of Washington,
+working on matrix completion and cell type deconvolution problems with
+Noah Simon.&lt;/p&gt;
+&lt;p&gt;Besides research, I am a food enthusiast. I love cooking, exploring
+local restaurants, watching food &amp;amp; cooking documentaries and brewing
+coffee and tea. I do weight training from time to time so that I can
+enjoy more food.&lt;/p&gt;
+</description>
+    </item>
     
   </channel>
 </rss>

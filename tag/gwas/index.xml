@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>GWAS | Causal Path Lab</title>
-    <link>https://ypark.github.io/tag/gwas/</link>
-      <atom:link href="https://ypark.github.io/tag/gwas/index.xml" rel="self" type="application/rss+xml" />
+    <link>http://localhost:4321/tag/gwas/</link>
+      <atom:link href="http://localhost:4321/tag/gwas/index.xml" rel="self" type="application/rss+xml" />
     <description>GWAS</description>
     <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-ca</language><copyright>Yongjin Park</copyright><lastBuildDate>Thu, 03 Sep 2020 00:00:00 +0000</lastBuildDate>
     <image>
-      <url>https://ypark.github.io/images/icon_hu9e65041e7038cfeb655cd5b2189fa456_18716_512x512_fill_lanczos_center_2.png</url>
+      <url>http://localhost:4321/images/icon_hu9e65041e7038cfeb655cd5b2189fa456_18716_512x512_fill_lanczos_center_3.png</url>
       <title>GWAS</title>
-      <link>https://ypark.github.io/tag/gwas/</link>
+      <link>http://localhost:4321/tag/gwas/</link>
     </image>
     
     <item>
       <title>Bayesian modelling of summary statistics data</title>
-      <link>https://ypark.github.io/project/summary_data_inference/summary_data_ml/</link>
+      <link>http://localhost:4321/project/summary_data_inference/summary_data_ml/</link>
       <pubDate>Thu, 03 Sep 2020 00:00:00 +0000</pubDate>
-      <guid>https://ypark.github.io/project/summary_data_inference/summary_data_ml/</guid>
+      <guid>http://localhost:4321/project/summary_data_inference/summary_data_ml/</guid>
       <description>&lt;p&gt;TL;DR. We develop Bayesian machine learning methods that excavate a latent structure or underlying joint models of summary statistics data.&lt;/p&gt;
 &lt;hr&gt;
 &lt;h3 id=&#34;what-are-summary-statistics-data&#34;&gt;What are summary statistics data?&lt;/h3&gt;
@@ -50,10 +50,10 @@
 &lt;figure id=&#34;figure-a-summary-based-learning-method-can-estimate-multivariate-parameters-as-accurate-as-a-traditional-bayesian-learning-method-for-a-sparse-regression-problem-auprc-area-under-precision-recall-curve-_column-panels_-simulations-varying-the-number-of-causal-snps-h2-the-proportion-of-phenotypic-variance-explained-by-causal-snps-bslmm-bayesian-sparse-linear-mixed-effect-model-yqtl-a-sparse-regression-model-with-spike-slab-prior-trained-by-stochastic-variational-inference-zqtl-a-summary-based-multivariate-regression-modelling&#34;&gt;
 
 
-  &lt;a data-fancybox=&#34;&#34; href=&#34;https://ypark.github.io/img/project/summary_regression.png&#34; data-caption=&#34;A summary-based learning method can estimate multivariate parameters as accurate as a traditional Bayesian learning method for a sparse regression problem. &amp;lt;code&amp;gt;AUPRC&amp;lt;/code&amp;gt;: Area Under Precision Recall Curve. &amp;lt;em&amp;gt;Column panels&amp;lt;/em&amp;gt;: simulations varying the number of causal SNPs. &amp;lt;code&amp;gt;h2&amp;lt;/code&amp;gt;: the proportion of phenotypic variance explained by causal SNPs. &amp;lt;code&amp;gt;BSLMM&amp;lt;/code&amp;gt;: Bayesian sparse linear mixed effect model; &amp;lt;code&amp;gt;yqtl&amp;lt;/code&amp;gt;: a sparse regression model with spike-slab prior, trained by stochastic variational inference; &amp;lt;code&amp;gt;zqtl&amp;lt;/code&amp;gt;: a summary-based multivariate regression modelling.&#34;&gt;
+  &lt;a data-fancybox=&#34;&#34; href=&#34;http://localhost:4321/img/project/summary_regression.png&#34; data-caption=&#34;A summary-based learning method can estimate multivariate parameters as accurate as a traditional Bayesian learning method for a sparse regression problem. &amp;lt;code&amp;gt;AUPRC&amp;lt;/code&amp;gt;: Area Under Precision Recall Curve. &amp;lt;em&amp;gt;Column panels&amp;lt;/em&amp;gt;: simulations varying the number of causal SNPs. &amp;lt;code&amp;gt;h2&amp;lt;/code&amp;gt;: the proportion of phenotypic variance explained by causal SNPs. &amp;lt;code&amp;gt;BSLMM&amp;lt;/code&amp;gt;: Bayesian sparse linear mixed effect model; &amp;lt;code&amp;gt;yqtl&amp;lt;/code&amp;gt;: a sparse regression model with spike-slab prior, trained by stochastic variational inference; &amp;lt;code&amp;gt;zqtl&amp;lt;/code&amp;gt;: a summary-based multivariate regression modelling.&#34;&gt;
 
 
-  &lt;img src=&#34;https://ypark.github.io/img/project/summary_regression.png&#34; alt=&#34;&#34;  &gt;
+  &lt;img src=&#34;http://localhost:4321/img/project/summary_regression.png&#34; alt=&#34;&#34;  &gt;
 &lt;/a&gt;
 
 
@@ -74,9 +74,9 @@
     
     <item>
       <title>Recipes for GWAS data conversion/extraction</title>
-      <link>https://ypark.github.io/post/genetics/gwas_data_export/</link>
+      <link>http://localhost:4321/post/genetics/gwas_data_export/</link>
       <pubDate>Wed, 05 Sep 2018 00:00:00 +0000</pubDate>
-      <guid>https://ypark.github.io/post/genetics/gwas_data_export/</guid>
+      <guid>http://localhost:4321/post/genetics/gwas_data_export/</guid>
       <description>&lt;!-- # image: --&gt;
 &lt;!-- #  caption: &#39;Image credit: [**John Moeses Bauan**](https://unsplash.com/photos/OGZtQF8iC0g)&#39; --&gt;
 &lt;!-- #  placement: 3 --&gt;

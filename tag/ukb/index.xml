@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>UKB | Causal Path Lab</title>
-    <link>https://ypark.github.io/tag/ukb/</link>
-      <atom:link href="https://ypark.github.io/tag/ukb/index.xml" rel="self" type="application/rss+xml" />
+    <link>http://localhost:4321/tag/ukb/</link>
+      <atom:link href="http://localhost:4321/tag/ukb/index.xml" rel="self" type="application/rss+xml" />
     <description>UKB</description>
     <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-ca</language><copyright>Yongjin Park</copyright><lastBuildDate>Wed, 05 Sep 2018 00:00:00 +0000</lastBuildDate>
     <image>
-      <url>https://ypark.github.io/images/icon_hu9e65041e7038cfeb655cd5b2189fa456_18716_512x512_fill_lanczos_center_2.png</url>
+      <url>http://localhost:4321/images/icon_hu9e65041e7038cfeb655cd5b2189fa456_18716_512x512_fill_lanczos_center_3.png</url>
       <title>UKB</title>
-      <link>https://ypark.github.io/tag/ukb/</link>
+      <link>http://localhost:4321/tag/ukb/</link>
     </image>
     
     <item>
       <title>Recipes for GWAS data conversion/extraction</title>
-      <link>https://ypark.github.io/post/genetics/gwas_data_export/</link>
+      <link>http://localhost:4321/post/genetics/gwas_data_export/</link>
       <pubDate>Wed, 05 Sep 2018 00:00:00 +0000</pubDate>
-      <guid>https://ypark.github.io/post/genetics/gwas_data_export/</guid>
+      <guid>http://localhost:4321/post/genetics/gwas_data_export/</guid>
       <description>&lt;!-- # image: --&gt;
 &lt;!-- #  caption: &#39;Image credit: [**John Moeses Bauan**](https://unsplash.com/photos/OGZtQF8iC0g)&#39; --&gt;
 &lt;!-- #  placement: 3 --&gt;

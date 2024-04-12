@@ -1,22 +1,22 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>integrative analysis | Causal Path Lab</title>
-    <link>https://ypark.github.io/tag/integrative-analysis/</link>
-      <atom:link href="https://ypark.github.io/tag/integrative-analysis/index.xml" rel="self" type="application/rss+xml" />
-    <description>integrative analysis</description>
+    <title>Integrative Analysis | Causal Path Lab</title>
+    <link>http://localhost:4321/tag/integrative-analysis/</link>
+      <atom:link href="http://localhost:4321/tag/integrative-analysis/index.xml" rel="self" type="application/rss+xml" />
+    <description>Integrative Analysis</description>
     <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-ca</language><copyright>Yongjin Park</copyright><lastBuildDate>Sun, 06 Sep 2020 00:00:00 +0000</lastBuildDate>
     <image>
-      <url>https://ypark.github.io/images/icon_hu9e65041e7038cfeb655cd5b2189fa456_18716_512x512_fill_lanczos_center_2.png</url>
-      <title>integrative analysis</title>
-      <link>https://ypark.github.io/tag/integrative-analysis/</link>
+      <url>http://localhost:4321/images/icon_hu9e65041e7038cfeb655cd5b2189fa456_18716_512x512_fill_lanczos_center_3.png</url>
+      <title>Integrative Analysis</title>
+      <link>http://localhost:4321/tag/integrative-analysis/</link>
     </image>
     
     <item>
       <title>Lightweight tools for integrative single-cell data analysis</title>
-      <link>https://ypark.github.io/project/lightweight_tools/single_cell_analysis/</link>
+      <link>http://localhost:4321/project/lightweight_tools/single_cell_analysis/</link>
       <pubDate>Sun, 06 Sep 2020 00:00:00 +0000</pubDate>
-      <guid>https://ypark.github.io/project/lightweight_tools/single_cell_analysis/</guid>
+      <guid>http://localhost:4321/project/lightweight_tools/single_cell_analysis/</guid>
       <description>&lt;p&gt;TL;DR. We develop scalable and memory-efficient tools for single-cell data analysis.&lt;/p&gt;
 &lt;hr&gt;
 &lt;h3 id=&#34;there-are-already-many-tools&#34;&gt;There are already many tools.&lt;/h3&gt;
@@ -55,10 +55,10 @@ We like to work on a sparse data matrix formatted as
 &lt;figure id=&#34;figure-single-cell-data-can-provide-a-powerful-tool-to-dissect-existing-bulk-data-in-integrative-analysis-a-learn-novel-cell-types-recapitulate-known-cell-types-using-new-single-cell-data-and-infer-cellular-compositions-of-existing-data--b-transfer-the-knowledge-gained-from-single-cell-data-to-tissue-level-or-mixture-level-regulatory-genomics-models-a-schematic-diagram-for-our-deqtl-method-pi-cell-type-fraction-estimated-by-the-deconvolution-step-g-genotype-matrix-theta-cell-type-specific-multivariate-effect-size-lambda-cell-type-loading-eta-cell-type-specific-genetic-effect-aggregated-over-multiple-snps-c-systems-biology-analysis-by-projecting-cell-type-specific-deqtl-regions-we-partition-human-genome-into-cell-type-specific-components&#34;&gt;
 
 
-  &lt;a data-fancybox=&#34;&#34; href=&#34;https://ypark.github.io/img/project/mmutil_annotate.png&#34; data-caption=&#34;Single-cell data can provide a powerful tool to dissect existing bulk data in integrative analysis. &amp;lt;strong&amp;gt;(A)&amp;lt;/strong&amp;gt; Learn novel cell types, recapitulate known cell types using new single-cell data, and infer cellular compositions of existing data.  &amp;lt;strong&amp;gt;(B)&amp;lt;/strong&amp;gt; Transfer the knowledge gained from single-cell data to tissue-level, or mixture-level regulatory-genomics models. A schematic diagram for our deQTL method. $\pi$: cell type fraction estimated by the deconvolution step. G: genotype matrix. $\theta$: cell-type-specific multivariate effect size. $\lambda$: cell-type loading. $\eta$: cell-type-specific genetic effect aggregated over multiple SNPs. &amp;lt;strong&amp;gt;(C)&amp;lt;/strong&amp;gt; Systems biology analysis. By projecting cell-type-specific deQTL regions, we partition human genome into cell-type-specific components.&#34;&gt;
+  &lt;a data-fancybox=&#34;&#34; href=&#34;http://localhost:4321/img/project/mmutil_annotate.png&#34; data-caption=&#34;Single-cell data can provide a powerful tool to dissect existing bulk data in integrative analysis. &amp;lt;strong&amp;gt;(A)&amp;lt;/strong&amp;gt; Learn novel cell types, recapitulate known cell types using new single-cell data, and infer cellular compositions of existing data.  &amp;lt;strong&amp;gt;(B)&amp;lt;/strong&amp;gt; Transfer the knowledge gained from single-cell data to tissue-level, or mixture-level regulatory-genomics models. A schematic diagram for our deQTL method. $\pi$: cell type fraction estimated by the deconvolution step. G: genotype matrix. $\theta$: cell-type-specific multivariate effect size. $\lambda$: cell-type loading. $\eta$: cell-type-specific genetic effect aggregated over multiple SNPs. &amp;lt;strong&amp;gt;(C)&amp;lt;/strong&amp;gt; Systems biology analysis. By projecting cell-type-specific deQTL regions, we partition human genome into cell-type-specific components.&#34;&gt;
 
 
-  &lt;img src=&#34;https://ypark.github.io/img/project/mmutil_annotate.png&#34; alt=&#34;&#34;  &gt;
+  &lt;img src=&#34;http://localhost:4321/img/project/mmutil_annotate.png&#34; alt=&#34;&#34;  &gt;
 &lt;/a&gt;
 
 

@@ -2,15 +2,19 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Yongjin Park | Causal Path Lab</title>
-    <link>https://ypark.github.io/author/yongjin-park/</link>
-      <atom:link href="https://ypark.github.io/author/yongjin-park/index.xml" rel="self" type="application/rss+xml" />
+    <link>http://localhost:4321/author/yongjin-park/</link>
+      <atom:link href="http://localhost:4321/author/yongjin-park/index.xml" rel="self" type="application/rss+xml" />
     <description>Yongjin Park</description>
     <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-ca</language><copyright>Yongjin Park</copyright>
-    <image>
-      <url>https://ypark.github.io/author/yongjin-park/avatar_hub5c8fb456d2692eead76fc849e2c3309_206090_270x270_fill_lanczos_center_2.png</url>
+    <item>
       <title>Yongjin Park</title>
-      <link>https://ypark.github.io/author/yongjin-park/</link>
-    </image>
+      <link>http://localhost:4321/author/yongjin-park/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:4321/author/yongjin-park/</guid>
+      <description>&lt;p&gt;I am an Assistant Professor in the Department of Pathology and Statistics since Fall 2020.  My research primarily focuses on developing scalable probabilistic inference methods to elucidate hidden causal mechanisms of human diseases, such as cancer and other common/complex disorders. Since I am a data-driven scientist, I become excited when hidden patterns emerge, and data finally start speaking back to me. I firmly believe in Don Knuth&amp;rsquo;s famous quote, &amp;ldquo;best practice is inspired by theory,&amp;rdquo; and &amp;ldquo;best theory is inspired by practice.&amp;rdquo;&lt;/p&gt;
+&lt;p&gt;Besides research, I love cooking, exploring different types of cuisines and recipes. I also like to watch history documentaries and films and read books on history. When I was young, I used to play Starcraft and practice hip-hop dance, but I gave them up once I realized that the joy of coding and doing science is far greater than that.&lt;/p&gt;
+</description>
+    </item>
     
   </channel>
 </rss>

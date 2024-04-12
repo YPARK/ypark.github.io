@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Causal Path Lab</title>
-    <link>https://ypark.github.io/</link>
-      <atom:link href="https://ypark.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <link>http://localhost:4321/</link>
+      <atom:link href="http://localhost:4321/index.xml" rel="self" type="application/rss+xml" />
     <description>Causal Path Lab</description>
     <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-ca</language><copyright>Yongjin Park</copyright><lastBuildDate>Mon, 19 Jun 2023 00:00:00 +0000</lastBuildDate>
     <image>
-      <url>https://ypark.github.io/images/icon_hu9e65041e7038cfeb655cd5b2189fa456_18716_512x512_fill_lanczos_center_2.png</url>
+      <url>http://localhost:4321/images/icon_hu9e65041e7038cfeb655cd5b2189fa456_18716_512x512_fill_lanczos_center_3.png</url>
       <title>Causal Path Lab</title>
-      <link>https://ypark.github.io/</link>
+      <link>http://localhost:4321/</link>
     </image>
     
     <item>
       <title>Example Page 1</title>
-      <link>https://ypark.github.io/courses/example/example1/</link>
+      <link>http://localhost:4321/courses/example/example1/</link>
       <pubDate>Sun, 05 May 2019 00:00:00 +0100</pubDate>
-      <guid>https://ypark.github.io/courses/example/example1/</guid>
+      <guid>http://localhost:4321/courses/example/example1/</guid>
       <description>&lt;p&gt;In this tutorial, I&amp;rsquo;ll share my top 10 tips for getting started with Academic:&lt;/p&gt;
 &lt;h2 id=&#34;tip-1&#34;&gt;Tip 1&lt;/h2&gt;
 &lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis posuere tellus ac convallis placerat. Proin tincidunt magna sed ex sollicitudin condimentum. Sed ac faucibus dolor, scelerisque sollicitudin nisi. Cras purus urna, suscipit quis sapien eu, pulvinar tempor diam. Quisque risus orci, mollis id ante sit amet, gravida egestas nisl. Sed ac tempus magna. Proin in dui enim. Donec condimentum, sem id dapibus fringilla, tellus enim condimentum arcu, nec volutpat est felis vel metus. Vestibulum sit amet erat at nulla eleifend gravida.&lt;/p&gt;
@@ -35,9 +35,9 @@
     
     <item>
       <title>Example Page 2</title>
-      <link>https://ypark.github.io/courses/example/example2/</link>
+      <link>http://localhost:4321/courses/example/example2/</link>
       <pubDate>Sun, 05 May 2019 00:00:00 +0100</pubDate>
-      <guid>https://ypark.github.io/courses/example/example2/</guid>
+      <guid>http://localhost:4321/courses/example/example2/</guid>
       <description>&lt;p&gt;Here are some more tips for getting started with Academic:&lt;/p&gt;
 &lt;h2 id=&#34;tip-3&#34;&gt;Tip 3&lt;/h2&gt;
 &lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis posuere tellus ac convallis placerat. Proin tincidunt magna sed ex sollicitudin condimentum. Sed ac faucibus dolor, scelerisque sollicitudin nisi. Cras purus urna, suscipit quis sapien eu, pulvinar tempor diam. Quisque risus orci, mollis id ante sit amet, gravida egestas nisl. Sed ac tempus magna. Proin in dui enim. Donec condimentum, sem id dapibus fringilla, tellus enim condimentum arcu, nec volutpat est felis vel metus. Vestibulum sit amet erat at nulla eleifend gravida.&lt;/p&gt;
@@ -56,9 +56,9 @@
     
     <item>
       <title>Adjusting batch effect in pseudobulk samples is a causal inference problem</title>
-      <link>https://ypark.github.io/post/causal_inference/batch_effect_pseudobulk/</link>
+      <link>http://localhost:4321/post/causal_inference/batch_effect_pseudobulk/</link>
       <pubDate>Mon, 19 Jun 2023 00:00:00 +0000</pubDate>
-      <guid>https://ypark.github.io/post/causal_inference/batch_effect_pseudobulk/</guid>
+      <guid>http://localhost:4321/post/causal_inference/batch_effect_pseudobulk/</guid>
       <description>
 
 
@@ -203,11 +203,11 @@ Q &amp;lt;- t(Q.t)&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;After we adjust the batch effects:&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;cor(Q.t, X)&lt;/code&gt;&lt;/pre&gt;
 &lt;pre&gt;&lt;code&gt;##               [,1]          [,2]
-## [1,] -2.732905e-16  2.732905e-16
-## [2,] -5.801340e-16  5.801340e-16
-## [3,] -2.653637e-16  2.653637e-16
-## [4,]  3.783374e-16 -3.783374e-16
-## [5,] -2.732729e-16  2.732729e-16&lt;/code&gt;&lt;/pre&gt;
+## [1,] -2.276319e-16  2.276319e-16
+## [2,] -5.524025e-16  5.524025e-16
+## [3,] -2.934286e-16  2.934286e-16
+## [4,]  3.075415e-16 -3.075415e-16
+## [5,] -3.636223e-16  3.636223e-16&lt;/code&gt;&lt;/pre&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;q.svd &amp;lt;- svd(Q)
 
 ## 3. sorting
@@ -292,25 +292,25 @@ for(iter in 1:100){
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;par(mfrow=c(1,2))
 plot(.delta.db[,1], W.true[,1], pch=19, xlab=&amp;quot;estimated delta&amp;quot;, ylab=&amp;quot;true delta effect&amp;quot;, main=&amp;quot;batch1&amp;quot;)
 plot(.delta.db[,2], W.true[,2], pch=19, xlab=&amp;quot;estimated delta&amp;quot;, ylab=&amp;quot;true delta effect&amp;quot;, main=&amp;quot;batch2&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;https://ypark.github.io/post/causal_inference/batch_effect_pseudobulk_files/figure-html/unnamed-chunk-6-1.png&#34; width=&#34;576&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://localhost:4321/post/causal_inference/batch_effect_pseudobulk_files/figure-html/unnamed-chunk-6-1.png&#34; width=&#34;576&#34; /&gt;&lt;/p&gt;
 &lt;p&gt;Are they independent of the cell type effects?&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;y.true &amp;lt;- sweep(lambda.true %*% X, 2, colSums(X), `/`)
 par(mfrow=c(1,2))
 plot(.delta.db[,1], y.true[,1], pch=19, xlab=&amp;quot;estimated delta&amp;quot;, ylab=&amp;quot;true y mean&amp;quot;, main=&amp;quot;batch1&amp;quot;)
 plot(.delta.db[,2], y.true[,2], pch=19, xlab=&amp;quot;estimated delta&amp;quot;, ylab=&amp;quot;true y mean&amp;quot;, main=&amp;quot;batch2&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;https://ypark.github.io/post/causal_inference/batch_effect_pseudobulk_files/figure-html/unnamed-chunk-7-1.png&#34; width=&#34;576&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://localhost:4321/post/causal_inference/batch_effect_pseudobulk_files/figure-html/unnamed-chunk-7-1.png&#34; width=&#34;576&#34; /&gt;&lt;/p&gt;
 &lt;p&gt;While adjusting the estimated batch effects, can we recover the unbiased cell type effects? The following is before adjustment:&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ybar &amp;lt;- sweep(yy %*% X, 2, colSums(X), `/`)
 par(mfrow=c(1,2))
 plot(ybar[,1], y.true[,1], pch=19, xlab=&amp;quot;sample mean&amp;quot;, ylab=&amp;quot;true y mean&amp;quot;, log=&amp;quot;x&amp;quot;, main=&amp;quot;batch1&amp;quot;)
 plot(ybar[,2], y.true[,2], pch=19, xlab=&amp;quot;sample mean&amp;quot;, ylab=&amp;quot;true y mean&amp;quot;, log=&amp;quot;x&amp;quot;, main=&amp;quot;batch2&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;https://ypark.github.io/post/causal_inference/batch_effect_pseudobulk_files/figure-html/unnamed-chunk-8-1.png&#34; width=&#34;576&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://localhost:4321/post/causal_inference/batch_effect_pseudobulk_files/figure-html/unnamed-chunk-8-1.png&#34; width=&#34;576&#34; /&gt;&lt;/p&gt;
 &lt;p&gt;Here, we adjusted the batch effects:&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ybar.adj &amp;lt;- sweep((yy / .delta.db[, batch]) %*% X, 2, colSums(X), `/`)
 par(mfrow=c(1,2))
 plot(ybar.adj[,1], y.true[,1], pch=19, xlab=&amp;quot;adjusted sample mean&amp;quot;, ylab=&amp;quot;true y mean&amp;quot;, log=&amp;quot;x&amp;quot;, main=&amp;quot;batch1&amp;quot;)
 plot(ybar.adj[,2], y.true[,2], pch=19, xlab=&amp;quot;adjusted sample mean&amp;quot;, ylab=&amp;quot;true y mean&amp;quot;, log=&amp;quot;x&amp;quot;, main=&amp;quot;batch2&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;https://ypark.github.io/post/causal_inference/batch_effect_pseudobulk_files/figure-html/unnamed-chunk-9-1.png&#34; width=&#34;576&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://localhost:4321/post/causal_inference/batch_effect_pseudobulk_files/figure-html/unnamed-chunk-9-1.png&#34; width=&#34;576&#34; /&gt;&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;par(mfrow=c(1,2))
 .tsne &amp;lt;- Rtsne::Rtsne(log(1 + t(yy)), num_threads=4)$Y
 plot(.tsne[,1], .tsne[,2], col=batch, pch=19, cex=.5, main=&amp;quot;before batch adj&amp;quot;,
@@ -319,16 +319,16 @@ legend(&amp;quot;topleft&amp;quot;, c(&amp;quot;batch #1&amp;quot;, &amp;quot;ba
 .tsne &amp;lt;- Rtsne::Rtsne(log(1 + t(yy/.delta.db[,batch])), num_threads=4)$Y
 plot(.tsne[,1], .tsne[,2], col=batch, pch=19, cex=.5, main=&amp;quot;after batch adj&amp;quot;,
      xlab = &amp;quot;tsne1&amp;quot;, ylab = &amp;quot;tsne2&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;https://ypark.github.io/post/causal_inference/batch_effect_pseudobulk_files/figure-html/unnamed-chunk-10-1.png&#34; width=&#34;576&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://localhost:4321/post/causal_inference/batch_effect_pseudobulk_files/figure-html/unnamed-chunk-10-1.png&#34; width=&#34;576&#34; /&gt;&lt;/p&gt;
 &lt;/div&gt;
 </description>
     </item>
     
     <item>
       <title>STAT 548 PhD Qualifying Papers (2022 - 2023)</title>
-      <link>https://ypark.github.io/post/stat548/stat548_2022_2023/</link>
+      <link>http://localhost:4321/post/stat548/stat548_2022_2023/</link>
       <pubDate>Thu, 01 Sep 2022 00:00:00 +0000</pubDate>
-      <guid>https://ypark.github.io/post/stat548/stat548_2022_2023/</guid>
+      <guid>http://localhost:4321/post/stat548/stat548_2022_2023/</guid>
       <description>
 
 
@@ -390,9 +390,9 @@ plot(.tsne[,1], .tsne[,2], col=batch, pch=19, cex=.5, main=&amp;quot;after batch
     
     <item>
       <title>Lightweight tools for integrative single-cell data analysis</title>
-      <link>https://ypark.github.io/project/lightweight_tools/single_cell_analysis/</link>
+      <link>http://localhost:4321/project/lightweight_tools/single_cell_analysis/</link>
       <pubDate>Sun, 06 Sep 2020 00:00:00 +0000</pubDate>
-      <guid>https://ypark.github.io/project/lightweight_tools/single_cell_analysis/</guid>
+      <guid>http://localhost:4321/project/lightweight_tools/single_cell_analysis/</guid>
       <description>&lt;p&gt;TL;DR. We develop scalable and memory-efficient tools for single-cell data analysis.&lt;/p&gt;
 &lt;hr&gt;
 &lt;h3 id=&#34;there-are-already-many-tools&#34;&gt;There are already many tools.&lt;/h3&gt;
@@ -431,10 +431,10 @@ We like to work on a sparse data matrix formatted as
 &lt;figure id=&#34;figure-single-cell-data-can-provide-a-powerful-tool-to-dissect-existing-bulk-data-in-integrative-analysis-a-learn-novel-cell-types-recapitulate-known-cell-types-using-new-single-cell-data-and-infer-cellular-compositions-of-existing-data--b-transfer-the-knowledge-gained-from-single-cell-data-to-tissue-level-or-mixture-level-regulatory-genomics-models-a-schematic-diagram-for-our-deqtl-method-pi-cell-type-fraction-estimated-by-the-deconvolution-step-g-genotype-matrix-theta-cell-type-specific-multivariate-effect-size-lambda-cell-type-loading-eta-cell-type-specific-genetic-effect-aggregated-over-multiple-snps-c-systems-biology-analysis-by-projecting-cell-type-specific-deqtl-regions-we-partition-human-genome-into-cell-type-specific-components&#34;&gt;
 
 
-  &lt;a data-fancybox=&#34;&#34; href=&#34;https://ypark.github.io/img/project/mmutil_annotate.png&#34; data-caption=&#34;Single-cell data can provide a powerful tool to dissect existing bulk data in integrative analysis. &amp;lt;strong&amp;gt;(A)&amp;lt;/strong&amp;gt; Learn novel cell types, recapitulate known cell types using new single-cell data, and infer cellular compositions of existing data.  &amp;lt;strong&amp;gt;(B)&amp;lt;/strong&amp;gt; Transfer the knowledge gained from single-cell data to tissue-level, or mixture-level regulatory-genomics models. A schematic diagram for our deQTL method. $\pi$: cell type fraction estimated by the deconvolution step. G: genotype matrix. $\theta$: cell-type-specific multivariate effect size. $\lambda$: cell-type loading. $\eta$: cell-type-specific genetic effect aggregated over multiple SNPs. &amp;lt;strong&amp;gt;(C)&amp;lt;/strong&amp;gt; Systems biology analysis. By projecting cell-type-specific deQTL regions, we partition human genome into cell-type-specific components.&#34;&gt;
+  &lt;a data-fancybox=&#34;&#34; href=&#34;http://localhost:4321/img/project/mmutil_annotate.png&#34; data-caption=&#34;Single-cell data can provide a powerful tool to dissect existing bulk data in integrative analysis. &amp;lt;strong&amp;gt;(A)&amp;lt;/strong&amp;gt; Learn novel cell types, recapitulate known cell types using new single-cell data, and infer cellular compositions of existing data.  &amp;lt;strong&amp;gt;(B)&amp;lt;/strong&amp;gt; Transfer the knowledge gained from single-cell data to tissue-level, or mixture-level regulatory-genomics models. A schematic diagram for our deQTL method. $\pi$: cell type fraction estimated by the deconvolution step. G: genotype matrix. $\theta$: cell-type-specific multivariate effect size. $\lambda$: cell-type loading. $\eta$: cell-type-specific genetic effect aggregated over multiple SNPs. &amp;lt;strong&amp;gt;(C)&amp;lt;/strong&amp;gt; Systems biology analysis. By projecting cell-type-specific deQTL regions, we partition human genome into cell-type-specific components.&#34;&gt;
 
 
-  &lt;img src=&#34;https://ypark.github.io/img/project/mmutil_annotate.png&#34; alt=&#34;&#34;  &gt;
+  &lt;img src=&#34;http://localhost:4321/img/project/mmutil_annotate.png&#34; alt=&#34;&#34;  &gt;
 &lt;/a&gt;
 
 
@@ -452,9 +452,9 @@ We like to work on a sparse data matrix formatted as
     
     <item>
       <title>Causal Inference in Genomics</title>
-      <link>https://ypark.github.io/project/causal_inference/causal_inference/</link>
+      <link>http://localhost:4321/project/causal_inference/causal_inference/</link>
       <pubDate>Fri, 04 Sep 2020 00:00:00 +0000</pubDate>
-      <guid>https://ypark.github.io/project/causal_inference/causal_inference/</guid>
+      <guid>http://localhost:4321/project/causal_inference/causal_inference/</guid>
       <description>&lt;p&gt;TL;DR.  We reinvent traditional bioinformatics methods to ascertain the causality of discoveries made in high-dimensional omics data.&lt;/p&gt;
 &lt;hr&gt;
 &lt;p&gt;Massive data generation in genomics has transformed the methodology and practice of researches in medicine and human biology. A common practice of research is genomic and functional genomic profiling of hundreds of individuals. If desired data is not available, large consortium-level projects and collaborations can often meet the needs. In terms of both volume and dimensionality, the sizes of genomics data have exploded in the past decade, and it is not hard to predict that the speed of data accumulation will be further accelerated.&lt;/p&gt;
@@ -484,10 +484,10 @@ We like to work on a sparse data matrix formatted as
 &lt;figure id=&#34;figure-integrative-cancer-research-builds-on-two-principal-axes-of-genomics-data-a-population-level-studies-investigate-variation-across-large-cohorts-b-regulatory-genomics-researches-delve-into-multiple-layers-of-molecular-networks&#34;&gt;
 
 
-  &lt;a data-fancybox=&#34;&#34; href=&#34;https://ypark.github.io/img/project/cancer_genomics_research.png&#34; data-caption=&#34;Integrative cancer research builds on two principal axes of genomics data. &amp;lt;strong&amp;gt;(A)&amp;lt;/strong&amp;gt; Population-level studies investigate variation across large cohorts. &amp;lt;strong&amp;gt;(B)&amp;lt;/strong&amp;gt; Regulatory genomics researches delve into multiple layers of molecular networks.&#34;&gt;
+  &lt;a data-fancybox=&#34;&#34; href=&#34;http://localhost:4321/img/project/cancer_genomics_research.png&#34; data-caption=&#34;Integrative cancer research builds on two principal axes of genomics data. &amp;lt;strong&amp;gt;(A)&amp;lt;/strong&amp;gt; Population-level studies investigate variation across large cohorts. &amp;lt;strong&amp;gt;(B)&amp;lt;/strong&amp;gt; Regulatory genomics researches delve into multiple layers of molecular networks.&#34;&gt;
 
 
-  &lt;img src=&#34;https://ypark.github.io/img/project/cancer_genomics_research.png&#34; alt=&#34;&#34;  &gt;
+  &lt;img src=&#34;http://localhost:4321/img/project/cancer_genomics_research.png&#34; alt=&#34;&#34;  &gt;
 &lt;/a&gt;
 
 
@@ -504,7 +504,7 @@ We like to work on a sparse data matrix formatted as
 &lt;h3 id=&#34;removing-unwanted-variability-by-control-data&#34;&gt;Removing unwanted variability by &amp;ldquo;control&amp;rdquo; data&lt;/h3&gt;
 &lt;p&gt;Many scientific discoveries are best represented as a set of contrastive statements, such as &amp;ldquo;A rather than B&amp;rdquo; (
 &lt;a href=&#34;https://en.wikipedia.org/wiki/Peter_Lipton&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Peter Lipton&lt;/a&gt;) because such a contrastive explanation clarifies our claim&amp;rsquo;s scope and basis. The validity of causal argument can be empirically justified by triangulation of contrastive arguments (Lipton 1991). Therefore, an essential aspect of our research should focus on finding a suitable set of null hypotheses (non-causal facts) to be contrasted against our theory of interest to uphold. What are non-causal effects that may obfuscate the activity of scientific research? Are they generated uniformly at random? In practice, it is hard to characterize non-causal effects without considering confounding variables, and confounders create unwanted non-zero correlations between cause and effect variables.&lt;/p&gt;
-&lt;p&gt;Confounder correction is a causal inference problem. So, we need to ask the question of identifiability, such as, &amp;ldquo;How do we know this variable is a confounder?&amp;rdquo; or &amp;ldquo;What is a legitimate criterion that distinguishes between causal and non-causal effects?&amp;quot;. We could start our journey by asking:&lt;/p&gt;
+&lt;p&gt;Confounder correction is a causal inference problem. So, we need to ask the question of identifiability, such as, &amp;ldquo;How do we know this variable is a confounder?&amp;rdquo; or &amp;ldquo;What is a legitimate criterion that distinguishes between causal and non-causal effects?&amp;rdquo;. We could start our journey by asking:&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;
 &lt;p&gt;Are there any control data on which we can safely claim that there is no causal effect whatsoever?&lt;/p&gt;
@@ -534,10 +534,10 @@ We like to work on a sparse data matrix formatted as
 &lt;figure id=&#34;figure-confounder-correction-in-action-the-figure-describes-essential-steps-of-confounding-factor-correction-in-gwas-mediation-analysis-a-type-i-confounding-variable-s1-between-mediators-ms-b-type-ii-confounding-variable-s2-between-phenotypes-ys-c-joint-projection-of-mediator-and-phenotype-variables-makes-interventions-to-remove-mediating-effect-but-leave-confounding-effects&#34;&gt;
 
 
-  &lt;a data-fancybox=&#34;&#34; href=&#34;https://ypark.github.io/img/project/mediation_confounder.png&#34; data-caption=&#34;Confounder correction in action. The figure describes essential steps of confounding factor correction in GWAS mediation analysis. &amp;lt;strong&amp;gt;(A)&amp;lt;/strong&amp;gt; Type I confounding variable (S1) between mediators (M&amp;amp;rsquo;s) &amp;lt;strong&amp;gt;(B)&amp;lt;/strong&amp;gt; Type II confounding variable (S2) between phenotypes (Y&amp;amp;rsquo;s). &amp;lt;strong&amp;gt;(C)&amp;lt;/strong&amp;gt; Joint projection of mediator and phenotype variables makes interventions to remove mediating effect but leave confounding effects.&#34;&gt;
+  &lt;a data-fancybox=&#34;&#34; href=&#34;http://localhost:4321/img/project/mediation_confounder.png&#34; data-caption=&#34;Confounder correction in action. The figure describes essential steps of confounding factor correction in GWAS mediation analysis. &amp;lt;strong&amp;gt;(A)&amp;lt;/strong&amp;gt; Type I confounding variable (S1) between mediators (M&amp;amp;rsquo;s) &amp;lt;strong&amp;gt;(B)&amp;lt;/strong&amp;gt; Type II confounding variable (S2) between phenotypes (Y&amp;amp;rsquo;s). &amp;lt;strong&amp;gt;(C)&amp;lt;/strong&amp;gt; Joint projection of mediator and phenotype variables makes interventions to remove mediating effect but leave confounding effects.&#34;&gt;
 
 
-  &lt;img src=&#34;https://ypark.github.io/img/project/mediation_confounder.png&#34; alt=&#34;&#34;  &gt;
+  &lt;img src=&#34;http://localhost:4321/img/project/mediation_confounder.png&#34; alt=&#34;&#34;  &gt;
 &lt;/a&gt;
 
 
@@ -560,42 +560,42 @@ We like to work on a sparse data matrix formatted as
 &lt;table&gt;
 &lt;thead&gt;
 &lt;tr&gt;
-&lt;th align=&#34;right&#34;&gt;$i$&lt;/th&gt;
-&lt;th align=&#34;left&#34;&gt;X&lt;/th&gt;
-&lt;th align=&#34;left&#34;&gt;Y(0)&lt;/th&gt;
-&lt;th align=&#34;left&#34;&gt;Y(1)&lt;/th&gt;
+&lt;th style=&#34;text-align:right&#34;&gt;$i$&lt;/th&gt;
+&lt;th style=&#34;text-align:left&#34;&gt;X&lt;/th&gt;
+&lt;th style=&#34;text-align:left&#34;&gt;Y(0)&lt;/th&gt;
+&lt;th style=&#34;text-align:left&#34;&gt;Y(1)&lt;/th&gt;
 &lt;/tr&gt;
 &lt;/thead&gt;
 &lt;tbody&gt;
 &lt;tr&gt;
-&lt;td align=&#34;right&#34;&gt;1&lt;/td&gt;
-&lt;td align=&#34;left&#34;&gt;0&lt;/td&gt;
-&lt;td align=&#34;left&#34;&gt;$Y_1$&lt;/td&gt;
-&lt;td align=&#34;left&#34;&gt;?&lt;/td&gt;
+&lt;td style=&#34;text-align:right&#34;&gt;1&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;0&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;$Y_1$&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;?&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
-&lt;td align=&#34;right&#34;&gt;2&lt;/td&gt;
-&lt;td align=&#34;left&#34;&gt;1&lt;/td&gt;
-&lt;td align=&#34;left&#34;&gt;?&lt;/td&gt;
-&lt;td align=&#34;left&#34;&gt;$Y_2$&lt;/td&gt;
+&lt;td style=&#34;text-align:right&#34;&gt;2&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;1&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;?&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;$Y_2$&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
-&lt;td align=&#34;right&#34;&gt;3&lt;/td&gt;
-&lt;td align=&#34;left&#34;&gt;1&lt;/td&gt;
-&lt;td align=&#34;left&#34;&gt;?&lt;/td&gt;
-&lt;td align=&#34;left&#34;&gt;$Y_3$&lt;/td&gt;
+&lt;td style=&#34;text-align:right&#34;&gt;3&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;1&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;?&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;$Y_3$&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
-&lt;td align=&#34;right&#34;&gt;4&lt;/td&gt;
-&lt;td align=&#34;left&#34;&gt;0&lt;/td&gt;
-&lt;td align=&#34;left&#34;&gt;$Y_4$&lt;/td&gt;
-&lt;td align=&#34;left&#34;&gt;?&lt;/td&gt;
+&lt;td style=&#34;text-align:right&#34;&gt;4&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;0&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;$Y_4$&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;?&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
-&lt;td align=&#34;right&#34;&gt;&lt;/td&gt;
-&lt;td align=&#34;left&#34;&gt;&lt;/td&gt;
-&lt;td align=&#34;left&#34;&gt;$\vdots$&lt;/td&gt;
-&lt;td align=&#34;left&#34;&gt;&lt;/td&gt;
+&lt;td style=&#34;text-align:right&#34;&gt;&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;$\vdots$&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;&lt;/td&gt;
 &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
@@ -607,9 +607,9 @@ We like to work on a sparse data matrix formatted as
     
     <item>
       <title>Bayesian modelling of summary statistics data</title>
-      <link>https://ypark.github.io/project/summary_data_inference/summary_data_ml/</link>
+      <link>http://localhost:4321/project/summary_data_inference/summary_data_ml/</link>
       <pubDate>Thu, 03 Sep 2020 00:00:00 +0000</pubDate>
-      <guid>https://ypark.github.io/project/summary_data_inference/summary_data_ml/</guid>
+      <guid>http://localhost:4321/project/summary_data_inference/summary_data_ml/</guid>
       <description>&lt;p&gt;TL;DR. We develop Bayesian machine learning methods that excavate a latent structure or underlying joint models of summary statistics data.&lt;/p&gt;
 &lt;hr&gt;
 &lt;h3 id=&#34;what-are-summary-statistics-data&#34;&gt;What are summary statistics data?&lt;/h3&gt;
@@ -643,10 +643,10 @@ We like to work on a sparse data matrix formatted as
 &lt;figure id=&#34;figure-a-summary-based-learning-method-can-estimate-multivariate-parameters-as-accurate-as-a-traditional-bayesian-learning-method-for-a-sparse-regression-problem-auprc-area-under-precision-recall-curve-_column-panels_-simulations-varying-the-number-of-causal-snps-h2-the-proportion-of-phenotypic-variance-explained-by-causal-snps-bslmm-bayesian-sparse-linear-mixed-effect-model-yqtl-a-sparse-regression-model-with-spike-slab-prior-trained-by-stochastic-variational-inference-zqtl-a-summary-based-multivariate-regression-modelling&#34;&gt;
 
 
-  &lt;a data-fancybox=&#34;&#34; href=&#34;https://ypark.github.io/img/project/summary_regression.png&#34; data-caption=&#34;A summary-based learning method can estimate multivariate parameters as accurate as a traditional Bayesian learning method for a sparse regression problem. &amp;lt;code&amp;gt;AUPRC&amp;lt;/code&amp;gt;: Area Under Precision Recall Curve. &amp;lt;em&amp;gt;Column panels&amp;lt;/em&amp;gt;: simulations varying the number of causal SNPs. &amp;lt;code&amp;gt;h2&amp;lt;/code&amp;gt;: the proportion of phenotypic variance explained by causal SNPs. &amp;lt;code&amp;gt;BSLMM&amp;lt;/code&amp;gt;: Bayesian sparse linear mixed effect model; &amp;lt;code&amp;gt;yqtl&amp;lt;/code&amp;gt;: a sparse regression model with spike-slab prior, trained by stochastic variational inference; &amp;lt;code&amp;gt;zqtl&amp;lt;/code&amp;gt;: a summary-based multivariate regression modelling.&#34;&gt;
+  &lt;a data-fancybox=&#34;&#34; href=&#34;http://localhost:4321/img/project/summary_regression.png&#34; data-caption=&#34;A summary-based learning method can estimate multivariate parameters as accurate as a traditional Bayesian learning method for a sparse regression problem. &amp;lt;code&amp;gt;AUPRC&amp;lt;/code&amp;gt;: Area Under Precision Recall Curve. &amp;lt;em&amp;gt;Column panels&amp;lt;/em&amp;gt;: simulations varying the number of causal SNPs. &amp;lt;code&amp;gt;h2&amp;lt;/code&amp;gt;: the proportion of phenotypic variance explained by causal SNPs. &amp;lt;code&amp;gt;BSLMM&amp;lt;/code&amp;gt;: Bayesian sparse linear mixed effect model; &amp;lt;code&amp;gt;yqtl&amp;lt;/code&amp;gt;: a sparse regression model with spike-slab prior, trained by stochastic variational inference; &amp;lt;code&amp;gt;zqtl&amp;lt;/code&amp;gt;: a summary-based multivariate regression modelling.&#34;&gt;
 
 
-  &lt;img src=&#34;https://ypark.github.io/img/project/summary_regression.png&#34; alt=&#34;&#34;  &gt;
+  &lt;img src=&#34;http://localhost:4321/img/project/summary_regression.png&#34; alt=&#34;&#34;  &gt;
 &lt;/a&gt;
 
 
@@ -667,9 +667,9 @@ We like to work on a sparse data matrix formatted as
     
     <item>
       <title>An example preprint / working paper</title>
-      <link>https://ypark.github.io/publication/preprint/</link>
+      <link>http://localhost:4321/publication/preprint/</link>
       <pubDate>Sun, 07 Apr 2019 00:00:00 +0000</pubDate>
-      <guid>https://ypark.github.io/publication/preprint/</guid>
+      <guid>http://localhost:4321/publication/preprint/</guid>
       <description>&lt;div class=&#34;alert alert-note&#34;&gt;
   &lt;div&gt;
     Click the &lt;em&gt;Slides&lt;/em&gt; button above to demo Academic&amp;rsquo;s Markdown slides feature.
@@ -682,9 +682,9 @@ We like to work on a sparse data matrix formatted as
     
     <item>
       <title>Recipes for GWAS data conversion/extraction</title>
-      <link>https://ypark.github.io/post/genetics/gwas_data_export/</link>
+      <link>http://localhost:4321/post/genetics/gwas_data_export/</link>
       <pubDate>Wed, 05 Sep 2018 00:00:00 +0000</pubDate>
-      <guid>https://ypark.github.io/post/genetics/gwas_data_export/</guid>
+      <guid>http://localhost:4321/post/genetics/gwas_data_export/</guid>
       <description>&lt;!-- # image: --&gt;
 &lt;!-- #  caption: &#39;Image credit: [**John Moeses Bauan**](https://unsplash.com/photos/OGZtQF8iC0g)&#39; --&gt;
 &lt;!-- #  placement: 3 --&gt;
@@ -774,10 +774,28 @@ We like to work on a sparse data matrix formatted as
     </item>
     
     <item>
+      <title>Privacy Policy</title>
+      <link>http://localhost:4321/privacy/</link>
+      <pubDate>Thu, 28 Jun 2018 00:00:00 +0100</pubDate>
+      <guid>http://localhost:4321/privacy/</guid>
+      <description>&lt;p&gt;&amp;hellip;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Terms</title>
+      <link>http://localhost:4321/terms/</link>
+      <pubDate>Thu, 28 Jun 2018 00:00:00 +0100</pubDate>
+      <guid>http://localhost:4321/terms/</guid>
+      <description>&lt;p&gt;&amp;hellip;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
       <title>On the analysis methods used in the &#34;omnigenic&#34; paper</title>
-      <link>https://ypark.github.io/post/genetics/omnigenics/</link>
+      <link>http://localhost:4321/post/genetics/omnigenics/</link>
       <pubDate>Thu, 21 Jun 2018 00:00:00 +0000</pubDate>
-      <guid>https://ypark.github.io/post/genetics/omnigenics/</guid>
+      <guid>http://localhost:4321/post/genetics/omnigenics/</guid>
       <description>&lt;p&gt;A recent quanta magazine 
 &lt;a href=&#34;https://www.quantamagazine.org/omnigenic-model-suggests-that-all-genes-affect-every-complex-trait-20180620/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;article&lt;/a&gt; on the omnigenic hypothesis re-ignited my interest.  So I read 
 &lt;a href=&#34;https://www.cell.com/cell/abstract/S0092-8674%2817%2930629-3&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;the original omnigenic paper&lt;/a&gt; again.&lt;/p&gt;
@@ -831,9 +849,9 @@ We like to work on a sparse data matrix formatted as
     
     <item>
       <title>An example journal article</title>
-      <link>https://ypark.github.io/publication/journal-article/</link>
+      <link>http://localhost:4321/publication/journal-article/</link>
       <pubDate>Tue, 01 Sep 2015 00:00:00 +0000</pubDate>
-      <guid>https://ypark.github.io/publication/journal-article/</guid>
+      <guid>http://localhost:4321/publication/journal-article/</guid>
       <description>&lt;div class=&#34;alert alert-note&#34;&gt;
   &lt;div&gt;
     Click the &lt;em&gt;Cite&lt;/em&gt; button above to demo the feature to enable visitors to import publication metadata into their reference management software.
@@ -851,9 +869,9 @@ We like to work on a sparse data matrix formatted as
     
     <item>
       <title>An example conference paper</title>
-      <link>https://ypark.github.io/publication/conference-paper/</link>
+      <link>http://localhost:4321/publication/conference-paper/</link>
       <pubDate>Mon, 01 Jul 2013 00:00:00 +0000</pubDate>
-      <guid>https://ypark.github.io/publication/conference-paper/</guid>
+      <guid>http://localhost:4321/publication/conference-paper/</guid>
       <description>&lt;div class=&#34;alert alert-note&#34;&gt;
   &lt;div&gt;
     Click the &lt;em&gt;Cite&lt;/em&gt; button above to demo the feature to enable visitors to import publication metadata into their reference management software.

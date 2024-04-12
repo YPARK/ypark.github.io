@@ -1,6 +1,6 @@
 <!DOCTYPE html><html lang="en-ca" >
 
-<head>
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=4321&amp;path=livereload" data-no-instant defer></script>
 
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -27,10 +27,11 @@
   
     
   
-  <meta name="description" content="Inspiration  Our previous work demonstrates that fiding causal difference at a pseudobulk level is easier than dealing with noisy cell-level data: Counterfactual inference for single-cell gene expression analysis">
+  <meta name="description" content="Inspiration Our previous work demonstrates that fiding causal difference at a pseudobulk level is easier than dealing with noisy cell-level data: Counterfactual inference for single-cell gene expression analysis
+Interestingly, other people considered identifying batch effects should be treated as a causal effect estimation problem: Batch Effects are Causal Effects: Applications in Human Connectomics">
 
   
-  <link rel="alternate" hreflang="en-ca" href="https://ypark.github.io/post/causal_inference/batch_effect_pseudobulk/">
+  <link rel="alternate" hreflang="en-ca" href="http://localhost:4321/post/causal_inference/batch_effect_pseudobulk/">
 
   
 
@@ -215,10 +216,10 @@
   
 
   <link rel="manifest" href="/index.webmanifest">
-  <link rel="icon" type="image/png" href="/images/icon_hu9e65041e7038cfeb655cd5b2189fa456_18716_32x32_fill_lanczos_center_2.png">
-  <link rel="apple-touch-icon" type="image/png" href="/images/icon_hu9e65041e7038cfeb655cd5b2189fa456_18716_192x192_fill_lanczos_center_2.png">
+  <link rel="icon" type="image/png" href="/images/icon_hu9e65041e7038cfeb655cd5b2189fa456_18716_32x32_fill_lanczos_center_3.png">
+  <link rel="apple-touch-icon" type="image/png" href="/images/icon_hu9e65041e7038cfeb655cd5b2189fa456_18716_192x192_fill_lanczos_center_3.png">
 
-  <link rel="canonical" href="https://ypark.github.io/post/causal_inference/batch_effect_pseudobulk/">
+  <link rel="canonical" href="http://localhost:4321/post/causal_inference/batch_effect_pseudobulk/">
 
   
   
@@ -237,10 +238,11 @@
   <meta property="twitter:creator" content="@ypp_lab">
   
   <meta property="og:site_name" content="Causal Path Lab">
-  <meta property="og:url" content="https://ypark.github.io/post/causal_inference/batch_effect_pseudobulk/">
+  <meta property="og:url" content="http://localhost:4321/post/causal_inference/batch_effect_pseudobulk/">
   <meta property="og:title" content="Adjusting batch effect in pseudobulk samples is a causal inference problem | Causal Path Lab">
-  <meta property="og:description" content="Inspiration  Our previous work demonstrates that fiding causal difference at a pseudobulk level is easier than dealing with noisy cell-level data: Counterfactual inference for single-cell gene expression analysis"><meta property="og:image" content="https://ypark.github.io/images/icon_hu9e65041e7038cfeb655cd5b2189fa456_18716_512x512_fill_lanczos_center_2.png">
-  <meta property="twitter:image" content="https://ypark.github.io/images/icon_hu9e65041e7038cfeb655cd5b2189fa456_18716_512x512_fill_lanczos_center_2.png"><meta property="og:locale" content="en-ca">
+  <meta property="og:description" content="Inspiration Our previous work demonstrates that fiding causal difference at a pseudobulk level is easier than dealing with noisy cell-level data: Counterfactual inference for single-cell gene expression analysis
+Interestingly, other people considered identifying batch effects should be treated as a causal effect estimation problem: Batch Effects are Causal Effects: Applications in Human Connectomics"><meta property="og:image" content="http://localhost:4321/images/icon_hu9e65041e7038cfeb655cd5b2189fa456_18716_512x512_fill_lanczos_center_3.png">
+  <meta property="twitter:image" content="http://localhost:4321/images/icon_hu9e65041e7038cfeb655cd5b2189fa456_18716_512x512_fill_lanczos_center_3.png"><meta property="og:locale" content="en-ca">
   
     
       <meta property="article:published_time" content="2023-06-19T00:00:00&#43;00:00">
@@ -269,22 +271,27 @@
   "@type": "BlogPosting",
   "mainEntityOfPage": {
     "@type": "WebPage",
-    "@id": "https://ypark.github.io/post/causal_inference/batch_effect_pseudobulk/"
+    "@id": "http://localhost:4321/post/causal_inference/batch_effect_pseudobulk/"
   },
   "headline": "Adjusting batch effect in pseudobulk samples is a causal inference problem",
   
   "datePublished": "2023-06-19T00:00:00Z",
   "dateModified": "2023-06-19T00:00:00Z",
   
+  "author": {
+    "@type": "Person",
+    "name": "Causal Path Lab"
+  },
+  
   "publisher": {
     "@type": "Organization",
     "name": "Causal Path Lab",
     "logo": {
       "@type": "ImageObject",
-      "url": "https://ypark.github.io/images/icon_hu9e65041e7038cfeb655cd5b2189fa456_18716_192x192_fill_lanczos_center_2.png"
+      "url": "http://localhost:4321/images/icon_hu9e65041e7038cfeb655cd5b2189fa456_18716_192x192_fill_lanczos_center_3.png"
     }
   },
-  "description": "Inspiration  Our previous work demonstrates that fiding causal difference at a pseudobulk level is easier than dealing with noisy cell-level data: Counterfactual inference for single-cell gene expression analysis"
+  "description": "Inspiration Our previous work demonstrates that fiding causal difference at a pseudobulk level is easier than dealing with noisy cell-level data: Counterfactual inference for single-cell gene expression analysis\nInterestingly, other people considered identifying batch effects should be treated as a causal effect estimation problem: Batch Effects are Causal Effects: Applications in Human Connectomics"
 }
 </script>
 
@@ -734,11 +741,11 @@ Q &lt;- t(Q.t)</code></pre>
 <p>After we adjust the batch effects:</p>
 <pre class="r"><code>cor(Q.t, X)</code></pre>
 <pre><code>##               [,1]          [,2]
-## [1,] -2.732905e-16  2.732905e-16
-## [2,] -5.801340e-16  5.801340e-16
-## [3,] -2.653637e-16  2.653637e-16
-## [4,]  3.783374e-16 -3.783374e-16
-## [5,] -2.732729e-16  2.732729e-16</code></pre>
+## [1,] -2.276319e-16  2.276319e-16
+## [2,] -5.524025e-16  5.524025e-16
+## [3,] -2.934286e-16  2.934286e-16
+## [4,]  3.075415e-16 -3.075415e-16
+## [5,] -3.636223e-16  3.636223e-16</code></pre>
 <pre class="r"><code>q.svd &lt;- svd(Q)
 
 ## 3. sorting
@@ -875,7 +882,7 @@ plot(.tsne[,1], .tsne[,2], col=batch, pch=19, cex=.5, main=&quot;after batch adj
       
       
       <li>
-        <a href="https://twitter.com/intent/tweet?url=https://ypark.github.io/post/causal_inference/batch_effect_pseudobulk/&amp;text=Adjusting%20batch%20effect%20in%20pseudobulk%20samples%20is%20a%20causal%20inference%20problem" target="_blank" rel="noopener" class="share-btn-twitter">
+        <a href="https://twitter.com/intent/tweet?url=http://localhost:4321/post/causal_inference/batch_effect_pseudobulk/&amp;text=Adjusting%20batch%20effect%20in%20pseudobulk%20samples%20is%20a%20causal%20inference%20problem" target="_blank" rel="noopener" class="share-btn-twitter">
           <i class="fab fa-twitter"></i>
         </a>
       </li>
@@ -888,7 +895,7 @@ plot(.tsne[,1], .tsne[,2], col=batch, pch=19, cex=.5, main=&quot;after batch adj
       
       
       <li>
-        <a href="https://www.facebook.com/sharer.php?u=https://ypark.github.io/post/causal_inference/batch_effect_pseudobulk/&amp;t=Adjusting%20batch%20effect%20in%20pseudobulk%20samples%20is%20a%20causal%20inference%20problem" target="_blank" rel="noopener" class="share-btn-facebook">
+        <a href="https://www.facebook.com/sharer.php?u=http://localhost:4321/post/causal_inference/batch_effect_pseudobulk/&amp;t=Adjusting%20batch%20effect%20in%20pseudobulk%20samples%20is%20a%20causal%20inference%20problem" target="_blank" rel="noopener" class="share-btn-facebook">
           <i class="fab fa-facebook"></i>
         </a>
       </li>
@@ -901,7 +908,7 @@ plot(.tsne[,1], .tsne[,2], col=batch, pch=19, cex=.5, main=&quot;after batch adj
       
       
       <li>
-        <a href="mailto:?subject=Adjusting%20batch%20effect%20in%20pseudobulk%20samples%20is%20a%20causal%20inference%20problem&amp;body=https://ypark.github.io/post/causal_inference/batch_effect_pseudobulk/" target="_blank" rel="noopener" class="share-btn-email">
+        <a href="mailto:?subject=Adjusting%20batch%20effect%20in%20pseudobulk%20samples%20is%20a%20causal%20inference%20problem&amp;body=http://localhost:4321/post/causal_inference/batch_effect_pseudobulk/" target="_blank" rel="noopener" class="share-btn-email">
           <i class="fas fa-envelope"></i>
         </a>
       </li>
@@ -914,7 +921,7 @@ plot(.tsne[,1], .tsne[,2], col=batch, pch=19, cex=.5, main=&quot;after batch adj
       
       
       <li>
-        <a href="https://www.linkedin.com/shareArticle?url=https://ypark.github.io/post/causal_inference/batch_effect_pseudobulk/&amp;title=Adjusting%20batch%20effect%20in%20pseudobulk%20samples%20is%20a%20causal%20inference%20problem" target="_blank" rel="noopener" class="share-btn-linkedin">
+        <a href="https://www.linkedin.com/shareArticle?url=http://localhost:4321/post/causal_inference/batch_effect_pseudobulk/&amp;title=Adjusting%20batch%20effect%20in%20pseudobulk%20samples%20is%20a%20causal%20inference%20problem" target="_blank" rel="noopener" class="share-btn-linkedin">
           <i class="fab fa-linkedin-in"></i>
         </a>
       </li>
@@ -927,7 +934,7 @@ plot(.tsne[,1], .tsne[,2], col=batch, pch=19, cex=.5, main=&quot;after batch adj
       
       
       <li>
-        <a href="whatsapp://send?text=Adjusting%20batch%20effect%20in%20pseudobulk%20samples%20is%20a%20causal%20inference%20problem%20https://ypark.github.io/post/causal_inference/batch_effect_pseudobulk/" target="_blank" rel="noopener" class="share-btn-whatsapp">
+        <a href="whatsapp://send?text=Adjusting%20batch%20effect%20in%20pseudobulk%20samples%20is%20a%20causal%20inference%20problem%20http://localhost:4321/post/causal_inference/batch_effect_pseudobulk/" target="_blank" rel="noopener" class="share-btn-whatsapp">
           <i class="fab fa-whatsapp"></i>
         </a>
       </li>
@@ -940,7 +947,7 @@ plot(.tsne[,1], .tsne[,2], col=batch, pch=19, cex=.5, main=&quot;after batch adj
       
       
       <li>
-        <a href="https://service.weibo.com/share/share.php?url=https://ypark.github.io/post/causal_inference/batch_effect_pseudobulk/&amp;title=Adjusting%20batch%20effect%20in%20pseudobulk%20samples%20is%20a%20causal%20inference%20problem" target="_blank" rel="noopener" class="share-btn-weibo">
+        <a href="https://service.weibo.com/share/share.php?url=http://localhost:4321/post/causal_inference/batch_effect_pseudobulk/&amp;title=Adjusting%20batch%20effect%20in%20pseudobulk%20samples%20is%20a%20causal%20inference%20problem" target="_blank" rel="noopener" class="share-btn-weibo">
           <i class="fab fa-weibo"></i>
         </a>
       </li>
@@ -965,29 +972,6 @@ plot(.tsne[,1], .tsne[,2], col=batch, pch=19, cex=.5, main=&quot;after batch adj
 
 
 
-
-  
-    
-    
-    
-      
-    
-    
-    
-    <div class="media author-card content-widget-hr">
-      
-
-      <div class="media-body">
-        <h5 class="card-title"><a href="https://ypark.github.io/"></a></h5>
-        
-        <p class="card-text">We are a computational biology lab, born in 2020, in the midst of Sars-COV 2 (covid-19) pandemic.</p>
-        <ul class="network-icon" aria-hidden="true">
-  
-</ul>
-
-      </div>
-    </div>
-  
 
 
 
@@ -1118,7 +1102,7 @@ plot(.tsne[,1], .tsne[,2], col=batch, pch=19, cex=.5, main=&quot;after batch adj
     
     
     
-    <script src="/js/academic.min.37431be2d92d7fb0160054761ab79602.js"></script>
+    <script src="/js/academic.min.5cbe51271615d69caead0155ce0cb8ce.js"></script>
 
     
 
@@ -1131,6 +1115,16 @@ plot(.tsne[,1], .tsne[,2], col=batch, pch=19, cex=.5, main=&quot;after batch adj
   
   <div class="container">
     <footer class="site-footer">
+  
+  <p class="powered-by">
+    
+      <a href="/privacy/">Privacy Policy</a>
+    
+    
+       &middot; 
+      <a href="/terms/">Terms</a>
+    
+  </p>
   
 
   <p class="powered-by">

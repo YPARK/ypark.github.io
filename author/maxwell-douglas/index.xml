@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Maxwell Douglas | Causal Path Lab</title>
+    <link>http://localhost:4321/author/maxwell-douglas/</link>
+      <atom:link href="http://localhost:4321/author/maxwell-douglas/index.xml" rel="self" type="application/rss+xml" />
+    <description>Maxwell Douglas</description>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-ca</language><copyright>Yongjin Park</copyright>
+    <item>
+      <title>Maxwell Douglas</title>
+      <link>http://localhost:4321/author/maxwell-douglas/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:4321/author/maxwell-douglas/</guid>
+      <description>&lt;p&gt;Hobbies:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Trail Running&lt;/li&gt;
+&lt;li&gt;Soccer&lt;/li&gt;
+&lt;li&gt;Skiing&lt;/li&gt;
+&lt;li&gt;Climbing&lt;/li&gt;
+&lt;li&gt;Backpacking/hiking&lt;/li&gt;
+&lt;li&gt;DND&lt;/li&gt;
+&lt;li&gt;Volunteering &amp;amp; community-building/outreach&lt;/li&gt;
+&lt;li&gt;Struggling to keep house-plants alive&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>
