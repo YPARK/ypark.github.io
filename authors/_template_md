@@ -1,0 +1,41 @@
+---
+authors:
+- someID <!-- (e.g., ypp) -->
+
+bio: A SHORT BIO
+
+education:
+ courses:
+ - course: BSc in XX
+   institution: University of British Columbia
+   year: 20XX
+
+email: "your.name@student.ubc.ca"
+
+interests:
+- Computational Biology
+- Cellular Bioengineering
+
+organizations:
+- name: BC Cancer Research
+  url: "http://www.bccrc.ca"
+
+role: Data Analysis and Scientific Computing Research Co-op
+
+social:
+- icon: twitter
+  icon_pack: fab
+  link: YOUR TWITER  <!-- e.g., https://twitter.com/ypp_lab -->
+
+- icon: github
+  icon_pack: fab
+  link: YOUR GITHIB  <!-- e.g., https://github.com/ypark/ -->
+
+superuser: false
+
+title: YOUR NAME
+
+user_groups: ["Graduate Student"]
+---
+
+SOME WORDS TO SAY ADDITIONALLY
