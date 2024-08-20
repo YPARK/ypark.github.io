@@ -1,4 +1,4 @@
 User-agent: *
 Disallow:
 Allow: /
-Sitemap: https://www.stat.ubc.ca/~ypp/sitemap.xml
+Sitemap: https://ypark.github.io/sitemap.xml
