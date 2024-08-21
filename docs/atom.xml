@@ -55,32 +55,6 @@
         
     </entry>
     <entry xml:lang="en">
-        <title>Parsing BAM files with RUST</title>
-        <published>2024-08-20T00:00:00+00:00</published>
-        <updated>2024-08-20T00:00:00+00:00</updated>
-        
-        <author>
-          <name>
-            
-              Unknown
-            
-          </name>
-        </author>
-        
-        <link rel="alternate" type="text/html" href="https://ypark.github.io/posts/rust-parsing-bam-file/"/>
-        <id>https://ypark.github.io/posts/rust-parsing-bam-file/</id>
-        
-        <content type="html" xml:base="https://ypark.github.io/posts/rust-parsing-bam-file/">&lt;p&gt;&lt;code&gt;rust&lt;&#x2F;code&gt;&lt;&#x2F;p&gt;
-&lt;pre data-lang=&quot;rust&quot; style=&quot;background-color:#fafafa;color:#61676c;&quot; class=&quot;language-rust &quot;&gt;&lt;code class=&quot;language-rust&quot; data-lang=&quot;rust&quot;&gt;&lt;span style=&quot;color:#fa6e32;&quot;&gt;fn &lt;&#x2F;span&gt;&lt;span style=&quot;color:#f29718;&quot;&gt;main&lt;&#x2F;span&gt;&lt;span&gt;(){
-&lt;&#x2F;span&gt;&lt;span&gt;}	
-&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
-&lt;p&gt;&lt;code&gt;rust_htslib&lt;&#x2F;code&gt;&lt;&#x2F;p&gt;
-&lt;pre data-lang=&quot;julia&quot; style=&quot;background-color:#fafafa;color:#61676c;&quot; class=&quot;language-julia &quot;&gt;&lt;code class=&quot;language-julia&quot; data-lang=&quot;julia&quot;&gt;&lt;span&gt;x &lt;&#x2F;span&gt;&lt;span style=&quot;color:#ed9366;&quot;&gt;= &lt;&#x2F;span&gt;&lt;span style=&quot;color:#ff8f40;&quot;&gt;1
-&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
-</content>
-        
-    </entry>
-    <entry xml:lang="en">
         <title>Yi-Ting(Tina) Hsu</title>
         <published>2024-07-01T00:00:00+00:00</published>
         <updated>2024-07-01T00:00:00+00:00</updated>
