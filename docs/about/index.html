@@ -32,6 +32,8 @@
 
     
     
+        <link rel="icon" type="image/png" href=&#x2F;icon&#x2F;favicon.ico />
+    
 
     
     
@@ -47,6 +49,8 @@
     
 
     
+    
+        <script src=https://ypark.github.io/js/toc.js></script>
     
     
     
@@ -74,19 +78,13 @@
     
     
         <link rel="stylesheet" type="text/css" href=https://ypark.github.io/theme/light.css />
-        <link rel="stylesheet" type="text/css" href="https://ypark.github.io/theme/dark.css" media="(prefers-color-scheme: dark)" />
+        <link id="darkModeStyle" rel="stylesheet" type="text/css" href="https://ypark.github.io/theme/dark.css" />
     
 
     <!-- Set the correct theme in the script -->
     <script src=https://ypark.github.io/js/themetoggle.js></script>
     
-        <script>
-            if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
-                setTheme("dark");
-            } else {
-                setTheme("light");
-            }
-        </script>
+        <script>setTheme(getSavedTheme());</script>
     
 
     <link rel="stylesheet" type="text/css" media="screen" href=https://ypark.github.io/main.css />
@@ -130,6 +128,14 @@
         
 
         
+        |<a id="dark-mode-toggle" onclick="toggleTheme(); event.preventDefault();" href="#">
+            <img src=https://ypark.github.io/feather/sun.svg id="sun-icon" style="filter: invert(1);" alt="Light" />
+            <img src=https://ypark.github.io/feather/moon.svg id="moon-icon" alt="Dark" />
+        </a>
+
+        <!-- Inititialize the theme toggle icons -->
+        <script>updateItemToggleTheme()</script>
+        
     </nav>
 </header>
 
@@ -172,6 +178,8 @@
 
         
         
+        
+        
 
         <section class="body">
             <p>We are a computational biology laboratory in the Department of <a href="https://pathology.ubc.ca">Pathology and Laboratory Medicine</a>, and the Department of <a href="https://www.stat.ubc.ca">Statistics</a> at <a href="https://www.ubc.ca/">the University of British Columbia</a>. We usually work in <a href="https://www.bccrc.ca">BC Cancer Research Centre</a>, or some places where we can open a terminal.</p>
@@ -180,7 +188,7 @@
 <p>Yongjin P. Park, PhD</p>
 <p>Office: 4.108 BC Cancer Research Centre, 675 W 10th Ave, Vancouver, BC V5Z 1L3, Canada</p>
 <p>Phone: +1-604-675-8252 (ext8252)</p>
-<p>email: <code>yongjin[dot]park[at]ubc.ca</code> / <code>ypark[at]bccrc.ca</code> / <code>ypp[at]stat[dot]ubc[dot]ca</code></p>
+<p>email: <code>yongjin[dot]park[at]ubc[dot]ca</code> / <code>ypark[at]bccrc[dot]ca</code> / <code>ypp[at]stat[dot]ubc[dot]ca</code></p>
 
         </section>
     </article>

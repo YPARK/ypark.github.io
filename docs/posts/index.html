@@ -32,6 +32,8 @@
 
     
     
+        <link rel="icon" type="image/png" href=&#x2F;icon&#x2F;favicon.ico />
+    
 
     
     
@@ -47,6 +49,8 @@
     
 
     
+    
+        <script src=https://ypark.github.io/js/toc.js></script>
     
     
     
@@ -74,19 +78,13 @@
     
     
         <link rel="stylesheet" type="text/css" href=https://ypark.github.io/theme/light.css />
-        <link rel="stylesheet" type="text/css" href="https://ypark.github.io/theme/dark.css" media="(prefers-color-scheme: dark)" />
+        <link id="darkModeStyle" rel="stylesheet" type="text/css" href="https://ypark.github.io/theme/dark.css" />
     
 
     <!-- Set the correct theme in the script -->
     <script src=https://ypark.github.io/js/themetoggle.js></script>
     
-        <script>
-            if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
-                setTheme("dark");
-            } else {
-                setTheme("light");
-            }
-        </script>
+        <script>setTheme(getSavedTheme());</script>
     
 
     <link rel="stylesheet" type="text/css" media="screen" href=https://ypark.github.io/main.css />
@@ -130,6 +128,14 @@
         
 
         
+        |<a id="dark-mode-toggle" onclick="toggleTheme(); event.preventDefault();" href="#">
+            <img src=https://ypark.github.io/feather/sun.svg id="sun-icon" style="filter: invert(1);" alt="Light" />
+            <img src=https://ypark.github.io/feather/moon.svg id="moon-icon" alt="Dark" />
+        </a>
+
+        <!-- Inititialize the theme toggle icons -->
+        <script>updateItemToggleTheme()</script>
+        
     </nav>
 </header>
 
@@ -150,11 +156,37 @@
     <li class="list-item">
     <section>
         <div class="post-header">
-            <time>2024-09-20</time>
+            <time>2024-09-03</time>
 
             <div>
                 <h1 class="title">
                     <a href=https:&#x2F;&#x2F;ypark.github.io&#x2F;posts&#x2F;stat548-2024&#x2F;>STAT 548 PhD Qualifying Papers</a>
+
+                    
+                </h1>
+
+                <div class="meta">
+                    <div class="description">
+                        
+                        
+                        
+                    </div>
+
+                    
+                </div>
+            </div>
+        </div>
+    </section>
+  </li>
+    
+    <li class="list-item">
+    <section>
+        <div class="post-header">
+            <time>2024-08-20</time>
+
+            <div>
+                <h1 class="title">
+                    <a href=https:&#x2F;&#x2F;ypark.github.io&#x2F;posts&#x2F;rust-parsing-bam-file&#x2F;>Parsing BAM files with RUST</a>
 
                     
                 </h1>

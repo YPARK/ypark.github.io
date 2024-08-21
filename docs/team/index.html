@@ -32,6 +32,8 @@
 
     
     
+        <link rel="icon" type="image/png" href=&#x2F;icon&#x2F;favicon.ico />
+    
 
     
     
@@ -47,6 +49,8 @@
     
 
     
+    
+        <script src=https://ypark.github.io/js/toc.js></script>
     
     
     
@@ -74,19 +78,13 @@
     
     
         <link rel="stylesheet" type="text/css" href=https://ypark.github.io/theme/light.css />
-        <link rel="stylesheet" type="text/css" href="https://ypark.github.io/theme/dark.css" media="(prefers-color-scheme: dark)" />
+        <link id="darkModeStyle" rel="stylesheet" type="text/css" href="https://ypark.github.io/theme/dark.css" />
     
 
     <!-- Set the correct theme in the script -->
     <script src=https://ypark.github.io/js/themetoggle.js></script>
     
-        <script>
-            if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
-                setTheme("dark");
-            } else {
-                setTheme("light");
-            }
-        </script>
+        <script>setTheme(getSavedTheme());</script>
     
 
     <link rel="stylesheet" type="text/css" media="screen" href=https://ypark.github.io/main.css />
@@ -129,6 +127,14 @@
         <a href=https://ypark.github.io/alumni style="margin-left: 0.5em">&#x2F;alumni</a>
         
 
+        
+        |<a id="dark-mode-toggle" onclick="toggleTheme(); event.preventDefault();" href="#">
+            <img src=https://ypark.github.io/feather/sun.svg id="sun-icon" style="filter: invert(1);" alt="Light" />
+            <img src=https://ypark.github.io/feather/moon.svg id="moon-icon" alt="Dark" />
+        </a>
+
+        <!-- Inititialize the theme toggle icons -->
+        <script>updateItemToggleTheme()</script>
         
     </nav>
 </header>

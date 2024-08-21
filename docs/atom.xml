@@ -1,0 +1,409 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en">
+    <title></title>
+    <link rel="self" type="application/atom+xml" href="https://ypark.github.io/atom.xml"/>
+    <link rel="alternate" type="text/html" href="https://ypark.github.io"/>
+    <generator uri="https://www.getzola.org/">Zola</generator>
+    <updated>2024-09-03T00:00:00+00:00</updated>
+    <id>https://ypark.github.io/atom.xml</id>
+    <entry xml:lang="en">
+        <title>STAT 548 PhD Qualifying Papers</title>
+        <published>2024-09-03T00:00:00+00:00</published>
+        <updated>2024-09-03T00:00:00+00:00</updated>
+        
+        <author>
+          <name>
+            
+              Unknown
+            
+          </name>
+        </author>
+        
+        <link rel="alternate" type="text/html" href="https://ypark.github.io/posts/stat548-2024/"/>
+        <id>https://ypark.github.io/posts/stat548-2024/</id>
+        
+        <content type="html" xml:base="https://ypark.github.io/posts/stat548-2024/">&lt;h2 id=&quot;introduction&quot;&gt;&lt;a class=&quot;zola-anchor&quot; href=&quot;#introduction&quot; aria-label=&quot;Anchor link for: introduction&quot;&gt;Introduction&lt;&#x2F;a&gt;&lt;&#x2F;h2&gt;
+&lt;p&gt;I am interested in almost all problems in computational biology and genomics. I expect a student to propose novel statistical approaches that can address challenges in data analysis and modelling of high-dimensional, large-volume biological problems.&lt;&#x2F;p&gt;
+&lt;p&gt;Feel free to contact me (&lt;code&gt;ypp@stat.ubc.ca&lt;&#x2F;code&gt;).&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;format&quot;&gt;&lt;a class=&quot;zola-anchor&quot; href=&quot;#format&quot; aria-label=&quot;Anchor link for: format&quot;&gt;Format&lt;&#x2F;a&gt;&lt;&#x2F;h2&gt;
+&lt;p&gt;You may organize your report including the following sections.&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Problem definition&lt;&#x2F;strong&gt; (1 page): Extract mathematical&#x2F;statistical problems from the paper and organize them. What are the input data? What is the expected output?&lt;&#x2F;p&gt;
+&lt;&#x2F;li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Significance&lt;&#x2F;strong&gt; (1-2 paragraphs): Why is this an interesting problem? What can be learned by studying this problem? Why is it exciting for you? Author contribution: How did the author(s) find the solution? What was a novel contribution beyond traditional approaches?&lt;&#x2F;p&gt;
+&lt;&#x2F;li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Limitations&#x2F;challenges&lt;&#x2F;strong&gt; (1-2 paragraphs): What are the assumptions? Are they realistic? What are the technical limitations that the authors acknowledge or not?&lt;&#x2F;p&gt;
+&lt;&#x2F;li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Novel idea&#x2F;methods&lt;&#x2F;strong&gt; (2 pages): Propose your idea and statistical methods. You could interpret the underlying problem in a different formulation. What are related problems&#x2F;frameworks, but not adopted by the authors?&lt;&#x2F;p&gt;
+&lt;&#x2F;li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Results&lt;&#x2F;strong&gt; (1-2 pages): Include one figure that sketches your approaches. Show tables and figures that clearly demonstrate your methods.&lt;&#x2F;p&gt;
+&lt;&#x2F;li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Discussion&lt;&#x2F;strong&gt; (1 page): Briefly discuss what you have learned and what you would achieve if you were to develop this to a full paper. How would you validate your findings in independent studies, including wet-lab experiments?&lt;&#x2F;p&gt;
+&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;h2 id=&quot;available-papers&quot;&gt;&lt;a class=&quot;zola-anchor&quot; href=&quot;#available-papers&quot; aria-label=&quot;Anchor link for: available-papers&quot;&gt;Available Papers&lt;&#x2F;a&gt;&lt;&#x2F;h2&gt;
+&lt;ol&gt;
+&lt;li&gt;Qiu, Sun, and Zhou, &lt;a href=&quot;https:&#x2F;&#x2F;www.tandfonline.com&#x2F;doi&#x2F;full&#x2F;10.1080&#x2F;01621459.2023.2252135&quot;&gt;Unveiling the Unobservable: Causal Inference on Multiple Derived Outcomes&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
+&lt;&#x2F;ol&gt;
+</content>
+        
+    </entry>
+    <entry xml:lang="en">
+        <title>Parsing BAM files with RUST</title>
+        <published>2024-08-20T00:00:00+00:00</published>
+        <updated>2024-08-20T00:00:00+00:00</updated>
+        
+        <author>
+          <name>
+            
+              Unknown
+            
+          </name>
+        </author>
+        
+        <link rel="alternate" type="text/html" href="https://ypark.github.io/posts/rust-parsing-bam-file/"/>
+        <id>https://ypark.github.io/posts/rust-parsing-bam-file/</id>
+        
+        <content type="html" xml:base="https://ypark.github.io/posts/rust-parsing-bam-file/">&lt;p&gt;&lt;code&gt;rust&lt;&#x2F;code&gt;&lt;&#x2F;p&gt;
+&lt;pre data-lang=&quot;rust&quot; style=&quot;background-color:#fafafa;color:#61676c;&quot; class=&quot;language-rust &quot;&gt;&lt;code class=&quot;language-rust&quot; data-lang=&quot;rust&quot;&gt;&lt;span style=&quot;color:#fa6e32;&quot;&gt;fn &lt;&#x2F;span&gt;&lt;span style=&quot;color:#f29718;&quot;&gt;main&lt;&#x2F;span&gt;&lt;span&gt;(){
+&lt;&#x2F;span&gt;&lt;span&gt;}	
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;&lt;code&gt;rust_htslib&lt;&#x2F;code&gt;&lt;&#x2F;p&gt;
+&lt;pre data-lang=&quot;julia&quot; style=&quot;background-color:#fafafa;color:#61676c;&quot; class=&quot;language-julia &quot;&gt;&lt;code class=&quot;language-julia&quot; data-lang=&quot;julia&quot;&gt;&lt;span&gt;x &lt;&#x2F;span&gt;&lt;span style=&quot;color:#ed9366;&quot;&gt;= &lt;&#x2F;span&gt;&lt;span style=&quot;color:#ff8f40;&quot;&gt;1
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+</content>
+        
+    </entry>
+    <entry xml:lang="en">
+        <title>Yi-Ting(Tina) Hsu</title>
+        <published>2024-07-01T00:00:00+00:00</published>
+        <updated>2024-07-01T00:00:00+00:00</updated>
+        
+        <author>
+          <name>
+            
+              Unknown
+            
+          </name>
+        </author>
+        
+        <link rel="alternate" type="text/html" href="https://ypark.github.io/team/tina0420/"/>
+        <id>https://ypark.github.io/team/tina0420/</id>
+        
+        <content type="html" xml:base="https://ypark.github.io/team/tina0420/">&lt;p&gt;I am currently a PhD student in Bioinformatics graduate program and interested in developing algorithms for innovating applications in the fields of medicine and biology. Not only coding, I also like to explore new sights of biology, especially about cancers.&lt;&#x2F;p&gt;
+&lt;p&gt;interests:&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;Computational Biology&lt;&#x2F;li&gt;
+&lt;li&gt;Data Science&lt;&#x2F;li&gt;
+&lt;li&gt;Machine Learning&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+</content>
+        
+    </entry>
+    <entry xml:lang="en">
+        <title>Pattie Ye</title>
+        <published>2024-05-31T00:00:00+00:00</published>
+        <updated>2024-05-31T00:00:00+00:00</updated>
+        
+        <author>
+          <name>
+            
+              Unknown
+            
+          </name>
+        </author>
+        
+        <link rel="alternate" type="text/html" href="https://ypark.github.io/alumni/pattieye/"/>
+        <id>https://ypark.github.io/alumni/pattieye/</id>
+        
+        <content type="html" xml:base="https://ypark.github.io/alumni/pattieye/">&lt;p&gt;I was a Master’s student in Bioinformatics starting in Fall 2021 under the co-supervision of Dr. Yongjin Park and &lt;a href=&quot;https:&#x2F;&#x2F;www.bcchr.ca&#x2F;rklein-geltink&quot;&gt;Dr. Ramon Klein Geltink&lt;&#x2F;a&gt;. I completed my BSc from the University of British Columbia in 2021 with a combined major in Computer Science and Statistics. My main research interests pertain to studying the underlying biological mechanisms of autoimmune and inflammatory disease using large scale data analysis.&lt;&#x2F;p&gt;
+&lt;p&gt;Outside of academia, I am a member of the Varsity Men’s Rowing team at UBC as a coxswain. I served as rowing team captain for two years and have won two national championships. I also enjoy cooking, reading, and taking care of houseplants.&lt;&#x2F;p&gt;
+&lt;p&gt;Research interests:&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;Computational Biology&lt;&#x2F;li&gt;
+&lt;li&gt;Statistical Genomics&lt;&#x2F;li&gt;
+&lt;li&gt;Complex Disease&lt;&#x2F;li&gt;
+&lt;li&gt;Autoimmune and Inflammatory Disease&lt;&#x2F;li&gt;
+&lt;li&gt;Immunometabolism&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+</content>
+        
+    </entry>
+    <entry xml:lang="en">
+        <title>Yichen Zhang</title>
+        <published>2024-05-31T00:00:00+00:00</published>
+        <updated>2024-05-31T00:00:00+00:00</updated>
+        
+        <author>
+          <name>
+            
+              Unknown
+            
+          </name>
+        </author>
+        
+        <link rel="alternate" type="text/html" href="https://ypark.github.io/alumni/yichen/"/>
+        <id>https://ypark.github.io/alumni/yichen/</id>
+        
+        <content type="html" xml:base="https://ypark.github.io/alumni/yichen/">&lt;p&gt;I was a Ph.D. student in the Department of Statistics. I employ techniques from deep learning and bayesian statistics to shed light on the mechanism of complex human diseases. I am generally interested in developing interpretable and scalable algorithms to uncover the underlying structure of biological data. Before that, I obtained my Master’s Degree in Biostatistics from the University of Washington, working on matrix completion and cell type deconvolution problems with Noah Simon.&lt;&#x2F;p&gt;
+&lt;p&gt;Besides research, I am a food enthusiast. I love cooking, exploring local restaurants, watching food &amp;amp; cooking documentaries and brewing coffee and tea. I do weight training from time to time so that I can enjoy more food.&lt;&#x2F;p&gt;
+&lt;p&gt;Research interests:&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;Computational Biology&lt;&#x2F;li&gt;
+&lt;li&gt;Bayesian Statistics&lt;&#x2F;li&gt;
+&lt;li&gt;Deep Learning&lt;&#x2F;li&gt;
+&lt;li&gt;Graphical Model&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+</content>
+        
+    </entry>
+    <entry xml:lang="en">
+        <title>Yaoyue (Yolanda) Feng</title>
+        <published>2024-05-01T00:00:00+00:00</published>
+        <updated>2024-05-01T00:00:00+00:00</updated>
+        
+        <author>
+          <name>
+            
+              Unknown
+            
+          </name>
+        </author>
+        
+        <link rel="alternate" type="text/html" href="https://ypark.github.io/team/yaoyue/"/>
+        <id>https://ypark.github.io/team/yaoyue/</id>
+        
+        <content type="html" xml:base="https://ypark.github.io/team/yaoyue/">&lt;p&gt;I hope to use the combination of bioinformatics and traditional biological experiments to explore the disease progression and drug resistance in Acute Myeloid Leukemia, in order to help more clinical patients. I obtained my Master of Research Degree in Cancer Biology from Imperial College London, working on Hepatocellular Carcinoma under hypoxia condition. And I studied cisplatin resistance in Ovarian Cancer at Sichuan University during my undergraduate stage.&lt;&#x2F;p&gt;
+&lt;p&gt;In my spare time, I prefer to stay at home watching movies or cooking instead of outdoor activities. I only go out with my friends when the weather is really nice. I also like basketball, but I watch it more often than I play it myself.&lt;&#x2F;p&gt;
+</content>
+        
+    </entry>
+    <entry xml:lang="en">
+        <title>Maxwell Douglas</title>
+        <published>2024-01-15T00:00:00+00:00</published>
+        <updated>2024-01-15T00:00:00+00:00</updated>
+        
+        <author>
+          <name>
+            
+              Unknown
+            
+          </name>
+        </author>
+        
+        <link rel="alternate" type="text/html" href="https://ypark.github.io/team/genomaxx/"/>
+        <id>https://ypark.github.io/team/genomaxx/</id>
+        
+        <content type="html" xml:base="https://ypark.github.io/team/genomaxx/">&lt;p&gt;Hi! I&#x27;m a computational biologist passionate about the intersection of software, analytics, and biologic&#x2F;medical data. I love talking shop about the how, when, and why of deriving insights from data. My research background is heavy in the various &#x27;omics&#x27; technologies with a particular focus on genomics.&lt;&#x2F;p&gt;
+&lt;p&gt;interests:&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;Computational Biology&lt;&#x2F;li&gt;
+&lt;li&gt;Computational Oncology&lt;&#x2F;li&gt;
+&lt;li&gt;Open-source software&lt;&#x2F;li&gt;
+&lt;li&gt;Causal Inference&lt;&#x2F;li&gt;
+&lt;li&gt;Data-Science&lt;&#x2F;li&gt;
+&lt;li&gt;Translational Science&lt;&#x2F;li&gt;
+&lt;li&gt;Public Health&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;p&gt;Hobbies:&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;Trail Running&lt;&#x2F;li&gt;
+&lt;li&gt;Soccer&lt;&#x2F;li&gt;
+&lt;li&gt;Skiing&lt;&#x2F;li&gt;
+&lt;li&gt;Climbing&lt;&#x2F;li&gt;
+&lt;li&gt;Backpacking&#x2F;hiking&lt;&#x2F;li&gt;
+&lt;li&gt;DND&lt;&#x2F;li&gt;
+&lt;li&gt;Volunteering &amp;amp; community-building&#x2F;outreach&lt;&#x2F;li&gt;
+&lt;li&gt;Struggling to keep house-plants alive&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+</content>
+        
+    </entry>
+    <entry xml:lang="en">
+        <title>Ming Yuan</title>
+        <published>2022-09-01T00:00:00+00:00</published>
+        <updated>2022-09-01T00:00:00+00:00</updated>
+        
+        <author>
+          <name>
+            
+              Unknown
+            
+          </name>
+        </author>
+        
+        <link rel="alternate" type="text/html" href="https://ypark.github.io/team/ming/"/>
+        <id>https://ypark.github.io/team/ming/</id>
+        
+        <content type="html" xml:base="https://ypark.github.io/team/ming/">&lt;p&gt;I am a PhD student in Biostatistics at UBC. Before this ongoing MSc&#x2F;PhD experience, I completed my BSc degree at Sun Yat-sen University, China, majoring in Statistics in 2020. My main research interests are causal inference and its application to genomic data.&lt;&#x2F;p&gt;
+&lt;p&gt;interests:&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;Variable selection&lt;&#x2F;li&gt;
+&lt;li&gt;Causal inference&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+</content>
+        
+    </entry>
+    <entry xml:lang="en">
+        <title>Sam Khalilitousi</title>
+        <published>2022-01-31T00:00:00+00:00</published>
+        <updated>2022-01-31T00:00:00+00:00</updated>
+        
+        <author>
+          <name>
+            
+              Unknown
+            
+          </name>
+        </author>
+        
+        <link rel="alternate" type="text/html" href="https://ypark.github.io/alumni/samtoussi/"/>
+        <id>https://ypark.github.io/alumni/samtoussi/</id>
+        
+        <content type="html" xml:base="https://ypark.github.io/alumni/samtoussi/">&lt;p&gt;I have always been intrigued by the ever-growing biological insights that are made possible with computers. This led me to pursue Biomedical Engineering (specializing in Cellular Bioengineering) at UBC, where I have been gaining experience in machine learning and bioinformatics analysis. With a passion centred in machine learning and computational biology, I want to use creativity to help make novel discoveries. Looking forward to connecting and collaborating with the team at the Park Lab!&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;a href=&quot;https:&#x2F;&#x2F;samktt.github.io&#x2F;sam&#x2F;&quot;&gt;https:&#x2F;&#x2F;samktt.github.io&#x2F;sam&#x2F;&lt;&#x2F;a&gt;&lt;&#x2F;p&gt;
+</content>
+        
+    </entry>
+    <entry xml:lang="en">
+        <title>Kevin Lam</title>
+        <published>2022-01-15T00:00:00+00:00</published>
+        <updated>2022-01-15T00:00:00+00:00</updated>
+        
+        <author>
+          <name>
+            
+              Unknown
+            
+          </name>
+        </author>
+        
+        <link rel="alternate" type="text/html" href="https://ypark.github.io/team/lamke07/"/>
+        <id>https://ypark.github.io/team/lamke07/</id>
+        
+        <content type="html" xml:base="https://ypark.github.io/team/lamke07/">&lt;p&gt;I am a Statistics PhD student, supervised by Dr. Yongjin Park and &lt;a href=&quot;https:&#x2F;&#x2F;www.stat.ubc.ca&#x2F;~benbr&#x2F;&quot;&gt;Dr. Benjamin Bloem-Reddy&lt;&#x2F;a&gt;. I am mainly interested in applying and developing methods that help characterize underlying structures in biological data sets, for example using causal inference. Before the start of the PhD, I spent a year as a research assistant at the MRC Centre for Global Infectious Disease Analysis at Imperial College London where I collaborated with the Malawi Ministry of Health. Our team provided HIV modelling tools to support stakeholders with their policy decisions such as selecting new locations for health facilities for people living with HIV. During my MSc studies, I also worked on identifying the origins of drug resistant malaria in South East Asia using community detection in network analysis.&lt;&#x2F;p&gt;
+&lt;p&gt;Outside of my studies, I enjoy watching movies or discovering new restaurants. I also play the piano from time to time when the opportunity arises.&lt;&#x2F;p&gt;
+&lt;p&gt;Research interests:&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;Causal Inference&lt;&#x2F;li&gt;
+&lt;li&gt;Computational Biology&lt;&#x2F;li&gt;
+&lt;li&gt;Machine Learning&lt;&#x2F;li&gt;
+&lt;li&gt;Public Health&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+</content>
+        
+    </entry>
+    <entry xml:lang="en">
+        <title>Wanxin Li</title>
+        <published>2021-09-01T00:00:00+00:00</published>
+        <updated>2021-09-01T00:00:00+00:00</updated>
+        
+        <author>
+          <name>
+            
+              Unknown
+            
+          </name>
+        </author>
+        
+        <link rel="alternate" type="text/html" href="https://ypark.github.io/team/wanxinli/"/>
+        <id>https://ypark.github.io/team/wanxinli/</id>
+        
+        <content type="html" xml:base="https://ypark.github.io/team/wanxinli/">&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;Co-supervised by &lt;a href=&quot;https:&#x2F;&#x2F;kdaoduc.com&#x2F;&quot;&gt;Khanh Dao Duc&lt;&#x2F;a&gt;.&lt;&#x2F;p&gt;
+&lt;&#x2F;li&gt;
+&lt;li&gt;
+&lt;p&gt;Interests:&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;Computational biology&lt;&#x2F;li&gt;
+&lt;li&gt;Single cell problems&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+</content>
+        
+    </entry>
+    <entry xml:lang="en">
+        <title>Sishir Subedi</title>
+        <published>2021-01-01T00:00:00+00:00</published>
+        <updated>2021-01-01T00:00:00+00:00</updated>
+        
+        <author>
+          <name>
+            
+              Unknown
+            
+          </name>
+        </author>
+        
+        <link rel="alternate" type="text/html" href="https://ypark.github.io/team/sishir/"/>
+        <id>https://ypark.github.io/team/sishir/</id>
+        
+        <content type="html" xml:base="https://ypark.github.io/team/sishir/">&lt;p&gt;I am a Ph.D. student in the Department of Bioinformatics. I am interested in developing computational methods to understand the dynamics of cancer genomes. Mainly, I am fascinated by the interplay between the genomic architecture and the adaptive mechanisms of tumor cells in their heterogeneous microenvironment.&lt;&#x2F;p&gt;
+&lt;p&gt;Previously, I worked as a bioinformatician where I was involved in developing bioinformatics platforms for oncology diagnostics assays. During this time, pondering at clinical NGS data, I appreciated the importance of untangling DNA sequences and how it translates to helping a hopeful cancer patient. Also, I realized that each patient is unique, so is each cell, and I am excited to learn more about them- one cell at a time. I couldn&#x27;t agree more with what Aristotle famously wrote, &quot;The more you know, the more you realize you don&#x27;t know.&quot;&lt;&#x2F;p&gt;
+&lt;p&gt;While offline, I am up for anything outdoor. I like visiting new places, hiking hills, and kayaking.&lt;&#x2F;p&gt;
+</content>
+        
+    </entry>
+    <entry xml:lang="en">
+        <title>Yongjin P Park</title>
+        <published>2020-09-20T00:00:00+00:00</published>
+        <updated>2020-09-20T00:00:00+00:00</updated>
+        
+        <author>
+          <name>
+            
+              Unknown
+            
+          </name>
+        </author>
+        
+        <link rel="alternate" type="text/html" href="https://ypark.github.io/team/ypp/"/>
+        <id>https://ypark.github.io/team/ypp/</id>
+        
+        <content type="html" xml:base="https://ypark.github.io/team/ypp/">&lt;p&gt;I have been an assistant professor in Pathology and Laboratory Medicine, as well as Statistics at &lt;a href=&quot;https:&#x2F;&#x2F;www.ubc.ca&quot;&gt;UBC&lt;&#x2F;a&gt;. I hold &lt;a href=&quot;https:&#x2F;&#x2F;www.chairs-chaires.gc.ca&#x2F;chairholders-titulaires&#x2F;profile-eng.aspx?profileId=5758&quot;&gt;Canada Research Chair Tier-2&lt;&#x2F;a&gt;. My research primarily focuses on developing scalable probabilistic inference methods to elucidate hidden causal mechanisms of human diseases, such as cancer and other common&#x2F;complex disorders.&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;em&gt;Note&lt;&#x2F;em&gt;: I started adding &quot;P&quot; as a middle initial since 2020 to avoid confusion with many other researchers with the same first and last name. &quot;P&quot; may be anything among &quot;Probably,&quot; &quot;Peter,&quot; &quot;Projecting,&quot; etc.&lt;&#x2F;p&gt;
+&lt;p&gt;Besides research, I love cooking while trying out different types of cuisines and recipes. I also like to watch history documentaries and films and read books on history. When I was young, I used to play Starcraft and practice hip-hop dance, but I gave them up once I realized that the joy of coding and doing science exceeded and was more rewarding to me.&lt;&#x2F;p&gt;
+&lt;!-- education: --&gt;
+&lt;!--   courses: --&gt;
+&lt;!--   - course: PhD in Biomedical Engineering --&gt;
+&lt;!--     institution: Johns Hopkins University --&gt;
+&lt;!--     year: 2014 --&gt;
+&lt;!--   - course: MSc in Computational Biology --&gt;
+&lt;!--     institution: Carnegie Mellon University --&gt;
+&lt;!--     year: 2008 --&gt;
+&lt;!--   - course: BSc in Biology and Computater Science and Engineering --&gt;
+&lt;!--     institution: Seoul National University --&gt;
+&lt;!--     year: 2006 --&gt;
+&lt;!-- email: &quot;yongjin.park@ubc.ca&quot; --&gt;
+&lt;!-- interests: --&gt;
+&lt;!-- - Bayesian statistics --&gt;
+&lt;!-- - Causal inference --&gt;
+&lt;!-- - Computational Biology --&gt;
+&lt;!-- - Network science --&gt;
+&lt;!-- - Single-cell genomics --&gt;
+&lt;!-- organizations: --&gt;
+&lt;!-- - name: University of British Columbia --&gt;
+&lt;!--   url: &quot;https:&#x2F;&#x2F;www.ubc.ca&#x2F;&quot; --&gt;
+&lt;!-- role: Assistant Professor of Pathology and Statistics --&gt;
+&lt;!-- social: --&gt;
+&lt;!-- - icon: twitter --&gt;
+&lt;!--   icon_pack: fab --&gt;
+&lt;!--   link: https:&#x2F;&#x2F;twitter.com&#x2F;ypp_lab --&gt;
+&lt;!-- - icon: github --&gt;
+&lt;!--   icon_pack: fab --&gt;
+&lt;!--   link: https:&#x2F;&#x2F;github.com&#x2F;ypark --&gt;
+&lt;!-- superuser: true --&gt;
+&lt;!-- title: Yongjin Park --&gt;
+&lt;!-- user_groups: [&quot;Principal Investigator&quot;] --&gt;
+</content>
+        
+    </entry>
+</feed>
