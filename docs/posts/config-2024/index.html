@@ -204,7 +204,7 @@
                 <ul class="toc-list">
                     
                         <li>
-                            <a href="https://ypark.github.io/posts/config-2024/#emacs-set-up-for-rust-with-rustic-and-lsp">Emacs set up for Rust with rustic and lsp</a>
+                            <a href="https://ypark.github.io/posts/config-2024/#emacs-for-rust-with-rustic-and-lsp">Emacs for Rust with rustic and lsp</a>
                             
                         </li>
                     
@@ -224,8 +224,8 @@
         
 
         <section class="body">
-            <h3 id="emacs-set-up-for-rust-with-rustic-and-lsp"><a class="zola-anchor" href="#emacs-set-up-for-rust-with-rustic-and-lsp" aria-label="Anchor link for: emacs-set-up-for-rust-with-rustic-and-lsp">Emacs set up for Rust with <code>rustic</code> and <code>lsp</code></a></h3>
-<p>Learning Rust is my personal goal of this year. It is very strict in type checking and memory ownership. So, I needed some help until I can fully grasp its key concepts and syntax. I am using Emacs for almost everything, which includes coding. After an hour of searching, I think I found a pretty good set up (a part of <code>.emacs.d/init.el</code>):</p>
+            <h3 id="emacs-for-rust-with-rustic-and-lsp"><a class="zola-anchor" href="#emacs-for-rust-with-rustic-and-lsp" aria-label="Anchor link for: emacs-for-rust-with-rustic-and-lsp">Emacs for Rust with <code>rustic</code> and <code>lsp</code></a></h3>
+<p>Learning Rust is my personal goal for this year. It is very strict in type checking and memory ownership. So, I needed some help until I could fully grasp its key concepts and syntax. I use Emacs for almost everything, including coding. After an hour of searching, I think I found a pretty good setup (a part of <code>.emacs.d/init.el</code>):</p>
 <pre data-lang="lisp" style="background-color:#fafafa;color:#61676c;" class="language-lisp "><code class="language-lisp" data-lang="lisp"><span style="font-style:italic;color:#abb0b6;">;; Ensure that rust-mode is installed
 </span><span>(</span><span style="color:#f07171;">use-package</span><span> rust</span><span style="color:#ed9366;">-</span><span>mode
 </span><span>  :ensure </span><span style="color:#ff8f40;">t
@@ -307,7 +307,7 @@
 </span></code></pre>
 <p>Overall, coding Rust is pretty fun, and working with <code>lsp</code>, <code>company</code>, <code>yasnippet</code> can certainly teach me my mistakes interactively. They are quite resource-heavy, but I will need "a tutor" for a while.</p>
 <h3 id="fix-unstable-internet"><a class="zola-anchor" href="#fix-unstable-internet" aria-label="Anchor link for: fix-unstable-internet">Fix unstable Internet</a></h3>
-<p>Working from home for a couple of weeks, I learned that my network is very unstable especially with the ethernet connection. The problem was my internet service provider is not top-notch, so the download and upload speed shouldn't exceed 100mb/s, but my ethernet device kept on trying to find better speed but couldn't do it. I found a nice solution that the network speed can be simply capped by disabling <code>autoneg</code>:</p>
+<p>Working from home for a couple of weeks, I learned that my network is very unstable, especially with the ethernet connection! The problem was my internet service provider is not top-notch, so the download and upload speed shouldn't exceed 100mb/s, but my ethernet device kept on trying to find better speed but couldn't do it. I found a nice solution that the network speed can be simply capped by disabling <code>autoneg</code>:</p>
 <pre data-lang="sh" style="background-color:#fafafa;color:#61676c;" class="language-sh "><code class="language-sh" data-lang="sh"><span style="color:#f29718;">sudo</span><span> lshw</span><span style="color:#ff8f40;"> -C</span><span> network
 </span></code></pre>
 <pre data-lang="sh" style="background-color:#fafafa;color:#61676c;" class="language-sh "><code class="language-sh" data-lang="sh"><span style="color:#f29718;">sudo</span><span> ethtool</span><span style="color:#ff8f40;"> --change </span><span>${eth} speed 100 autoneg off
