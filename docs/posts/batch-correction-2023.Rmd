@@ -276,47 +276,53 @@ for(iter in 1:100){
 
 Can we recover the original batch effects?
 
-```{r fig.width=6, fig.height=5}
-par(mfrow=c(1,2))
-plot(.delta.db[,1], W.true[,1], pch=19, xlab="estimated delta", ylab="true delta effect", main="batch1")
-plot(.delta.db[,2], W.true[,2], pch=19, xlab="estimated delta", ylab="true delta effect", main="batch2")
+```{r results="asis"}
+library(txtplot)
+
+txtplot(.delta.db[,1], W.true[,1], width=50, height=30,
+        xlab="estimated delta (batch 1)",
+        ylab="true delta effect")
+
+txtplot(.delta.db[,2], W.true[,2], width=50, height=30,
+        xlab="estimated delta (batch 2)",
+        ylab="true delta effect")
 ```
 
 Are they independent of the cell type effects?
 
-```{r fig.width=6, fig.height=5}
+```{r results="asis"}
 y.true <- sweep(lambda.true %*% X, 2, colSums(X), `/`)
-par(mfrow=c(1,2))
-plot(.delta.db[,1], y.true[,1], pch=19, xlab="estimated delta", ylab="true y mean", main="batch1")
-plot(.delta.db[,2], y.true[,2], pch=19, xlab="estimated delta", ylab="true y mean", main="batch2")
+
+txtplot(.delta.db[,1], y.true[,1], xlab="estimated delta 1", ylab="true y mean 1")
+
+txtplot(.delta.db[,2], y.true[,2], xlab="estimated delta 2", ylab="true y mean 2")
 ```
 
 While adjusting the estimated batch effects, can we recover the unbiased cell type effects? The following is before adjustment:
 
-```{r fig.width=6, fig.height=5}
+```{r results="asis"}
 ybar <- sweep(yy %*% X, 2, colSums(X), `/`)
-par(mfrow=c(1,2))
-plot(ybar[,1], y.true[,1], pch=19, xlab="sample mean", ylab="true y mean", log="x", main="batch1")
-plot(ybar[,2], y.true[,2], pch=19, xlab="sample mean", ylab="true y mean", log="x", main="batch2")
+
+txtplot(log1p(ybar[,1]), y.true[,1], xlab="log1p sample mean", ylab="true y mean #1")
+
+txtplot(log1p(ybar[,2]), y.true[,2], xlab="log1p sample mean", ylab="true y mean #2")
 ```
 
 Here, we adjusted the batch effects:
 
-```{r fig.width=6, fig.height=5}
+```{r results="asis"}
 ybar.adj <- sweep((yy / .delta.db[, batch]) %*% X, 2, colSums(X), `/`)
-par(mfrow=c(1,2))
-plot(ybar.adj[,1], y.true[,1], pch=19, xlab="adjusted sample mean", ylab="true y mean", log="x", main="batch1")
-plot(ybar.adj[,2], y.true[,2], pch=19, xlab="adjusted sample mean", ylab="true y mean", log="x", main="batch2")
+
+txtplot(log1p(ybar.adj[,1]), y.true[,1], xlab="adjusted sample mean", ylab="true y mean")
+txtplot(log1p(ybar.adj[,2]), y.true[,2], xlab="adjusted sample mean", ylab="true y mean")
 ```
 
-
-```{r fig.width=6, rig.height=5}
-par(mfrow=c(1,2))
+```{r results="asis"}
 .tsne <- Rtsne::Rtsne(log(1 + t(yy)), num_threads=4)$Y
-plot(.tsne[,1], .tsne[,2], col=batch, pch=19, cex=.5, main="before batch adj",
-     xlab = "tsne1", ylab = "tsne2")
-legend("topleft", c("batch #1", "batch #2"), col=1:2, pch=19)
+
+txtplot(.tsne[,1], .tsne[,2], xlab = "tsne1", ylab = "tsne2", width=50, height=30)
+
 .tsne <- Rtsne::Rtsne(log(1 + t(yy/.delta.db[,batch])), num_threads=4)$Y
-plot(.tsne[,1], .tsne[,2], col=batch, pch=19, cex=.5, main="after batch adj",
-     xlab = "tsne1", ylab = "tsne2")
+
+txtplot(.tsne[,1], .tsne[,2], xlab = "tsne1 adj", ylab = "tsne2 adj", width=50, height=30)
 ```
