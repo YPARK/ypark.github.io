@@ -66,6 +66,219 @@
         
     </entry>
     <entry xml:lang="en">
+        <title>New config updates</title>
+        <published>2024-08-30T00:00:00+00:00</published>
+        <updated>2024-08-30T00:00:00+00:00</updated>
+        
+        <author>
+          <name>
+            
+              Unknown
+            
+          </name>
+        </author>
+        
+        <link rel="alternate" type="text/html" href="https://ypark.github.io/posts/config-2024/"/>
+        <id>https://ypark.github.io/posts/config-2024/</id>
+        
+        <content type="html" xml:base="https://ypark.github.io/posts/config-2024/">&lt;h3 id=&quot;emacs-set-up-for-rust-with-rustic-and-lsp&quot;&gt;&lt;a class=&quot;zola-anchor&quot; href=&quot;#emacs-set-up-for-rust-with-rustic-and-lsp&quot; aria-label=&quot;Anchor link for: emacs-set-up-for-rust-with-rustic-and-lsp&quot;&gt;Emacs set up for Rust with &lt;code&gt;rustic&lt;&#x2F;code&gt; and &lt;code&gt;lsp&lt;&#x2F;code&gt;&lt;&#x2F;a&gt;&lt;&#x2F;h3&gt;
+&lt;p&gt;Learning Rust is my personal goal of this year. It is very strict in type checking and memory ownership. So, I needed some help until I can fully grasp its key concepts and syntax. I am using Emacs for almost everything, which includes coding. After an hour of searching, I think I found a pretty good set up (a part of &lt;code&gt;.emacs.d&#x2F;init.el&lt;&#x2F;code&gt;):&lt;&#x2F;p&gt;
+&lt;pre data-lang=&quot;lisp&quot; style=&quot;background-color:#fafafa;color:#61676c;&quot; class=&quot;language-lisp &quot;&gt;&lt;code class=&quot;language-lisp&quot; data-lang=&quot;lisp&quot;&gt;&lt;span style=&quot;font-style:italic;color:#abb0b6;&quot;&gt;;; Ensure that rust-mode is installed
+&lt;&#x2F;span&gt;&lt;span&gt;(&lt;&#x2F;span&gt;&lt;span style=&quot;color:#f07171;&quot;&gt;use-package&lt;&#x2F;span&gt;&lt;span&gt; rust&lt;&#x2F;span&gt;&lt;span style=&quot;color:#ed9366;&quot;&gt;-&lt;&#x2F;span&gt;&lt;span&gt;mode
+&lt;&#x2F;span&gt;&lt;span&gt;  :ensure &lt;&#x2F;span&gt;&lt;span style=&quot;color:#ff8f40;&quot;&gt;t
+&lt;&#x2F;span&gt;&lt;span&gt;  :config
+&lt;&#x2F;span&gt;&lt;span&gt;  &lt;&#x2F;span&gt;&lt;span style=&quot;font-style:italic;color:#abb0b6;&quot;&gt;;; Set the key binding for rust-format-buffer
+&lt;&#x2F;span&gt;&lt;span&gt;  (define&lt;&#x2F;span&gt;&lt;span style=&quot;color:#ed9366;&quot;&gt;-&lt;&#x2F;span&gt;&lt;span&gt;key rust&lt;&#x2F;span&gt;&lt;span style=&quot;color:#ed9366;&quot;&gt;-&lt;&#x2F;span&gt;&lt;span&gt;mode&lt;&#x2F;span&gt;&lt;span style=&quot;color:#ed9366;&quot;&gt;-&lt;&#x2F;span&gt;&lt;span style=&quot;color:#f07171;&quot;&gt;map &lt;&#x2F;span&gt;&lt;span&gt;(kbd &lt;&#x2F;span&gt;&lt;span style=&quot;color:#86b300;&quot;&gt;&amp;quot;C-c C-f&amp;quot;&lt;&#x2F;span&gt;&lt;span&gt;) &lt;&#x2F;span&gt;&lt;span style=&quot;color:#ff8f40;&quot;&gt;#&amp;#39;rust-format-buffer&lt;&#x2F;span&gt;&lt;span&gt;))
+&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span&gt;(&lt;&#x2F;span&gt;&lt;span style=&quot;color:#f07171;&quot;&gt;use-package&lt;&#x2F;span&gt;&lt;span&gt; lsp&lt;&#x2F;span&gt;&lt;span style=&quot;color:#ed9366;&quot;&gt;-&lt;&#x2F;span&gt;&lt;span&gt;mode
+&lt;&#x2F;span&gt;&lt;span&gt;  :init
+&lt;&#x2F;span&gt;&lt;span&gt;  (add&lt;&#x2F;span&gt;&lt;span style=&quot;color:#ed9366;&quot;&gt;-&lt;&#x2F;span&gt;&lt;span&gt;hook &amp;#39;rust&lt;&#x2F;span&gt;&lt;span style=&quot;color:#ed9366;&quot;&gt;-&lt;&#x2F;span&gt;&lt;span&gt;mode&lt;&#x2F;span&gt;&lt;span style=&quot;color:#ed9366;&quot;&gt;-&lt;&#x2F;span&gt;&lt;span&gt;hook &lt;&#x2F;span&gt;&lt;span style=&quot;color:#ff8f40;&quot;&gt;#&amp;#39;lsp&lt;&#x2F;span&gt;&lt;span&gt;)
+&lt;&#x2F;span&gt;&lt;span&gt;  :custom
+&lt;&#x2F;span&gt;&lt;span&gt;  (lsp&lt;&#x2F;span&gt;&lt;span style=&quot;color:#ed9366;&quot;&gt;-&lt;&#x2F;span&gt;&lt;span&gt;rust&lt;&#x2F;span&gt;&lt;span style=&quot;color:#ed9366;&quot;&gt;-&lt;&#x2F;span&gt;&lt;span&gt;server &amp;#39;rust&lt;&#x2F;span&gt;&lt;span style=&quot;color:#ed9366;&quot;&gt;-&lt;&#x2F;span&gt;&lt;span&gt;analyzer))
+&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span&gt;(&lt;&#x2F;span&gt;&lt;span style=&quot;color:#fa6e32;&quot;&gt;defun &lt;&#x2F;span&gt;&lt;span style=&quot;color:#f29718;&quot;&gt;rk&lt;&#x2F;span&gt;&lt;span style=&quot;color:#ed9366;&quot;&gt;&#x2F;&lt;&#x2F;span&gt;&lt;span&gt;rustic&lt;&#x2F;span&gt;&lt;span style=&quot;color:#ed9366;&quot;&gt;-&lt;&#x2F;span&gt;&lt;span&gt;mode&lt;&#x2F;span&gt;&lt;span style=&quot;color:#ed9366;&quot;&gt;-&lt;&#x2F;span&gt;&lt;span&gt;hook ()
+&lt;&#x2F;span&gt;&lt;span&gt;  &lt;&#x2F;span&gt;&lt;span style=&quot;font-style:italic;color:#abb0b6;&quot;&gt;;; so that run C-c C-c C-r works without having to confirm, but don&amp;#39;t try to
+&lt;&#x2F;span&gt;&lt;span&gt;  &lt;&#x2F;span&gt;&lt;span style=&quot;font-style:italic;color:#abb0b6;&quot;&gt;;; save rust buffers that are not file visiting. Once
+&lt;&#x2F;span&gt;&lt;span&gt;  &lt;&#x2F;span&gt;&lt;span style=&quot;font-style:italic;color:#abb0b6;&quot;&gt;;; https:&#x2F;&#x2F;github.com&#x2F;brotzeit&#x2F;rustic&#x2F;issues&#x2F;253 has been resolved this should
+&lt;&#x2F;span&gt;&lt;span&gt;  &lt;&#x2F;span&gt;&lt;span style=&quot;font-style:italic;color:#abb0b6;&quot;&gt;;; no longer be necessary.
+&lt;&#x2F;span&gt;&lt;span&gt;  (&lt;&#x2F;span&gt;&lt;span style=&quot;color:#fa6e32;&quot;&gt;when&lt;&#x2F;span&gt;&lt;span&gt; buffer&lt;&#x2F;span&gt;&lt;span style=&quot;color:#ed9366;&quot;&gt;-&lt;&#x2F;span&gt;&lt;span&gt;file&lt;&#x2F;span&gt;&lt;span style=&quot;color:#ed9366;&quot;&gt;-&lt;&#x2F;span&gt;&lt;span&gt;name
+&lt;&#x2F;span&gt;&lt;span&gt;    (&lt;&#x2F;span&gt;&lt;span style=&quot;color:#f07171;&quot;&gt;setq&lt;&#x2F;span&gt;&lt;span style=&quot;color:#ed9366;&quot;&gt;-&lt;&#x2F;span&gt;&lt;span&gt;local buffer&lt;&#x2F;span&gt;&lt;span style=&quot;color:#ed9366;&quot;&gt;-&lt;&#x2F;span&gt;&lt;span&gt;save&lt;&#x2F;span&gt;&lt;span style=&quot;color:#ed9366;&quot;&gt;-&lt;&#x2F;span&gt;&lt;span&gt;without&lt;&#x2F;span&gt;&lt;span style=&quot;color:#ed9366;&quot;&gt;-&lt;&#x2F;span&gt;&lt;span&gt;query &lt;&#x2F;span&gt;&lt;span style=&quot;color:#ff8f40;&quot;&gt;t&lt;&#x2F;span&gt;&lt;span&gt;))
+&lt;&#x2F;span&gt;&lt;span&gt;  (add&lt;&#x2F;span&gt;&lt;span style=&quot;color:#ed9366;&quot;&gt;-&lt;&#x2F;span&gt;&lt;span&gt;hook &amp;#39;before&lt;&#x2F;span&gt;&lt;span style=&quot;color:#ed9366;&quot;&gt;-&lt;&#x2F;span&gt;&lt;span&gt;save&lt;&#x2F;span&gt;&lt;span style=&quot;color:#ed9366;&quot;&gt;-&lt;&#x2F;span&gt;&lt;span&gt;hook &amp;#39;lsp&lt;&#x2F;span&gt;&lt;span style=&quot;color:#ed9366;&quot;&gt;-&lt;&#x2F;span&gt;&lt;span style=&quot;color:#f07171;&quot;&gt;format&lt;&#x2F;span&gt;&lt;span style=&quot;color:#ed9366;&quot;&gt;-&lt;&#x2F;span&gt;&lt;span&gt;buffer &lt;&#x2F;span&gt;&lt;span style=&quot;color:#ff8f40;&quot;&gt;nil t&lt;&#x2F;span&gt;&lt;span&gt;))
+&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span&gt;(&lt;&#x2F;span&gt;&lt;span style=&quot;color:#f07171;&quot;&gt;use-package&lt;&#x2F;span&gt;&lt;span&gt; rustic
+&lt;&#x2F;span&gt;&lt;span&gt;  :ensure
+&lt;&#x2F;span&gt;&lt;span&gt;  :bind (:&lt;&#x2F;span&gt;&lt;span style=&quot;color:#f07171;&quot;&gt;map&lt;&#x2F;span&gt;&lt;span&gt; rustic&lt;&#x2F;span&gt;&lt;span style=&quot;color:#ed9366;&quot;&gt;-&lt;&#x2F;span&gt;&lt;span&gt;mode&lt;&#x2F;span&gt;&lt;span style=&quot;color:#ed9366;&quot;&gt;-&lt;&#x2F;span&gt;&lt;span style=&quot;color:#f07171;&quot;&gt;map
+&lt;&#x2F;span&gt;&lt;span&gt;              (&lt;&#x2F;span&gt;&lt;span style=&quot;color:#86b300;&quot;&gt;&amp;quot;M-j&amp;quot;&lt;&#x2F;span&gt;&lt;span&gt; . lsp&lt;&#x2F;span&gt;&lt;span style=&quot;color:#ed9366;&quot;&gt;-&lt;&#x2F;span&gt;&lt;span&gt;ui&lt;&#x2F;span&gt;&lt;span style=&quot;color:#ed9366;&quot;&gt;-&lt;&#x2F;span&gt;&lt;span&gt;imenu)
+&lt;&#x2F;span&gt;&lt;span&gt;              (&lt;&#x2F;span&gt;&lt;span style=&quot;color:#86b300;&quot;&gt;&amp;quot;M-?&amp;quot;&lt;&#x2F;span&gt;&lt;span&gt; . lsp&lt;&#x2F;span&gt;&lt;span style=&quot;color:#ed9366;&quot;&gt;-&lt;&#x2F;span&gt;&lt;span style=&quot;color:#f07171;&quot;&gt;find&lt;&#x2F;span&gt;&lt;span style=&quot;color:#ed9366;&quot;&gt;-&lt;&#x2F;span&gt;&lt;span&gt;references)
+&lt;&#x2F;span&gt;&lt;span&gt;              (&lt;&#x2F;span&gt;&lt;span style=&quot;color:#86b300;&quot;&gt;&amp;quot;C-c C-c a&amp;quot;&lt;&#x2F;span&gt;&lt;span&gt; . lsp&lt;&#x2F;span&gt;&lt;span style=&quot;color:#ed9366;&quot;&gt;-&lt;&#x2F;span&gt;&lt;span&gt;execute&lt;&#x2F;span&gt;&lt;span style=&quot;color:#ed9366;&quot;&gt;-&lt;&#x2F;span&gt;&lt;span&gt;code&lt;&#x2F;span&gt;&lt;span style=&quot;color:#ed9366;&quot;&gt;-&lt;&#x2F;span&gt;&lt;span&gt;action)
+&lt;&#x2F;span&gt;&lt;span&gt;              (&lt;&#x2F;span&gt;&lt;span style=&quot;color:#86b300;&quot;&gt;&amp;quot;C-c C-c r&amp;quot;&lt;&#x2F;span&gt;&lt;span&gt; . lsp&lt;&#x2F;span&gt;&lt;span style=&quot;color:#ed9366;&quot;&gt;-&lt;&#x2F;span&gt;&lt;span&gt;rename)
+&lt;&#x2F;span&gt;&lt;span&gt;              (&lt;&#x2F;span&gt;&lt;span style=&quot;color:#86b300;&quot;&gt;&amp;quot;C-c C-c q&amp;quot;&lt;&#x2F;span&gt;&lt;span&gt; . lsp&lt;&#x2F;span&gt;&lt;span style=&quot;color:#ed9366;&quot;&gt;-&lt;&#x2F;span&gt;&lt;span&gt;workspace&lt;&#x2F;span&gt;&lt;span style=&quot;color:#ed9366;&quot;&gt;-&lt;&#x2F;span&gt;&lt;span&gt;restart)
+&lt;&#x2F;span&gt;&lt;span&gt;              (&lt;&#x2F;span&gt;&lt;span style=&quot;color:#86b300;&quot;&gt;&amp;quot;C-c C-c Q&amp;quot;&lt;&#x2F;span&gt;&lt;span&gt; . lsp&lt;&#x2F;span&gt;&lt;span style=&quot;color:#ed9366;&quot;&gt;-&lt;&#x2F;span&gt;&lt;span&gt;workspace&lt;&#x2F;span&gt;&lt;span style=&quot;color:#ed9366;&quot;&gt;-&lt;&#x2F;span&gt;&lt;span&gt;shutdown)
+&lt;&#x2F;span&gt;&lt;span&gt;              (&lt;&#x2F;span&gt;&lt;span style=&quot;color:#86b300;&quot;&gt;&amp;quot;C-c C-c s&amp;quot;&lt;&#x2F;span&gt;&lt;span&gt; . lsp&lt;&#x2F;span&gt;&lt;span style=&quot;color:#ed9366;&quot;&gt;-&lt;&#x2F;span&gt;&lt;span&gt;rust&lt;&#x2F;span&gt;&lt;span style=&quot;color:#ed9366;&quot;&gt;-&lt;&#x2F;span&gt;&lt;span&gt;analyzer&lt;&#x2F;span&gt;&lt;span style=&quot;color:#ed9366;&quot;&gt;-&lt;&#x2F;span&gt;&lt;span&gt;status))
+&lt;&#x2F;span&gt;&lt;span&gt;  :config
+&lt;&#x2F;span&gt;&lt;span&gt;  &lt;&#x2F;span&gt;&lt;span style=&quot;font-style:italic;color:#abb0b6;&quot;&gt;;; uncomment for less flashiness
+&lt;&#x2F;span&gt;&lt;span&gt;  &lt;&#x2F;span&gt;&lt;span style=&quot;font-style:italic;color:#abb0b6;&quot;&gt;;; (setq lsp-eldoc-hook nil)
+&lt;&#x2F;span&gt;&lt;span&gt;  &lt;&#x2F;span&gt;&lt;span style=&quot;font-style:italic;color:#abb0b6;&quot;&gt;;; (setq lsp-enable-symbol-highlighting nil)
+&lt;&#x2F;span&gt;&lt;span&gt;  &lt;&#x2F;span&gt;&lt;span style=&quot;font-style:italic;color:#abb0b6;&quot;&gt;;; (setq lsp-signature-auto-activate nil)
+&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span&gt;  (add&lt;&#x2F;span&gt;&lt;span style=&quot;color:#ed9366;&quot;&gt;-&lt;&#x2F;span&gt;&lt;span&gt;hook &amp;#39;rustic&lt;&#x2F;span&gt;&lt;span style=&quot;color:#ed9366;&quot;&gt;-&lt;&#x2F;span&gt;&lt;span&gt;mode&lt;&#x2F;span&gt;&lt;span style=&quot;color:#ed9366;&quot;&gt;-&lt;&#x2F;span&gt;&lt;span&gt;hook &amp;#39;rk&lt;&#x2F;span&gt;&lt;span style=&quot;color:#ed9366;&quot;&gt;&#x2F;&lt;&#x2F;span&gt;&lt;span&gt;rustic&lt;&#x2F;span&gt;&lt;span style=&quot;color:#ed9366;&quot;&gt;-&lt;&#x2F;span&gt;&lt;span&gt;mode&lt;&#x2F;span&gt;&lt;span style=&quot;color:#ed9366;&quot;&gt;-&lt;&#x2F;span&gt;&lt;span&gt;hook)
+&lt;&#x2F;span&gt;&lt;span&gt;  (add&lt;&#x2F;span&gt;&lt;span style=&quot;color:#ed9366;&quot;&gt;-&lt;&#x2F;span&gt;&lt;span&gt;hook &amp;#39;rustic&lt;&#x2F;span&gt;&lt;span style=&quot;color:#ed9366;&quot;&gt;-&lt;&#x2F;span&gt;&lt;span&gt;mode&lt;&#x2F;span&gt;&lt;span style=&quot;color:#ed9366;&quot;&gt;-&lt;&#x2F;span&gt;&lt;span&gt;hook (&lt;&#x2F;span&gt;&lt;span style=&quot;color:#f07171;&quot;&gt;lambda &lt;&#x2F;span&gt;&lt;span&gt;() (flyspell&lt;&#x2F;span&gt;&lt;span style=&quot;color:#ed9366;&quot;&gt;-&lt;&#x2F;span&gt;&lt;span&gt;mode &lt;&#x2F;span&gt;&lt;span style=&quot;color:#ed9366;&quot;&gt;-&lt;&#x2F;span&gt;&lt;span style=&quot;color:#ff8f40;&quot;&gt;1&lt;&#x2F;span&gt;&lt;span&gt;)))
+&lt;&#x2F;span&gt;&lt;span&gt;  )
+&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span&gt;(add&lt;&#x2F;span&gt;&lt;span style=&quot;color:#ed9366;&quot;&gt;-&lt;&#x2F;span&gt;&lt;span&gt;hook &amp;#39;rustic&lt;&#x2F;span&gt;&lt;span style=&quot;color:#ed9366;&quot;&gt;-&lt;&#x2F;span&gt;&lt;span&gt;mode&lt;&#x2F;span&gt;&lt;span style=&quot;color:#ed9366;&quot;&gt;-&lt;&#x2F;span&gt;&lt;span&gt;hook
+&lt;&#x2F;span&gt;&lt;span&gt;          (&lt;&#x2F;span&gt;&lt;span style=&quot;color:#f07171;&quot;&gt;lambda &lt;&#x2F;span&gt;&lt;span&gt;()
+&lt;&#x2F;span&gt;&lt;span&gt;            (flycheck&lt;&#x2F;span&gt;&lt;span style=&quot;color:#ed9366;&quot;&gt;-&lt;&#x2F;span&gt;&lt;span&gt;mode &lt;&#x2F;span&gt;&lt;span style=&quot;color:#ed9366;&quot;&gt;-&lt;&#x2F;span&gt;&lt;span style=&quot;color:#ff8f40;&quot;&gt;1&lt;&#x2F;span&gt;&lt;span&gt;)))
+&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span&gt;(rust&lt;&#x2F;span&gt;&lt;span style=&quot;color:#ed9366;&quot;&gt;-&lt;&#x2F;span&gt;&lt;span&gt;disable&lt;&#x2F;span&gt;&lt;span style=&quot;color:#ed9366;&quot;&gt;-&lt;&#x2F;span&gt;&lt;span style=&quot;color:#f07171;&quot;&gt;format&lt;&#x2F;span&gt;&lt;span style=&quot;color:#ed9366;&quot;&gt;-&lt;&#x2F;span&gt;&lt;span&gt;on&lt;&#x2F;span&gt;&lt;span style=&quot;color:#ed9366;&quot;&gt;-&lt;&#x2F;span&gt;&lt;span&gt;save)
+&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span&gt;(&lt;&#x2F;span&gt;&lt;span style=&quot;color:#f07171;&quot;&gt;setq&lt;&#x2F;span&gt;&lt;span&gt; lsp&lt;&#x2F;span&gt;&lt;span style=&quot;color:#ed9366;&quot;&gt;-&lt;&#x2F;span&gt;&lt;span&gt;inlay&lt;&#x2F;span&gt;&lt;span style=&quot;color:#ed9366;&quot;&gt;-&lt;&#x2F;span&gt;&lt;span&gt;hint&lt;&#x2F;span&gt;&lt;span style=&quot;color:#ed9366;&quot;&gt;-&lt;&#x2F;span&gt;&lt;span&gt;enable &lt;&#x2F;span&gt;&lt;span style=&quot;color:#ff8f40;&quot;&gt;t&lt;&#x2F;span&gt;&lt;span&gt;)
+&lt;&#x2F;span&gt;&lt;span&gt;(&lt;&#x2F;span&gt;&lt;span style=&quot;color:#f07171;&quot;&gt;setq&lt;&#x2F;span&gt;&lt;span&gt; lsp&lt;&#x2F;span&gt;&lt;span style=&quot;color:#ed9366;&quot;&gt;-&lt;&#x2F;span&gt;&lt;span&gt;ui&lt;&#x2F;span&gt;&lt;span style=&quot;color:#ed9366;&quot;&gt;-&lt;&#x2F;span&gt;&lt;span&gt;peek&lt;&#x2F;span&gt;&lt;span style=&quot;color:#ed9366;&quot;&gt;-&lt;&#x2F;span&gt;&lt;span&gt;enable &lt;&#x2F;span&gt;&lt;span style=&quot;color:#ff8f40;&quot;&gt;t&lt;&#x2F;span&gt;&lt;span&gt;)
+&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span&gt;(&lt;&#x2F;span&gt;&lt;span style=&quot;color:#f07171;&quot;&gt;setq&lt;&#x2F;span&gt;&lt;span&gt; special&lt;&#x2F;span&gt;&lt;span style=&quot;color:#ed9366;&quot;&gt;-&lt;&#x2F;span&gt;&lt;span&gt;display&lt;&#x2F;span&gt;&lt;span style=&quot;color:#ed9366;&quot;&gt;-&lt;&#x2F;span&gt;&lt;span&gt;buffer&lt;&#x2F;span&gt;&lt;span style=&quot;color:#ed9366;&quot;&gt;-&lt;&#x2F;span&gt;&lt;span&gt;names
+&lt;&#x2F;span&gt;&lt;span&gt;      &amp;#39;(&lt;&#x2F;span&gt;&lt;span style=&quot;color:#86b300;&quot;&gt;&amp;quot;*rustic-compilation*&amp;quot;&lt;&#x2F;span&gt;&lt;span&gt;))
+&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span&gt;(&lt;&#x2F;span&gt;&lt;span style=&quot;color:#f07171;&quot;&gt;setq&lt;&#x2F;span&gt;&lt;span&gt; special&lt;&#x2F;span&gt;&lt;span style=&quot;color:#ed9366;&quot;&gt;-&lt;&#x2F;span&gt;&lt;span&gt;display&lt;&#x2F;span&gt;&lt;span style=&quot;color:#ed9366;&quot;&gt;-&lt;&#x2F;span&gt;&lt;span&gt;function
+&lt;&#x2F;span&gt;&lt;span&gt;      (&lt;&#x2F;span&gt;&lt;span style=&quot;color:#f07171;&quot;&gt;lambda &lt;&#x2F;span&gt;&lt;span&gt;(buffer &amp;amp;optional args)
+&lt;&#x2F;span&gt;&lt;span&gt;        (&lt;&#x2F;span&gt;&lt;span style=&quot;color:#f07171;&quot;&gt;split&lt;&#x2F;span&gt;&lt;span style=&quot;color:#ed9366;&quot;&gt;-&lt;&#x2F;span&gt;&lt;span&gt;window)
+&lt;&#x2F;span&gt;&lt;span&gt;        (switch&lt;&#x2F;span&gt;&lt;span style=&quot;color:#ed9366;&quot;&gt;-&lt;&#x2F;span&gt;&lt;span style=&quot;color:#fa6e32;&quot;&gt;to&lt;&#x2F;span&gt;&lt;span style=&quot;color:#ed9366;&quot;&gt;-&lt;&#x2F;span&gt;&lt;span&gt;buffer buffer)
+&lt;&#x2F;span&gt;&lt;span&gt;        (&lt;&#x2F;span&gt;&lt;span style=&quot;color:#f07171;&quot;&gt;get&lt;&#x2F;span&gt;&lt;span style=&quot;color:#ed9366;&quot;&gt;-&lt;&#x2F;span&gt;&lt;span&gt;buffer&lt;&#x2F;span&gt;&lt;span style=&quot;color:#ed9366;&quot;&gt;-&lt;&#x2F;span&gt;&lt;span&gt;window buffer &lt;&#x2F;span&gt;&lt;span style=&quot;color:#ff8f40;&quot;&gt;0&lt;&#x2F;span&gt;&lt;span&gt;)))
+&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span&gt;(&lt;&#x2F;span&gt;&lt;span style=&quot;color:#f07171;&quot;&gt;use-package&lt;&#x2F;span&gt;&lt;span&gt; company
+&lt;&#x2F;span&gt;&lt;span&gt;  :ensure
+&lt;&#x2F;span&gt;&lt;span&gt;  :custom
+&lt;&#x2F;span&gt;&lt;span&gt;  (company&lt;&#x2F;span&gt;&lt;span style=&quot;color:#ed9366;&quot;&gt;-&lt;&#x2F;span&gt;&lt;span&gt;idle&lt;&#x2F;span&gt;&lt;span style=&quot;color:#ed9366;&quot;&gt;-&lt;&#x2F;span&gt;&lt;span&gt;delay &lt;&#x2F;span&gt;&lt;span style=&quot;color:#ff8f40;&quot;&gt;0.1&lt;&#x2F;span&gt;&lt;span&gt;) &lt;&#x2F;span&gt;&lt;span style=&quot;font-style:italic;color:#abb0b6;&quot;&gt;;; how long to wait until popup
+&lt;&#x2F;span&gt;&lt;span&gt;  &lt;&#x2F;span&gt;&lt;span style=&quot;font-style:italic;color:#abb0b6;&quot;&gt;;; (company-begin-commands nil) ;; uncomment to disable popup
+&lt;&#x2F;span&gt;&lt;span&gt;  :bind
+&lt;&#x2F;span&gt;&lt;span&gt;  (:&lt;&#x2F;span&gt;&lt;span style=&quot;color:#f07171;&quot;&gt;map&lt;&#x2F;span&gt;&lt;span&gt; company&lt;&#x2F;span&gt;&lt;span style=&quot;color:#ed9366;&quot;&gt;-&lt;&#x2F;span&gt;&lt;span&gt;active&lt;&#x2F;span&gt;&lt;span style=&quot;color:#ed9366;&quot;&gt;-&lt;&#x2F;span&gt;&lt;span style=&quot;color:#f07171;&quot;&gt;map
+&lt;&#x2F;span&gt;&lt;span&gt;	(&lt;&#x2F;span&gt;&lt;span style=&quot;color:#86b300;&quot;&gt;&amp;quot;C-n&amp;quot;&lt;&#x2F;span&gt;&lt;span&gt;. company&lt;&#x2F;span&gt;&lt;span style=&quot;color:#ed9366;&quot;&gt;-&lt;&#x2F;span&gt;&lt;span&gt;select&lt;&#x2F;span&gt;&lt;span style=&quot;color:#ed9366;&quot;&gt;-&lt;&#x2F;span&gt;&lt;span&gt;next)
+&lt;&#x2F;span&gt;&lt;span&gt;	(&lt;&#x2F;span&gt;&lt;span style=&quot;color:#86b300;&quot;&gt;&amp;quot;C-p&amp;quot;&lt;&#x2F;span&gt;&lt;span&gt;. company&lt;&#x2F;span&gt;&lt;span style=&quot;color:#ed9366;&quot;&gt;-&lt;&#x2F;span&gt;&lt;span&gt;select&lt;&#x2F;span&gt;&lt;span style=&quot;color:#ed9366;&quot;&gt;-&lt;&#x2F;span&gt;&lt;span style=&quot;color:#f07171;&quot;&gt;previous&lt;&#x2F;span&gt;&lt;span&gt;)
+&lt;&#x2F;span&gt;&lt;span&gt;	(&lt;&#x2F;span&gt;&lt;span style=&quot;color:#86b300;&quot;&gt;&amp;quot;M-&amp;lt;&amp;quot;&lt;&#x2F;span&gt;&lt;span&gt;. company&lt;&#x2F;span&gt;&lt;span style=&quot;color:#ed9366;&quot;&gt;-&lt;&#x2F;span&gt;&lt;span&gt;select&lt;&#x2F;span&gt;&lt;span style=&quot;color:#ed9366;&quot;&gt;-&lt;&#x2F;span&gt;&lt;span style=&quot;color:#f07171;&quot;&gt;first&lt;&#x2F;span&gt;&lt;span&gt;)
+&lt;&#x2F;span&gt;&lt;span&gt;	(&lt;&#x2F;span&gt;&lt;span style=&quot;color:#86b300;&quot;&gt;&amp;quot;M-&amp;gt;&amp;quot;&lt;&#x2F;span&gt;&lt;span&gt;. company&lt;&#x2F;span&gt;&lt;span style=&quot;color:#ed9366;&quot;&gt;-&lt;&#x2F;span&gt;&lt;span&gt;select&lt;&#x2F;span&gt;&lt;span style=&quot;color:#ed9366;&quot;&gt;-&lt;&#x2F;span&gt;&lt;span style=&quot;color:#f07171;&quot;&gt;last&lt;&#x2F;span&gt;&lt;span&gt;)))
+&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span&gt;(&lt;&#x2F;span&gt;&lt;span style=&quot;color:#f07171;&quot;&gt;use-package&lt;&#x2F;span&gt;&lt;span&gt; yasnippet
+&lt;&#x2F;span&gt;&lt;span&gt;  :ensure
+&lt;&#x2F;span&gt;&lt;span&gt;  :config
+&lt;&#x2F;span&gt;&lt;span&gt;  (yas&lt;&#x2F;span&gt;&lt;span style=&quot;color:#ed9366;&quot;&gt;-&lt;&#x2F;span&gt;&lt;span&gt;reload&lt;&#x2F;span&gt;&lt;span style=&quot;color:#ed9366;&quot;&gt;-&lt;&#x2F;span&gt;&lt;span&gt;all)
+&lt;&#x2F;span&gt;&lt;span&gt;  (add&lt;&#x2F;span&gt;&lt;span style=&quot;color:#ed9366;&quot;&gt;-&lt;&#x2F;span&gt;&lt;span&gt;hook &amp;#39;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#fa6e32;&quot;&gt;prog&lt;&#x2F;span&gt;&lt;span style=&quot;color:#ed9366;&quot;&gt;-&lt;&#x2F;span&gt;&lt;span&gt;mode&lt;&#x2F;span&gt;&lt;span style=&quot;color:#ed9366;&quot;&gt;-&lt;&#x2F;span&gt;&lt;span&gt;hook &amp;#39;yas&lt;&#x2F;span&gt;&lt;span style=&quot;color:#ed9366;&quot;&gt;-&lt;&#x2F;span&gt;&lt;span&gt;minor&lt;&#x2F;span&gt;&lt;span style=&quot;color:#ed9366;&quot;&gt;-&lt;&#x2F;span&gt;&lt;span&gt;mode)
+&lt;&#x2F;span&gt;&lt;span&gt;  (add&lt;&#x2F;span&gt;&lt;span style=&quot;color:#ed9366;&quot;&gt;-&lt;&#x2F;span&gt;&lt;span&gt;hook &amp;#39;text&lt;&#x2F;span&gt;&lt;span style=&quot;color:#ed9366;&quot;&gt;-&lt;&#x2F;span&gt;&lt;span&gt;mode&lt;&#x2F;span&gt;&lt;span style=&quot;color:#ed9366;&quot;&gt;-&lt;&#x2F;span&gt;&lt;span&gt;hook &amp;#39;yas&lt;&#x2F;span&gt;&lt;span style=&quot;color:#ed9366;&quot;&gt;-&lt;&#x2F;span&gt;&lt;span&gt;minor&lt;&#x2F;span&gt;&lt;span style=&quot;color:#ed9366;&quot;&gt;-&lt;&#x2F;span&gt;&lt;span&gt;mode))
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;Overall, coding Rust is pretty fun, and working with &lt;code&gt;lsp&lt;&#x2F;code&gt;, &lt;code&gt;company&lt;&#x2F;code&gt;, &lt;code&gt;yasnippet&lt;&#x2F;code&gt; can certainly teach me my mistakes interactively. They are quite resource-heavy, but I will need &quot;a tutor&quot; for a while.&lt;&#x2F;p&gt;
+&lt;h3 id=&quot;fix-unstable-internet&quot;&gt;&lt;a class=&quot;zola-anchor&quot; href=&quot;#fix-unstable-internet&quot; aria-label=&quot;Anchor link for: fix-unstable-internet&quot;&gt;Fix unstable Internet&lt;&#x2F;a&gt;&lt;&#x2F;h3&gt;
+&lt;p&gt;Working from home for a couple of weeks, I learned that my network is very unstable especially with the ethernet connection. The problem was my internet service provider is not top-notch, so the download and upload speed shouldn&#x27;t exceed 100mb&#x2F;s, but my ethernet device kept on trying to find better speed but couldn&#x27;t do it. I found a nice solution that the network speed can be simply capped by disabling &lt;code&gt;autoneg&lt;&#x2F;code&gt;:&lt;&#x2F;p&gt;
+&lt;pre data-lang=&quot;sh&quot; style=&quot;background-color:#fafafa;color:#61676c;&quot; class=&quot;language-sh &quot;&gt;&lt;code class=&quot;language-sh&quot; data-lang=&quot;sh&quot;&gt;&lt;span style=&quot;color:#f29718;&quot;&gt;sudo&lt;&#x2F;span&gt;&lt;span&gt; lshw&lt;&#x2F;span&gt;&lt;span style=&quot;color:#ff8f40;&quot;&gt; -C&lt;&#x2F;span&gt;&lt;span&gt; network
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;pre data-lang=&quot;sh&quot; style=&quot;background-color:#fafafa;color:#61676c;&quot; class=&quot;language-sh &quot;&gt;&lt;code class=&quot;language-sh&quot; data-lang=&quot;sh&quot;&gt;&lt;span style=&quot;color:#f29718;&quot;&gt;sudo&lt;&#x2F;span&gt;&lt;span&gt; ethtool&lt;&#x2F;span&gt;&lt;span style=&quot;color:#ff8f40;&quot;&gt; --change &lt;&#x2F;span&gt;&lt;span&gt;${eth} speed 100 autoneg off
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;h3 id=&quot;fix-display-issues&quot;&gt;&lt;a class=&quot;zola-anchor&quot; href=&quot;#fix-display-issues&quot; aria-label=&quot;Anchor link for: fix-display-issues&quot;&gt;Fix display issues&lt;&#x2F;a&gt;&lt;&#x2F;h3&gt;
+&lt;p&gt;Amazon Prime Day got me a new monitor, which is spacious and bulky enough to force me to fold up my laptop screen on my small desk. But I found Ubuntu keeps on activating my laptop screen. I can exclusively switch on my HDMI screen with this command:&lt;&#x2F;p&gt;
+&lt;pre data-lang=&quot;sh&quot; style=&quot;background-color:#fafafa;color:#61676c;&quot; class=&quot;language-sh &quot;&gt;&lt;code class=&quot;language-sh&quot; data-lang=&quot;sh&quot;&gt;&lt;span style=&quot;color:#f29718;&quot;&gt;xrandr&lt;&#x2F;span&gt;&lt;span style=&quot;color:#ff8f40;&quot;&gt; --output&lt;&#x2F;span&gt;&lt;span&gt; eDP-1&lt;&#x2F;span&gt;&lt;span style=&quot;color:#ff8f40;&quot;&gt; --off --output&lt;&#x2F;span&gt;&lt;span&gt; HDMI-1&lt;&#x2F;span&gt;&lt;span style=&quot;color:#ff8f40;&quot;&gt; --primary --auto
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+</content>
+        
+    </entry>
+    <entry xml:lang="en">
+        <title>A new config for blogging</title>
+        <published>2024-08-01T00:00:00+00:00</published>
+        <updated>2024-08-01T00:00:00+00:00</updated>
+        
+        <author>
+          <name>
+            
+              Unknown
+            
+          </name>
+        </author>
+        
+        <link rel="alternate" type="text/html" href="https://ypark.github.io/posts/zola-setups-2024/"/>
+        <id>https://ypark.github.io/posts/zola-setups-2024/</id>
+        
+        <content type="html" xml:base="https://ypark.github.io/posts/zola-setups-2024/">&lt;p&gt;I&#x27;ve kept on telling my people that researchers should have a way to constantly write out what they think and learn, even though things may turn out to be wrong at some point. I posted &lt;a href=&quot;https:&#x2F;&#x2F;nathanwpyle.threadless.com&#x2F;designs&#x2F;strange-planet-i-have-attempted-science&quot;&gt;this&lt;&#x2F;a&gt; (from Nathan Pyle&#x27;s comic, &quot;Strange Planet&quot;) on my door to remind me of the importance of conveying ideas with evidence. I also believe that paper writing starts at the beginning of any project with a small step at a time. &lt;a href=&quot;https:&#x2F;&#x2F;www.microsoft.com&#x2F;en-us&#x2F;research&#x2F;academic-program&#x2F;write-great-research-paper&#x2F;&quot;&gt;Idea conception, writing a paper, and doing research&lt;&#x2F;a&gt;.&lt;&#x2F;p&gt;
+&lt;p&gt;Although I keep my markdown notes and scanned copies of scribbles, I have been searching for a quick and easy way to keep my ideas. First of all,  I was fed up enough with &lt;code&gt;R&lt;&#x2F;code&gt;&#x27;s &lt;code&gt;bookdown&lt;&#x2F;code&gt; and &lt;code&gt;Hugo&lt;&#x2F;code&gt; setup. It was more complex than I would ever need. I have some experience with old web programming, but &lt;code&gt;Hugo&lt;&#x2F;code&gt; was too hard for me. After searching and searching, I found &lt;code&gt;Zola&lt;&#x2F;code&gt; was simple enough, command line friendly, and editor friendly. It also took me some time to figure out, though.&lt;&#x2F;p&gt;
+&lt;p&gt;First, install &lt;a href=&quot;https:&#x2F;&#x2F;ypark.github.io&#x2F;posts&#x2F;zola-setups-2024&#x2F;%60https:&#x2F;&#x2F;www.getzola.org&#x2F;%60&quot;&gt;zola&lt;&#x2F;a&gt; locally. More details on installation can be found: &lt;code&gt;https:&#x2F;&#x2F;www.getzola.org&#x2F;documentation&#x2F;getting-started&#x2F;installation&#x2F;&lt;&#x2F;code&gt; and some web search.&lt;&#x2F;p&gt;
+&lt;p&gt;Then, we can set up a new &lt;code&gt;zola&lt;&#x2F;code&gt; directory:&lt;&#x2F;p&gt;
+&lt;pre data-lang=&quot;sh&quot; style=&quot;background-color:#fafafa;color:#61676c;&quot; class=&quot;language-sh &quot;&gt;&lt;code class=&quot;language-sh&quot; data-lang=&quot;sh&quot;&gt;&lt;span style=&quot;color:#f29718;&quot;&gt;zola&lt;&#x2F;span&gt;&lt;span&gt; init ${BLOG}
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;Here, &lt;code&gt;${BLOG}&lt;&#x2F;code&gt; can be any working directory.&lt;&#x2F;p&gt;
+&lt;p&gt;I was too lazy to tweak HTML pages and styles, so I decide to use &lt;a href=&quot;https:&#x2F;&#x2F;www.getzola.org&#x2F;themes&#x2F;apollo&#x2F;&quot;&gt;Apollo theme&lt;&#x2F;a&gt;.&lt;&#x2F;p&gt;
+&lt;pre data-lang=&quot;sh&quot; style=&quot;background-color:#fafafa;color:#61676c;&quot; class=&quot;language-sh &quot;&gt;&lt;code class=&quot;language-sh&quot; data-lang=&quot;sh&quot;&gt;&lt;span style=&quot;color:#f29718;&quot;&gt;git&lt;&#x2F;span&gt;&lt;span&gt; submodule add https:&#x2F;&#x2F;github.com&#x2F;not-matthias&#x2F;apollo themes&#x2F;apollo
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;or simply clone:&lt;&#x2F;p&gt;
+&lt;pre data-lang=&quot;sh&quot; style=&quot;background-color:#fafafa;color:#61676c;&quot; class=&quot;language-sh &quot;&gt;&lt;code class=&quot;language-sh&quot; data-lang=&quot;sh&quot;&gt;&lt;span style=&quot;color:#f29718;&quot;&gt;git&lt;&#x2F;span&gt;&lt;span&gt; clone https:&#x2F;&#x2F;github.com&#x2F;not-matthias&#x2F;apollo themes&#x2F;apollo
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;Out of the box, things work fine, but it&#x27;s worth customizing &lt;code&gt;config.toml&lt;&#x2F;code&gt;:&lt;&#x2F;p&gt;
+&lt;pre data-lang=&quot;toml&quot; style=&quot;background-color:#fafafa;color:#61676c;&quot; class=&quot;language-toml &quot;&gt;&lt;code class=&quot;language-toml&quot; data-lang=&quot;toml&quot;&gt;&lt;span style=&quot;color:#399ee6;&quot;&gt;theme &lt;&#x2F;span&gt;&lt;span&gt;= &lt;&#x2F;span&gt;&lt;span style=&quot;color:#86b300;&quot;&gt;&amp;quot;apollo&amp;quot;
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#399ee6;&quot;&gt;taxonomies &lt;&#x2F;span&gt;&lt;span&gt;= [{ &lt;&#x2F;span&gt;&lt;span style=&quot;color:#399ee6;&quot;&gt;name &lt;&#x2F;span&gt;&lt;span&gt;= &lt;&#x2F;span&gt;&lt;span style=&quot;color:#86b300;&quot;&gt;&amp;quot;tags&amp;quot; &lt;&#x2F;span&gt;&lt;span&gt;}]
+&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span style=&quot;font-style:italic;color:#abb0b6;&quot;&gt;# The URL the site will be built for
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#399ee6;&quot;&gt;base_url &lt;&#x2F;span&gt;&lt;span&gt;= &lt;&#x2F;span&gt;&lt;span style=&quot;color:#86b300;&quot;&gt;&amp;quot;CHANGE ME&amp;quot;
+&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span style=&quot;font-style:italic;color:#abb0b6;&quot;&gt;# Whether to automatically compile all Sass files in the sass directory
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#399ee6;&quot;&gt;compile_sass &lt;&#x2F;span&gt;&lt;span&gt;= &lt;&#x2F;span&gt;&lt;span style=&quot;color:#ff8f40;&quot;&gt;true
+&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span style=&quot;font-style:italic;color:#abb0b6;&quot;&gt;# Whether to build a search index to be used later on by a JavaScript library
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#399ee6;&quot;&gt;build_search_index &lt;&#x2F;span&gt;&lt;span&gt;= &lt;&#x2F;span&gt;&lt;span style=&quot;color:#ff8f40;&quot;&gt;true
+&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#399ee6;&quot;&gt;output_dir &lt;&#x2F;span&gt;&lt;span&gt;= &lt;&#x2F;span&gt;&lt;span style=&quot;color:#86b300;&quot;&gt;&amp;quot;CHANGE ME&amp;quot;
+&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#399ee6;&quot;&gt;generate_feeds &lt;&#x2F;span&gt;&lt;span&gt;= &lt;&#x2F;span&gt;&lt;span style=&quot;color:#ff8f40;&quot;&gt;true
+&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span&gt;[&lt;&#x2F;span&gt;&lt;span style=&quot;color:#399ee6;&quot;&gt;markdown&lt;&#x2F;span&gt;&lt;span&gt;]
+&lt;&#x2F;span&gt;&lt;span style=&quot;font-style:italic;color:#abb0b6;&quot;&gt;# Whether to do syntax highlighting
+&lt;&#x2F;span&gt;&lt;span style=&quot;font-style:italic;color:#abb0b6;&quot;&gt;# Theme can be customised by setting the `highlight_theme` variable to a theme supported by Zola
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#399ee6;&quot;&gt;highlight_code &lt;&#x2F;span&gt;&lt;span&gt;= &lt;&#x2F;span&gt;&lt;span style=&quot;color:#ff8f40;&quot;&gt;true
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#399ee6;&quot;&gt;highlight_theme &lt;&#x2F;span&gt;&lt;span&gt;= &lt;&#x2F;span&gt;&lt;span style=&quot;color:#86b300;&quot;&gt;&amp;quot;ayu-light&amp;quot;
+&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span&gt;[&lt;&#x2F;span&gt;&lt;span style=&quot;color:#399ee6;&quot;&gt;extra&lt;&#x2F;span&gt;&lt;span&gt;]
+&lt;&#x2F;span&gt;&lt;span style=&quot;font-style:italic;color:#abb0b6;&quot;&gt;# See this for more options: https:&#x2F;&#x2F;github.com&#x2F;not-matthias&#x2F;apollo&#x2F;blob&#x2F;main&#x2F;config.toml#L14
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#399ee6;&quot;&gt;toc &lt;&#x2F;span&gt;&lt;span&gt;= &lt;&#x2F;span&gt;&lt;span style=&quot;color:#ff8f40;&quot;&gt;true
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#399ee6;&quot;&gt;use_cdn &lt;&#x2F;span&gt;&lt;span&gt;= &lt;&#x2F;span&gt;&lt;span style=&quot;color:#ff8f40;&quot;&gt;false
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#399ee6;&quot;&gt;theme &lt;&#x2F;span&gt;&lt;span&gt;= &lt;&#x2F;span&gt;&lt;span style=&quot;color:#86b300;&quot;&gt;&amp;quot;toggle&amp;quot;
+&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#399ee6;&quot;&gt;socials &lt;&#x2F;span&gt;&lt;span&gt;= [
+&lt;&#x2F;span&gt;&lt;span&gt;]
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#399ee6;&quot;&gt;menu &lt;&#x2F;span&gt;&lt;span&gt;= [
+&lt;&#x2F;span&gt;&lt;span&gt;]
+&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#399ee6;&quot;&gt;mathjax &lt;&#x2F;span&gt;&lt;span&gt;= &lt;&#x2F;span&gt;&lt;span style=&quot;color:#ff8f40;&quot;&gt;true
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#399ee6;&quot;&gt;mathjax_dollar_inline_enable &lt;&#x2F;span&gt;&lt;span&gt;= &lt;&#x2F;span&gt;&lt;span style=&quot;color:#ff8f40;&quot;&gt;true
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#399ee6;&quot;&gt;fancy_code &lt;&#x2F;span&gt;&lt;span&gt;= &lt;&#x2F;span&gt;&lt;span style=&quot;color:#ff8f40;&quot;&gt;true
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#399ee6;&quot;&gt;insert_anchor_links &lt;&#x2F;span&gt;&lt;span&gt;= &lt;&#x2F;span&gt;&lt;span style=&quot;color:#86b300;&quot;&gt;&amp;quot;heading&amp;quot;
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#399ee6;&quot;&gt;favicon &lt;&#x2F;span&gt;&lt;span&gt;= &lt;&#x2F;span&gt;&lt;span style=&quot;color:#86b300;&quot;&gt;&amp;quot;&#x2F;icon&#x2F;favicon.ico&amp;quot;
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;Finally, we can create &lt;code&gt;_index.md&lt;&#x2F;code&gt; as a front page:&lt;&#x2F;p&gt;
+&lt;pre data-lang=&quot;sh&quot; style=&quot;background-color:#fafafa;color:#61676c;&quot; class=&quot;language-sh &quot;&gt;&lt;code class=&quot;language-sh&quot; data-lang=&quot;sh&quot;&gt;&lt;span style=&quot;color:#f29718;&quot;&gt;emacs&lt;&#x2F;span&gt;&lt;span&gt; content&#x2F;_index.md
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;&lt;code&gt;_index.md&lt;&#x2F;code&gt; could be something like this:&lt;&#x2F;p&gt;
+&lt;pre style=&quot;background-color:#fafafa;color:#61676c;&quot;&gt;&lt;code&gt;&lt;span&gt;+++
+&lt;&#x2F;span&gt;&lt;span&gt;title= &amp;quot;my blog&amp;quot;
+&lt;&#x2F;span&gt;&lt;span&gt;template = &amp;quot;homepage.html&amp;quot;
+&lt;&#x2F;span&gt;&lt;span&gt;+++
+&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span&gt;Welcome to my blog
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;We can ask &lt;code&gt;zola&lt;&#x2F;code&gt; to generate HTML and &lt;code&gt;js&lt;&#x2F;code&gt; pages:&lt;&#x2F;p&gt;
+&lt;pre data-lang=&quot;sh&quot; style=&quot;background-color:#fafafa;color:#61676c;&quot; class=&quot;language-sh &quot;&gt;&lt;code class=&quot;language-sh&quot; data-lang=&quot;sh&quot;&gt;&lt;span style=&quot;color:#f29718;&quot;&gt;zola&lt;&#x2F;span&gt;&lt;span&gt; build
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;A new site will be located under where the &lt;code&gt;output_dir&lt;&#x2F;code&gt; is pointing to. We can simply push the entire directory to &lt;code&gt;GitHub&lt;&#x2F;code&gt; or a similar kind.&lt;&#x2F;p&gt;
+&lt;p&gt;Every time we need to update, we can create a new &#x27;md&#x27; file under &#x27;content&#x27; where different. To have a handle to a new set of posts, we need to add a new menu item in &lt;code&gt;config.toml&lt;&#x2F;code&gt;:&lt;&#x2F;p&gt;
+&lt;pre style=&quot;background-color:#fafafa;color:#61676c;&quot;&gt;&lt;code&gt;&lt;span&gt;menu = [
+&lt;&#x2F;span&gt;&lt;span&gt;    { name = &amp;quot;&#x2F;posts&amp;quot;, url = &amp;quot;&#x2F;posts&amp;quot;, weight = 1 },
+&lt;&#x2F;span&gt;&lt;span&gt;]
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;In &lt;code&gt;content&#x2F;posts&#x2F;&lt;&#x2F;code&gt;, we can add &lt;code&gt;_index.md&lt;&#x2F;code&gt; to help navigate posts:&lt;&#x2F;p&gt;
+&lt;pre style=&quot;background-color:#fafafa;color:#61676c;&quot;&gt;&lt;code&gt;&lt;span&gt;+++
+&lt;&#x2F;span&gt;&lt;span&gt;paginate_by = 7
+&lt;&#x2F;span&gt;&lt;span&gt;title = &amp;quot;Posts&amp;quot;
+&lt;&#x2F;span&gt;&lt;span&gt;sort_by = &amp;quot;date&amp;quot;
+&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span&gt;insert_anchor_links = &amp;quot;heading&amp;quot;
+&lt;&#x2F;span&gt;&lt;span&gt;+++
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;Happy blogging!&lt;&#x2F;p&gt;
+</content>
+        
+    </entry>
+    <entry xml:lang="en">
         <title>Yi-Ting(Tina) Hsu</title>
         <published>2024-07-01T00:00:00+00:00</published>
         <updated>2024-07-01T00:00:00+00:00</updated>

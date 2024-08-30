@@ -25,6 +25,10 @@
         <loc>https://ypark.github.io/posts/</loc>
     </url>
     <url>
+        <loc>https://ypark.github.io/posts/config-2024/</loc>
+        <lastmod>2024-08-30</lastmod>
+    </url>
+    <url>
         <loc>https://ypark.github.io/posts/page/1/</loc>
     </url>
     <url>
@@ -32,10 +36,38 @@
         <lastmod>2024-09-03</lastmod>
     </url>
     <url>
+        <loc>https://ypark.github.io/posts/zola-setups-2024/</loc>
+        <lastmod>2024-08-01</lastmod>
+    </url>
+    <url>
         <loc>https://ypark.github.io/tags/</loc>
     </url>
     <url>
+        <loc>https://ypark.github.io/tags/coding/</loc>
+    </url>
+    <url>
+        <loc>https://ypark.github.io/tags/config/</loc>
+    </url>
+    <url>
+        <loc>https://ypark.github.io/tags/display/</loc>
+    </url>
+    <url>
+        <loc>https://ypark.github.io/tags/emacs/</loc>
+    </url>
+    <url>
+        <loc>https://ypark.github.io/tags/ethernet/</loc>
+    </url>
+    <url>
+        <loc>https://ypark.github.io/tags/html/</loc>
+    </url>
+    <url>
         <loc>https://ypark.github.io/tags/stat548/</loc>
+    </url>
+    <url>
+        <loc>https://ypark.github.io/tags/web/</loc>
+    </url>
+    <url>
+        <loc>https://ypark.github.io/tags/zola/</loc>
     </url>
     <url>
         <loc>https://ypark.github.io/team/</loc>
