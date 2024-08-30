@@ -57,18 +57,41 @@
     
 
     
+
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+
+        <script type="text/javascript" id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+        </script>
         
             <script>
             MathJax = {
               tex: {
-                inlineMath: [['$', '$'], ['\\(', '\\)']]
+                  inlineMath: [['$', '$'], ['\\(', '\\)'], ['$$', '$$']]
               }
             };
             </script>
         
-        <script type="text/javascript" id="MathJax-script" async
-          src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
-        </script>
+
+	<!-- KaTeX CSS -->
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.15.2/katex.min.css">
+	
+	<!-- KaTeX JS -->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.15.2/katex.min.js"></script>
+	
+	<!-- Optional: KaTeX Auto-render extension -->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.15.2/contrib/auto-render.min.js"></script>
+	
+	<script>
+	  document.addEventListener("DOMContentLoaded", function() {
+	      renderMathInElement(document.body, {
+		  delimiters: [
+		      {left: "$$", right: "$$", display: true},
+		      {left: "$", right: "$", display: false}
+		  ]
+	      });
+	  });
+	</script>
+
     
 
     
@@ -267,7 +290,7 @@
 <p>We encounter single-cell expression data consisting of multiple batches. One of the primary goals is to identify cell types (clusters/factors) and cell-type-specific gene expression patterns. However, distinguishing batch-specific and cell-type-specific genes only by a factorization method is challenging and often not identifiable from data alone. For each gene $g$ and cell $j$, the gene expression $Y_{gj}$ were sampled from Poisson distribution with the rate parameter:</p>
 <p>$$\lambda_{gj} = \lambda_{gj}^{\textsf{unbiased}} \times \prod_{k} \delta_{gk}^{X_{kj}},$$</p>
 <p>affected by the batch effects $\delta_{gk}$. More formally, letting $X_{kj}$ be a batch membership matrix, assigning a cell $j$ to a batch $k$ if and only if $X_{kj}=1$, we assume the average gene expression rates are linearly affected by in the log-transformed space:</p>
-<p>$$\mathbb{E}!\left[\ln Y_{gj}\right] = \ln \left( \sum_{t} \beta_{gt} \theta_{jt} \right) + \sum_{k} \ln\delta_{gk} X_{kj}.$$</p>
+<p>$$\mathbb{E}\left[\ln Y_{gj}\right] = \ln \left( \sum_{t} \beta_{gt} \theta_{jt} \right) + \sum_{k} \ln\delta_{gk} X_{kj}.$$</p>
 <pre data-lang="r" style="background-color:#fafafa;color:#61676c;" class="language-r "><code class="language-r" data-lang="r"><span style="color:#f07171;">set.seed</span><span>(</span><span style="color:#ff8f40;">1331</span><span>)
 </span><span>
 </span><span>m </span><span style="color:#ed9366;">&lt;- </span><span style="color:#ff8f40;">500 </span><span style="font-style:italic;color:#abb0b6;"># genes
@@ -295,7 +318,7 @@
 </span><span>yy </span><span style="color:#ed9366;">&lt;- </span><span style="color:#f07171;">apply</span><span>(lambda</span><span style="color:#61676ccc;">, </span><span style="color:#ff8f40;">2</span><span style="color:#61676ccc;">, </span><span style="color:#fa6e32;">function</span><span>(</span><span style="color:#ff8f40;">l</span><span>) </span><span style="color:#f07171;">sapply</span><span>(l</span><span style="color:#61676ccc;">,</span><span> rpois</span><span style="color:#61676ccc;">, </span><span style="color:#ff8f40;">n</span><span style="color:#ed9366;">=</span><span style="color:#ff8f40;">1</span><span>))
 </span><span>oo </span><span style="color:#ed9366;">&lt;- </span><span style="color:#f07171;">order</span><span>(</span><span style="color:#f07171;">apply</span><span>(</span><span style="color:#f07171;">t</span><span>(.theta)</span><span style="color:#61676ccc;">, </span><span style="color:#ff8f40;">2</span><span style="color:#61676ccc;">,</span><span> which.max))
 </span></code></pre>
-<p>If we can accurately estimate a true batch effect matrix, say $\delta_{gk}$, it is straightforward to adjust the difference between batches. How can we identify the true batch effect $\delta_{gk}$ for all the genes $g$ specifically expressed in the batch $k$? If we match cells $i$ and $j$ sampled from the batches $a$ and $b$, respectively, we expect the batch-specific difference $\delta_{ga} \neq \delta_{gk}$ will persist and even amplify, but the difference originated from cell types will vanish. This problem is equivalent to estimating the potential outcome of gene expressions in each batch $k$, $\mathbb{E}!\left[Y_{gj}^{(k)}\right]$.</p>
+<p>If we can accurately estimate a true batch effect matrix, say $\delta_{gk}$, it is straightforward to adjust the difference between batches. How can we identify the true batch effect $\delta_{gk}$ for all the genes $g$ specifically expressed in the batch $k$? If we match cells $i$ and $j$ sampled from the batches $a$ and $b$, respectively, we expect the batch-specific difference $\delta_{ga} \neq \delta_{gk}$ will persist and even amplify, but the difference originated from cell types will vanish. This problem is equivalent to estimating the potential outcome of gene expressions in each batch $k$, $\mathbb{E}\left[Y_{gj}^{(k)}\right]$.</p>
 <h3 id="a-causal-inference-approach-to-identify-batch-effects"><a class="zola-anchor" href="#a-causal-inference-approach-to-identify-batch-effects" aria-label="Anchor link for: a-causal-inference-approach-to-identify-batch-effects">A causal inference approach to identify batch effects</a></h3>
 <p>To dissect batch-specific effect in a causal inference (potential outcome) framework, we assume our confounding variables $Q$ are well-distributed across different batches:</p>
 <ul>
@@ -303,7 +326,7 @@
 </ul>
 <p>Moreover, we assume these covariates are sufficient enough to induce conditional dependence between potential (imputed) gene expression and batch assignment mechanisms:</p>
 <ul>
-<li>Strong ignorability: $(Y(k), Y(k')) \perp!!!\perp X | Q$ for all $k,k'$ pairs.</li>
+<li>Strong ignorability: $(Y(k), Y(k')) \perp\perp X | Q$ for all $k,k'$ pairs.</li>
 </ul>
 <h3 id="estimation-of-the-batch-effects-by-matching"><a class="zola-anchor" href="#estimation-of-the-batch-effects-by-matching" aria-label="Anchor link for: estimation-of-the-batch-effects-by-matching">Estimation of the batch effects by matching</a></h3>
 <p>Suppose we can counterfactually estimate gene expressions of a certain cell $j$ if the cell was measured in different batches other than the observed batch $k$.</p>
@@ -315,19 +338,18 @@ $$\prod_{j} p(Y_{gj}|\mu_{gs},\delta_{gk},X_{jk})
 <p>Counterfactual log-likelihood:
 $$\prod_{j} p(Z_{gj}|\mu_{gs}, \gamma_{gs}) = \prod_{j} \operatorname{Poisson}(Z_{gj}|\mu_{gs} \gamma_{gs})$$</p>
 <h4 id="local-update-maximize-batch-s-specific-parameters"><a class="zola-anchor" href="#local-update-maximize-batch-s-specific-parameters" aria-label="Anchor link for: local-update-maximize-batch-s-specific-parameters">Local update: Maximize batch $s$-specific parameters</a></h4>
-<p>$$\mathbb{E}!\left[\mu_{gs}\right] \approx \frac{ \sum_{j \in \mathcal{C}<em>{s}} Y</em>{gj} + \sum_{j \in \mathcal{C}<em>{s}} Z</em>{gj} }
-{\sum_{k} \delta_{gk} n_{sk} + n_{s} \gamma_{gs}}$$</p>
-<p>Letting $p_{sk} = n_{sk} / n_{s}$,
-$$\mu_{gs} \gets \frac{ \bar{Y}<em>{gs} + \bar{Z}</em>{gs}}
-{\sum_{k} \delta_{gk} p_{sk} + \gamma_{gs}}$$</p>
-<p>If $\delta_{gk} \to 0$ and $p_{sk}=1$, meaning that this sample $s$ is just sampled from the batch $k$ only, $\mu_{gs} \to \bar{Y}<em>{gs} + \bar{Z}</em>{gs}$ and $\bar{Y}<em>{gs} \to \bar{Y}</em>{gsk} = 0$. Therefore, $\mu_{gs} \to \bar{Z}_{gs}$.</p>
+<p>Let's update $\mu_{gs}$ for a gene $g$ in a sample $s$:</p>
+<p>$$\mathbb{E}\left[\mu_{gs}\right] \approx \frac{ \sum_{j \in C_{s}} Y_{gj} + \sum_{j \in C_{s}} Z_{gj} }{\sum_{k} \delta_{gk} n_{sk} + n_{s} \gamma_{gs}}$$</p>
+<p>Letting $p_{sk} = n_{sk} / n_{s}$,</p>
+<p>$$\mu_{gs} \gets \frac{ Y_{gs} + Z_{gs}}{\sum_{k} \delta_{gk} p_{sk} + \gamma_{gs}}$$</p>
+<p>If $\delta_{gk} \to 0$ and $p_{sk}=1$, meaning that this sample $s$ is just sampled from the batch $k$ only,
+$\mu_{gs} \to Y_{gs} + Z_{gs}$ and
+$Y_{gs} \to Y_{gsk} = 0$.
+Therefore, $\mu_{gs} \to Z_{gs}$.</p>
 <h4 id="global-update"><a class="zola-anchor" href="#global-update" aria-label="Anchor link for: global-update">Global update</a></h4>
-<p>$$\mathbb{E}!\left[\delta_{gk}\right] \approx
-\frac{\sum_{s} \sum_{j \in \mathcal{C}<em>{s}} X</em>{kj} Y_{gj}}{\sum_{s} \mu_{gs} \sum_{j \in \mathcal{C}<em>{s}} X</em>{kj}}$$</p>
-<p>$$\delta_{gk} \gets
-\frac{\sum_{s} \bar{Y}<em>{gsk} n</em>{sk}}
-{\sum_{s} \mu_{gs} n_{sk}}$$</p>
-<p>If $\bar{Y}<em>{gsk} \to \mu</em>{gs}$ for all $s$, $\delta_{gk} \to 1$. If $\bar{Y}<em>{gsk} &lt; \mu</em>{gs}$ in all $s$, $\delta_{gk} &lt; 1$. If $\bar{Y}<em>{gsk} \to 0$ for all $s$, $\delta</em>{gk} \to 0$.</p>
+<p>$$\mathbb{E}\left[\delta_{gk}\right] \approx \frac{\sum_{s} \sum_{j \in C_{s}} X_{kj} Y_{gj}}{\sum_{s} \mu_{gs} \sum_{j \in C_{s}} X_{kj}}$$</p>
+<p>$$\delta_{gk} \gets \frac{\sum_{s} Y_{gsk} n_{sk}}{\sum_{s} \mu_{gs} n_{sk}}$$</p>
+<p>If $Y_{gsk} \to \mu_{gs}$ for all $s$, $\delta_{gk} \to 1$. If $Y_{gsk} &lt; \mu_{gs}$ in all $s$, $\delta_{gk} &lt; 1$. If $Y_{gsk} \to 0$ for all $s$, $\delta_{gk} \to 0$.</p>
 <h4 id="algorithm"><a class="zola-anchor" href="#algorithm" aria-label="Anchor link for: algorithm">Algorithm</a></h4>
 <ol>
 <li>
@@ -340,22 +362,22 @@ $$\mu_{gs} \gets \frac{ \bar{Y}<em>{gs} + \bar{Z}</em>{gs}}
 <p>Static global stat: $S_{gk} \gets 0$</p>
 </li>
 <li>
-<p>For each pseudo-bulk sample $s$ with cells $\mathcal{C}_{s}$,</p>
+<p>For each pseudo-bulk sample $s$ with cells $C_{s}$,</p>
 <ul>
 <li>
-<p>$n_{sk} \gets \sum_{j \in \mathcal{C}<em>{s}} X</em>{kj}$, $n_{s} \gets \sum_{k} n_{sk}$, $p_{sk} \gets n_{sk}/n_{s}$</p>
+<p>$n_{sk} \gets \sum_{j \in C_{s}} X_{kj}$, $n_{s} \gets \sum_{k} n_{sk}$, $p_{sk} \gets n_{sk}/n_{s}$</p>
 </li>
 <li>
-<p>$\bar{Y}<em>{gs} \gets \sum</em>{j \in \mathcal{C}<em>{s}} Y</em>{gj} / n_{s}$</p>
+<p>$Y_{gs} \gets \sum_{j \in C_{s}} Y_{gj} / n_{s}$</p>
 </li>
 <li>
-<p>$\bar{Y}<em>{gsk} \gets \sum</em>{j \in \mathcal{C}<em>{s}} Y</em>{gj} X_{kj} / n_{s}$</p>
+<p>$Y_{gsk} \gets \sum_{j \in C_{s}} Y_{gj} X_{kj} / n_{s}$</p>
 </li>
 <li>
-<p>$\bar{Z}<em>{gs} \gets \sum</em>{j \in \mathcal{C}<em>{s}} Z</em>{gj} / n_{s}$ after matching and imputation</p>
+<p>$Z_{gs} \gets \sum_{j \in C_{s}} Z_{gj} / n_{s}$ after matching and imputation</p>
 </li>
 <li>
-<p>$S_{gk} \gets S_{gk} + \bar{Y}<em>{gsk} n</em>{sk}$</p>
+<p>$S_{gk} \gets S_{gk} + Y_{gsk} n_{sk}$</p>
 </li>
 </ul>
 </li>
@@ -366,13 +388,13 @@ $$\mu_{gs} \gets \frac{ \bar{Y}<em>{gs} + \bar{Z}</em>{gs}}
 <p>(Local step) For each PB sample $s$:</p>
 <ul>
 <li>
-<p>$\bar{\delta}<em>{gs} \gets \sum</em>{k} \delta_{gk} p_{sk}$</p>
+<p>$\delta_{gs} \gets \sum_{k} \delta_{gk} p_{sk}$</p>
 </li>
 <li>
-<p>$\mu_{gs} \gets (\bar{Y}<em>{gs} + \bar{Z}</em>{gs}) / (\gamma_{gs} + \bar{\delta}_{gs})$</p>
+<p>$\mu_{gs} \gets (Y_{gs} + Z_{gs}) / (\gamma_{gs} + \delta_{gs})$</p>
 </li>
 <li>
-<p>$\gamma_{gs} \gets (\bar{Y}<em>{gs})/(\mu</em>{gs})$</p>
+<p>$\gamma_{gs} \gets (Y_{gs})/(\mu_{gs})$</p>
 </li>
 <li>
 <p>For each $k$: $T_{gk} \gets T_{gk} + \mu_{gs} n_{sk}$</p>

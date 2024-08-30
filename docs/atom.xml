@@ -452,7 +452,7 @@
 &lt;p&gt;We encounter single-cell expression data consisting of multiple batches. One of the primary goals is to identify cell types (clusters&#x2F;factors) and cell-type-specific gene expression patterns. However, distinguishing batch-specific and cell-type-specific genes only by a factorization method is challenging and often not identifiable from data alone. For each gene $g$ and cell $j$, the gene expression $Y_{gj}$ were sampled from Poisson distribution with the rate parameter:&lt;&#x2F;p&gt;
 &lt;p&gt;$$\lambda_{gj} = \lambda_{gj}^{\textsf{unbiased}} \times \prod_{k} \delta_{gk}^{X_{kj}},$$&lt;&#x2F;p&gt;
 &lt;p&gt;affected by the batch effects $\delta_{gk}$. More formally, letting $X_{kj}$ be a batch membership matrix, assigning a cell $j$ to a batch $k$ if and only if $X_{kj}=1$, we assume the average gene expression rates are linearly affected by in the log-transformed space:&lt;&#x2F;p&gt;
-&lt;p&gt;$$\mathbb{E}!\left[\ln Y_{gj}\right] = \ln \left( \sum_{t} \beta_{gt} \theta_{jt} \right) + \sum_{k} \ln\delta_{gk} X_{kj}.$$&lt;&#x2F;p&gt;
+&lt;p&gt;$$\mathbb{E}\left[\ln Y_{gj}\right] = \ln \left( \sum_{t} \beta_{gt} \theta_{jt} \right) + \sum_{k} \ln\delta_{gk} X_{kj}.$$&lt;&#x2F;p&gt;
 &lt;pre data-lang=&quot;r&quot; style=&quot;background-color:#fafafa;color:#61676c;&quot; class=&quot;language-r &quot;&gt;&lt;code class=&quot;language-r&quot; data-lang=&quot;r&quot;&gt;&lt;span style=&quot;color:#f07171;&quot;&gt;set.seed&lt;&#x2F;span&gt;&lt;span&gt;(&lt;&#x2F;span&gt;&lt;span style=&quot;color:#ff8f40;&quot;&gt;1331&lt;&#x2F;span&gt;&lt;span&gt;)
 &lt;&#x2F;span&gt;&lt;span&gt;
 &lt;&#x2F;span&gt;&lt;span&gt;m &lt;&#x2F;span&gt;&lt;span style=&quot;color:#ed9366;&quot;&gt;&amp;lt;- &lt;&#x2F;span&gt;&lt;span style=&quot;color:#ff8f40;&quot;&gt;500 &lt;&#x2F;span&gt;&lt;span style=&quot;font-style:italic;color:#abb0b6;&quot;&gt;# genes
@@ -480,7 +480,7 @@
 &lt;&#x2F;span&gt;&lt;span&gt;yy &lt;&#x2F;span&gt;&lt;span style=&quot;color:#ed9366;&quot;&gt;&amp;lt;- &lt;&#x2F;span&gt;&lt;span style=&quot;color:#f07171;&quot;&gt;apply&lt;&#x2F;span&gt;&lt;span&gt;(lambda&lt;&#x2F;span&gt;&lt;span style=&quot;color:#61676ccc;&quot;&gt;, &lt;&#x2F;span&gt;&lt;span style=&quot;color:#ff8f40;&quot;&gt;2&lt;&#x2F;span&gt;&lt;span style=&quot;color:#61676ccc;&quot;&gt;, &lt;&#x2F;span&gt;&lt;span style=&quot;color:#fa6e32;&quot;&gt;function&lt;&#x2F;span&gt;&lt;span&gt;(&lt;&#x2F;span&gt;&lt;span style=&quot;color:#ff8f40;&quot;&gt;l&lt;&#x2F;span&gt;&lt;span&gt;) &lt;&#x2F;span&gt;&lt;span style=&quot;color:#f07171;&quot;&gt;sapply&lt;&#x2F;span&gt;&lt;span&gt;(l&lt;&#x2F;span&gt;&lt;span style=&quot;color:#61676ccc;&quot;&gt;,&lt;&#x2F;span&gt;&lt;span&gt; rpois&lt;&#x2F;span&gt;&lt;span style=&quot;color:#61676ccc;&quot;&gt;, &lt;&#x2F;span&gt;&lt;span style=&quot;color:#ff8f40;&quot;&gt;n&lt;&#x2F;span&gt;&lt;span style=&quot;color:#ed9366;&quot;&gt;=&lt;&#x2F;span&gt;&lt;span style=&quot;color:#ff8f40;&quot;&gt;1&lt;&#x2F;span&gt;&lt;span&gt;))
 &lt;&#x2F;span&gt;&lt;span&gt;oo &lt;&#x2F;span&gt;&lt;span style=&quot;color:#ed9366;&quot;&gt;&amp;lt;- &lt;&#x2F;span&gt;&lt;span style=&quot;color:#f07171;&quot;&gt;order&lt;&#x2F;span&gt;&lt;span&gt;(&lt;&#x2F;span&gt;&lt;span style=&quot;color:#f07171;&quot;&gt;apply&lt;&#x2F;span&gt;&lt;span&gt;(&lt;&#x2F;span&gt;&lt;span style=&quot;color:#f07171;&quot;&gt;t&lt;&#x2F;span&gt;&lt;span&gt;(.theta)&lt;&#x2F;span&gt;&lt;span style=&quot;color:#61676ccc;&quot;&gt;, &lt;&#x2F;span&gt;&lt;span style=&quot;color:#ff8f40;&quot;&gt;2&lt;&#x2F;span&gt;&lt;span style=&quot;color:#61676ccc;&quot;&gt;,&lt;&#x2F;span&gt;&lt;span&gt; which.max))
 &lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
-&lt;p&gt;If we can accurately estimate a true batch effect matrix, say $\delta_{gk}$, it is straightforward to adjust the difference between batches. How can we identify the true batch effect $\delta_{gk}$ for all the genes $g$ specifically expressed in the batch $k$? If we match cells $i$ and $j$ sampled from the batches $a$ and $b$, respectively, we expect the batch-specific difference $\delta_{ga} \neq \delta_{gk}$ will persist and even amplify, but the difference originated from cell types will vanish. This problem is equivalent to estimating the potential outcome of gene expressions in each batch $k$, $\mathbb{E}!\left[Y_{gj}^{(k)}\right]$.&lt;&#x2F;p&gt;
+&lt;p&gt;If we can accurately estimate a true batch effect matrix, say $\delta_{gk}$, it is straightforward to adjust the difference between batches. How can we identify the true batch effect $\delta_{gk}$ for all the genes $g$ specifically expressed in the batch $k$? If we match cells $i$ and $j$ sampled from the batches $a$ and $b$, respectively, we expect the batch-specific difference $\delta_{ga} \neq \delta_{gk}$ will persist and even amplify, but the difference originated from cell types will vanish. This problem is equivalent to estimating the potential outcome of gene expressions in each batch $k$, $\mathbb{E}\left[Y_{gj}^{(k)}\right]$.&lt;&#x2F;p&gt;
 &lt;h3 id=&quot;a-causal-inference-approach-to-identify-batch-effects&quot;&gt;&lt;a class=&quot;zola-anchor&quot; href=&quot;#a-causal-inference-approach-to-identify-batch-effects&quot; aria-label=&quot;Anchor link for: a-causal-inference-approach-to-identify-batch-effects&quot;&gt;A causal inference approach to identify batch effects&lt;&#x2F;a&gt;&lt;&#x2F;h3&gt;
 &lt;p&gt;To dissect batch-specific effect in a causal inference (potential outcome) framework, we assume our confounding variables $Q$ are well-distributed across different batches:&lt;&#x2F;p&gt;
 &lt;ul&gt;
@@ -488,7 +488,7 @@
 &lt;&#x2F;ul&gt;
 &lt;p&gt;Moreover, we assume these covariates are sufficient enough to induce conditional dependence between potential (imputed) gene expression and batch assignment mechanisms:&lt;&#x2F;p&gt;
 &lt;ul&gt;
-&lt;li&gt;Strong ignorability: $(Y(k), Y(k&#x27;)) \perp!!!\perp X | Q$ for all $k,k&#x27;$ pairs.&lt;&#x2F;li&gt;
+&lt;li&gt;Strong ignorability: $(Y(k), Y(k&#x27;)) \perp\perp X | Q$ for all $k,k&#x27;$ pairs.&lt;&#x2F;li&gt;
 &lt;&#x2F;ul&gt;
 &lt;h3 id=&quot;estimation-of-the-batch-effects-by-matching&quot;&gt;&lt;a class=&quot;zola-anchor&quot; href=&quot;#estimation-of-the-batch-effects-by-matching&quot; aria-label=&quot;Anchor link for: estimation-of-the-batch-effects-by-matching&quot;&gt;Estimation of the batch effects by matching&lt;&#x2F;a&gt;&lt;&#x2F;h3&gt;
 &lt;p&gt;Suppose we can counterfactually estimate gene expressions of a certain cell $j$ if the cell was measured in different batches other than the observed batch $k$.&lt;&#x2F;p&gt;
@@ -500,19 +500,18 @@ $$\prod_{j} p(Y_{gj}|\mu_{gs},\delta_{gk},X_{jk})
 &lt;p&gt;Counterfactual log-likelihood:
 $$\prod_{j} p(Z_{gj}|\mu_{gs}, \gamma_{gs}) = \prod_{j} \operatorname{Poisson}(Z_{gj}|\mu_{gs} \gamma_{gs})$$&lt;&#x2F;p&gt;
 &lt;h4 id=&quot;local-update-maximize-batch-s-specific-parameters&quot;&gt;&lt;a class=&quot;zola-anchor&quot; href=&quot;#local-update-maximize-batch-s-specific-parameters&quot; aria-label=&quot;Anchor link for: local-update-maximize-batch-s-specific-parameters&quot;&gt;Local update: Maximize batch $s$-specific parameters&lt;&#x2F;a&gt;&lt;&#x2F;h4&gt;
-&lt;p&gt;$$\mathbb{E}!\left[\mu_{gs}\right] \approx \frac{ \sum_{j \in \mathcal{C}&lt;em&gt;{s}} Y&lt;&#x2F;em&gt;{gj} + \sum_{j \in \mathcal{C}&lt;em&gt;{s}} Z&lt;&#x2F;em&gt;{gj} }
-{\sum_{k} \delta_{gk} n_{sk} + n_{s} \gamma_{gs}}$$&lt;&#x2F;p&gt;
-&lt;p&gt;Letting $p_{sk} = n_{sk} &#x2F; n_{s}$,
-$$\mu_{gs} \gets \frac{ \bar{Y}&lt;em&gt;{gs} + \bar{Z}&lt;&#x2F;em&gt;{gs}}
-{\sum_{k} \delta_{gk} p_{sk} + \gamma_{gs}}$$&lt;&#x2F;p&gt;
-&lt;p&gt;If $\delta_{gk} \to 0$ and $p_{sk}=1$, meaning that this sample $s$ is just sampled from the batch $k$ only, $\mu_{gs} \to \bar{Y}&lt;em&gt;{gs} + \bar{Z}&lt;&#x2F;em&gt;{gs}$ and $\bar{Y}&lt;em&gt;{gs} \to \bar{Y}&lt;&#x2F;em&gt;{gsk} = 0$. Therefore, $\mu_{gs} \to \bar{Z}_{gs}$.&lt;&#x2F;p&gt;
+&lt;p&gt;Let&#x27;s update $\mu_{gs}$ for a gene $g$ in a sample $s$:&lt;&#x2F;p&gt;
+&lt;p&gt;$$\mathbb{E}\left[\mu_{gs}\right] \approx \frac{ \sum_{j \in C_{s}} Y_{gj} + \sum_{j \in C_{s}} Z_{gj} }{\sum_{k} \delta_{gk} n_{sk} + n_{s} \gamma_{gs}}$$&lt;&#x2F;p&gt;
+&lt;p&gt;Letting $p_{sk} = n_{sk} &#x2F; n_{s}$,&lt;&#x2F;p&gt;
+&lt;p&gt;$$\mu_{gs} \gets \frac{ Y_{gs} + Z_{gs}}{\sum_{k} \delta_{gk} p_{sk} + \gamma_{gs}}$$&lt;&#x2F;p&gt;
+&lt;p&gt;If $\delta_{gk} \to 0$ and $p_{sk}=1$, meaning that this sample $s$ is just sampled from the batch $k$ only,
+$\mu_{gs} \to Y_{gs} + Z_{gs}$ and
+$Y_{gs} \to Y_{gsk} = 0$.
+Therefore, $\mu_{gs} \to Z_{gs}$.&lt;&#x2F;p&gt;
 &lt;h4 id=&quot;global-update&quot;&gt;&lt;a class=&quot;zola-anchor&quot; href=&quot;#global-update&quot; aria-label=&quot;Anchor link for: global-update&quot;&gt;Global update&lt;&#x2F;a&gt;&lt;&#x2F;h4&gt;
-&lt;p&gt;$$\mathbb{E}!\left[\delta_{gk}\right] \approx
-\frac{\sum_{s} \sum_{j \in \mathcal{C}&lt;em&gt;{s}} X&lt;&#x2F;em&gt;{kj} Y_{gj}}{\sum_{s} \mu_{gs} \sum_{j \in \mathcal{C}&lt;em&gt;{s}} X&lt;&#x2F;em&gt;{kj}}$$&lt;&#x2F;p&gt;
-&lt;p&gt;$$\delta_{gk} \gets
-\frac{\sum_{s} \bar{Y}&lt;em&gt;{gsk} n&lt;&#x2F;em&gt;{sk}}
-{\sum_{s} \mu_{gs} n_{sk}}$$&lt;&#x2F;p&gt;
-&lt;p&gt;If $\bar{Y}&lt;em&gt;{gsk} \to \mu&lt;&#x2F;em&gt;{gs}$ for all $s$, $\delta_{gk} \to 1$. If $\bar{Y}&lt;em&gt;{gsk} &amp;lt; \mu&lt;&#x2F;em&gt;{gs}$ in all $s$, $\delta_{gk} &amp;lt; 1$. If $\bar{Y}&lt;em&gt;{gsk} \to 0$ for all $s$, $\delta&lt;&#x2F;em&gt;{gk} \to 0$.&lt;&#x2F;p&gt;
+&lt;p&gt;$$\mathbb{E}\left[\delta_{gk}\right] \approx \frac{\sum_{s} \sum_{j \in C_{s}} X_{kj} Y_{gj}}{\sum_{s} \mu_{gs} \sum_{j \in C_{s}} X_{kj}}$$&lt;&#x2F;p&gt;
+&lt;p&gt;$$\delta_{gk} \gets \frac{\sum_{s} Y_{gsk} n_{sk}}{\sum_{s} \mu_{gs} n_{sk}}$$&lt;&#x2F;p&gt;
+&lt;p&gt;If $Y_{gsk} \to \mu_{gs}$ for all $s$, $\delta_{gk} \to 1$. If $Y_{gsk} &amp;lt; \mu_{gs}$ in all $s$, $\delta_{gk} &amp;lt; 1$. If $Y_{gsk} \to 0$ for all $s$, $\delta_{gk} \to 0$.&lt;&#x2F;p&gt;
 &lt;h4 id=&quot;algorithm&quot;&gt;&lt;a class=&quot;zola-anchor&quot; href=&quot;#algorithm&quot; aria-label=&quot;Anchor link for: algorithm&quot;&gt;Algorithm&lt;&#x2F;a&gt;&lt;&#x2F;h4&gt;
 &lt;ol&gt;
 &lt;li&gt;
@@ -525,22 +524,22 @@ $$\mu_{gs} \gets \frac{ \bar{Y}&lt;em&gt;{gs} + \bar{Z}&lt;&#x2F;em&gt;{gs}}
 &lt;p&gt;Static global stat: $S_{gk} \gets 0$&lt;&#x2F;p&gt;
 &lt;&#x2F;li&gt;
 &lt;li&gt;
-&lt;p&gt;For each pseudo-bulk sample $s$ with cells $\mathcal{C}_{s}$,&lt;&#x2F;p&gt;
+&lt;p&gt;For each pseudo-bulk sample $s$ with cells $C_{s}$,&lt;&#x2F;p&gt;
 &lt;ul&gt;
 &lt;li&gt;
-&lt;p&gt;$n_{sk} \gets \sum_{j \in \mathcal{C}&lt;em&gt;{s}} X&lt;&#x2F;em&gt;{kj}$, $n_{s} \gets \sum_{k} n_{sk}$, $p_{sk} \gets n_{sk}&#x2F;n_{s}$&lt;&#x2F;p&gt;
+&lt;p&gt;$n_{sk} \gets \sum_{j \in C_{s}} X_{kj}$, $n_{s} \gets \sum_{k} n_{sk}$, $p_{sk} \gets n_{sk}&#x2F;n_{s}$&lt;&#x2F;p&gt;
 &lt;&#x2F;li&gt;
 &lt;li&gt;
-&lt;p&gt;$\bar{Y}&lt;em&gt;{gs} \gets \sum&lt;&#x2F;em&gt;{j \in \mathcal{C}&lt;em&gt;{s}} Y&lt;&#x2F;em&gt;{gj} &#x2F; n_{s}$&lt;&#x2F;p&gt;
+&lt;p&gt;$Y_{gs} \gets \sum_{j \in C_{s}} Y_{gj} &#x2F; n_{s}$&lt;&#x2F;p&gt;
 &lt;&#x2F;li&gt;
 &lt;li&gt;
-&lt;p&gt;$\bar{Y}&lt;em&gt;{gsk} \gets \sum&lt;&#x2F;em&gt;{j \in \mathcal{C}&lt;em&gt;{s}} Y&lt;&#x2F;em&gt;{gj} X_{kj} &#x2F; n_{s}$&lt;&#x2F;p&gt;
+&lt;p&gt;$Y_{gsk} \gets \sum_{j \in C_{s}} Y_{gj} X_{kj} &#x2F; n_{s}$&lt;&#x2F;p&gt;
 &lt;&#x2F;li&gt;
 &lt;li&gt;
-&lt;p&gt;$\bar{Z}&lt;em&gt;{gs} \gets \sum&lt;&#x2F;em&gt;{j \in \mathcal{C}&lt;em&gt;{s}} Z&lt;&#x2F;em&gt;{gj} &#x2F; n_{s}$ after matching and imputation&lt;&#x2F;p&gt;
+&lt;p&gt;$Z_{gs} \gets \sum_{j \in C_{s}} Z_{gj} &#x2F; n_{s}$ after matching and imputation&lt;&#x2F;p&gt;
 &lt;&#x2F;li&gt;
 &lt;li&gt;
-&lt;p&gt;$S_{gk} \gets S_{gk} + \bar{Y}&lt;em&gt;{gsk} n&lt;&#x2F;em&gt;{sk}$&lt;&#x2F;p&gt;
+&lt;p&gt;$S_{gk} \gets S_{gk} + Y_{gsk} n_{sk}$&lt;&#x2F;p&gt;
 &lt;&#x2F;li&gt;
 &lt;&#x2F;ul&gt;
 &lt;&#x2F;li&gt;
@@ -551,13 +550,13 @@ $$\mu_{gs} \gets \frac{ \bar{Y}&lt;em&gt;{gs} + \bar{Z}&lt;&#x2F;em&gt;{gs}}
 &lt;p&gt;(Local step) For each PB sample $s$:&lt;&#x2F;p&gt;
 &lt;ul&gt;
 &lt;li&gt;
-&lt;p&gt;$\bar{\delta}&lt;em&gt;{gs} \gets \sum&lt;&#x2F;em&gt;{k} \delta_{gk} p_{sk}$&lt;&#x2F;p&gt;
+&lt;p&gt;$\delta_{gs} \gets \sum_{k} \delta_{gk} p_{sk}$&lt;&#x2F;p&gt;
 &lt;&#x2F;li&gt;
 &lt;li&gt;
-&lt;p&gt;$\mu_{gs} \gets (\bar{Y}&lt;em&gt;{gs} + \bar{Z}&lt;&#x2F;em&gt;{gs}) &#x2F; (\gamma_{gs} + \bar{\delta}_{gs})$&lt;&#x2F;p&gt;
+&lt;p&gt;$\mu_{gs} \gets (Y_{gs} + Z_{gs}) &#x2F; (\gamma_{gs} + \delta_{gs})$&lt;&#x2F;p&gt;
 &lt;&#x2F;li&gt;
 &lt;li&gt;
-&lt;p&gt;$\gamma_{gs} \gets (\bar{Y}&lt;em&gt;{gs})&#x2F;(\mu&lt;&#x2F;em&gt;{gs})$&lt;&#x2F;p&gt;
+&lt;p&gt;$\gamma_{gs} \gets (Y_{gs})&#x2F;(\mu_{gs})$&lt;&#x2F;p&gt;
 &lt;&#x2F;li&gt;
 &lt;li&gt;
 &lt;p&gt;For each $k$: $T_{gk} \gets T_{gk} + \mu_{gs} n_{sk}$&lt;&#x2F;p&gt;

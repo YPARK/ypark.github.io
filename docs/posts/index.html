@@ -57,18 +57,41 @@
     
 
     
+
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+
+        <script type="text/javascript" id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+        </script>
         
             <script>
             MathJax = {
               tex: {
-                inlineMath: [['$', '$'], ['\\(', '\\)']]
+                  inlineMath: [['$', '$'], ['\\(', '\\)'], ['$$', '$$']]
               }
             };
             </script>
         
-        <script type="text/javascript" id="MathJax-script" async
-          src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
-        </script>
+
+	<!-- KaTeX CSS -->
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.15.2/katex.min.css">
+	
+	<!-- KaTeX JS -->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.15.2/katex.min.js"></script>
+	
+	<!-- Optional: KaTeX Auto-render extension -->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.15.2/contrib/auto-render.min.js"></script>
+	
+	<script>
+	  document.addEventListener("DOMContentLoaded", function() {
+	      renderMathInElement(document.body, {
+		  delimiters: [
+		      {left: "$$", right: "$$", display: true},
+		      {left: "$", right: "$", display: false}
+		  ]
+	      });
+	  });
+	</script>
+
     
 
     

@@ -24,7 +24,7 @@ $$\lambda_{gj} = \lambda_{gj}^{\textsf{unbiased}} \times \prod_{k} \delta_{gk}^{
 
 affected by the batch effects $\delta_{gk}$. More formally, letting $X_{kj}$ be a batch membership matrix, assigning a cell $j$ to a batch $k$ if and only if $X_{kj}=1$, we assume the average gene expression rates are linearly affected by in the log-transformed space:
 
-$$\mathbb{E}\!\left[\ln Y_{gj}\right] = \ln \left( \sum_{t} \beta_{gt} \theta_{jt} \right) + \sum_{k} \ln\delta_{gk} X_{kj}.$$
+$$\mathbb{E}\left[\ln Y_{gj}\right] = \ln \left( \sum_{t} \beta_{gt} \theta_{jt} \right) + \sum_{k} \ln\delta_{gk} X_{kj}.$$
 
 
 ```{r simulation_to_confirm}
@@ -56,7 +56,7 @@ yy <- apply(lambda, 2, function(l) sapply(l, rpois, n=1))
 oo <- order(apply(t(.theta), 2, which.max))
 ```
 
-If we can accurately estimate a true batch effect matrix, say $\delta_{gk}$, it is straightforward to adjust the difference between batches. How can we identify the true batch effect $\delta_{gk}$ for all the genes $g$ specifically expressed in the batch $k$? If we match cells $i$ and $j$ sampled from the batches $a$ and $b$, respectively, we expect the batch-specific difference $\delta_{ga} \neq \delta_{gk}$ will persist and even amplify, but the difference originated from cell types will vanish. This problem is equivalent to estimating the potential outcome of gene expressions in each batch $k$, $\mathbb{E}\!\left[Y_{gj}^{(k)}\right]$.
+If we can accurately estimate a true batch effect matrix, say $\delta_{gk}$, it is straightforward to adjust the difference between batches. How can we identify the true batch effect $\delta_{gk}$ for all the genes $g$ specifically expressed in the batch $k$? If we match cells $i$ and $j$ sampled from the batches $a$ and $b$, respectively, we expect the batch-specific difference $\delta_{ga} \neq \delta_{gk}$ will persist and even amplify, but the difference originated from cell types will vanish. This problem is equivalent to estimating the potential outcome of gene expressions in each batch $k$, $\mathbb{E}\left[Y_{gj}^{(k)}\right]$.
 
 ### A causal inference approach to identify batch effects
 
@@ -66,7 +66,7 @@ To dissect batch-specific effect in a causal inference (potential outcome) frame
 
 Moreover, we assume these covariates are sufficient enough to induce conditional dependence between potential (imputed) gene expression and batch assignment mechanisms:
 
-* Strong ignorability: $(Y(k), Y(k')) \perp\!\!\!\perp X | Q$ for all $k,k'$ pairs.
+* Strong ignorability: $(Y(k), Y(k')) \perp\perp X | Q$ for all $k,k'$ pairs.
 
 ### Estimation of the batch effects by matching
 
@@ -85,27 +85,26 @@ $$\prod_{j} p(Z_{gj}|\mu_{gs}, \gamma_{gs}) = \prod_{j} \operatorname{Poisson}(Z
 
 #### Local update: Maximize batch $s$-specific parameters
 
+Let's update $\mu_{gs}$ for a gene $g$ in a sample $s$:
 
-
-$$\mathbb{E}\!\left[\mu_{gs}\right] \approx \frac{ \sum_{j \in \mathcal{C}_{s}} Y_{gj} + \sum_{j \in \mathcal{C}_{s}} Z_{gj} }
-{\sum_{k} \delta_{gk} n_{sk} + n_{s} \gamma_{gs}}$$
+$$\mathbb{E}\left[\mu_{gs}\right] \approx \frac{ \sum_{j \in C_{s}} Y_{gj} + \sum_{j \in C_{s}} Z_{gj} }{\sum_{k} \delta_{gk} n_{sk} + n_{s} \gamma_{gs}}$$
 
 Letting $p_{sk} = n_{sk} / n_{s}$,
-$$\mu_{gs} \gets \frac{ \bar{Y}_{gs} + \bar{Z}_{gs}}
-{\sum_{k} \delta_{gk} p_{sk} + \gamma_{gs}}$$
 
-If $\delta_{gk} \to 0$ and $p_{sk}=1$, meaning that this sample $s$ is just sampled from the batch $k$ only, $\mu_{gs} \to \bar{Y}_{gs} + \bar{Z}_{gs}$ and $\bar{Y}_{gs} \to \bar{Y}_{gsk} = 0$. Therefore, $\mu_{gs} \to \bar{Z}_{gs}$.
+$$\mu_{gs} \gets \frac{ Y_{gs} + Z_{gs}}{\sum_{k} \delta_{gk} p_{sk} + \gamma_{gs}}$$
+
+If $\delta_{gk} \to 0$ and $p_{sk}=1$, meaning that this sample $s$ is just sampled from the batch $k$ only, 
+$\mu_{gs} \to Y_{gs} + Z_{gs}$ and 
+$Y_{gs} \to Y_{gsk} = 0$. 
+Therefore, $\mu_{gs} \to Z_{gs}$.
 
 #### Global update
 
-$$\mathbb{E}\!\left[\delta_{gk}\right] \approx 
-\frac{\sum_{s} \sum_{j \in \mathcal{C}_{s}} X_{kj} Y_{gj}}{\sum_{s} \mu_{gs} \sum_{j \in \mathcal{C}_{s}} X_{kj}}$$
+$$\mathbb{E}\left[\delta_{gk}\right] \approx \frac{\sum_{s} \sum_{j \in C_{s}} X_{kj} Y_{gj}}{\sum_{s} \mu_{gs} \sum_{j \in C_{s}} X_{kj}}$$
 
-$$\delta_{gk} \gets 
-\frac{\sum_{s} \bar{Y}_{gsk} n_{sk}}
-{\sum_{s} \mu_{gs} n_{sk}}$$
+$$\delta_{gk} \gets \frac{\sum_{s} Y_{gsk} n_{sk}}{\sum_{s} \mu_{gs} n_{sk}}$$
 
-If $\bar{Y}_{gsk} \to \mu_{gs}$ for all $s$, $\delta_{gk} \to 1$. If $\bar{Y}_{gsk} < \mu_{gs}$ in all $s$, $\delta_{gk} < 1$. If $\bar{Y}_{gsk} \to 0$ for all $s$, $\delta_{gk} \to 0$.
+If $Y_{gsk} \to \mu_{gs}$ for all $s$, $\delta_{gk} \to 1$. If $Y_{gsk} < \mu_{gs}$ in all $s$, $\delta_{gk} < 1$. If $Y_{gsk} \to 0$ for all $s$, $\delta_{gk} \to 0$.
 
 #### Algorithm
 
@@ -115,27 +114,27 @@ If $\bar{Y}_{gsk} \to \mu_{gs}$ for all $s$, $\delta_{gk} \to 1$. If $\bar{Y}_{g
 
 3. Static global stat: $S_{gk} \gets 0$
 
-4. For each pseudo-bulk sample $s$ with cells $\mathcal{C}_{s}$, 
+4. For each pseudo-bulk sample $s$ with cells $C_{s}$, 
 
-	- $n_{sk} \gets \sum_{j \in \mathcal{C}_{s}} X_{kj}$, $n_{s} \gets \sum_{k} n_{sk}$, $p_{sk} \gets n_{sk}/n_{s}$
+	- $n_{sk} \gets \sum_{j \in C_{s}} X_{kj}$, $n_{s} \gets \sum_{k} n_{sk}$, $p_{sk} \gets n_{sk}/n_{s}$
 
-    - $\bar{Y}_{gs} \gets \sum_{j \in \mathcal{C}_{s}} Y_{gj} / n_{s}$
+    - $Y_{gs} \gets \sum_{j \in C_{s}} Y_{gj} / n_{s}$
 	
-	- $\bar{Y}_{gsk} \gets \sum_{j \in \mathcal{C}_{s}} Y_{gj} X_{kj} / n_{s}$
+	- $Y_{gsk} \gets \sum_{j \in C_{s}} Y_{gj} X_{kj} / n_{s}$
 	
-    - $\bar{Z}_{gs} \gets \sum_{j \in \mathcal{C}_{s}} Z_{gj} / n_{s}$ after matching and imputation
+    - $Z_{gs} \gets \sum_{j \in C_{s}} Z_{gj} / n_{s}$ after matching and imputation
 
-	- $S_{gk} \gets S_{gk} + \bar{Y}_{gsk} n_{sk}$
+	- $S_{gk} \gets S_{gk} + Y_{gsk} n_{sk}$
 
 5. Iterative-updated global stat: $T_{gk} \gets 0$
 
 6. (Local step) For each PB sample $s$:
 
-    - $\bar{\delta}_{gs} \gets \sum_{k} \delta_{gk} p_{sk}$
+    - $\delta_{gs} \gets \sum_{k} \delta_{gk} p_{sk}$
 
-    - $\mu_{gs} \gets (\bar{Y}_{gs} + \bar{Z}_{gs}) / (\gamma_{gs} + \bar{\delta}_{gs})$
+    - $\mu_{gs} \gets (Y_{gs} + Z_{gs}) / (\gamma_{gs} + \delta_{gs})$
 	
-    - $\gamma_{gs} \gets (\bar{Y}_{gs})/(\mu_{gs})$
+    - $\gamma_{gs} \gets (Y_{gs})/(\mu_{gs})$
 
     - For each $k$: $T_{gk} \gets T_{gk} + \mu_{gs} n_{sk}$
 
