@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<html class="dark light">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    
+
+    
+    
+    
+    <title>
+         Lightweight tools for integrative single-cell data analysis
+        
+    </title>
+
+        
+            <meta property="og:title" content="Lightweight tools for integrative single-cell data analysis" />
+        
+     
+
+     
+         
+     
+
+     
+         
+    
+
+    
+    
+        <link rel="icon" type="image/png" href=&#x2F;icon&#x2F;favicon.ico />
+    
+
+    
+    
+        <link href=https://ypark.github.io/fonts.css rel="stylesheet" />
+    
+
+    
+    
+
+    
+    
+        <script src=https://ypark.github.io/js/codeblock.js></script>
+    
+
+    
+    
+        <script src=https://ypark.github.io/js/toc.js></script>
+    
+    
+    
+    
+
+    
+        
+            <script>
+            MathJax = {
+              tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']]
+              }
+            };
+            </script>
+        
+        <script type="text/javascript" id="MathJax-script" async
+          src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+        </script>
+    
+
+    
+    <link rel="alternate" type="application/atom+xml" title="" href="https://ypark.github.io/atom.xml">
+
+
+    
+    
+        <link rel="stylesheet" type="text/css" href=https://ypark.github.io/theme/light.css />
+        <link id="darkModeStyle" rel="stylesheet" type="text/css" href="https://ypark.github.io/theme/dark.css" />
+    
+
+    <!-- Set the correct theme in the script -->
+    <script src=https://ypark.github.io/js/themetoggle.js></script>
+    
+        <script>setTheme(getSavedTheme());</script>
+    
+
+    <link rel="stylesheet" type="text/css" media="screen" href=https://ypark.github.io/main.css />
+
+    
+</head>
+
+
+<body>
+    <div class="content">
+        <header>
+    <div class="main">
+        <a href=https:&#x2F;&#x2F;ypark.github.io></a>
+
+        <div class="socials">
+            
+            <a rel="me" href="https:&#x2F;&#x2F;github.com&#x2F;causalpathlab&#x2F;" class="social">
+                <img alt=github src=https://ypark.github.io/social_icons/github.svg>
+            </a>
+            
+            <a rel="me" href="https:&#x2F;&#x2F;github.com&#x2F;ypark&#x2F;" class="social">
+                <img alt=github src=https://ypark.github.io/social_icons/github.svg>
+            </a>
+            
+            <a rel="me" href="https:&#x2F;&#x2F;twitter.com&#x2F;ypp_lab" class="social">
+                <img alt=twitter src=https://ypark.github.io/social_icons/twitter.svg>
+            </a>
+            
+        </div>
+    </div>
+
+    <nav>
+        
+        <a href=https://ypark.github.io/about style="margin-left: 0.5em">&#x2F;about</a>
+        
+        <a href=https://ypark.github.io/posts style="margin-left: 0.5em">&#x2F;posts</a>
+        
+        <a href=https://ypark.github.io/team style="margin-left: 0.5em">&#x2F;team</a>
+        
+        <a href=https://ypark.github.io/alumni style="margin-left: 0.5em">&#x2F;alumni</a>
+        
+
+        
+        |<a id="dark-mode-toggle" onclick="toggleTheme(); event.preventDefault();" href="#">
+            <img src=https://ypark.github.io/feather/sun.svg id="sun-icon" style="filter: invert(1);" alt="Light" />
+            <img src=https://ypark.github.io/feather/moon.svg id="moon-icon" alt="Dark" />
+        </a>
+
+        <!-- Inititialize the theme toggle icons -->
+        <script>updateItemToggleTheme()</script>
+        
+    </nav>
+</header>
+
+
+        
+        
+    
+<main>
+    <article>
+        <div class="title">
+            
+            
+    <div class="page-header">
+        Lightweight tools for integrative single-cell data analysis<span class="primary-color" style="font-size: 1.6em">.</span>
+    </div>
+
+
+                <div class="meta">
+                    
+                        Posted on <time>2020-09-06</time>
+                    
+
+                    
+
+                    
+
+                    
+                    
+                            <span class="tags-label"> :: Tags:</span>
+                            <span class="tags">
+                                    <a href="https://ypark.github.io/tags/lightweight/" class="post-tag">lightweight</a>, 
+                                
+                                    <a href="https://ypark.github.io/tags/single-cell/" class="post-tag">single cell</a>, 
+                                
+                                    <a href="https://ypark.github.io/tags/integration/" class="post-tag">integration</a>
+                                
+                            </span>
+                    
+
+                    
+                    
+
+                    
+
+                </div>
+        </div>
+
+        
+
+        
+        
+        
+            <div class="toc-container">
+                <h1 class="toc-title">Table of Contents</h1>
+                <ul class="toc-list">
+                    
+                        <li>
+                            <a href="https://ypark.github.io/posts/lightweight-tools-2020/#there-are-already-many-tools">There are already many tools.</a>
+                            
+                        </li>
+                    
+                        <li>
+                            <a href="https://ypark.github.io/posts/lightweight-tools-2020/#the-underlying-data-matrix-is-sparse-really-sparse-but-most-methods-make-it-dense">The underlying data matrix is sparse, really sparse, but most methods make it dense.</a>
+                            
+                        </li>
+                    
+                        <li>
+                            <a href="https://ypark.github.io/posts/lightweight-tools-2020/#we-want-to-focus-on-integrative-data-analysis-across-multiple-data-types-and-modalities">We want to focus on integrative data analysis across multiple data types and modalities</a>
+                            
+                        </li>
+                    
+                </ul>
+            </div>
+        
+        
+
+        <section class="body">
+            <h3 id="there-are-already-many-tools"><a class="zola-anchor" href="#there-are-already-many-tools" aria-label="Anchor link for: there-are-already-many-tools">There are already many tools.</a></h3>
+<p>Ever since single-cell technology was introduced to the world, every year, every month, we see more tools. See <a href="https://www.scrna-tools.org/">scRNA-tools</a>, for example. Single-cell data analysis often involves many steps of data processing, quantification, and statistical inference. The technology is imperfect, and each step deserves careful consideration of different types of approaches. We, bioinformaticians, test a different combination of small tools and tailor a pipeline that works best for each project. Perhaps, there is no master algorithm, and the competitions among computational biologists are indeed fierce.</p>
+<p>The history of genomics repeats itself. For a large part of current single-cell data analysis, we probably see what had happened in RNA-seq, even gene expression microarray analysis. Once we knew how to normalize scRNA-seq data, we would like to know how to test differentially-expressed genes. Then, we would want to build more audacious models, such as gene regulatory networks.  Are there any points that we may contribute from a unique perspective? Can existing tools address all the challenges of single-cell data analysis, e.g., <a href="https://genomebiology.biomedcentral.com/articles/10.1186/s13059-020-1926-6">"eleven grand challenges in single-cell data science"</a>? I believe not. We know there has always been enough room for innovation and creativity.</p>
+<p>Okay, that sounds meek and quite passive. Why do we dare to jump into the battlefield?  We are not a software-engineering lab, but we can become impatient enough to feel the need for a better tool.  Moreover, we want to understand why and how a certain method works, and when that method doesn't work as expected.</p>
+<h3 id="the-underlying-data-matrix-is-sparse-really-sparse-but-most-methods-make-it-dense"><a class="zola-anchor" href="#the-underlying-data-matrix-is-sparse-really-sparse-but-most-methods-make-it-dense" aria-label="Anchor link for: the-underlying-data-matrix-is-sparse-really-sparse-but-most-methods-make-it-dense">The underlying data matrix is sparse, really sparse, but most methods make it dense.</a></h3>
+<p>Yes, the data matrix is sparse, but it will easily blow up memory if you fill in all the zeros.  Our first impression was that memory overhead was never an issue for most people. Lots of methods focus on replacing the zeros with some other fractional values. Not undermining the validity of imputation methods, we worried more about the scalability of the strategy.  Can such a strategy work for millions of cells with billions of non-zero elements?  Most methods are tested on a rather small data set, including thousands of cells. If a data matrix is sparse, why not we build a method, taking advantage of the sparsity? What if most zero values did not occur by missingness?  What if <a href="https://www.nature.com/articles/s41587-019-0379-5">droplet scRNA-seq is not zero-inflated</a>?</p>
+<p><strong>We develop a scalable approach to index millions of cells for fast random access.</strong>
+We like to work on a sparse data matrix formatted as <a href="https://math.nist.gov/MatrixMarket/formats.html">a list of triplets</a>, and compressed by <code>gzip</code> or <code>bgzip</code>. The rows correspond to features/genes; the columns correspond to UMI barcodes/cells. We assume the triplets <code>(row, column, value)</code> are sorted by the columns (cells) in ascending order. To mark the line where the columns change, we modify the indexing scheme of <a href="http://www.htslib.org/doc/tabix.html">TABIX</a> and create a separate <code>.index</code> file to store all the random access points.</p>
+<p><strong>We implement commonly-used matrix operations to manipulate data more swiftly.</strong> In some cases, it is worthwhile to re-implement low-level functions, since we may not need all the steps implemented in a general-purpose library.  We were just too impatient to wait a long I/O time until we finish reading a full 10x matrix (<code>.mtx.gz</code>) using either <code>scipy.io.mmread</code> in Python, or <code>Matrix::readMM</code> in R. As the size of the 10x matrix increase more and more, we also discovered there is a numerical limit for R's <code>Matrix::readMM</code> (less than two billions non-zero elements) and had to face a similar issue in a low-memory machine, such as a modest 8Gb laptop. So, we did the dirty job of <code>C++</code> implementation. Combined with the indexing scheme, now we can efficiently take a subset of a large matrix stored in a file, not worrying about memory capacity, minimizing the overhead of character parsing and I/O.</p>
+<h3 id="we-want-to-focus-on-integrative-data-analysis-across-multiple-data-types-and-modalities"><a class="zola-anchor" href="#we-want-to-focus-on-integrative-data-analysis-across-multiple-data-types-and-modalities" aria-label="Anchor link for: we-want-to-focus-on-integrative-data-analysis-across-multiple-data-types-and-modalities">We want to focus on integrative data analysis across multiple data types and modalities</a></h3>
+<p>With these tools, including the ones under development, we want to do science. We want others to do science using our tools. We will continuously update a bit more complicated routines for convenience, including cell type annotation, data aggregation, cell type deconvolution, batch-balancing k-nearest neighborhood, etc.</p>
+
+        </section>
+    </article>
+</main>
+
+
+
+        
+
+    </div>
+</body>
+
+</html>

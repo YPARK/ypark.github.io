@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+<html class="dark light">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    
+
+    
+    
+    
+    <title>
+         Causal Inference in Genomics
+        
+    </title>
+
+        
+            <meta property="og:title" content="Causal Inference in Genomics" />
+        
+     
+
+     
+         
+     
+
+     
+         
+    
+
+    
+    
+        <link rel="icon" type="image/png" href=&#x2F;icon&#x2F;favicon.ico />
+    
+
+    
+    
+        <link href=https://ypark.github.io/fonts.css rel="stylesheet" />
+    
+
+    
+    
+
+    
+    
+        <script src=https://ypark.github.io/js/codeblock.js></script>
+    
+
+    
+    
+        <script src=https://ypark.github.io/js/toc.js></script>
+    
+    
+    
+    
+
+    
+        
+            <script>
+            MathJax = {
+              tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']]
+              }
+            };
+            </script>
+        
+        <script type="text/javascript" id="MathJax-script" async
+          src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+        </script>
+    
+
+    
+    <link rel="alternate" type="application/atom+xml" title="" href="https://ypark.github.io/atom.xml">
+
+
+    
+    
+        <link rel="stylesheet" type="text/css" href=https://ypark.github.io/theme/light.css />
+        <link id="darkModeStyle" rel="stylesheet" type="text/css" href="https://ypark.github.io/theme/dark.css" />
+    
+
+    <!-- Set the correct theme in the script -->
+    <script src=https://ypark.github.io/js/themetoggle.js></script>
+    
+        <script>setTheme(getSavedTheme());</script>
+    
+
+    <link rel="stylesheet" type="text/css" media="screen" href=https://ypark.github.io/main.css />
+
+    
+</head>
+
+
+<body>
+    <div class="content">
+        <header>
+    <div class="main">
+        <a href=https:&#x2F;&#x2F;ypark.github.io></a>
+
+        <div class="socials">
+            
+            <a rel="me" href="https:&#x2F;&#x2F;github.com&#x2F;causalpathlab&#x2F;" class="social">
+                <img alt=github src=https://ypark.github.io/social_icons/github.svg>
+            </a>
+            
+            <a rel="me" href="https:&#x2F;&#x2F;github.com&#x2F;ypark&#x2F;" class="social">
+                <img alt=github src=https://ypark.github.io/social_icons/github.svg>
+            </a>
+            
+            <a rel="me" href="https:&#x2F;&#x2F;twitter.com&#x2F;ypp_lab" class="social">
+                <img alt=twitter src=https://ypark.github.io/social_icons/twitter.svg>
+            </a>
+            
+        </div>
+    </div>
+
+    <nav>
+        
+        <a href=https://ypark.github.io/about style="margin-left: 0.5em">&#x2F;about</a>
+        
+        <a href=https://ypark.github.io/posts style="margin-left: 0.5em">&#x2F;posts</a>
+        
+        <a href=https://ypark.github.io/team style="margin-left: 0.5em">&#x2F;team</a>
+        
+        <a href=https://ypark.github.io/alumni style="margin-left: 0.5em">&#x2F;alumni</a>
+        
+
+        
+        |<a id="dark-mode-toggle" onclick="toggleTheme(); event.preventDefault();" href="#">
+            <img src=https://ypark.github.io/feather/sun.svg id="sun-icon" style="filter: invert(1);" alt="Light" />
+            <img src=https://ypark.github.io/feather/moon.svg id="moon-icon" alt="Dark" />
+        </a>
+
+        <!-- Inititialize the theme toggle icons -->
+        <script>updateItemToggleTheme()</script>
+        
+    </nav>
+</header>
+
+
+        
+        
+    
+<main>
+    <article>
+        <div class="title">
+            
+            
+    <div class="page-header">
+        Causal Inference in Genomics<span class="primary-color" style="font-size: 1.6em">.</span>
+    </div>
+
+
+                <div class="meta">
+                    
+                        Posted on <time>2020-09-04</time>
+                    
+
+                    
+
+                    
+
+                    
+                    
+                            <span class="tags-label"> :: Tags:</span>
+                            <span class="tags">
+                                    <a href="https://ypark.github.io/tags/big-picture/" class="post-tag">big picture</a>, 
+                                
+                                    <a href="https://ypark.github.io/tags/causal-inference/" class="post-tag">causal inference</a>, 
+                                
+                                    <a href="https://ypark.github.io/tags/single-cell/" class="post-tag">single cell</a>, 
+                                
+                                    <a href="https://ypark.github.io/tags/genomics/" class="post-tag">genomics</a>
+                                
+                            </span>
+                    
+
+                    
+                    
+                        
+                        
+                            
+                        
+
+                        
+                    
+
+                    
+
+                </div>
+        </div>
+
+        
+
+        
+        
+        
+            <div class="toc-container">
+                <h1 class="toc-title">Table of Contents</h1>
+                <ul class="toc-list">
+                    
+                        <li>
+                            <a href="https://ypark.github.io/posts/causal-bio-2020/#causal-inference-based-on-a-causal-structure-model">Causal inference based on a causal structure model</a>
+                            
+                                <ul>
+                                    
+                                        <li>
+                                            <a href="https://ypark.github.io/posts/causal-bio-2020/#identification-of-causal-effects-by-an-instrumental-variable-mediation">Identification of causal effects by an instrumental variable (mediation)</a>
+                                        </li>
+
+                                        
+                                    
+                                </ul>
+                            
+                        </li>
+                    
+                        <li>
+                            <a href="https://ypark.github.io/posts/causal-bio-2020/#removing-unwanted-variability-by-control-data">Removing unwanted variability by &quot;control&quot; data</a>
+                            
+                        </li>
+                    
+                        <li>
+                            <a href="https://ypark.github.io/posts/causal-bio-2020/#a-potential-outcome-framework-for-causally-differential-expression-analysis">A potential outcome framework for causally-differential expression analysis</a>
+                            
+                                <ul>
+                                    
+                                        <li>
+                                            <a href="https://ypark.github.io/posts/causal-bio-2020/#bayesian-causal-inference-for-single-cell-data-analysis">&quot;Bayesian&quot; causal inference for single-cell data analysis</a>
+                                        </li>
+
+                                        
+                                    
+                                </ul>
+                            
+                        </li>
+                    
+                </ul>
+            </div>
+        
+        
+
+        <section class="body">
+            <p>TL;DR.  We reinvent traditional bioinformatics methods to ascertain the causality of discoveries made in high-dimensional omics data.</p>
+<hr />
+<p>Massive data generation in genomics has transformed the methodology and practice of researches in medicine and human biology. A common practice of research is genomic and functional genomic profiling of hundreds of individuals. If desired data is not available, large consortium-level projects and collaborations can often meet the needs. In terms of both volume and dimensionality, the sizes of genomics data have exploded in the past decade, and it is not hard to predict that the speed of data accumulation will be further accelerated.</p>
+<p>Genomics has made a breakthrough in medicine and science, armed with two powerful scientific methods--hypothesis testing and machine learning (ML). Hypothesis testing with well-designed null distributions proves meaningful scientific discoveries are made on the observed data. Likewise, a traditional ML method is designed to efficiently search the most plausible models from a particular class of models, mainly focusing on minimizing generalization errors on the observed data.  However, biology's ultimate question is perhaps more about unobserved principles, asking counterfactual "what if" questions, rather than simply describing phenomena. We desire to uncover causal mechanisms and laws underlying observations and ultimately provide testable cause-effect relationships.</p>
+<h3 id="causal-inference-based-on-a-causal-structure-model"><a class="zola-anchor" href="#causal-inference-based-on-a-causal-structure-model" aria-label="Anchor link for: causal-inference-based-on-a-causal-structure-model">Causal inference based on a causal structure model</a></h3>
+<p>Most causal inference concepts based on a structural equation model are already adopted in a carefully designed biological experiment. We can trace back to Sewall Wright's path diagram model. For instance, an experimental proof demonstrating the effect of a gene "X" to some trait "Y" would require two types of interventions that disruption of the gene X makes changes to the trait Y, and recovery of the gene can attenuate the disrupted functions.  However, a common practice of high-throughput data analysis often lack such intervention steps, but hurriedly arrive at some conclusion based on observed correlation patterns.  Many of these correlations may turn out non-causal but somewhat confounded by unobserved variables.</p>
+<h4 id="identification-of-causal-effects-by-an-instrumental-variable-mediation"><a class="zola-anchor" href="#identification-of-causal-effects-by-an-instrumental-variable-mediation" aria-label="Anchor link for: identification-of-causal-effects-by-an-instrumental-variable-mediation">Identification of causal effects by an instrumental variable (mediation)</a></h4>
+<p>The key concept is an intervention. However, introducing an intervention is often impossible for technical and ethical reasons, and there are so many things to perturb to test the effects. Moreover, the effects of causal mechanisms might be too small to quantify within a reasonable statistical error reliably. How do we ascertain causal effects by intervention?</p>
+<p>Stepping back, let us think about two principal axes of the data generation process: the breadth of population-level measurements across tens of thousands of samples and the depth of regulatory genomics across multiple layers of causal mechanisms, seeking a precise answer up to a single-cell resolution.</p>
+<p>{{&lt; figure library="true" src="project/cancer_genomics_research.png" title="Integrative cancer research builds on two principal axes of genomics data. <strong>(A)</strong> Population-level studies investigate variation across large cohorts. <strong>(B)</strong> Regulatory genomics researches delve into multiple layers of molecular networks." &gt;}}</p>
+<p>We can recognize a causal direction from genetic information to phenotypic variation if we consider that genotypes are shaped by nature’s randomized controlled trial (RCT), or natural interventions. Given that, the goal is to identify causal mediators located in the middle of the above causal diagram. In the context of genome-wide association studies (GWAS), the mediator variables include relevant cell types and target genes derived from tissue-level or cell-type-level eQTL data.</p>
+<h3 id="removing-unwanted-variability-by-control-data"><a class="zola-anchor" href="#removing-unwanted-variability-by-control-data" aria-label="Anchor link for: removing-unwanted-variability-by-control-data">Removing unwanted variability by "control" data</a></h3>
+<p>Many scientific discoveries are best represented as a set of contrastive statements, such as "A rather than B" (<a href="https://en.wikipedia.org/wiki/Peter_Lipton">Peter Lipton</a>) because such a contrastive explanation clarifies our claim's scope and basis. The validity of causal argument can be empirically justified by triangulation of contrastive arguments (Lipton 1991). Therefore, an essential aspect of our research should focus on finding a suitable set of null hypotheses (non-causal facts) to be contrasted against our theory of interest to uphold. What are non-causal effects that may obfuscate the activity of scientific research? Are they generated uniformly at random? In practice, it is hard to characterize non-causal effects without considering confounding variables, and confounders create unwanted non-zero correlations between cause and effect variables.</p>
+<p>Confounder correction is a causal inference problem. So, we need to ask the question of identifiability, such as, "How do we know this variable is a confounder?" or "What is a legitimate criterion that distinguishes between causal and non-causal effects?". We could start our journey by asking:</p>
+<ul>
+<li>
+<p>Are there any control data on which we can safely claim that there is no causal effect whatsoever?</p>
+</li>
+<li>
+<p>Are they already available/observed? Or, should we construct/estimate them?</p>
+</li>
+</ul>
+<p>Like many research problems, control data (or variables) are hidden, yet to be estimated. In the mediation problem, for instance, we need to think about how to characterize confounding variables that relate two mediators (genes, M1 and M0) (A) and the other type of confounders between different phenotypes (B). Unless we adjust these confounding effects, mediation effects are not identifiable by statistical inference. Fortunately, we can construct control data that only include non-genetic correlation structures by exploiting human genetics's nature. Since genetic correlations are confined within each linkage disequilibrium (LD) block, we can defuse putative causal effects by projecting summary statistics onto a different, independent LD block (C). We actively construct control data to identify confounding variables.</p>
+<p>{{&lt; figure library="true" src="project/mediation_confounder.png" title="Confounder correction in action. The figure describes essential steps of confounding factor correction in GWAS mediation analysis. <strong>(A)</strong> Type I confounding variable (S1) between mediators (M's) <strong>(B)</strong> Type II confounding variable (S2) between phenotypes (Y's). <strong>(C)</strong> Joint projection of mediator and phenotype variables makes interventions to remove mediating effect but leave confounding effects."&gt;}}</p>
+<p>On this matter, we are broadly interested in general genomics problems, not just statistical genetics ones.  Although the definition of a confounding variable is problem-specific, we seek to design probabilistic models and ML algorithms that semi-automate the overall process. The methods will indicate a set of putative confounding variables with a level of uncertainty by taking input data and prior knowledge (e.g., known causal and non-causal variables).</p>
+<h3 id="a-potential-outcome-framework-for-causally-differential-expression-analysis"><a class="zola-anchor" href="#a-potential-outcome-framework-for-causally-differential-expression-analysis" aria-label="Anchor link for: a-potential-outcome-framework-for-causally-differential-expression-analysis">A potential outcome framework for causally-differential expression analysis</a></h3>
+<p>Recently, our interest in Donald Rubin's <a href="https://en.wikipedia.org/wiki/Rubin_causal_model">potential outcome framework</a> grew, and started thinking about a type of causal problems that can be better approached by Rudin's causal model (RCM).</p>
+<h4 id="bayesian-causal-inference-for-single-cell-data-analysis"><a class="zola-anchor" href="#bayesian-causal-inference-for-single-cell-data-analysis" aria-label="Anchor link for: bayesian-causal-inference-for-single-cell-data-analysis">"Bayesian" causal inference for single-cell data analysis</a></h4>
+<p>As a first step, we revisit commonly-practised bioinformatics problems and reformulate them in RCMs.  The ultimate goal of RCM is to ask and estimate counterfactual questions.  Causality is tied to an action (doing), rather than an observation (seeing), and counterfactual causal inference seeks to take an impossible action and estimate its effects.</p>
+<p>Suppose we want to test the causal statement: A gene expression of Y was changed because of a disease X, i.e., $X \to Y$ with a directed edge (going beyond $Y \sim X$). We define $X$ to take 1 or 0 for "yes" or "no" and the resulting gene expression $Y$ to take a real number. In observational studies, including most high-througput assays, we observe a pair of $X_{i}$ and $Y_{i}$ for an individual $i$; there, the observed $Y_{i}$ value stems from the observed $X_{i}$, either 1 or 0, not both. E.g.,</p>
+<table><thead><tr><th style="text-align: right">$i$</th><th style="text-align: left">X</th><th style="text-align: left">Y(0)</th><th style="text-align: left">Y(1)</th></tr></thead><tbody>
+<tr><td style="text-align: right">1</td><td style="text-align: left">0</td><td style="text-align: left">$Y_1$</td><td style="text-align: left">?</td></tr>
+<tr><td style="text-align: right">2</td><td style="text-align: left">1</td><td style="text-align: left">?</td><td style="text-align: left">$Y_2$</td></tr>
+<tr><td style="text-align: right">3</td><td style="text-align: left">1</td><td style="text-align: left">?</td><td style="text-align: left">$Y_3$</td></tr>
+<tr><td style="text-align: right">4</td><td style="text-align: left">0</td><td style="text-align: left">$Y_4$</td><td style="text-align: left">?</td></tr>
+<tr><td style="text-align: right"></td><td style="text-align: left"></td><td style="text-align: left">$\vdots$</td><td style="text-align: left"></td></tr>
+</tbody></table>
+<p>In counterfactual inference, we want to infer the other unobserved and <strong>not</strong> observable cases. For $X_{i}=1$, we want to know the potential outcome of $Y_{i}$ if we had $X_{i} = 0$, and vice versa. RCMs generally translate the underlying problem as a Bayesian imputation problem, or a matrix completion problem, which contains at least 50% of missing values.  Provided an accurate Bayesian imputation method, we can quantify individual-level causal effects, $Y_{i}(1) - Y_{i}(0)$, as well as average causal effects, $\mathbb{E}\left[Y(1) - Y(0)\right]$. This is truly substantial advancement because we no longer worry about identifiability but focus on a statistical inference problem.</p>
+<p>Well, there is a catch. In traditional omics data analysis, such an imputation problem is pretty challenging unless we have a good understanding of the data-generating process, which is often a black box to us. For one individual, we only have one data point $Y_{i}$ unless we borrow information from related genes. We might have to rely on faithful pretreatment variables $W$ as in a causal path, $W \to X \to Y$, and construct propensity scores to reweight observed samples.</p>
+<p>However, single-cell data provide a unique opportunity for modelling high-dimensional omics profiles. A clear advantage over bulk data is simply that we have more data points per sample (individual).  Assuming that single-cell profiling's sensitivity will become better each year, it is not too far until we can achieve reliable and accurate Bayesian imputation methods--not only the observed values but also the counterfactual values.</p>
+
+        </section>
+    </article>
+</main>
+
+
+
+        
+
+    </div>
+</body>
+
+</html>

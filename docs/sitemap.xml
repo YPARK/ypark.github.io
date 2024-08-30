@@ -25,8 +25,20 @@
         <loc>https://ypark.github.io/posts/</loc>
     </url>
     <url>
+        <loc>https://ypark.github.io/posts/batch-correction-2023/</loc>
+        <lastmod>2023-06-19</lastmod>
+    </url>
+    <url>
+        <loc>https://ypark.github.io/posts/causal-bio-2020/</loc>
+        <lastmod>2020-09-04</lastmod>
+    </url>
+    <url>
         <loc>https://ypark.github.io/posts/config-2024/</loc>
         <lastmod>2024-08-30</lastmod>
+    </url>
+    <url>
+        <loc>https://ypark.github.io/posts/lightweight-tools-2020/</loc>
+        <lastmod>2020-09-06</lastmod>
     </url>
     <url>
         <loc>https://ypark.github.io/posts/page/1/</loc>
@@ -36,11 +48,27 @@
         <lastmod>2024-09-03</lastmod>
     </url>
     <url>
+        <loc>https://ypark.github.io/posts/summary-data-ml-2020/</loc>
+        <lastmod>2020-09-03</lastmod>
+    </url>
+    <url>
         <loc>https://ypark.github.io/posts/zola-setups-2024/</loc>
         <lastmod>2024-08-01</lastmod>
     </url>
     <url>
         <loc>https://ypark.github.io/tags/</loc>
+    </url>
+    <url>
+        <loc>https://ypark.github.io/tags/batch-effect/</loc>
+    </url>
+    <url>
+        <loc>https://ypark.github.io/tags/bayesian/</loc>
+    </url>
+    <url>
+        <loc>https://ypark.github.io/tags/big-picture/</loc>
+    </url>
+    <url>
+        <loc>https://ypark.github.io/tags/causal-inference/</loc>
     </url>
     <url>
         <loc>https://ypark.github.io/tags/coding/</loc>
@@ -58,10 +86,34 @@
         <loc>https://ypark.github.io/tags/ethernet/</loc>
     </url>
     <url>
+        <loc>https://ypark.github.io/tags/genomics/</loc>
+    </url>
+    <url>
+        <loc>https://ypark.github.io/tags/gwas/</loc>
+    </url>
+    <url>
         <loc>https://ypark.github.io/tags/html/</loc>
     </url>
     <url>
+        <loc>https://ypark.github.io/tags/integration/</loc>
+    </url>
+    <url>
+        <loc>https://ypark.github.io/tags/lightweight/</loc>
+    </url>
+    <url>
+        <loc>https://ypark.github.io/tags/potential-outcome/</loc>
+    </url>
+    <url>
+        <loc>https://ypark.github.io/tags/single-cell/</loc>
+    </url>
+    <url>
         <loc>https://ypark.github.io/tags/stat548/</loc>
+    </url>
+    <url>
+        <loc>https://ypark.github.io/tags/summary-statistics/</loc>
+    </url>
+    <url>
+        <loc>https://ypark.github.io/tags/variational-inference/</loc>
     </url>
     <url>
         <loc>https://ypark.github.io/tags/web/</loc>

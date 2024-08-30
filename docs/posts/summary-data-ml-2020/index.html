@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<html class="dark light">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    
+
+    
+    
+    
+    <title>
+         Bayesian modelling of summary statistics data
+        
+    </title>
+
+        
+            <meta property="og:title" content="Bayesian modelling of summary statistics data" />
+        
+     
+
+     
+         
+     
+
+     
+         
+    
+
+    
+    
+        <link rel="icon" type="image/png" href=&#x2F;icon&#x2F;favicon.ico />
+    
+
+    
+    
+        <link href=https://ypark.github.io/fonts.css rel="stylesheet" />
+    
+
+    
+    
+
+    
+    
+        <script src=https://ypark.github.io/js/codeblock.js></script>
+    
+
+    
+    
+        <script src=https://ypark.github.io/js/toc.js></script>
+    
+    
+    
+    
+
+    
+        
+            <script>
+            MathJax = {
+              tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']]
+              }
+            };
+            </script>
+        
+        <script type="text/javascript" id="MathJax-script" async
+          src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+        </script>
+    
+
+    
+    <link rel="alternate" type="application/atom+xml" title="" href="https://ypark.github.io/atom.xml">
+
+
+    
+    
+        <link rel="stylesheet" type="text/css" href=https://ypark.github.io/theme/light.css />
+        <link id="darkModeStyle" rel="stylesheet" type="text/css" href="https://ypark.github.io/theme/dark.css" />
+    
+
+    <!-- Set the correct theme in the script -->
+    <script src=https://ypark.github.io/js/themetoggle.js></script>
+    
+        <script>setTheme(getSavedTheme());</script>
+    
+
+    <link rel="stylesheet" type="text/css" media="screen" href=https://ypark.github.io/main.css />
+
+    
+</head>
+
+
+<body>
+    <div class="content">
+        <header>
+    <div class="main">
+        <a href=https:&#x2F;&#x2F;ypark.github.io></a>
+
+        <div class="socials">
+            
+            <a rel="me" href="https:&#x2F;&#x2F;github.com&#x2F;causalpathlab&#x2F;" class="social">
+                <img alt=github src=https://ypark.github.io/social_icons/github.svg>
+            </a>
+            
+            <a rel="me" href="https:&#x2F;&#x2F;github.com&#x2F;ypark&#x2F;" class="social">
+                <img alt=github src=https://ypark.github.io/social_icons/github.svg>
+            </a>
+            
+            <a rel="me" href="https:&#x2F;&#x2F;twitter.com&#x2F;ypp_lab" class="social">
+                <img alt=twitter src=https://ypark.github.io/social_icons/twitter.svg>
+            </a>
+            
+        </div>
+    </div>
+
+    <nav>
+        
+        <a href=https://ypark.github.io/about style="margin-left: 0.5em">&#x2F;about</a>
+        
+        <a href=https://ypark.github.io/posts style="margin-left: 0.5em">&#x2F;posts</a>
+        
+        <a href=https://ypark.github.io/team style="margin-left: 0.5em">&#x2F;team</a>
+        
+        <a href=https://ypark.github.io/alumni style="margin-left: 0.5em">&#x2F;alumni</a>
+        
+
+        
+        |<a id="dark-mode-toggle" onclick="toggleTheme(); event.preventDefault();" href="#">
+            <img src=https://ypark.github.io/feather/sun.svg id="sun-icon" style="filter: invert(1);" alt="Light" />
+            <img src=https://ypark.github.io/feather/moon.svg id="moon-icon" alt="Dark" />
+        </a>
+
+        <!-- Inititialize the theme toggle icons -->
+        <script>updateItemToggleTheme()</script>
+        
+    </nav>
+</header>
+
+
+        
+        
+    
+<main>
+    <article>
+        <div class="title">
+            
+            
+    <div class="page-header">
+        Bayesian modelling of summary statistics data<span class="primary-color" style="font-size: 1.6em">.</span>
+    </div>
+
+
+                <div class="meta">
+                    
+                        Posted on <time>2020-09-03</time>
+                    
+
+                    
+
+                    
+
+                    
+                    
+                            <span class="tags-label"> :: Tags:</span>
+                            <span class="tags">
+                                    <a href="https://ypark.github.io/tags/gwas/" class="post-tag">GWAS</a>, 
+                                
+                                    <a href="https://ypark.github.io/tags/bayesian/" class="post-tag">Bayesian</a>, 
+                                
+                                    <a href="https://ypark.github.io/tags/variational-inference/" class="post-tag">variational inference</a>, 
+                                
+                                    <a href="https://ypark.github.io/tags/summary-statistics/" class="post-tag">summary statistics</a>
+                                
+                            </span>
+                    
+
+                    
+                    
+                        
+                        
+                            
+                        
+
+                        
+                    
+
+                    
+
+                </div>
+        </div>
+
+        
+
+        
+        
+        
+            <div class="toc-container">
+                <h1 class="toc-title">Table of Contents</h1>
+                <ul class="toc-list">
+                    
+                        <li>
+                            <a href="https://ypark.github.io/posts/summary-data-ml-2020/#what-are-summary-statistics-data">What are summary statistics data?</a>
+                            
+                        </li>
+                    
+                        <li>
+                            <a href="https://ypark.github.io/posts/summary-data-ml-2020/#why-do-we-bother-summary-statistics">Why do we bother summary statistics?</a>
+                            
+                        </li>
+                    
+                        <li>
+                            <a href="https://ypark.github.io/posts/summary-data-ml-2020/#summary-based-regression-modelling">Summary-based regression modelling</a>
+                            
+                        </li>
+                    
+                        <li>
+                            <a href="https://ypark.github.io/posts/summary-data-ml-2020/#summary-statistics-based-machine-learning">Summary statistics-based machine learning</a>
+                            
+                        </li>
+                    
+                </ul>
+            </div>
+        
+        
+
+        <section class="body">
+            <p>TL;DR. We develop Bayesian machine learning methods that excavate a latent structure or underlying joint models of summary statistics data.</p>
+<hr />
+<h3 id="what-are-summary-statistics-data"><a class="zola-anchor" href="#what-are-summary-statistics-data" aria-label="Anchor link for: what-are-summary-statistics-data">What are summary statistics data?</a></h3>
+<p>There is no clear boundary to define that data are made available at the summary or observation level.  Suppose the size of a data matrix/tensor $Z$ is smaller than the underlying sample size (number of observations). Each element in the data matrix $Z$ is generated as a result of some transformation of raw data. In that case, we often consider that the data $Z$ is observed at the summary level.  Summary statistics data could be first and second-order moments (mean and variance), p-values, z-scores, effect sizes, and standard errors, etc. As the most well-known summary statistics data, we could think of the results of genome-wide association studies (GWAS).</p>
+<h3 id="why-do-we-bother-summary-statistics"><a class="zola-anchor" href="#why-do-we-bother-summary-statistics" aria-label="Anchor link for: why-do-we-bother-summary-statistics">Why do we bother summary statistics?</a></h3>
+<p>The foremost reason is that people feel pretty comfortable with sharing summary statistics. Unlike we have to deal with strict regulations to access individual-level data, a user (researcher) may find easily-downloadable GWAS summary statistics vectors from a public database. For the other party, those who provide data, there is almost no need to anonymize it since each data point does not correspond to an individual. For most clinical and public health studies, research groups share their final results as a giant summary statistics table. Other researchers gain essential knowledge by using them in subsequent research.</p>
+<p>Great, but it sounds like everything is done and remains nothing to be done. I just said that summary statistics data are often final to some studies. Yes, to some people, but not to those who care about a generative model involving lots of parameters. Most summary data only investigate relationships between one variable with the other variable, but not many to many. Only a set of marginal probabilities, but not the joint probability of all. Can we recover a joint, multivariate model from a set of univariate models? Taking it further, can we estimate a joint probability of multiple studies conducted independently by different groups by combining summary data collected from each of them?</p>
+<h3 id="summary-based-regression-modelling"><a class="zola-anchor" href="#summary-based-regression-modelling" aria-label="Anchor link for: summary-based-regression-modelling">Summary-based regression modelling</a></h3>
+<p>Zhu and Stephens (2017) <a href="https://pubmed.ncbi.nlm.nih.gov/29399241/">PMID: 29399241</a> proposed an interesting idea, termed regression with summary statistics (RSS) model.  RSS recovers the high-dimensional parameters of a multivariate (linear) regression model, highlighting a correspondence between the multivariate and univariate association statistics.</p>
+<p>We also found the RSS type of modelling can be effective enough to capture causal SNPs in high-dimensional variable selection problems. Here, we show simulation results on the reference panel genotype matrix (<a href="https://www.internationalgenome.org/">the 1000 genomes project</a>; on chromosome 1, European samples, n=503). We implemented a suite of related summary-based methods <a href="https://ypark.github.io/zqtl">zQTL</a>.</p>
+<p>{{&lt; figure library="true" src="project/summary_regression.png" title="A summary-based learning method can estimate multivariate parameters as accurate as a traditional Bayesian learning method for a sparse regression problem. <code>AUPRC</code>: Area Under Precision Recall Curve. <em>Column panels</em>: simulations varying the number of causal SNPs. <code>h2</code>: the proportion of phenotypic variance explained by causal SNPs. <code>BSLMM</code>: Bayesian sparse linear mixed effect model; <code>yqtl</code>: a sparse regression model with spike-slab prior, trained by stochastic variational inference; <code>zqtl</code>: a summary-based multivariate regression modelling."&gt;}}</p>
+<h3 id="summary-statistics-based-machine-learning"><a class="zola-anchor" href="#summary-statistics-based-machine-learning" aria-label="Anchor link for: summary-statistics-based-machine-learning">Summary statistics-based machine learning</a></h3>
+<p>Our next challenge is to widen the scope of computational biology, genomics applications that can be benefited from summary-based learning methods. About a decade ago, the ML community also realized the value of exploiting the spectral structure of the summary data matrix/tensor. Hsu <em>et al.</em> (2012) <a href="https://arxiv.org/abs/0811.4413">Hsu+Kakade+Zhang</a> beautifully demonstrates an optimal state of a hidden Markov model can be easily recovered by the spectral decomposition of marginal probability matrices.</p>
+
+        </section>
+    </article>
+</main>
+
+
+
+        
+
+    </div>
+</body>
+
+</html>

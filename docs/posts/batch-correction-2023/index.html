@@ -1,0 +1,565 @@
+<!DOCTYPE html>
+<html lang="en">
+<html class="dark light">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    
+
+    
+    
+    
+    <title>
+         Adjusting batch effect in pseudobulk samples is a causal inference problem
+        
+    </title>
+
+        
+            <meta property="og:title" content="Adjusting batch effect in pseudobulk samples is a causal inference problem" />
+        
+     
+
+     
+         
+     
+
+     
+         
+    
+
+    
+    
+        <link rel="icon" type="image/png" href=&#x2F;icon&#x2F;favicon.ico />
+    
+
+    
+    
+        <link href=https://ypark.github.io/fonts.css rel="stylesheet" />
+    
+
+    
+    
+
+    
+    
+        <script src=https://ypark.github.io/js/codeblock.js></script>
+    
+
+    
+    
+        <script src=https://ypark.github.io/js/toc.js></script>
+    
+    
+    
+    
+
+    
+        
+            <script>
+            MathJax = {
+              tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']]
+              }
+            };
+            </script>
+        
+        <script type="text/javascript" id="MathJax-script" async
+          src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+        </script>
+    
+
+    
+    <link rel="alternate" type="application/atom+xml" title="" href="https://ypark.github.io/atom.xml">
+
+
+    
+    
+        <link rel="stylesheet" type="text/css" href=https://ypark.github.io/theme/light.css />
+        <link id="darkModeStyle" rel="stylesheet" type="text/css" href="https://ypark.github.io/theme/dark.css" />
+    
+
+    <!-- Set the correct theme in the script -->
+    <script src=https://ypark.github.io/js/themetoggle.js></script>
+    
+        <script>setTheme(getSavedTheme());</script>
+    
+
+    <link rel="stylesheet" type="text/css" media="screen" href=https://ypark.github.io/main.css />
+
+    
+</head>
+
+
+<body>
+    <div class="content">
+        <header>
+    <div class="main">
+        <a href=https:&#x2F;&#x2F;ypark.github.io></a>
+
+        <div class="socials">
+            
+            <a rel="me" href="https:&#x2F;&#x2F;github.com&#x2F;causalpathlab&#x2F;" class="social">
+                <img alt=github src=https://ypark.github.io/social_icons/github.svg>
+            </a>
+            
+            <a rel="me" href="https:&#x2F;&#x2F;github.com&#x2F;ypark&#x2F;" class="social">
+                <img alt=github src=https://ypark.github.io/social_icons/github.svg>
+            </a>
+            
+            <a rel="me" href="https:&#x2F;&#x2F;twitter.com&#x2F;ypp_lab" class="social">
+                <img alt=twitter src=https://ypark.github.io/social_icons/twitter.svg>
+            </a>
+            
+        </div>
+    </div>
+
+    <nav>
+        
+        <a href=https://ypark.github.io/about style="margin-left: 0.5em">&#x2F;about</a>
+        
+        <a href=https://ypark.github.io/posts style="margin-left: 0.5em">&#x2F;posts</a>
+        
+        <a href=https://ypark.github.io/team style="margin-left: 0.5em">&#x2F;team</a>
+        
+        <a href=https://ypark.github.io/alumni style="margin-left: 0.5em">&#x2F;alumni</a>
+        
+
+        
+        |<a id="dark-mode-toggle" onclick="toggleTheme(); event.preventDefault();" href="#">
+            <img src=https://ypark.github.io/feather/sun.svg id="sun-icon" style="filter: invert(1);" alt="Light" />
+            <img src=https://ypark.github.io/feather/moon.svg id="moon-icon" alt="Dark" />
+        </a>
+
+        <!-- Inititialize the theme toggle icons -->
+        <script>updateItemToggleTheme()</script>
+        
+    </nav>
+</header>
+
+
+        
+        
+    
+<main>
+    <article>
+        <div class="title">
+            
+            
+    <div class="page-header">
+        Adjusting batch effect in pseudobulk samples is a causal inference problem<span class="primary-color" style="font-size: 1.6em">.</span>
+    </div>
+
+
+                <div class="meta">
+                    
+                        Posted on <time>2023-06-19</time>
+                    
+
+                    
+
+                    
+
+                    
+                    
+                            <span class="tags-label"> :: Tags:</span>
+                            <span class="tags">
+                                    <a href="https://ypark.github.io/tags/batch-effect/" class="post-tag">batch effect</a>, 
+                                
+                                    <a href="https://ypark.github.io/tags/causal-inference/" class="post-tag">causal inference</a>, 
+                                
+                                    <a href="https://ypark.github.io/tags/single-cell/" class="post-tag">single cell</a>, 
+                                
+                                    <a href="https://ypark.github.io/tags/potential-outcome/" class="post-tag">potential outcome</a>
+                                
+                            </span>
+                    
+
+                    
+                    
+                        
+                        
+                            
+                        
+
+                        
+                    
+
+                    
+
+                </div>
+        </div>
+
+        
+
+        
+        
+        
+            <div class="toc-container">
+                <h1 class="toc-title">Table of Contents</h1>
+                <ul class="toc-list">
+                    
+                        <li>
+                            <a href="https://ypark.github.io/posts/batch-correction-2023/#inspiration">Inspiration</a>
+                            
+                        </li>
+                    
+                        <li>
+                            <a href="https://ypark.github.io/posts/batch-correction-2023/#a-generative-scheme-for-a-single-cell-count-matrix-with-multiplicative-batch-effects">A generative scheme for a single-cell count matrix with multiplicative batch effects</a>
+                            
+                        </li>
+                    
+                        <li>
+                            <a href="https://ypark.github.io/posts/batch-correction-2023/#a-causal-inference-approach-to-identify-batch-effects">A causal inference approach to identify batch effects</a>
+                            
+                        </li>
+                    
+                        <li>
+                            <a href="https://ypark.github.io/posts/batch-correction-2023/#estimation-of-the-batch-effects-by-matching">Estimation of the batch effects by matching</a>
+                            
+                                <ul>
+                                    
+                                        <li>
+                                            <a href="https://ypark.github.io/posts/batch-correction-2023/#local-update-maximize-batch-s-specific-parameters">Local update: Maximize batch $s$-specific parameters</a>
+                                        </li>
+
+                                        
+                                    
+                                        <li>
+                                            <a href="https://ypark.github.io/posts/batch-correction-2023/#global-update">Global update</a>
+                                        </li>
+
+                                        
+                                    
+                                        <li>
+                                            <a href="https://ypark.github.io/posts/batch-correction-2023/#algorithm">Algorithm</a>
+                                        </li>
+
+                                        
+                                    
+                                </ul>
+                            
+                        </li>
+                    
+                        <li>
+                            <a href="https://ypark.github.io/posts/batch-correction-2023/#a-toy-example">A toy example</a>
+                            
+                        </li>
+                    
+                </ul>
+            </div>
+        
+        
+
+        <section class="body">
+            <h3 id="inspiration"><a class="zola-anchor" href="#inspiration" aria-label="Anchor link for: inspiration">Inspiration</a></h3>
+<ul>
+<li>
+<p>Our previous work demonstrates that fiding causal difference at a pseudobulk level is easier than dealing with noisy cell-level data: <a href="https://genomebiology.biomedcentral.com/articles/10.1186/s13059-021-02438-4">Counterfactual inference for single-cell gene expression analysis</a></p>
+</li>
+<li>
+<p>Interestingly, other people considered identifying batch effects should be treated as a causal effect estimation problem: <a href="https://www.biorxiv.org/content/10.1101/2021.09.03.458920v3">Batch Effects are Causal Effects: Applications in Human Connectomics</a></p>
+</li>
+</ul>
+<h3 id="a-generative-scheme-for-a-single-cell-count-matrix-with-multiplicative-batch-effects"><a class="zola-anchor" href="#a-generative-scheme-for-a-single-cell-count-matrix-with-multiplicative-batch-effects" aria-label="Anchor link for: a-generative-scheme-for-a-single-cell-count-matrix-with-multiplicative-batch-effects">A generative scheme for a single-cell count matrix with multiplicative batch effects</a></h3>
+<p>We encounter single-cell expression data consisting of multiple batches. One of the primary goals is to identify cell types (clusters/factors) and cell-type-specific gene expression patterns. However, distinguishing batch-specific and cell-type-specific genes only by a factorization method is challenging and often not identifiable from data alone. For each gene $g$ and cell $j$, the gene expression $Y_{gj}$ were sampled from Poisson distribution with the rate parameter:</p>
+<p>$$\lambda_{gj} = \lambda_{gj}^{\textsf{unbiased}} \times \prod_{k} \delta_{gk}^{X_{kj}},$$</p>
+<p>affected by the batch effects $\delta_{gk}$. More formally, letting $X_{kj}$ be a batch membership matrix, assigning a cell $j$ to a batch $k$ if and only if $X_{kj}=1$, we assume the average gene expression rates are linearly affected by in the log-transformed space:</p>
+<p>$$\mathbb{E}!\left[\ln Y_{gj}\right] = \ln \left( \sum_{t} \beta_{gt} \theta_{jt} \right) + \sum_{k} \ln\delta_{gk} X_{kj}.$$</p>
+<pre data-lang="r" style="background-color:#fafafa;color:#61676c;" class="language-r "><code class="language-r" data-lang="r"><span style="color:#f07171;">set.seed</span><span>(</span><span style="color:#ff8f40;">1331</span><span>)
+</span><span>
+</span><span>m </span><span style="color:#ed9366;">&lt;- </span><span style="color:#ff8f40;">500 </span><span style="font-style:italic;color:#abb0b6;"># genes
+</span><span>n </span><span style="color:#ed9366;">&lt;- </span><span style="color:#ff8f40;">1000 </span><span style="font-style:italic;color:#abb0b6;"># cells
+</span><span>nb </span><span style="color:#ed9366;">&lt;- </span><span style="color:#ff8f40;">2 </span><span style="font-style:italic;color:#abb0b6;"># batches
+</span><span>
+</span><span style="font-style:italic;color:#abb0b6;">## 1. batch membership
+</span><span>X </span><span style="color:#ed9366;">&lt;- </span><span style="color:#f07171;">matrix</span><span>(</span><span style="color:#ff8f40;">0</span><span style="color:#61676ccc;">,</span><span> n</span><span style="color:#61676ccc;">,</span><span> nb)
+</span><span>batch </span><span style="color:#ed9366;">&lt;- </span><span style="color:#f07171;">sample</span><span>(nb</span><span style="color:#61676ccc;">,</span><span> n</span><span style="color:#61676ccc;">, </span><span style="color:#ff8f40;">replace </span><span style="color:#ed9366;">= </span><span style="color:#ff8f40;">TRUE</span><span>)
+</span><span style="color:#fa6e32;">for</span><span>(b </span><span style="color:#fa6e32;">in </span><span style="color:#ff8f40;">1</span><span style="color:#fa6e32;">:</span><span>nb){
+</span><span>    X[batch </span><span style="color:#ed9366;">==</span><span> b</span><span style="color:#61676ccc;">,</span><span> b] </span><span style="color:#ed9366;">&lt;- </span><span style="color:#ff8f40;">1
+</span><span>}
+</span><span>
+</span><span style="font-style:italic;color:#abb0b6;">## 2. batch effects
+</span><span>W.true </span><span style="color:#ed9366;">&lt;- </span><span style="color:#f07171;">matrix</span><span>(</span><span style="color:#f07171;">rnorm</span><span>(m</span><span style="color:#ed9366;">*</span><span>nb)</span><span style="color:#61676ccc;">,</span><span> m</span><span style="color:#61676ccc;">,</span><span> nb)
+</span><span>ln.delta </span><span style="color:#ed9366;">&lt;- </span><span style="color:#f07171;">apply</span><span>(W.true </span><span style="color:#ed9366;">%*% </span><span style="color:#f07171;">t</span><span>(X)</span><span style="color:#61676ccc;">, </span><span style="color:#ff8f40;">2</span><span style="color:#61676ccc;">,</span><span> scale)
+</span><span>
+</span><span style="font-style:italic;color:#abb0b6;">## 3. true effects
+</span><span>K </span><span style="color:#ed9366;">&lt;- </span><span style="color:#ff8f40;">5
+</span><span>.beta </span><span style="color:#ed9366;">&lt;- </span><span style="color:#f07171;">matrix</span><span>(</span><span style="color:#f07171;">rgamma</span><span>(m </span><span style="color:#ed9366;">*</span><span> K</span><span style="color:#61676ccc;">, </span><span style="color:#ff8f40;">1</span><span>)</span><span style="color:#61676ccc;">,</span><span> m</span><span style="color:#61676ccc;">,</span><span> K)
+</span><span>.theta </span><span style="color:#ed9366;">&lt;- </span><span style="color:#f07171;">matrix</span><span>(</span><span style="color:#f07171;">rgamma</span><span>(n </span><span style="color:#ed9366;">*</span><span> K</span><span style="color:#61676ccc;">, </span><span style="color:#ff8f40;">1</span><span>)</span><span style="color:#61676ccc;">,</span><span> n</span><span style="color:#61676ccc;">,</span><span> K)
+</span><span>lambda.true </span><span style="color:#ed9366;">&lt;-</span><span> .beta </span><span style="color:#ed9366;">%*% </span><span style="color:#f07171;">t</span><span>(.theta)
+</span><span>
+</span><span>lambda </span><span style="color:#ed9366;">&lt;-</span><span> lambda.true </span><span style="color:#ed9366;">* </span><span style="color:#f07171;">exp</span><span>(ln.delta)
+</span><span>yy </span><span style="color:#ed9366;">&lt;- </span><span style="color:#f07171;">apply</span><span>(lambda</span><span style="color:#61676ccc;">, </span><span style="color:#ff8f40;">2</span><span style="color:#61676ccc;">, </span><span style="color:#fa6e32;">function</span><span>(</span><span style="color:#ff8f40;">l</span><span>) </span><span style="color:#f07171;">sapply</span><span>(l</span><span style="color:#61676ccc;">,</span><span> rpois</span><span style="color:#61676ccc;">, </span><span style="color:#ff8f40;">n</span><span style="color:#ed9366;">=</span><span style="color:#ff8f40;">1</span><span>))
+</span><span>oo </span><span style="color:#ed9366;">&lt;- </span><span style="color:#f07171;">order</span><span>(</span><span style="color:#f07171;">apply</span><span>(</span><span style="color:#f07171;">t</span><span>(.theta)</span><span style="color:#61676ccc;">, </span><span style="color:#ff8f40;">2</span><span style="color:#61676ccc;">,</span><span> which.max))
+</span></code></pre>
+<p>If we can accurately estimate a true batch effect matrix, say $\delta_{gk}$, it is straightforward to adjust the difference between batches. How can we identify the true batch effect $\delta_{gk}$ for all the genes $g$ specifically expressed in the batch $k$? If we match cells $i$ and $j$ sampled from the batches $a$ and $b$, respectively, we expect the batch-specific difference $\delta_{ga} \neq \delta_{gk}$ will persist and even amplify, but the difference originated from cell types will vanish. This problem is equivalent to estimating the potential outcome of gene expressions in each batch $k$, $\mathbb{E}!\left[Y_{gj}^{(k)}\right]$.</p>
+<h3 id="a-causal-inference-approach-to-identify-batch-effects"><a class="zola-anchor" href="#a-causal-inference-approach-to-identify-batch-effects" aria-label="Anchor link for: a-causal-inference-approach-to-identify-batch-effects">A causal inference approach to identify batch effects</a></h3>
+<p>To dissect batch-specific effect in a causal inference (potential outcome) framework, we assume our confounding variables $Q$ are well-distributed across different batches:</p>
+<ul>
+<li>Overlap: $0 &lt; p(X_{kj}=1|Q) &lt; 1$ for all $k$.</li>
+</ul>
+<p>Moreover, we assume these covariates are sufficient enough to induce conditional dependence between potential (imputed) gene expression and batch assignment mechanisms:</p>
+<ul>
+<li>Strong ignorability: $(Y(k), Y(k')) \perp!!!\perp X | Q$ for all $k,k'$ pairs.</li>
+</ul>
+<h3 id="estimation-of-the-batch-effects-by-matching"><a class="zola-anchor" href="#estimation-of-the-batch-effects-by-matching" aria-label="Anchor link for: estimation-of-the-batch-effects-by-matching">Estimation of the batch effects by matching</a></h3>
+<p>Suppose we can counterfactually estimate gene expressions of a certain cell $j$ if the cell was measured in different batches other than the observed batch $k$.</p>
+<p>$$Z_{gj} = \frac{ \sum_{i} (1 - X_{ik}) w_{ji} Y_{gi} }{ \sum_{i} (1 - X_{ik}) w_{ji} }$$</p>
+<p>Like many other batch correction methods invented for single-cell RNA-seq analysis, we will assume $Z_{gj}$ reliably contain biologically-relevant cell state information while excluding the batch-specific effects to which the cell $j$ belong.</p>
+<p>Observed log-likelihood:
+$$\prod_{j} p(Y_{gj}|\mu_{gs},\delta_{gk},X_{jk})
+=\prod_{j} \operatorname{Poisson}(Y_{gj}|\mu_{gs} \sum_{k} \delta_{gk} X_{jk})$$</p>
+<p>Counterfactual log-likelihood:
+$$\prod_{j} p(Z_{gj}|\mu_{gs}, \gamma_{gs}) = \prod_{j} \operatorname{Poisson}(Z_{gj}|\mu_{gs} \gamma_{gs})$$</p>
+<h4 id="local-update-maximize-batch-s-specific-parameters"><a class="zola-anchor" href="#local-update-maximize-batch-s-specific-parameters" aria-label="Anchor link for: local-update-maximize-batch-s-specific-parameters">Local update: Maximize batch $s$-specific parameters</a></h4>
+<p>$$\mathbb{E}!\left[\mu_{gs}\right] \approx \frac{ \sum_{j \in \mathcal{C}<em>{s}} Y</em>{gj} + \sum_{j \in \mathcal{C}<em>{s}} Z</em>{gj} }
+{\sum_{k} \delta_{gk} n_{sk} + n_{s} \gamma_{gs}}$$</p>
+<p>Letting $p_{sk} = n_{sk} / n_{s}$,
+$$\mu_{gs} \gets \frac{ \bar{Y}<em>{gs} + \bar{Z}</em>{gs}}
+{\sum_{k} \delta_{gk} p_{sk} + \gamma_{gs}}$$</p>
+<p>If $\delta_{gk} \to 0$ and $p_{sk}=1$, meaning that this sample $s$ is just sampled from the batch $k$ only, $\mu_{gs} \to \bar{Y}<em>{gs} + \bar{Z}</em>{gs}$ and $\bar{Y}<em>{gs} \to \bar{Y}</em>{gsk} = 0$. Therefore, $\mu_{gs} \to \bar{Z}_{gs}$.</p>
+<h4 id="global-update"><a class="zola-anchor" href="#global-update" aria-label="Anchor link for: global-update">Global update</a></h4>
+<p>$$\mathbb{E}!\left[\delta_{gk}\right] \approx
+\frac{\sum_{s} \sum_{j \in \mathcal{C}<em>{s}} X</em>{kj} Y_{gj}}{\sum_{s} \mu_{gs} \sum_{j \in \mathcal{C}<em>{s}} X</em>{kj}}$$</p>
+<p>$$\delta_{gk} \gets
+\frac{\sum_{s} \bar{Y}<em>{gsk} n</em>{sk}}
+{\sum_{s} \mu_{gs} n_{sk}}$$</p>
+<p>If $\bar{Y}<em>{gsk} \to \mu</em>{gs}$ for all $s$, $\delta_{gk} \to 1$. If $\bar{Y}<em>{gsk} &lt; \mu</em>{gs}$ in all $s$, $\delta_{gk} &lt; 1$. If $\bar{Y}<em>{gsk} \to 0$ for all $s$, $\delta</em>{gk} \to 0$.</p>
+<h4 id="algorithm"><a class="zola-anchor" href="#algorithm" aria-label="Anchor link for: algorithm">Algorithm</a></h4>
+<ol>
+<li>
+<p>Initialize batch effect $\delta_{gk} \gets 1$ for each gene $g$ and batch $k$</p>
+</li>
+<li>
+<p>Initialize $\gamma_{gs} \gets 1$ for each sample $s$</p>
+</li>
+<li>
+<p>Static global stat: $S_{gk} \gets 0$</p>
+</li>
+<li>
+<p>For each pseudo-bulk sample $s$ with cells $\mathcal{C}_{s}$,</p>
+<ul>
+<li>
+<p>$n_{sk} \gets \sum_{j \in \mathcal{C}<em>{s}} X</em>{kj}$, $n_{s} \gets \sum_{k} n_{sk}$, $p_{sk} \gets n_{sk}/n_{s}$</p>
+</li>
+<li>
+<p>$\bar{Y}<em>{gs} \gets \sum</em>{j \in \mathcal{C}<em>{s}} Y</em>{gj} / n_{s}$</p>
+</li>
+<li>
+<p>$\bar{Y}<em>{gsk} \gets \sum</em>{j \in \mathcal{C}<em>{s}} Y</em>{gj} X_{kj} / n_{s}$</p>
+</li>
+<li>
+<p>$\bar{Z}<em>{gs} \gets \sum</em>{j \in \mathcal{C}<em>{s}} Z</em>{gj} / n_{s}$ after matching and imputation</p>
+</li>
+<li>
+<p>$S_{gk} \gets S_{gk} + \bar{Y}<em>{gsk} n</em>{sk}$</p>
+</li>
+</ul>
+</li>
+<li>
+<p>Iterative-updated global stat: $T_{gk} \gets 0$</p>
+</li>
+<li>
+<p>(Local step) For each PB sample $s$:</p>
+<ul>
+<li>
+<p>$\bar{\delta}<em>{gs} \gets \sum</em>{k} \delta_{gk} p_{sk}$</p>
+</li>
+<li>
+<p>$\mu_{gs} \gets (\bar{Y}<em>{gs} + \bar{Z}</em>{gs}) / (\gamma_{gs} + \bar{\delta}_{gs})$</p>
+</li>
+<li>
+<p>$\gamma_{gs} \gets (\bar{Y}<em>{gs})/(\mu</em>{gs})$</p>
+</li>
+<li>
+<p>For each $k$: $T_{gk} \gets T_{gk} + \mu_{gs} n_{sk}$</p>
+</li>
+</ul>
+</li>
+<li>
+<p>(Global step) For each batch $k$:</p>
+<ul>
+<li>$\delta_{gk} \gets S_{gk} / T_{gk}$</li>
+</ul>
+</li>
+<li>
+<p>Repeat the previous three steps (5-7) until convergence</p>
+</li>
+</ol>
+<h3 id="a-toy-example"><a class="zola-anchor" href="#a-toy-example" aria-label="Anchor link for: a-toy-example">A toy example</a></h3>
+<pre data-lang="r" style="background-color:#fafafa;color:#61676c;" class="language-r "><code class="language-r" data-lang="r"><span style="font-style:italic;color:#abb0b6;">## 1. project
+</span><span>K </span><span style="color:#ed9366;">&lt;- </span><span style="color:#ff8f40;">5
+</span><span>R </span><span style="color:#ed9366;">&lt;- </span><span style="color:#f07171;">matrix</span><span>(</span><span style="color:#f07171;">rnorm</span><span>(m </span><span style="color:#ed9366;">*</span><span> K)</span><span style="color:#61676ccc;">,</span><span> K</span><span style="color:#61676ccc;">,</span><span> m)
+</span><span>Q.raw </span><span style="color:#ed9366;">&lt;-</span><span> R </span><span style="color:#ed9366;">%*%</span><span> yy </span><span style="font-style:italic;color:#abb0b6;"># K x n
+</span></code></pre>
+<p>Before we adjust batch membership in the random projection matrix:</p>
+<pre data-lang="r" style="background-color:#fafafa;color:#61676c;" class="language-r "><code class="language-r" data-lang="r"><span style="color:#f07171;">cor</span><span>(</span><span style="color:#f07171;">t</span><span>(Q.raw)</span><span style="color:#61676ccc;">,</span><span> X)
+</span></code></pre>
+<pre style="background-color:#fafafa;color:#61676c;"><code><span>##            [,1]       [,2]
+</span><span>## [1,]  0.7617260 -0.7617260
+</span><span>## [2,]  0.8283630 -0.8283630
+</span><span>## [3,]  0.8099248 -0.8099248
+</span><span>## [4,] -0.7250199  0.7250199
+</span><span>## [5,]  0.6651915 -0.6651915
+</span></code></pre>
+<pre data-lang="r" style="background-color:#fafafa;color:#61676c;" class="language-r "><code class="language-r" data-lang="r"><span style="font-style:italic;color:#abb0b6;">## 2. regress out
+</span><span style="font-style:italic;color:#abb0b6;">##
+</span><span style="font-style:italic;color:#abb0b6;">##  X theta = X inv(X&#39;X) X&#39; Y
+</span><span style="font-style:italic;color:#abb0b6;">##          = U D V&#39; V inv(D^2) V&#39; (U D V&#39;)&#39; Y
+</span><span style="font-style:italic;color:#abb0b6;">##          = U inv(D) V&#39; V D U&#39; Y
+</span><span style="font-style:italic;color:#abb0b6;">##          = U U&#39; Y
+</span><span>
+</span><span>x.svd </span><span style="color:#ed9366;">&lt;- </span><span style="color:#f07171;">svd</span><span>(X)
+</span><span>U </span><span style="color:#ed9366;">&lt;-</span><span> x.svd</span><span style="color:#fa6e32;">$</span><span>u
+</span><span>U.t </span><span style="color:#ed9366;">&lt;- </span><span style="color:#f07171;">t</span><span>(x.svd</span><span style="color:#fa6e32;">$</span><span>u)
+</span><span>
+</span><span>Q.t </span><span style="color:#ed9366;">&lt;- </span><span style="color:#f07171;">t</span><span>(Q.raw)
+</span><span>Q.t </span><span style="color:#ed9366;">&lt;-</span><span> Q.t </span><span style="color:#ed9366;">-</span><span> U </span><span style="color:#ed9366;">%*%</span><span> U.t </span><span style="color:#ed9366;">%*%</span><span> Q.t
+</span><span>Q </span><span style="color:#ed9366;">&lt;- </span><span style="color:#f07171;">t</span><span>(Q.t)
+</span></code></pre>
+<p>After we adjust the batch effects:</p>
+<pre data-lang="r" style="background-color:#fafafa;color:#61676c;" class="language-r "><code class="language-r" data-lang="r"><span style="color:#f07171;">cor</span><span>(Q.t</span><span style="color:#61676ccc;">,</span><span> X)
+</span></code></pre>
+<pre style="background-color:#fafafa;color:#61676c;"><code><span>##               [,1]          [,2]
+</span><span>## [1,] -2.744966e-16  2.744966e-16
+</span><span>## [2,] -6.208765e-16  6.208765e-16
+</span><span>## [3,]  3.233061e-16 -3.233061e-16
+</span><span>## [4,]  1.992261e-16 -1.992261e-16
+</span><span>## [5,] -2.716381e-16  2.716381e-16
+</span></code></pre>
+<pre data-lang="r" style="background-color:#fafafa;color:#61676c;" class="language-r "><code class="language-r" data-lang="r"><span>q.svd </span><span style="color:#ed9366;">&lt;- </span><span style="color:#f07171;">svd</span><span>(Q)
+</span><span>
+</span><span style="font-style:italic;color:#abb0b6;">## 3. sorting
+</span><span>B </span><span style="color:#ed9366;">&lt;- </span><span>(</span><span style="color:#f07171;">sign</span><span>(q.svd</span><span style="color:#fa6e32;">$</span><span>v) </span><span style="color:#ed9366;">+ </span><span style="color:#ff8f40;">1</span><span>)</span><span style="color:#ed9366;">/</span><span style="color:#ff8f40;">2
+</span><span>ss </span><span style="color:#ed9366;">&lt;- </span><span style="color:#f07171;">apply</span><span>(</span><span style="color:#f07171;">sweep</span><span>(B</span><span style="color:#61676ccc;">, </span><span style="color:#ff8f40;">2</span><span style="color:#61676ccc;">, </span><span style="color:#ff8f40;">2</span><span style="color:#ed9366;">^</span><span>(</span><span style="color:#f07171;">seq</span><span>(</span><span style="color:#ff8f40;">0</span><span style="color:#61676ccc;">,</span><span>K</span><span style="color:#ed9366;">-</span><span style="color:#ff8f40;">1</span><span>))</span><span style="color:#61676ccc;">,</span><span> `*`)</span><span style="color:#61676ccc;">, </span><span style="color:#ff8f40;">1</span><span style="color:#61676ccc;">,</span><span> sum) </span><span style="color:#ed9366;">+ </span><span style="color:#ff8f40;">1
+</span></code></pre>
+<pre data-lang="r" style="background-color:#fafafa;color:#61676c;" class="language-r "><code class="language-r" data-lang="r"><span>feat.dn </span><span style="color:#ed9366;">&lt;- </span><span style="color:#f07171;">apply</span><span>(Q</span><span style="color:#61676ccc;">, </span><span style="color:#ff8f40;">2</span><span style="color:#61676ccc;">, </span><span style="color:#fa6e32;">function</span><span>(</span><span style="color:#ff8f40;">x</span><span>) x </span><span style="color:#ed9366;">/ </span><span style="color:#f07171;">sqrt</span><span>(</span><span style="color:#f07171;">sum</span><span>(x</span><span style="color:#ed9366;">^</span><span style="color:#ff8f40;">2</span><span>)))
+</span><span>knn </span><span style="color:#ed9366;">&lt;- </span><span style="color:#ff8f40;">3
+</span><span>d </span><span style="color:#ed9366;">&lt;- </span><span style="color:#f07171;">nrow</span><span>(feat.dn)
+</span><span>
+</span><span style="color:#f07171;">library</span><span>(RcppAnnoy)
+</span><span style="font-style:italic;color:#abb0b6;">## a. construct dictionary for each batch
+</span><span>dict.list </span><span style="color:#ed9366;">&lt;- </span><span style="color:#f07171;">lapply</span><span>(</span><span style="color:#f07171;">sort</span><span>(</span><span style="color:#f07171;">unique</span><span>(batch))</span><span style="color:#61676ccc;">,
+</span><span>                    </span><span style="color:#fa6e32;">function</span><span>(</span><span style="color:#ff8f40;">b</span><span>) { </span><span style="color:#f07171;">new</span><span>(AnnoyAngular</span><span style="color:#61676ccc;">,</span><span> d) })
+</span><span>
+</span><span style="color:#fa6e32;">for</span><span>(j </span><span style="color:#fa6e32;">in </span><span style="color:#ff8f40;">1</span><span style="color:#fa6e32;">:</span><span style="color:#f07171;">length</span><span>(batch)){
+</span><span>    b </span><span style="color:#ed9366;">&lt;-</span><span> batch[j]
+</span><span>    dict.list[[b]]</span><span style="color:#fa6e32;">$</span><span style="color:#f29718;">addItem</span><span>(j</span><span style="color:#61676ccc;">,</span><span> feat.dn[</span><span style="color:#61676ccc;">,</span><span>j])
+</span><span>}
+</span><span>
+</span><span style="color:#fa6e32;">for</span><span>(dd </span><span style="color:#fa6e32;">in</span><span> dict.list){
+</span><span>    dd</span><span style="color:#fa6e32;">$</span><span style="color:#f29718;">build</span><span>(</span><span style="color:#ff8f40;">50</span><span>)
+</span><span>}
+</span><span>
+</span><span style="font-style:italic;color:#abb0b6;">## b. a simplified routine to retrieve and estimate counterfactual y
+</span><span style="color:#f29718;">.counterfactual </span><span style="color:#ed9366;">&lt;- </span><span style="color:#fa6e32;">function</span><span>(</span><span style="color:#ff8f40;">j</span><span>){
+</span><span>    v </span><span style="color:#ed9366;">&lt;-</span><span> feat.dn[</span><span style="color:#61676ccc;">,</span><span>j]
+</span><span>
+</span><span>    nn </span><span style="color:#ed9366;">&lt;- </span><span style="color:#f07171;">c</span><span>()
+</span><span>    dd </span><span style="color:#ed9366;">&lt;- </span><span style="color:#f07171;">c</span><span>()
+</span><span>
+</span><span>    </span><span style="color:#fa6e32;">for</span><span>(k </span><span style="color:#fa6e32;">in </span><span style="color:#ff8f40;">1</span><span style="color:#fa6e32;">:</span><span>nb){
+</span><span>        </span><span style="color:#fa6e32;">if</span><span>(k </span><span style="color:#ed9366;">==</span><span> batch[j]) </span><span style="color:#fa6e32;">next
+</span><span>        .nn </span><span style="color:#ed9366;">&lt;-</span><span> dict.list[[k]]</span><span style="color:#fa6e32;">$</span><span style="color:#f29718;">getNNsByVector</span><span>(v</span><span style="color:#61676ccc;">,</span><span> knn)
+</span><span>        .dd </span><span style="color:#ed9366;">&lt;- </span><span style="color:#f07171;">apply</span><span>(feat.dn[</span><span style="color:#61676ccc;">,</span><span> .nn]</span><span style="color:#61676ccc;">, </span><span style="color:#ff8f40;">2</span><span style="color:#61676ccc;">, </span><span style="color:#fa6e32;">function</span><span>(</span><span style="color:#ff8f40;">u</span><span>) </span><span style="color:#f07171;">sum</span><span>((u </span><span style="color:#ed9366;">-</span><span> v)</span><span style="color:#ed9366;">^</span><span style="color:#ff8f40;">2</span><span>))
+</span><span>        nn </span><span style="color:#ed9366;">&lt;- </span><span style="color:#f07171;">c</span><span>(nn</span><span style="color:#61676ccc;">,</span><span> .nn)
+</span><span>        dd </span><span style="color:#ed9366;">&lt;- </span><span style="color:#f07171;">c</span><span>(dd</span><span style="color:#61676ccc;">,</span><span> .dd)
+</span><span>    }
+</span><span>
+</span><span>    w </span><span style="color:#ed9366;">&lt;- </span><span style="color:#f07171;">exp</span><span>(</span><span style="color:#ed9366;">-</span><span>(dd </span><span style="color:#ed9366;">- </span><span style="color:#f07171;">max</span><span>(dd)))
+</span><span>    w </span><span style="color:#ed9366;">&lt;-</span><span> w</span><span style="color:#ed9366;">/</span><span style="color:#f07171;">sum</span><span>(w)
+</span><span>
+</span><span>    yy[</span><span style="color:#61676ccc;">,</span><span> nn</span><span style="color:#61676ccc;">,</span><span> drop </span><span style="color:#ed9366;">= </span><span style="color:#ff8f40;">FALSE</span><span>] </span><span style="color:#ed9366;">%*% </span><span style="color:#f07171;">matrix</span><span>(w</span><span style="color:#61676ccc;">, </span><span style="color:#ff8f40;">ncol</span><span style="color:#ed9366;">=</span><span style="color:#ff8f40;">1</span><span>)
+</span><span>}
+</span></code></pre>
+<pre data-lang="r" style="background-color:#fafafa;color:#61676c;" class="language-r "><code class="language-r" data-lang="r"><span>ngene </span><span style="color:#ed9366;">&lt;- </span><span style="color:#f07171;">nrow</span><span>(yy)
+</span><span>nbatch </span><span style="color:#ed9366;">&lt;- </span><span style="color:#f07171;">ncol</span><span>(X)
+</span><span>nsample </span><span style="color:#ed9366;">&lt;- </span><span style="color:#f07171;">max</span><span>(ss)
+</span><span>
+</span><span>.delta.db </span><span style="color:#ed9366;">&lt;- </span><span style="color:#f07171;">matrix</span><span>(</span><span style="color:#ff8f40;">1</span><span style="color:#61676ccc;">,</span><span> ngene</span><span style="color:#61676ccc;">,</span><span> nbatch)       </span><span style="font-style:italic;color:#abb0b6;"># gene x batch effects
+</span><span>.delta.num.db </span><span style="color:#ed9366;">&lt;- </span><span style="color:#f07171;">matrix</span><span>(</span><span style="color:#ff8f40;">0</span><span style="color:#61676ccc;">,</span><span> ngene</span><span style="color:#61676ccc;">,</span><span> nbatch)    </span><span style="font-style:italic;color:#abb0b6;"># gene x batch numerators
+</span><span>.delta.denom.db </span><span style="color:#ed9366;">&lt;- </span><span style="color:#f07171;">matrix</span><span>(</span><span style="color:#ff8f40;">0</span><span style="color:#61676ccc;">,</span><span> ngene</span><span style="color:#61676ccc;">,</span><span> nbatch)  </span><span style="font-style:italic;color:#abb0b6;"># gene x batch denominators
+</span><span>
+</span><span>.prob.bs </span><span style="color:#ed9366;">&lt;- </span><span style="color:#f07171;">matrix</span><span>(</span><span style="color:#ff8f40;">0</span><span style="color:#61676ccc;">,</span><span> nbatch</span><span style="color:#61676ccc;">,</span><span> nsample)      </span><span style="font-style:italic;color:#abb0b6;"># batch x sample probabilities
+</span><span>.size.bs </span><span style="color:#ed9366;">&lt;- </span><span style="color:#f07171;">matrix</span><span>(</span><span style="color:#ff8f40;">0</span><span style="color:#61676ccc;">,</span><span> nbatch</span><span style="color:#61676ccc;">,</span><span> nsample)      </span><span style="font-style:italic;color:#abb0b6;"># batch x sample freq
+</span><span>.ybar.ds </span><span style="color:#ed9366;">&lt;- </span><span style="color:#f07171;">matrix</span><span>(</span><span style="color:#ff8f40;">0</span><span style="color:#61676ccc;">,</span><span> ngene</span><span style="color:#61676ccc;">,</span><span> nsample)       </span><span style="font-style:italic;color:#abb0b6;"># gene x sample observed average
+</span><span>.zbar.ds </span><span style="color:#ed9366;">&lt;- </span><span style="color:#f07171;">matrix</span><span>(</span><span style="color:#ff8f40;">0</span><span style="color:#61676ccc;">,</span><span> ngene</span><span style="color:#61676ccc;">,</span><span> nsample)       </span><span style="font-style:italic;color:#abb0b6;"># gene x sample imputed average
+</span><span>.mu.ds </span><span style="color:#ed9366;">&lt;- </span><span style="color:#f07171;">matrix</span><span>(</span><span style="color:#ff8f40;">1</span><span style="color:#61676ccc;">,</span><span> ngene</span><span style="color:#61676ccc;">,</span><span> nsample)         </span><span style="font-style:italic;color:#abb0b6;"># gene x sample adjusted average
+</span><span>
+</span><span style="font-style:italic;color:#abb0b6;">## Precalculate some statistics
+</span><span style="color:#fa6e32;">for</span><span>(s </span><span style="color:#fa6e32;">in </span><span style="color:#ff8f40;">1</span><span style="color:#fa6e32;">:</span><span>nsample){
+</span><span>    </span><span style="color:#fa6e32;">if</span><span>(</span><span style="color:#f07171;">sum</span><span>(ss </span><span style="color:#ed9366;">==</span><span> s) </span><span style="color:#ed9366;">&lt; </span><span style="color:#ff8f40;">1</span><span>) </span><span style="color:#fa6e32;">next
+</span><span>
+</span><span>    .yy </span><span style="color:#ed9366;">&lt;-</span><span> yy[</span><span style="color:#61676ccc;">,</span><span> ss </span><span style="color:#ed9366;">==</span><span> s</span><span style="color:#61676ccc;">,</span><span> drop </span><span style="color:#ed9366;">= </span><span style="color:#ff8f40;">FALSE</span><span>]
+</span><span>    .zz </span><span style="color:#ed9366;">&lt;- </span><span style="color:#f07171;">do.call</span><span>(cbind</span><span style="color:#61676ccc;">, </span><span style="color:#f07171;">lapply</span><span>(</span><span style="color:#f07171;">which</span><span>(ss </span><span style="color:#ed9366;">==</span><span> s)</span><span style="color:#61676ccc;">,</span><span> .counterfactual))
+</span><span>
+</span><span>    .ybar.ds[</span><span style="color:#61676ccc;">,</span><span>s] </span><span style="color:#ed9366;">&lt;- </span><span style="color:#f07171;">apply</span><span>(.yy</span><span style="color:#61676ccc;">, </span><span style="color:#ff8f40;">1</span><span style="color:#61676ccc;">,</span><span> mean)
+</span><span>    .zbar.ds[</span><span style="color:#61676ccc;">,</span><span>s] </span><span style="color:#ed9366;">&lt;- </span><span style="color:#f07171;">apply</span><span>(.zz</span><span style="color:#61676ccc;">, </span><span style="color:#ff8f40;">1</span><span style="color:#61676ccc;">,</span><span> mean)
+</span><span>    .prob.bs[</span><span style="color:#61676ccc;">,</span><span>s] </span><span style="color:#ed9366;">&lt;- </span><span style="color:#f07171;">colMeans</span><span>(X[ss </span><span style="color:#ed9366;">==</span><span> s</span><span style="color:#61676ccc;">, </span><span>])
+</span><span>    .size.bs[</span><span style="color:#61676ccc;">,</span><span>s] </span><span style="color:#ed9366;">&lt;- </span><span style="color:#f07171;">colSums</span><span>(X[ss </span><span style="color:#ed9366;">==</span><span> s</span><span style="color:#61676ccc;">, </span><span>])
+</span><span>
+</span><span>    .y.dsb </span><span style="color:#ed9366;">&lt;-</span><span> yy[</span><span style="color:#61676ccc;">,</span><span> ss </span><span style="color:#ed9366;">==</span><span> s</span><span style="color:#61676ccc;">,</span><span> drop </span><span style="color:#ed9366;">= </span><span style="color:#ff8f40;">FALSE</span><span>] </span><span style="color:#ed9366;">%*%</span><span> X[ss </span><span style="color:#ed9366;">==</span><span> s</span><span style="color:#61676ccc;">, ,</span><span> drop </span><span style="color:#ed9366;">= </span><span style="color:#ff8f40;">FALSE</span><span>]
+</span><span>    .delta.num.db </span><span style="color:#ed9366;">&lt;-</span><span> .delta.num.db </span><span style="color:#ed9366;">+</span><span> .y.dsb
+</span><span>}
+</span><span>
+</span><span>.gamma.ds </span><span style="color:#ed9366;">&lt;- </span><span style="color:#f07171;">matrix</span><span>(</span><span style="color:#ff8f40;">1</span><span style="color:#61676ccc;">,</span><span> ngene</span><span style="color:#61676ccc;">,</span><span> nsample)
+</span><span>
+</span><span style="color:#fa6e32;">for</span><span>(iter </span><span style="color:#fa6e32;">in </span><span style="color:#ff8f40;">1</span><span style="color:#fa6e32;">:</span><span style="color:#ff8f40;">100</span><span>){
+</span><span>    .mu.ds </span><span style="color:#ed9366;">&lt;- </span><span>(.ybar.ds </span><span style="color:#ed9366;">+</span><span> .zbar.ds) </span><span style="color:#ed9366;">/ </span><span>(.delta.db </span><span style="color:#ed9366;">%*%</span><span> .prob.bs </span><span style="color:#ed9366;">+</span><span> .gamma.ds </span><span style="color:#ed9366;">+ </span><span style="color:#ff8f40;">1e-8</span><span>)
+</span><span>    .gamma.ds </span><span style="color:#ed9366;">&lt;-</span><span> .zbar.ds </span><span style="color:#ed9366;">/ </span><span>(.mu.ds </span><span style="color:#ed9366;">+ </span><span style="color:#ff8f40;">1e-8</span><span>)
+</span><span>    .delta.db </span><span style="color:#ed9366;">&lt;-</span><span> .delta.num.db </span><span style="color:#ed9366;">/ </span><span>(.mu.ds </span><span style="color:#ed9366;">%*% </span><span style="color:#f07171;">t</span><span>(.size.bs) </span><span style="color:#ed9366;">+ </span><span style="color:#ff8f40;">1e-8</span><span>)
+</span><span>}
+</span></code></pre>
+<p>Can we recover the original batch effects?</p>
+<pre data-lang="r" style="background-color:#fafafa;color:#61676c;" class="language-r "><code class="language-r" data-lang="r"><span style="color:#f07171;">par</span><span>(</span><span style="color:#ff8f40;">mfrow</span><span style="color:#ed9366;">=</span><span style="color:#f07171;">c</span><span>(</span><span style="color:#ff8f40;">1</span><span style="color:#61676ccc;">,</span><span style="color:#ff8f40;">2</span><span>))
+</span><span style="color:#f07171;">plot</span><span>(.delta.db[</span><span style="color:#61676ccc;">,</span><span style="color:#ff8f40;">1</span><span>]</span><span style="color:#61676ccc;">,</span><span> W.true[</span><span style="color:#61676ccc;">,</span><span style="color:#ff8f40;">1</span><span>]</span><span style="color:#61676ccc;">, </span><span style="color:#ff8f40;">pch</span><span style="color:#ed9366;">=</span><span style="color:#ff8f40;">19</span><span style="color:#61676ccc;">, </span><span style="color:#ff8f40;">xlab</span><span style="color:#ed9366;">=</span><span style="color:#86b300;">&quot;estimated delta&quot;</span><span style="color:#61676ccc;">, </span><span style="color:#ff8f40;">ylab</span><span style="color:#ed9366;">=</span><span style="color:#86b300;">&quot;true delta effect&quot;</span><span style="color:#61676ccc;">, </span><span style="color:#ff8f40;">main</span><span style="color:#ed9366;">=</span><span style="color:#86b300;">&quot;batch1&quot;</span><span>)
+</span><span style="color:#f07171;">plot</span><span>(.delta.db[</span><span style="color:#61676ccc;">,</span><span style="color:#ff8f40;">2</span><span>]</span><span style="color:#61676ccc;">,</span><span> W.true[</span><span style="color:#61676ccc;">,</span><span style="color:#ff8f40;">2</span><span>]</span><span style="color:#61676ccc;">, </span><span style="color:#ff8f40;">pch</span><span style="color:#ed9366;">=</span><span style="color:#ff8f40;">19</span><span style="color:#61676ccc;">, </span><span style="color:#ff8f40;">xlab</span><span style="color:#ed9366;">=</span><span style="color:#86b300;">&quot;estimated delta&quot;</span><span style="color:#61676ccc;">, </span><span style="color:#ff8f40;">ylab</span><span style="color:#ed9366;">=</span><span style="color:#86b300;">&quot;true delta effect&quot;</span><span style="color:#61676ccc;">, </span><span style="color:#ff8f40;">main</span><span style="color:#ed9366;">=</span><span style="color:#86b300;">&quot;batch2&quot;</span><span>)
+</span></code></pre>
+<p><img src="https://ypark.github.io/posts/batch-correction-2023/batch_correction-2023_files/figure-markdown_strict/unnamed-chunk-6-1.png" alt="" /></p>
+<p>Are they independent of the cell type effects?</p>
+<pre data-lang="r" style="background-color:#fafafa;color:#61676c;" class="language-r "><code class="language-r" data-lang="r"><span>y.true </span><span style="color:#ed9366;">&lt;- </span><span style="color:#f07171;">sweep</span><span>(lambda.true </span><span style="color:#ed9366;">%*%</span><span> X</span><span style="color:#61676ccc;">, </span><span style="color:#ff8f40;">2</span><span style="color:#61676ccc;">, </span><span style="color:#f07171;">colSums</span><span>(X)</span><span style="color:#61676ccc;">,</span><span> `/`)
+</span><span style="color:#f07171;">par</span><span>(</span><span style="color:#ff8f40;">mfrow</span><span style="color:#ed9366;">=</span><span style="color:#f07171;">c</span><span>(</span><span style="color:#ff8f40;">1</span><span style="color:#61676ccc;">,</span><span style="color:#ff8f40;">2</span><span>))
+</span><span style="color:#f07171;">plot</span><span>(.delta.db[</span><span style="color:#61676ccc;">,</span><span style="color:#ff8f40;">1</span><span>]</span><span style="color:#61676ccc;">,</span><span> y.true[</span><span style="color:#61676ccc;">,</span><span style="color:#ff8f40;">1</span><span>]</span><span style="color:#61676ccc;">, </span><span style="color:#ff8f40;">pch</span><span style="color:#ed9366;">=</span><span style="color:#ff8f40;">19</span><span style="color:#61676ccc;">, </span><span style="color:#ff8f40;">xlab</span><span style="color:#ed9366;">=</span><span style="color:#86b300;">&quot;estimated delta&quot;</span><span style="color:#61676ccc;">, </span><span style="color:#ff8f40;">ylab</span><span style="color:#ed9366;">=</span><span style="color:#86b300;">&quot;true y mean&quot;</span><span style="color:#61676ccc;">, </span><span style="color:#ff8f40;">main</span><span style="color:#ed9366;">=</span><span style="color:#86b300;">&quot;batch1&quot;</span><span>)
+</span><span style="color:#f07171;">plot</span><span>(.delta.db[</span><span style="color:#61676ccc;">,</span><span style="color:#ff8f40;">2</span><span>]</span><span style="color:#61676ccc;">,</span><span> y.true[</span><span style="color:#61676ccc;">,</span><span style="color:#ff8f40;">2</span><span>]</span><span style="color:#61676ccc;">, </span><span style="color:#ff8f40;">pch</span><span style="color:#ed9366;">=</span><span style="color:#ff8f40;">19</span><span style="color:#61676ccc;">, </span><span style="color:#ff8f40;">xlab</span><span style="color:#ed9366;">=</span><span style="color:#86b300;">&quot;estimated delta&quot;</span><span style="color:#61676ccc;">, </span><span style="color:#ff8f40;">ylab</span><span style="color:#ed9366;">=</span><span style="color:#86b300;">&quot;true y mean&quot;</span><span style="color:#61676ccc;">, </span><span style="color:#ff8f40;">main</span><span style="color:#ed9366;">=</span><span style="color:#86b300;">&quot;batch2&quot;</span><span>)
+</span></code></pre>
+<p><img src="https://ypark.github.io/posts/batch-correction-2023/batch_correction-2023_files/figure-markdown_strict/unnamed-chunk-7-1.png" alt="" /></p>
+<p>While adjusting the estimated batch effects, can we recover the unbiased cell type effects? The following is before adjustment:</p>
+<pre data-lang="r" style="background-color:#fafafa;color:#61676c;" class="language-r "><code class="language-r" data-lang="r"><span>ybar </span><span style="color:#ed9366;">&lt;- </span><span style="color:#f07171;">sweep</span><span>(yy </span><span style="color:#ed9366;">%*%</span><span> X</span><span style="color:#61676ccc;">, </span><span style="color:#ff8f40;">2</span><span style="color:#61676ccc;">, </span><span style="color:#f07171;">colSums</span><span>(X)</span><span style="color:#61676ccc;">,</span><span> `/`)
+</span><span style="color:#f07171;">par</span><span>(</span><span style="color:#ff8f40;">mfrow</span><span style="color:#ed9366;">=</span><span style="color:#f07171;">c</span><span>(</span><span style="color:#ff8f40;">1</span><span style="color:#61676ccc;">,</span><span style="color:#ff8f40;">2</span><span>))
+</span><span style="color:#f07171;">plot</span><span>(ybar[</span><span style="color:#61676ccc;">,</span><span style="color:#ff8f40;">1</span><span>]</span><span style="color:#61676ccc;">,</span><span> y.true[</span><span style="color:#61676ccc;">,</span><span style="color:#ff8f40;">1</span><span>]</span><span style="color:#61676ccc;">, </span><span style="color:#ff8f40;">pch</span><span style="color:#ed9366;">=</span><span style="color:#ff8f40;">19</span><span style="color:#61676ccc;">, </span><span style="color:#ff8f40;">xlab</span><span style="color:#ed9366;">=</span><span style="color:#86b300;">&quot;sample mean&quot;</span><span style="color:#61676ccc;">, </span><span style="color:#ff8f40;">ylab</span><span style="color:#ed9366;">=</span><span style="color:#86b300;">&quot;true y mean&quot;</span><span style="color:#61676ccc;">, </span><span style="color:#ff8f40;">log</span><span style="color:#ed9366;">=</span><span style="color:#86b300;">&quot;x&quot;</span><span style="color:#61676ccc;">, </span><span style="color:#ff8f40;">main</span><span style="color:#ed9366;">=</span><span style="color:#86b300;">&quot;batch1&quot;</span><span>)
+</span><span style="color:#f07171;">plot</span><span>(ybar[</span><span style="color:#61676ccc;">,</span><span style="color:#ff8f40;">2</span><span>]</span><span style="color:#61676ccc;">,</span><span> y.true[</span><span style="color:#61676ccc;">,</span><span style="color:#ff8f40;">2</span><span>]</span><span style="color:#61676ccc;">, </span><span style="color:#ff8f40;">pch</span><span style="color:#ed9366;">=</span><span style="color:#ff8f40;">19</span><span style="color:#61676ccc;">, </span><span style="color:#ff8f40;">xlab</span><span style="color:#ed9366;">=</span><span style="color:#86b300;">&quot;sample mean&quot;</span><span style="color:#61676ccc;">, </span><span style="color:#ff8f40;">ylab</span><span style="color:#ed9366;">=</span><span style="color:#86b300;">&quot;true y mean&quot;</span><span style="color:#61676ccc;">, </span><span style="color:#ff8f40;">log</span><span style="color:#ed9366;">=</span><span style="color:#86b300;">&quot;x&quot;</span><span style="color:#61676ccc;">, </span><span style="color:#ff8f40;">main</span><span style="color:#ed9366;">=</span><span style="color:#86b300;">&quot;batch2&quot;</span><span>)
+</span></code></pre>
+<p><img src="https://ypark.github.io/posts/batch-correction-2023/batch_correction-2023_files/figure-markdown_strict/unnamed-chunk-8-1.png" alt="" /></p>
+<p>Here, we adjusted the batch effects:</p>
+<pre data-lang="r" style="background-color:#fafafa;color:#61676c;" class="language-r "><code class="language-r" data-lang="r"><span>ybar.adj </span><span style="color:#ed9366;">&lt;- </span><span style="color:#f07171;">sweep</span><span>((yy </span><span style="color:#ed9366;">/</span><span> .delta.db[</span><span style="color:#61676ccc;">,</span><span> batch]) </span><span style="color:#ed9366;">%*%</span><span> X</span><span style="color:#61676ccc;">, </span><span style="color:#ff8f40;">2</span><span style="color:#61676ccc;">, </span><span style="color:#f07171;">colSums</span><span>(X)</span><span style="color:#61676ccc;">,</span><span> `/`)
+</span><span style="color:#f07171;">par</span><span>(</span><span style="color:#ff8f40;">mfrow</span><span style="color:#ed9366;">=</span><span style="color:#f07171;">c</span><span>(</span><span style="color:#ff8f40;">1</span><span style="color:#61676ccc;">,</span><span style="color:#ff8f40;">2</span><span>))
+</span><span style="color:#f07171;">plot</span><span>(ybar.adj[</span><span style="color:#61676ccc;">,</span><span style="color:#ff8f40;">1</span><span>]</span><span style="color:#61676ccc;">,</span><span> y.true[</span><span style="color:#61676ccc;">,</span><span style="color:#ff8f40;">1</span><span>]</span><span style="color:#61676ccc;">, </span><span style="color:#ff8f40;">pch</span><span style="color:#ed9366;">=</span><span style="color:#ff8f40;">19</span><span style="color:#61676ccc;">, </span><span style="color:#ff8f40;">xlab</span><span style="color:#ed9366;">=</span><span style="color:#86b300;">&quot;adjusted sample mean&quot;</span><span style="color:#61676ccc;">, </span><span style="color:#ff8f40;">ylab</span><span style="color:#ed9366;">=</span><span style="color:#86b300;">&quot;true y mean&quot;</span><span style="color:#61676ccc;">, </span><span style="color:#ff8f40;">log</span><span style="color:#ed9366;">=</span><span style="color:#86b300;">&quot;x&quot;</span><span style="color:#61676ccc;">, </span><span style="color:#ff8f40;">main</span><span style="color:#ed9366;">=</span><span style="color:#86b300;">&quot;batch1&quot;</span><span>)
+</span><span style="color:#f07171;">plot</span><span>(ybar.adj[</span><span style="color:#61676ccc;">,</span><span style="color:#ff8f40;">2</span><span>]</span><span style="color:#61676ccc;">,</span><span> y.true[</span><span style="color:#61676ccc;">,</span><span style="color:#ff8f40;">2</span><span>]</span><span style="color:#61676ccc;">, </span><span style="color:#ff8f40;">pch</span><span style="color:#ed9366;">=</span><span style="color:#ff8f40;">19</span><span style="color:#61676ccc;">, </span><span style="color:#ff8f40;">xlab</span><span style="color:#ed9366;">=</span><span style="color:#86b300;">&quot;adjusted sample mean&quot;</span><span style="color:#61676ccc;">, </span><span style="color:#ff8f40;">ylab</span><span style="color:#ed9366;">=</span><span style="color:#86b300;">&quot;true y mean&quot;</span><span style="color:#61676ccc;">, </span><span style="color:#ff8f40;">log</span><span style="color:#ed9366;">=</span><span style="color:#86b300;">&quot;x&quot;</span><span style="color:#61676ccc;">, </span><span style="color:#ff8f40;">main</span><span style="color:#ed9366;">=</span><span style="color:#86b300;">&quot;batch2&quot;</span><span>)
+</span></code></pre>
+<p><img src="https://ypark.github.io/posts/batch-correction-2023/batch_correction-2023_files/figure-markdown_strict/unnamed-chunk-9-1.png" alt="" /></p>
+<pre data-lang="r" style="background-color:#fafafa;color:#61676c;" class="language-r "><code class="language-r" data-lang="r"><span style="color:#f07171;">par</span><span>(</span><span style="color:#ff8f40;">mfrow</span><span style="color:#ed9366;">=</span><span style="color:#f07171;">c</span><span>(</span><span style="color:#ff8f40;">1</span><span style="color:#61676ccc;">,</span><span style="color:#ff8f40;">2</span><span>))
+</span><span>.tsne </span><span style="color:#ed9366;">&lt;-</span><span> Rtsne</span><span style="color:#ed9366;">::</span><span style="color:#f29718;">Rtsne</span><span>(</span><span style="color:#f07171;">log</span><span>(</span><span style="color:#ff8f40;">1 </span><span style="color:#ed9366;">+ </span><span style="color:#f07171;">t</span><span>(yy))</span><span style="color:#61676ccc;">, </span><span style="color:#ff8f40;">num_threads</span><span style="color:#ed9366;">=</span><span style="color:#ff8f40;">4</span><span>)</span><span style="color:#fa6e32;">$</span><span>Y
+</span><span style="color:#f07171;">plot</span><span>(.tsne[</span><span style="color:#61676ccc;">,</span><span style="color:#ff8f40;">1</span><span>]</span><span style="color:#61676ccc;">,</span><span> .tsne[</span><span style="color:#61676ccc;">,</span><span style="color:#ff8f40;">2</span><span>]</span><span style="color:#61676ccc;">, </span><span style="color:#ff8f40;">col</span><span style="color:#ed9366;">=</span><span>batch</span><span style="color:#61676ccc;">, </span><span style="color:#ff8f40;">pch</span><span style="color:#ed9366;">=</span><span style="color:#ff8f40;">19</span><span style="color:#61676ccc;">, </span><span style="color:#ff8f40;">cex</span><span style="color:#ed9366;">=</span><span style="color:#61676ccc;">.</span><span style="color:#ff8f40;">5</span><span style="color:#61676ccc;">, </span><span style="color:#ff8f40;">main</span><span style="color:#ed9366;">=</span><span style="color:#86b300;">&quot;before batch adj&quot;</span><span style="color:#61676ccc;">,
+</span><span>     </span><span style="color:#ff8f40;">xlab </span><span style="color:#ed9366;">= </span><span style="color:#86b300;">&quot;tsne1&quot;</span><span style="color:#61676ccc;">, </span><span style="color:#ff8f40;">ylab </span><span style="color:#ed9366;">= </span><span style="color:#86b300;">&quot;tsne2&quot;</span><span>)
+</span><span style="color:#f07171;">legend</span><span>(</span><span style="color:#86b300;">&quot;topleft&quot;</span><span style="color:#61676ccc;">, </span><span style="color:#f07171;">c</span><span>(</span><span style="color:#86b300;">&quot;batch #1&quot;</span><span style="color:#61676ccc;">, </span><span style="color:#86b300;">&quot;batch #2&quot;</span><span>)</span><span style="color:#61676ccc;">, </span><span style="color:#ff8f40;">col</span><span style="color:#ed9366;">=</span><span style="color:#ff8f40;">1</span><span style="color:#fa6e32;">:</span><span style="color:#ff8f40;">2</span><span style="color:#61676ccc;">, </span><span style="color:#ff8f40;">pch</span><span style="color:#ed9366;">=</span><span style="color:#ff8f40;">19</span><span>)
+</span><span>.tsne </span><span style="color:#ed9366;">&lt;-</span><span> Rtsne</span><span style="color:#ed9366;">::</span><span style="color:#f29718;">Rtsne</span><span>(</span><span style="color:#f07171;">log</span><span>(</span><span style="color:#ff8f40;">1 </span><span style="color:#ed9366;">+ </span><span style="color:#f07171;">t</span><span>(yy</span><span style="color:#ed9366;">/</span><span>.delta.db[</span><span style="color:#61676ccc;">,</span><span>batch]))</span><span style="color:#61676ccc;">, </span><span style="color:#ff8f40;">num_threads</span><span style="color:#ed9366;">=</span><span style="color:#ff8f40;">4</span><span>)</span><span style="color:#fa6e32;">$</span><span>Y
+</span><span style="color:#f07171;">plot</span><span>(.tsne[</span><span style="color:#61676ccc;">,</span><span style="color:#ff8f40;">1</span><span>]</span><span style="color:#61676ccc;">,</span><span> .tsne[</span><span style="color:#61676ccc;">,</span><span style="color:#ff8f40;">2</span><span>]</span><span style="color:#61676ccc;">, </span><span style="color:#ff8f40;">col</span><span style="color:#ed9366;">=</span><span>batch</span><span style="color:#61676ccc;">, </span><span style="color:#ff8f40;">pch</span><span style="color:#ed9366;">=</span><span style="color:#ff8f40;">19</span><span style="color:#61676ccc;">, </span><span style="color:#ff8f40;">cex</span><span style="color:#ed9366;">=</span><span style="color:#61676ccc;">.</span><span style="color:#ff8f40;">5</span><span style="color:#61676ccc;">, </span><span style="color:#ff8f40;">main</span><span style="color:#ed9366;">=</span><span style="color:#86b300;">&quot;after batch adj&quot;</span><span style="color:#61676ccc;">,
+</span><span>     </span><span style="color:#ff8f40;">xlab </span><span style="color:#ed9366;">= </span><span style="color:#86b300;">&quot;tsne1&quot;</span><span style="color:#61676ccc;">, </span><span style="color:#ff8f40;">ylab </span><span style="color:#ed9366;">= </span><span style="color:#86b300;">&quot;tsne2&quot;</span><span>)
+</span></code></pre>
+<p><img src="https://ypark.github.io/posts/batch-correction-2023/batch_correction-2023_files/figure-markdown_strict/unnamed-chunk-10-1.png" alt="" /></p>
+
+        </section>
+    </article>
+</main>
+
+
+
+        
+
+    </div>
+</body>
+
+</html>
