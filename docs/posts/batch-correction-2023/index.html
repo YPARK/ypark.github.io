@@ -248,16 +248,6 @@
                             
                         </li>
                     
-                        <li>
-                            <a href="https://ypark.github.io/posts/batch-correction-2023/#">++-----------+-----------+-----------+-----------+--------+</a>
-                            
-                        </li>
-                    
-                        <li>
-                            <a href="https://ypark.github.io/posts/batch-correction-2023/#-1">+-+---------+----------+----------+----------+----------+-+</a>
-                            
-                        </li>
-                    
                 </ul>
             </div>
         
@@ -524,265 +514,200 @@ $$\mu_{gs} \gets \frac{ \bar{Y}<em>{gs} + \bar{Z}</em>{gs}}
 </span><span>}
 </span></code></pre>
 <p>Can we recover the original batch effects?</p>
-<pre data-lang="r" style="background-color:#fafafa;color:#61676c;" class="language-r "><code class="language-r" data-lang="r"><span style="color:#f07171;">library</span><span>(txtplot)
-</span><span>
-</span><span style="color:#f29718;">txtplot</span><span>(.delta.db[</span><span style="color:#61676ccc;">,</span><span style="color:#ff8f40;">1</span><span>]</span><span style="color:#61676ccc;">,</span><span> W.true[</span><span style="color:#61676ccc;">,</span><span style="color:#ff8f40;">1</span><span>]</span><span style="color:#61676ccc;">, </span><span style="color:#ff8f40;">width</span><span style="color:#ed9366;">=</span><span style="color:#ff8f40;">50</span><span style="color:#61676ccc;">, </span><span style="color:#ff8f40;">height</span><span style="color:#ed9366;">=</span><span style="color:#ff8f40;">30</span><span style="color:#61676ccc;">,
-</span><span>        </span><span style="color:#ff8f40;">xlab</span><span style="color:#ed9366;">=</span><span style="color:#86b300;">&quot;estimated delta (batch 1)&quot;</span><span style="color:#61676ccc;">,
-</span><span>        </span><span style="color:#ff8f40;">ylab</span><span style="color:#ed9366;">=</span><span style="color:#86b300;">&quot;true delta effect&quot;</span><span>)
+<pre style="background-color:#fafafa;color:#61676c;"><code><span>batch #1
+</span><span>   3 +-+--------+---------+--------+---------+---+
+</span><span>t    |                                      **   |
+</span><span>r    |            *           *  *      ** **  * |
+</span><span>u  2 +                        **  **     * * *   +
+</span><span>e    |                       *  *    ***** **  * |
+</span><span>     |          * *  **  * ** ************ **    |
+</span><span>d  1 +        ** *  ** **  **** ****** **** *    +
+</span><span>e    |       ** ** ****  ****************        |
+</span><span>l    |     *****************************  * *    |
+</span><span>t  0 +  ***  ********************** **           +
+</span><span>a    |   * ************ ** ** ****   *    *      |
+</span><span>  -1 +   ************** * ***** *                +
+</span><span>e    |   ************   *  *    *       *        |
+</span><span>f    |  **** *** **    *    *         *          |
+</span><span>f -2 +  * *  *    *    *                         +
+</span><span>e    |  * **   *                                 |
+</span><span>c    | * **                                      |
+</span><span>t    +-+--------+---------+--------+---------+---+
+</span><span>       0       0.5        1       1.5        2    
+</span><span>               estimated delta (batch 1)          
+</span><span>batch #2
+</span><span>     ++----------+---------+----------+----------+
+</span><span>t    |                                       *   |
+</span><span>r    |                            *           *  |
+</span><span>u    |                               *  *  ***   |
+</span><span>e  2 +                          * * * ** *   * * +
+</span><span>     |            * ***       **   ********* **  |
+</span><span>d    |               ******   ************ ****  |
+</span><span>e    |      *  *  ** ************************ *  |
+</span><span>l    |     *** ****** ******* *************  *   |
+</span><span>t  0 +  ** *****************************  ***  * +
+</span><span>a    |  ********* ******** *** ** ** **  *       |
+</span><span>     | ***************** ** **    *              |
+</span><span>e    | *** *  **  *** ***                        |
+</span><span>f -2 +  *   *   *   *       *                    +
+</span><span>f    |  **                                       |
+</span><span>e    |   *    *                                  |
+</span><span>c    |   *                                       |
+</span><span>t    ++----------+---------+----------+----------+
+</span><span>      0         0.5        1         1.5         2
+</span><span>               estimated delta (batch 2)          
 </span></code></pre>
-<p>3 +-+--------+---------+--------+---------+---+
-|                                      *    |
-|                                      **   |
-|            *              *      *   *  * |
-|                        *   *      * * *   |
-t  2 +                        **   *     * *     +
-r    |                          *     ***  *   * |
-u    |                       * ***** * * * **    |
-e    |          * *  **    ** **** ******  **    |
-1 +         * **  * ***  * *  ***** ***       +
-d    |       **     **     ***  **** **** * *    |
-e    |        * ** ***   ***********   **        |
-l    |     ****************** **********  *      |
-t    |      ********************** ***      *    |
-a  0 +  ***  ** * * **** ******  ** *            +
-|  ** *** * * *  ******** ***  **           |
-e    |     * *********  ** ** ****        *      |
-f    |   * ************ * * *****                |
-f -1 +   ******* ** *   * ***   *                +
-e    |   *** * **  *       *    *       *        |
-c    |  **** * ****    *    *         *          |
-t    |   *** *** *     *                         |
-|    *       *                              |
--2 +  *  * * *       *                         +
-|    **                                     |
-|  * *                                      |
-| * *                                       |
-+-+--------+---------+--------+---------+---+
-0       0.5        1       1.5        2<br />
-estimated delta (batch 1)</p>
-<pre data-lang="r" style="background-color:#fafafa;color:#61676c;" class="language-r "><code class="language-r" data-lang="r"><span style="color:#f29718;">txtplot</span><span>(.delta.db[</span><span style="color:#61676ccc;">,</span><span style="color:#ff8f40;">2</span><span>]</span><span style="color:#61676ccc;">,</span><span> W.true[</span><span style="color:#61676ccc;">,</span><span style="color:#ff8f40;">2</span><span>]</span><span style="color:#61676ccc;">, </span><span style="color:#ff8f40;">width</span><span style="color:#ed9366;">=</span><span style="color:#ff8f40;">50</span><span style="color:#61676ccc;">, </span><span style="color:#ff8f40;">height</span><span style="color:#ed9366;">=</span><span style="color:#ff8f40;">30</span><span style="color:#61676ccc;">,
-</span><span>        </span><span style="color:#ff8f40;">xlab</span><span style="color:#ed9366;">=</span><span style="color:#86b300;">&quot;estimated delta (batch 2)&quot;</span><span style="color:#61676ccc;">,
-</span><span>        </span><span style="color:#ff8f40;">ylab</span><span style="color:#ed9366;">=</span><span style="color:#86b300;">&quot;true delta effect&quot;</span><span>)
-</span></code></pre>
-<pre style="background-color:#fafafa;color:#61676c;"><code><span> ++----------+---------+----------+----------+
-</span><span> |                                       *   |
-</span><span> |                                           |
-</span><span> |                            *           *  |
-</span><span> |                                           |
-</span></code></pre>
-<p>t    |                               *  *  ***   |
-r    |                                ** *   *   |
-u  2 +                          * ***  ***     * +
-e    |            * **        *    * ******  **  |
-|                *   *   **** ****  * ****  |
-d    |         *  *  *****   *   *** ******* **  |
-e    |      *     *   * * * ******* ********* *  |
-l    |          * ** ******* ************* **    |
-t    |     *** ****** ** **** *** * **** **  *   |
-a  0 +  *  ****************************   * *  * +
-|   ***** ************* ***** ***** * *     |
-e    |  * * *** * ****** * **  ** *              |
-f    |  ***** ***** * ** ** *     *   *          |
-f    | ********* * *****     *                   |
-e    | * * *  **  **   *                         |
-c    |  *   * *         *                        |
-t -2 +          *   *       *                    +
-|  **                                       |
-|        *                                  |
-|   *                                       |
-|                                           |
-|   *                                       |
-++----------+---------+----------+----------+
-0         0.5        1         1.5         2
-estimated delta (batch 2)</p>
 <p>Are they independent of the cell type effects?</p>
-<pre data-lang="r" style="background-color:#fafafa;color:#61676c;" class="language-r "><code class="language-r" data-lang="r"><span>y.true </span><span style="color:#ed9366;">&lt;- </span><span style="color:#f07171;">sweep</span><span>(lambda.true </span><span style="color:#ed9366;">%*%</span><span> X</span><span style="color:#61676ccc;">, </span><span style="color:#ff8f40;">2</span><span style="color:#61676ccc;">, </span><span style="color:#f07171;">colSums</span><span>(X)</span><span style="color:#61676ccc;">,</span><span> `/`)
-</span><span>
-</span><span style="color:#f29718;">txtplot</span><span>(.delta.db[</span><span style="color:#61676ccc;">,</span><span style="color:#ff8f40;">1</span><span>]</span><span style="color:#61676ccc;">,</span><span> y.true[</span><span style="color:#61676ccc;">,</span><span style="color:#ff8f40;">1</span><span>]</span><span style="color:#61676ccc;">, </span><span style="color:#ff8f40;">xlab</span><span style="color:#ed9366;">=</span><span style="color:#86b300;">&quot;estimated delta 1&quot;</span><span style="color:#61676ccc;">, </span><span style="color:#ff8f40;">ylab</span><span style="color:#ed9366;">=</span><span style="color:#86b300;">&quot;true y mean 1&quot;</span><span>)
+<pre style="background-color:#fafafa;color:#61676c;"><code><span>batch #1
+</span><span>  15 +-+------------+------------+-----------+------------+----+
+</span><span>t    |            *                            *               |
+</span><span>r    |       *   *    *                                        |
+</span><span>u    |           *                                             |
+</span><span>e 10 +            *                     *        *             +
+</span><span>     |   *            *   **  * * * * *  *           *         |
+</span><span>y    |    ****   *************  *** *   * *** *      *   *     |
+</span><span>     |   **    ** ****    ** * * ********** ** *    *  *       |
+</span><span>m    |    **** ***********   * ************ *  *******  **     |
+</span><span>e  5 +   * ****************** ***************  ******** **     +
+</span><span>a    |   ******* ********************** ********* **** * *  *  |
+</span><span>n    |  **** *************** **  ******* ***  *******  **      |
+</span><span>     |    * ** * ** *  **   ** *    ** ** * * *  ***   * *     |
+</span><span>1    +-+------------+------------+-----------+------------+----+
+</span><span>       0           0.5           1          1.5           2     
+</span><span>                          estimated delta 1                     
+</span><span>batch #2
+</span><span>  15 +-+-------------+-------------+-------------+-------------+
+</span><span>t    |         *                              *                |
+</span><span>r    |                                                  *      |
+</span><span>u    |                                     *      *            |
+</span><span>e    |                  *             *          *             |
+</span><span>  10 +      *   *        *    *  *   *   *    *            *   +
+</span><span>y    |       *     ** ***  * * * **   ** ******* * * **  *     |
+</span><span>     |  * * *    **  * *** * ****** ** **  ******  *** **** *  |
+</span><span>m    |  *** ** ******* ******* ****   ** ***** ***  * ****     |
+</span><span>e  5 +   ** ********* **************** ****** *** ** ***** *   +
+</span><span>a    |  * ****** ***************** ******* *************  **   |
+</span><span>n    |  **** ********** * ***** ** ******** ******* ** ******  |
+</span><span>     |  *   * **** * ** ** *  *   *  ******* ***    * *  *  *  |
+</span><span>2    +-+-------------+-------------+-------------+-------------+
+</span><span>       0            0.5            1            1.5            2
+</span><span>                          estimated delta 2                     
 </span></code></pre>
-<p>15 +-+------------+------------+-----------+------------+----+
-t    |            *                            *               |
-r    |       *   *    *                                        |
-u    |           *                                             |
-e 10 +            *                     *        *             +
-|   *            *   **  * * * * *  *           *         |
-y    |    ****   *************  *** *   * *** *      *   *     |
-|   **    ** ****    ** * * ********** ** *    *  *       |
-m    |    **** ***********   * ************ *  *******  **     |
-e  5 +   * ****************** ***************  ******** **     +
-a    |   ******* ********************** ********* **** * *  *  |
-n    |  **** *************** **  ******* ***  *******  **      |
-|    * ** * ** *  **   ** *    ** ** * * *  ***   * *     |
-1    +-+------------+------------+-----------+------------+----+
-0           0.5           1          1.5           2<br />
-estimated delta 1</p>
-<pre data-lang="r" style="background-color:#fafafa;color:#61676c;" class="language-r "><code class="language-r" data-lang="r"><span style="color:#f29718;">txtplot</span><span>(.delta.db[</span><span style="color:#61676ccc;">,</span><span style="color:#ff8f40;">2</span><span>]</span><span style="color:#61676ccc;">,</span><span> y.true[</span><span style="color:#61676ccc;">,</span><span style="color:#ff8f40;">2</span><span>]</span><span style="color:#61676ccc;">, </span><span style="color:#ff8f40;">xlab</span><span style="color:#ed9366;">=</span><span style="color:#86b300;">&quot;estimated delta 2&quot;</span><span style="color:#61676ccc;">, </span><span style="color:#ff8f40;">ylab</span><span style="color:#ed9366;">=</span><span style="color:#86b300;">&quot;true y mean 2&quot;</span><span>)
-</span></code></pre>
-<p>15 +-+-------------+-------------+-------------+-------------+
-t    |         *                              *                |
-r    |                                                  *      |
-u    |                                     *      *            |
-e    |                  *             *          *             |
-10 +      *   *        *    *  *   *   *    *            *   +
-y    |       *     ** ***  * * * **   ** ******* * * **  *     |
-|  * * *    **  * *** * ****** ** **  ******  *** **** *  |
-m    |  *** ** ******* ******* ****   ** ***** ***  * ****     |
-e  5 +   ** ********* **************** ****** *** ** ***** *   +
-a    |  * ****** ***************** ******* *************  **   |
-n    |  **** ********** * ***** ** ******** ******* ** ******  |
-|  *   * **** * ** ** *  *   *  ******* ***    * *  *  *  |
-2    +-+-------------+-------------+-------------+-------------+
-0            0.5            1            1.5            2
-estimated delta 2</p>
 <p>While adjusting the estimated batch effects, can we recover the unbiased cell type effects? The following is before adjustment:</p>
-<pre data-lang="r" style="background-color:#fafafa;color:#61676c;" class="language-r "><code class="language-r" data-lang="r"><span>ybar </span><span style="color:#ed9366;">&lt;- </span><span style="color:#f07171;">sweep</span><span>(yy </span><span style="color:#ed9366;">%*%</span><span> X</span><span style="color:#61676ccc;">, </span><span style="color:#ff8f40;">2</span><span style="color:#61676ccc;">, </span><span style="color:#f07171;">colSums</span><span>(X)</span><span style="color:#61676ccc;">,</span><span> `/`)
-</span><span>
-</span><span style="color:#f29718;">txtplot</span><span>(</span><span style="color:#f07171;">log1p</span><span>(ybar[</span><span style="color:#61676ccc;">,</span><span style="color:#ff8f40;">1</span><span>])</span><span style="color:#61676ccc;">,</span><span> y.true[</span><span style="color:#61676ccc;">,</span><span style="color:#ff8f40;">1</span><span>]</span><span style="color:#61676ccc;">, </span><span style="color:#ff8f40;">xlab</span><span style="color:#ed9366;">=</span><span style="color:#86b300;">&quot;log1p sample mean&quot;</span><span style="color:#61676ccc;">, </span><span style="color:#ff8f40;">ylab</span><span style="color:#ed9366;">=</span><span style="color:#86b300;">&quot;true y mean #1&quot;</span><span>)
-</span></code></pre>
-<p>15 ++-----------+-----------+-----------+-----------+--------+
-t    |                 *                               *       |
-r    |                    *              *        *            |
-u    |                                  *                      |
-e 10 +              *                            *    *        +
-|       *            *  * **** *   ** *      *            |
-y    |         *  ******* ******   ******     ***        *  *  |
-|    *   * * *  * ** *******  *** * ** *  **              |
-m    |     *   ***** **** ********************       *      *  |
-e  5 +       ********* ************** **** *  **  *****        +
-a    |    **** ************************* **   ***  *           |
-n    |  ** *************** * **********             *          |
-|  * ****** *********  *** ***  *                         |</p>
-<h1 id=""><a class="zola-anchor" href="#" aria-label="Anchor link for: ">++-----------+-----------+-----------+-----------+--------+</a></h1>
-<pre style="background-color:#fafafa;color:#61676c;"><code><span>  0           1           2           3           4         
-</span><span>                      log1p sample mean                     
-</span></code></pre>
-<pre data-lang="r" style="background-color:#fafafa;color:#61676c;" class="language-r "><code class="language-r" data-lang="r"><span style="color:#f29718;">txtplot</span><span>(</span><span style="color:#f07171;">log1p</span><span>(ybar[</span><span style="color:#61676ccc;">,</span><span style="color:#ff8f40;">2</span><span>])</span><span style="color:#61676ccc;">,</span><span> y.true[</span><span style="color:#61676ccc;">,</span><span style="color:#ff8f40;">2</span><span>]</span><span style="color:#61676ccc;">, </span><span style="color:#ff8f40;">xlab</span><span style="color:#ed9366;">=</span><span style="color:#86b300;">&quot;log1p sample mean&quot;</span><span style="color:#61676ccc;">, </span><span style="color:#ff8f40;">ylab</span><span style="color:#ed9366;">=</span><span style="color:#86b300;">&quot;true y mean #2&quot;</span><span>)
-</span></code></pre>
-<p>15 +-+---------+----------+----------+----------+----------+-+
-t    |                          * *                            |
-r    |                                                      *  |
-u    |                                *             *  *       |
-e    |                         *  *   *                        |
-10 +              *   *  *  *  **  **     *                  +
-y    |          *   *   ******* ********  *  * *         *     |
-|         *  *****************  * *   ******  ****        |
-m    |     * * **** ******************    *        *           |
-e  5 +  ***  ************************  *** * *  *        *     +
-a    |  *************************** ***** *  **            *   |
-n    |    * ********************* **** **                      |
-|   **  ********  * **  *** *                             |</p>
-<h1 id="-1"><a class="zola-anchor" href="#-1" aria-label="Anchor link for: -1">+-+---------+----------+----------+----------+----------+-+</a></h1>
-<pre style="background-color:#fafafa;color:#61676c;"><code><span>   0         1          2          3          4          5  
-</span><span>                      log1p sample mean                     
+<pre style="background-color:#fafafa;color:#61676c;"><code><span>batch #1
+</span><span>  15 ++-----------+-----------+-----------+-----------+--------+
+</span><span>t    |                 *                               *       |
+</span><span>r    |                    *              *        *            |
+</span><span>u    |                                  *                      |
+</span><span>e 10 +              *                            *    *        +
+</span><span>     |       *            *  * **** *   ** *      *            |
+</span><span>y    |         *  ******* ******   ******     ***        *  *  |
+</span><span>     |    *   * * *  * ** *******  *** * ** *  **              |
+</span><span>m    |     *   ***** **** ********************       *      *  |
+</span><span>e  5 +       ********* ************** **** *  **  *****        +
+</span><span>a    |    **** ************************* **   ***  *           |
+</span><span>n    |  ** *************** * **********             *          |
+</span><span>     |  * ****** *********  *** ***  *                         |
+</span><span>#    ++-----------+-----------+-----------+-----------+--------+
+</span><span>      0           1           2           3           4         
+</span><span>                          log1p sample mean                     
+</span><span>batch #2
+</span><span>  15 +-+---------+----------+----------+----------+----------+-+
+</span><span>t    |                          * *                            |
+</span><span>r    |                                                      *  |
+</span><span>u    |                                *             *  *       |
+</span><span>e    |                         *  *   *                        |
+</span><span>  10 +              *   *  *  *  **  **     *                  +
+</span><span>y    |          *   *   ******* ********  *  * *         *     |
+</span><span>     |         *  *****************  * *   ******  ****        |
+</span><span>m    |     * * **** ******************    *        *           |
+</span><span>e  5 +  ***  ************************  *** * *  *        *     +
+</span><span>a    |  *************************** ***** *  **            *   |
+</span><span>n    |    * ********************* **** **                      |
+</span><span>     |   **  ********  * **  *** *                             |
+</span><span>#    +-+---------+----------+----------+----------+----------+-+
+</span><span>       0         1          2          3          4          5  
+</span><span>                          log1p sample mean                     
 </span></code></pre>
 <p>Here, we adjusted the batch effects:</p>
-<pre data-lang="r" style="background-color:#fafafa;color:#61676c;" class="language-r "><code class="language-r" data-lang="r"><span>ybar.adj </span><span style="color:#ed9366;">&lt;- </span><span style="color:#f07171;">sweep</span><span>((yy </span><span style="color:#ed9366;">/</span><span> .delta.db[</span><span style="color:#61676ccc;">,</span><span> batch]) </span><span style="color:#ed9366;">%*%</span><span> X</span><span style="color:#61676ccc;">, </span><span style="color:#ff8f40;">2</span><span style="color:#61676ccc;">, </span><span style="color:#f07171;">colSums</span><span>(X)</span><span style="color:#61676ccc;">,</span><span> `/`)
-</span><span>
-</span><span style="color:#f29718;">txtplot</span><span>(</span><span style="color:#f07171;">log1p</span><span>(ybar.adj[</span><span style="color:#61676ccc;">,</span><span style="color:#ff8f40;">1</span><span>])</span><span style="color:#61676ccc;">,</span><span> y.true[</span><span style="color:#61676ccc;">,</span><span style="color:#ff8f40;">1</span><span>]</span><span style="color:#61676ccc;">, </span><span style="color:#ff8f40;">xlab</span><span style="color:#ed9366;">=</span><span style="color:#86b300;">&quot;adjusted sample mean&quot;</span><span style="color:#61676ccc;">, </span><span style="color:#ff8f40;">ylab</span><span style="color:#ed9366;">=</span><span style="color:#86b300;">&quot;true y mean&quot;</span><span>)
+<pre style="background-color:#fafafa;color:#61676c;"><code><span>batch #1
+</span><span>  15 +----------+------------+------------+------------+-------+
+</span><span>     |                       *                    *            |
+</span><span>t    |                             *                     *  *  |
+</span><span>r    |                                              *          |
+</span><span>u 10 +                     *                   * *             +
+</span><span>e    |                     *  * **** *  * **                   |
+</span><span>     |         * *     * ** *********  * *****   *****  *      |
+</span><span>y    |         *  * * * **** * *****   ***   *  *   *          |
+</span><span>     |           ** ***************** *****   *  *   *         |
+</span><span>m  5 +    *  ****** ***************** *  *****  ** *    *   *  +
+</span><span>e    |  **** ********************** **** **** *            *   |
+</span><span>a    |  ** * ***********************  **    *                  |
+</span><span>n    |   * * * ****** ******  *   *                            |
+</span><span>     +----------+------------+------------+------------+-------+
+</span><span>                1            2            3            4        
+</span><span>                        adjusted sample mean                    
+</span><span>batch #2
+</span><span>  15 +----------+------------+------------+------------+-------+
+</span><span>     |                       *                     *           |
+</span><span>t    |                                                      *  |
+</span><span>r    |                              *               *     *    |
+</span><span>u    |                     *       *           *               |
+</span><span>e 10 +                     *  * *  * *  * * *     *            +
+</span><span>     |         *       * ************  *  ** *   *  *  *       |
+</span><span>y    |           ** * * *** * ******    *** **  *  ****        |
+</span><span>     |         *  **** **********************  **      *       |
+</span><span>m  5 +    *  * *** ******** ************ ** ****** *    *   *  +
+</span><span>e    |  * ** ******************** * **  * * ***           *    |
+</span><span>a    |  *  * ************************ *   *  *                 |
+</span><span>n    |  *  * ** ************* **  *                            |
+</span><span>     +----------+------------+------------+------------+-------+
+</span><span>                1            2            3            4        
+</span><span>                        adjusted sample mean                    
 </span></code></pre>
-<p>15 +----------+------------+------------+------------+-------+
-|                       *                    *            |
-t    |                             *                     *  *  |
-r    |                                              *          |
-u 10 +                     *                   * *             +
-e    |                     *  * **** *  * **                   |
-|         * *     * ** *********  * *****   *****  *      |
-y    |         *  * * * **** * *****   ***   *  *   *          |
-|           ** ***************** *****   *  *   *         |
-m  5 +    *  ****** ***************** *  *****  ** *    *   *  +
-e    |  **** ********************** **** **** *            *   |
-a    |  ** * ***********************  **    *                  |
-n    |   * * * ****** ******  *   *                            |
-+----------+------------+------------+------------+-------+
-1            2            3            4<br />
-adjusted sample mean</p>
-<pre data-lang="r" style="background-color:#fafafa;color:#61676c;" class="language-r "><code class="language-r" data-lang="r"><span style="color:#f29718;">txtplot</span><span>(</span><span style="color:#f07171;">log1p</span><span>(ybar.adj[</span><span style="color:#61676ccc;">,</span><span style="color:#ff8f40;">2</span><span>])</span><span style="color:#61676ccc;">,</span><span> y.true[</span><span style="color:#61676ccc;">,</span><span style="color:#ff8f40;">2</span><span>]</span><span style="color:#61676ccc;">, </span><span style="color:#ff8f40;">xlab</span><span style="color:#ed9366;">=</span><span style="color:#86b300;">&quot;adjusted sample mean&quot;</span><span style="color:#61676ccc;">, </span><span style="color:#ff8f40;">ylab</span><span style="color:#ed9366;">=</span><span style="color:#86b300;">&quot;true y mean&quot;</span><span>)
+<pre style="background-color:#fafafa;color:#61676c;"><code><span>before batch adjustment
+</span><span>      +------+------+------+-------+------+------+
+</span><span>   20 +                           ***            +
+</span><span>      |     ******               ******          |
+</span><span>      |   *********             ********         |
+</span><span>      |  ** *******             *********        |
+</span><span>   10 + ********* **            * *******        +
+</span><span>      |  **** *******             ***********    |
+</span><span>t     | *************             *** *********  |
+</span><span>s     |  ***** *** *              ************** |
+</span><span>n   0 +    **********             *** ******* ** +
+</span><span>e     |    **** *****            ************    |
+</span><span>2     |     ****** ****           ** *** **** *  |
+</span><span>  -10 +       *********            *********     +
+</span><span>      |       *********            *********     |
+</span><span>      |       *********             *********    |
+</span><span>      |        *****                ********     |
+</span><span>  -20 +         **                   ** **       +
+</span><span>      +------+------+------+-------+------+------+
+</span><span>            -20    -10     0      10     20       
+</span><span>                          tsne1                   
+</span><span>after batch adjustment
+</span><span>   20 +---+-----+------+-----+-----+------+-----++
+</span><span>      |           ***   **     *                 |
+</span><span>      |          ***      *   ****** *           |
+</span><span>      |       ** **  ****    *********           |
+</span><span>   10 +    * *** ****  **** * ********           +
+</span><span>t     |   ** *** ************ ********  ****     |
+</span><span>s     | ****** ******* ** *** ** ***********     |
+</span><span>n     | ************** * ***** ** ** ******      |
+</span><span>e   0 +   *********** ********************* * *  +
+</span><span>2     |    ******************** ********* ****** |
+</span><span>      |        **** *** ********* ******** ***** |
+</span><span>a     |          ******************************* |
+</span><span>d -10 +             **  *********  **** ******** +
+</span><span>j     |                ** *********************  |
+</span><span>      |                    ***** ***** *** ****  |
+</span><span>      |                   * ******   **** ****   |
+</span><span>      |                              ** * *      |
+</span><span>  -20 +---+-----+------+-----+-----+------+-----++
+</span><span>         -30   -20    -10    0    10     20    30 
+</span><span>                        tsne1 adj                 
 </span></code></pre>
-<p>15 +----------+------------+------------+------------+-------+
-|                       *                     *           |
-t    |                                                      *  |
-r    |                              *               *     *    |
-u    |                     *       *           *               |
-e 10 +                     *  * *  * *  * * *     *            +
-|         *       * ************  *  ** *   *  *  *       |
-y    |           ** * * *** * ******    *** **  *  ****        |
-|         *  **** **********************  **      *       |
-m  5 +    *  * *** ******** ************ ** ****** *    *   *  +
-e    |  * ** ******************** * **  * * ***           *    |
-a    |  *  * ************************ *   *  *                 |
-n    |  *  * ** ************* **  *                            |
-+----------+------------+------------+------------+-------+
-1            2            3            4<br />
-adjusted sample mean</p>
-<pre data-lang="r" style="background-color:#fafafa;color:#61676c;" class="language-r "><code class="language-r" data-lang="r"><span>.tsne </span><span style="color:#ed9366;">&lt;-</span><span> Rtsne</span><span style="color:#ed9366;">::</span><span style="color:#f29718;">Rtsne</span><span>(</span><span style="color:#f07171;">log</span><span>(</span><span style="color:#ff8f40;">1 </span><span style="color:#ed9366;">+ </span><span style="color:#f07171;">t</span><span>(yy))</span><span style="color:#61676ccc;">, </span><span style="color:#ff8f40;">num_threads</span><span style="color:#ed9366;">=</span><span style="color:#ff8f40;">4</span><span>)</span><span style="color:#fa6e32;">$</span><span>Y
-</span><span>
-</span><span style="color:#f29718;">txtplot</span><span>(.tsne[</span><span style="color:#61676ccc;">,</span><span style="color:#ff8f40;">1</span><span>]</span><span style="color:#61676ccc;">,</span><span> .tsne[</span><span style="color:#61676ccc;">,</span><span style="color:#ff8f40;">2</span><span>]</span><span style="color:#61676ccc;">, </span><span style="color:#ff8f40;">xlab </span><span style="color:#ed9366;">= </span><span style="color:#86b300;">&quot;tsne1&quot;</span><span style="color:#61676ccc;">, </span><span style="color:#ff8f40;">ylab </span><span style="color:#ed9366;">= </span><span style="color:#86b300;">&quot;tsne2&quot;</span><span style="color:#61676ccc;">, </span><span style="color:#ff8f40;">width</span><span style="color:#ed9366;">=</span><span style="color:#ff8f40;">50</span><span style="color:#61676ccc;">, </span><span style="color:#ff8f40;">height</span><span style="color:#ed9366;">=</span><span style="color:#ff8f40;">30</span><span>)
-</span></code></pre>
-<pre style="background-color:#fafafa;color:#61676c;"><code><span>  +------+------+------+-------+------+------+
-</span><span>  |                           *              |
-</span></code></pre>
-<p>20 +                           ***            +
-|     *****                ******          |
-|     *******              *****           |
-|   ********              * *** **         |
-|   * *******             ** *****         |
-| ***  ***                 ********        |
-10 + ***** *** *             *  ******        +
-|     * *******              ******* *     |
-|  **** *******             * **********   |
-t     | ********** **             *** ** *****   |
-s     |  ************             ***** *******  |
-n     |  *** * *** *              ************** |
-e   0 +    **********             *** ******* ** +
-2     |    ****** **             ***** ***     * |
-|    **** *****             *** * *****    |
-|     ********* *           *  *** * ** *  |
-|     * ***  ****            ***** ****    |
-|       *********            *********     |
--10 +       **** ****            ***** ***     +
-|       *** ****              ********     |
-|       *********              ********    |
-|        * ****               ***** **     |
-|        *****                 *******     |
-|         ****                 *****       |
--20 +                              *   *       +
-+------+------+------+-------+------+------+
--20    -10     0      10     20<br />
-tsne1</p>
-<pre data-lang="r" style="background-color:#fafafa;color:#61676c;" class="language-r "><code class="language-r" data-lang="r"><span>.tsne </span><span style="color:#ed9366;">&lt;-</span><span> Rtsne</span><span style="color:#ed9366;">::</span><span style="color:#f29718;">Rtsne</span><span>(</span><span style="color:#f07171;">log</span><span>(</span><span style="color:#ff8f40;">1 </span><span style="color:#ed9366;">+ </span><span style="color:#f07171;">t</span><span>(yy</span><span style="color:#ed9366;">/</span><span>.delta.db[</span><span style="color:#61676ccc;">,</span><span>batch]))</span><span style="color:#61676ccc;">, </span><span style="color:#ff8f40;">num_threads</span><span style="color:#ed9366;">=</span><span style="color:#ff8f40;">4</span><span>)</span><span style="color:#fa6e32;">$</span><span>Y
-</span><span>
-</span><span style="color:#f29718;">txtplot</span><span>(.tsne[</span><span style="color:#61676ccc;">,</span><span style="color:#ff8f40;">1</span><span>]</span><span style="color:#61676ccc;">,</span><span> .tsne[</span><span style="color:#61676ccc;">,</span><span style="color:#ff8f40;">2</span><span>]</span><span style="color:#61676ccc;">, </span><span style="color:#ff8f40;">xlab </span><span style="color:#ed9366;">= </span><span style="color:#86b300;">&quot;tsne1 adj&quot;</span><span style="color:#61676ccc;">, </span><span style="color:#ff8f40;">ylab </span><span style="color:#ed9366;">= </span><span style="color:#86b300;">&quot;tsne2 adj&quot;</span><span style="color:#61676ccc;">, </span><span style="color:#ff8f40;">width</span><span style="color:#ed9366;">=</span><span style="color:#ff8f40;">50</span><span style="color:#61676ccc;">, </span><span style="color:#ff8f40;">height</span><span style="color:#ed9366;">=</span><span style="color:#ff8f40;">30</span><span>)
-</span></code></pre>
-<p>20 +---+-----+------+-----+-----+------+-----++
-|                 **                       |
-|           ***          *                 |
-|          ***          *** **             |
-|          *   ***  *    * *** *           |
-|        *  *   ***    *********           |
-|      *** ****   **    ********           |
-10 +    *  ** **** ***** * * ******           +
-|   ** *** ***********  *******   **       |
-t     | ***** ******* ******   * ******* ***     |
-s     | ****** *  **** *  * * *  **********      |
-n     | ************** * *** * **  * **** *      |
-e     |   ************ ******* *****    **       |
-2   0 +   ****** **** ******************* * * *  +
-|     ******************* ********* * ***  |
-a     |    * ******** * * ******  ******* ** *** |
-d     |        ***  *** ********* ****** * ***** |
-j     |          **  ***  * ** ****************  |
-|            **  ****** * ***  ******** ** |
-|                 *********  **** ******** |
--10 +              *  ****** *** ************  +
-|                *  *** *** *   ********   |
-|                     ***    *** *** ****  |
-|                   *********   *    ***   |
-|                     **  *    **** ***    |
-|                              ** * **     |
--20 +                              **          +
-+---+-----+------+-----+-----+------+-----++
--30   -20    -10    0    10     20    30
-tsne1 adj</p>
 
         </section>
     </article>

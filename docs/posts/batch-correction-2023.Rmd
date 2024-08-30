@@ -276,53 +276,67 @@ for(iter in 1:100){
 
 Can we recover the original batch effects?
 
-```{r results="asis"}
+```{r results="asis", echo=FALSE}
 library(txtplot)
+cat("```\n")
+cat("batch #1\n")
 
-txtplot(.delta.db[,1], W.true[,1], width=50, height=30,
+txtplot(.delta.db[,1], W.true[,1], width=50, height=20,
         xlab="estimated delta (batch 1)",
         ylab="true delta effect")
 
-txtplot(.delta.db[,2], W.true[,2], width=50, height=30,
+cat("batch #2\n")
+txtplot(.delta.db[,2], W.true[,2], width=50, height=20,
         xlab="estimated delta (batch 2)",
         ylab="true delta effect")
+cat("```\n")
 ```
 
 Are they independent of the cell type effects?
 
-```{r results="asis"}
+```{r results="asis", echo=FALSE}
 y.true <- sweep(lambda.true %*% X, 2, colSums(X), `/`)
-
+cat("```\n")
+cat("batch #1\n")
 txtplot(.delta.db[,1], y.true[,1], xlab="estimated delta 1", ylab="true y mean 1")
-
+cat("batch #2\n")
 txtplot(.delta.db[,2], y.true[,2], xlab="estimated delta 2", ylab="true y mean 2")
+cat("```\n")
 ```
 
 While adjusting the estimated batch effects, can we recover the unbiased cell type effects? The following is before adjustment:
 
-```{r results="asis"}
+```{r results="asis", echo=FALSE}
 ybar <- sweep(yy %*% X, 2, colSums(X), `/`)
-
+cat("```\n")
+cat("batch #1\n")
 txtplot(log1p(ybar[,1]), y.true[,1], xlab="log1p sample mean", ylab="true y mean #1")
-
+cat("batch #2\n")
 txtplot(log1p(ybar[,2]), y.true[,2], xlab="log1p sample mean", ylab="true y mean #2")
+cat("```\n")
 ```
 
 Here, we adjusted the batch effects:
 
-```{r results="asis"}
+```{r results="asis", echo=FALSE}
 ybar.adj <- sweep((yy / .delta.db[, batch]) %*% X, 2, colSums(X), `/`)
 
+cat("```\n")
+cat("batch #1\n")
 txtplot(log1p(ybar.adj[,1]), y.true[,1], xlab="adjusted sample mean", ylab="true y mean")
+cat("batch #2\n")
 txtplot(log1p(ybar.adj[,2]), y.true[,2], xlab="adjusted sample mean", ylab="true y mean")
+cat("```\n")
 ```
 
-```{r results="asis"}
+```{r results="asis", echo=FALSE}
+cat("```\n")
 .tsne <- Rtsne::Rtsne(log(1 + t(yy)), num_threads=4)$Y
-
-txtplot(.tsne[,1], .tsne[,2], xlab = "tsne1", ylab = "tsne2", width=50, height=30)
+cat("before batch adjustment\n")
+txtplot(.tsne[,1], .tsne[,2], xlab = "tsne1", ylab = "tsne2", width=50, height=20)
 
 .tsne <- Rtsne::Rtsne(log(1 + t(yy/.delta.db[,batch])), num_threads=4)$Y
-
-txtplot(.tsne[,1], .tsne[,2], xlab = "tsne1 adj", ylab = "tsne2 adj", width=50, height=30)
+cat("after batch adjustment\n")
+txtplot(.tsne[,1], .tsne[,2], xlab = "tsne1 adj", ylab = "tsne2 adj", width=50, height=20)
+cat("```\n")
 ```
