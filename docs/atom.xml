@@ -4,8 +4,52 @@
     <link rel="self" type="application/atom+xml" href="https://ypark.github.io/atom.xml"/>
     <link rel="alternate" type="text/html" href="https://ypark.github.io"/>
     <generator uri="https://www.getzola.org/">Zola</generator>
-    <updated>2024-09-03T00:00:00+00:00</updated>
+    <updated>2024-09-30T00:00:00+00:00</updated>
     <id>https://ypark.github.io/atom.xml</id>
+    <entry xml:lang="en">
+        <title>ML for spatial transcriptomic data</title>
+        <published>2024-09-30T00:00:00+00:00</published>
+        <updated>2024-09-30T00:00:00+00:00</updated>
+        
+        <author>
+          <name>
+            
+              Unknown
+            
+          </name>
+        </author>
+        
+        <link rel="alternate" type="text/html" href="https://ypark.github.io/posts/2024-spatial-ml-notes/"/>
+        <id>https://ypark.github.io/posts/2024-spatial-ml-notes/</id>
+        
+        <content type="html" xml:base="https://ypark.github.io/posts/2024-spatial-ml-notes/"></content>
+        
+    </entry>
+    <entry xml:lang="en">
+        <title>Copy-number-aware differential analysis</title>
+        <published>2024-09-15T00:00:00+00:00</published>
+        <updated>2024-09-15T00:00:00+00:00</updated>
+        
+        <author>
+          <name>
+            
+              Unknown
+            
+          </name>
+        </author>
+        
+        <link rel="alternate" type="text/html" href="https://ypark.github.io/posts/2024-cnv-aware-diff/"/>
+        <id>https://ypark.github.io/posts/2024-cnv-aware-diff/</id>
+        
+        <content type="html" xml:base="https://ypark.github.io/posts/2024-cnv-aware-diff/">&lt;p&gt;&lt;a href=&quot;https:&#x2F;&#x2F;genome.cshlp.org&#x2F;content&#x2F;22&#x2F;12&#x2F;2489.full&quot;&gt;Copy-number-aware differential analysis of quantitative DNA sequencing data&lt;&#x2F;a&gt;&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;a href=&quot;https:&#x2F;&#x2F;www.cell.com&#x2F;ajhg&#x2F;fulltext&#x2F;S0002-9297(12)00417-X&quot;&gt;Discovery and Statistical Genotyping of Copy-Number Variation from Whole-Exome Sequencing Depth&lt;&#x2F;a&gt;&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;a href=&quot;https:&#x2F;&#x2F;www.nature.com&#x2F;articles&#x2F;s41467-019-13779-x&quot;&gt;CaSpER identifies and visualizes CNV events by integrative analysis of single-cell or bulk RNA-sequencing data&lt;&#x2F;a&gt;&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;a href=&quot;https:&#x2F;&#x2F;genome.cshlp.org&#x2F;content&#x2F;28&#x2F;8&#x2F;1217&quot;&gt;Linking transcriptional and genetic tumor heterogeneity through allele analysis of single-cell RNA-seq data&lt;&#x2F;a&gt;&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;a href=&quot;https:&#x2F;&#x2F;genome.cshlp.org&#x2F;content&#x2F;21&#x2F;6&#x2F;974.short&quot;&gt;CNVnator: An approach to discover, genotype, and characterize typical and atypical CNVs from family and population genome sequencing&lt;&#x2F;a&gt;&lt;&#x2F;p&gt;
+&lt;p&gt;How can we distinguish copy number variants from differential gene expressions and vice versa?&lt;&#x2F;p&gt;
+</content>
+        
+    </entry>
     <entry xml:lang="en">
         <title>STAT 548 PhD Qualifying Papers</title>
         <published>2024-09-03T00:00:00+00:00</published>
