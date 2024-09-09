@@ -25,14 +25,6 @@
         <loc>https://ypark.github.io/posts/</loc>
     </url>
     <url>
-        <loc>https://ypark.github.io/posts/2024-cnv-aware-diff/</loc>
-        <lastmod>2024-09-15</lastmod>
-    </url>
-    <url>
-        <loc>https://ypark.github.io/posts/2024-spatial-ml-notes/</loc>
-        <lastmod>2024-09-30</lastmod>
-    </url>
-    <url>
         <loc>https://ypark.github.io/posts/batch-correction-2023/</loc>
         <lastmod>2023-06-19</lastmod>
     </url>
@@ -50,9 +42,6 @@
     </url>
     <url>
         <loc>https://ypark.github.io/posts/page/1/</loc>
-    </url>
-    <url>
-        <loc>https://ypark.github.io/posts/page/2/</loc>
     </url>
     <url>
         <loc>https://ypark.github.io/posts/stat548-2024/</loc>
@@ -82,19 +71,10 @@
         <loc>https://ypark.github.io/tags/causal-inference/</loc>
     </url>
     <url>
-        <loc>https://ypark.github.io/tags/cnv/</loc>
-    </url>
-    <url>
         <loc>https://ypark.github.io/tags/coding/</loc>
     </url>
     <url>
         <loc>https://ypark.github.io/tags/config/</loc>
-    </url>
-    <url>
-        <loc>https://ypark.github.io/tags/copy-number-variants/</loc>
-    </url>
-    <url>
-        <loc>https://ypark.github.io/tags/differential-analysis/</loc>
     </url>
     <url>
         <loc>https://ypark.github.io/tags/display/</loc>
@@ -125,9 +105,6 @@
     </url>
     <url>
         <loc>https://ypark.github.io/tags/single-cell/</loc>
-    </url>
-    <url>
-        <loc>https://ypark.github.io/tags/spatial/</loc>
     </url>
     <url>
         <loc>https://ypark.github.io/tags/stat548/</loc>
