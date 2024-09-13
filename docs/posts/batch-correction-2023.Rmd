@@ -1,5 +1,5 @@
 +++
-title = "Adjusting batch effect in pseudobulk samples is a causal inference problem"
+title = "Adjusting batch effect in pseudobulk scRNA"
 date = "2023-06-19"
 draft = false
 
