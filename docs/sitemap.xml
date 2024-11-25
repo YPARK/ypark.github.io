@@ -37,6 +37,10 @@
         <lastmod>2024-08-30</lastmod>
     </url>
     <url>
+        <loc>https://ypark.github.io/posts/learn-new-language/</loc>
+        <lastmod>2024-11-24</lastmod>
+    </url>
+    <url>
         <loc>https://ypark.github.io/posts/lightweight-tools-2020/</loc>
         <lastmod>2020-09-06</lastmod>
     </url>
@@ -57,6 +61,9 @@
     </url>
     <url>
         <loc>https://ypark.github.io/tags/</loc>
+    </url>
+    <url>
+        <loc>https://ypark.github.io/tags/advice/</loc>
     </url>
     <url>
         <loc>https://ypark.github.io/tags/batch-effect/</loc>
@@ -111,6 +118,9 @@
     </url>
     <url>
         <loc>https://ypark.github.io/tags/summary-statistics/</loc>
+    </url>
+    <url>
+        <loc>https://ypark.github.io/tags/tips/</loc>
     </url>
     <url>
         <loc>https://ypark.github.io/tags/variational-inference/</loc>
