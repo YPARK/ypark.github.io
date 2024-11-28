@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+<html class="dark light">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    
+
+    
+    
+    
+    <title>
+         Large Language Model vs. Human Experts
+        
+    </title>
+
+        
+            <meta property="og:title" content="Large Language Model vs. Human Experts" />
+        
+     
+
+     
+         
+     
+
+     
+         
+    
+
+    
+    
+        <link rel="icon" type="image/png" href=&#x2F;icon&#x2F;favicon.ico />
+    
+
+    
+    
+        <link href=https://ypark.github.io/fonts.css rel="stylesheet" />
+    
+
+    
+    
+
+    
+    
+        <script src=https://ypark.github.io/js/codeblock.js></script>
+    
+
+    
+    
+        <script src=https://ypark.github.io/js/toc.js></script>
+    
+    
+    
+    
+
+    
+
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+
+        <script type="text/javascript" id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+        </script>
+        
+            <script>
+            MathJax = {
+              tex: {
+                  inlineMath: [['$', '$'], ['\\(', '\\)'], ['$$', '$$']]
+              }
+            };
+            </script>
+        
+
+	<!-- <\!-- KaTeX CSS -\-> -->
+	<!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.15.2/katex.min.css"> -->
+	
+	<!-- <\!-- KaTeX JS -\-> -->
+	<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.15.2/katex.min.js"></script> -->
+	
+	<!-- <\!-- Optional: KaTeX Auto-render extension -\-> -->
+	<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.15.2/contrib/auto-render.min.js"></script> -->
+	
+	<!-- <script> -->
+	<!--   document.addEventListener("DOMContentLoaded", function() { -->
+	<!--       renderMathInElement(document.body, { -->
+	<!-- 	  delimiters: [ -->
+	<!-- 	      {left: "$$", right: "$$", display: true}, -->
+	<!-- 	      {left: "$", right: "$", display: false} -->
+	<!-- 	  ] -->
+	<!--       }); -->
+	<!--   }); -->
+	<!-- </script> -->
+
+    
+
+    
+    <link rel="alternate" type="application/atom+xml" title="" href="https://ypark.github.io/atom.xml">
+
+
+    
+    
+        <link rel="stylesheet" type="text/css" href=https://ypark.github.io/theme/light.css />
+        <link id="darkModeStyle" rel="stylesheet" type="text/css" href="https://ypark.github.io/theme/dark.css" />
+    
+
+    <!-- Set the correct theme in the script -->
+    <script src=https://ypark.github.io/js/themetoggle.js></script>
+    
+        <script>setTheme(getSavedTheme());</script>
+    
+
+    <link rel="stylesheet" type="text/css" media="screen" href=https://ypark.github.io/main.css />
+
+    
+</head>
+
+
+<body>
+    <div class="content">
+        <header>
+    <div class="main">
+        <a href=https:&#x2F;&#x2F;ypark.github.io></a>
+
+        <div class="socials">
+            
+            <a rel="me" href="https:&#x2F;&#x2F;github.com&#x2F;causalpathlab&#x2F;" class="social">
+                <img alt=github src=https://ypark.github.io/social_icons/github.svg>
+            </a>
+            
+            <a rel="me" href="https:&#x2F;&#x2F;github.com&#x2F;ypark&#x2F;" class="social">
+                <img alt=github src=https://ypark.github.io/social_icons/github.svg>
+            </a>
+            
+            <a rel="me" href="https:&#x2F;&#x2F;twitter.com&#x2F;ypp_lab" class="social">
+                <img alt=twitter src=https://ypark.github.io/social_icons/twitter.svg>
+            </a>
+            
+        </div>
+    </div>
+
+    <nav>
+        
+        <a href=https://ypark.github.io/about style="margin-left: 0.5em">&#x2F;about</a>
+        
+        <a href=https://ypark.github.io/posts style="margin-left: 0.5em">&#x2F;posts</a>
+        
+        <a href=https://ypark.github.io/team style="margin-left: 0.5em">&#x2F;team</a>
+        
+        <a href=https://ypark.github.io/alumni style="margin-left: 0.5em">&#x2F;alumni</a>
+        
+
+        
+        |<a id="dark-mode-toggle" onclick="toggleTheme(); event.preventDefault();" href="#">
+            <img src=https://ypark.github.io/feather/sun.svg id="sun-icon" style="filter: invert(1);" alt="Light" />
+            <img src=https://ypark.github.io/feather/moon.svg id="moon-icon" alt="Dark" />
+        </a>
+
+        <!-- Inititialize the theme toggle icons -->
+        <script>updateItemToggleTheme()</script>
+        
+    </nav>
+</header>
+
+
+        
+        
+    
+<main>
+    <article>
+        <div class="title">
+            
+            
+    <div class="page-header">
+        Large Language Model vs. Human Experts<span class="primary-color" style="font-size: 1.6em">.</span>
+    </div>
+
+
+                <div class="meta">
+                    
+                        Posted on <time>2024-11-28</time>
+                    
+
+                    
+
+                    
+
+                    
+                    
+                            <span class="tags-label"> :: Tags:</span>
+                            <span class="tags">
+                                    <a href="https://ypark.github.io/tags/large-language-model/" class="post-tag">large language model</a>, 
+                                
+                                    <a href="https://ypark.github.io/tags/llm/" class="post-tag">llm</a>
+                                
+                            </span>
+                    
+
+                    
+                    
+                        
+                        
+                            
+                        
+
+                        
+                    
+
+                    
+
+                </div>
+        </div>
+
+        
+
+        
+        
+        
+        
+
+        <section class="body">
+            <p>I've randomly stumbled upon this article, <a href="https://www.nature.com/articles/s41562-024-02046-9">Large language models surpass human experts in predicting neuroscience results</a>. Should we worry about this?</p>
+<ol>
+<li>Tests were drawn from BrainBench, testing/checking neuroscience knowledge.</li>
+</ol>
+<blockquote>
+<p>Co-authors (Supplementary Table 5) and GPT-4 (Azure OpenAI API; version 2023-05-15) created test cases that formed BrainBench. All test cases were sourced from Journal of Neuroscience abstracts published in 2023 under the Creative Commons Attribution 4.0 International License (CC-BY). The abstracts are organized into five sections, namely, behavioural/cognitive, systems/circuits, neurobiology of disease, development/plasticity/repair and cellular/molecular.</p>
+</blockquote>
+<ol start="2">
+<li>
+<p>LLMs outperformed human experts. LLM ($&gt;$ 0.8 accuracy) vs. predoctoral student ($\approx$ 0.65), doctoral student ($\approx$ 0.6), postdoctoral researcher ($\approx$ 0.65), faculty ($\approx$ 0.65).</p>
+<ul>
+<li>
+<p>Shouldn't we (humans) be more critical in paper reading?</p>
+</li>
+<li>
+<p>Should we update neuroscience textbooks?</p>
+</li>
+<li>
+<p>Not so significant. But what happened to the doctoral students?</p>
+</li>
+</ul>
+</li>
+<li>
+<p>Human expertise not necessarily aligns with LLM expertise.</p>
+</li>
+</ol>
+<blockquote>
+<p>Perplexity measures how surprising a text passage is to an LLM. Using these measures (Supplementary Fig. 6), the mean Spearman correlation between an LLM and human experts was 0.15 ($\pm$0.03), whereas the mean Spearman correlation between LLMs was 0.75 ($\pm$0.08).</p>
+</blockquote>
+<ol start="4">
+<li>No indication of brute-force memorization...</li>
+</ol>
+<blockquote>
+<p>We found no indication that BrainBench was memorized by LLMs (Supplementary Fig. 7). ... As a final check (Methods and Supplementary Fig. 8), we confirmed that LLMs do not perform better on items published earlier in 2023 (for example, January 2023 versus October 2023), which addresses the concern that early items are more likely to have a preprint or other precursor appear in the training set that affected BrainBench performance.</p>
+</blockquote>
+<ol start="5">
+<li>Github repo: <code>https://huggingface.co/BrainGPT</code></li>
+</ol>
+
+        </section>
+    </article>
+</main>
+
+
+
+        
+
+    </div>
+</body>
+
+</html>

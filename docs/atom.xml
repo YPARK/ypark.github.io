@@ -4,8 +4,65 @@
     <link rel="self" type="application/atom+xml" href="https://ypark.github.io/atom.xml"/>
     <link rel="alternate" type="text/html" href="https://ypark.github.io"/>
     <generator uri="https://www.getzola.org/">Zola</generator>
-    <updated>2024-11-25T00:00:00+00:00</updated>
+    <updated>2024-11-28T00:00:00+00:00</updated>
     <id>https://ypark.github.io/atom.xml</id>
+    <entry xml:lang="en">
+        <title>Large Language Model vs. Human Experts</title>
+        <published>2024-11-28T00:00:00+00:00</published>
+        <updated>2024-11-28T00:00:00+00:00</updated>
+        
+        <author>
+          <name>
+            
+              Unknown
+            
+          </name>
+        </author>
+        
+        <link rel="alternate" type="text/html" href="https://ypark.github.io/posts/llm-vs-human/"/>
+        <id>https://ypark.github.io/posts/llm-vs-human/</id>
+        
+        <content type="html" xml:base="https://ypark.github.io/posts/llm-vs-human/">&lt;p&gt;I&#x27;ve randomly stumbled upon this article, &lt;a href=&quot;https:&#x2F;&#x2F;www.nature.com&#x2F;articles&#x2F;s41562-024-02046-9&quot;&gt;Large language models surpass human experts in predicting neuroscience results&lt;&#x2F;a&gt;. Should we worry about this?&lt;&#x2F;p&gt;
+&lt;ol&gt;
+&lt;li&gt;Tests were drawn from BrainBench, testing&#x2F;checking neuroscience knowledge.&lt;&#x2F;li&gt;
+&lt;&#x2F;ol&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Co-authors (Supplementary Table 5) and GPT-4 (Azure OpenAI API; version 2023-05-15) created test cases that formed BrainBench. All test cases were sourced from Journal of Neuroscience abstracts published in 2023 under the Creative Commons Attribution 4.0 International License (CC-BY). The abstracts are organized into five sections, namely, behavioural&#x2F;cognitive, systems&#x2F;circuits, neurobiology of disease, development&#x2F;plasticity&#x2F;repair and cellular&#x2F;molecular.&lt;&#x2F;p&gt;
+&lt;&#x2F;blockquote&gt;
+&lt;ol start=&quot;2&quot;&gt;
+&lt;li&gt;
+&lt;p&gt;LLMs outperformed human experts. LLM ($&amp;gt;$ 0.8 accuracy) vs. predoctoral student ($\approx$ 0.65), doctoral student ($\approx$ 0.6), postdoctoral researcher ($\approx$ 0.65), faculty ($\approx$ 0.65).&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;Shouldn&#x27;t we (humans) be more critical in paper reading?&lt;&#x2F;p&gt;
+&lt;&#x2F;li&gt;
+&lt;li&gt;
+&lt;p&gt;Should we update neuroscience textbooks?&lt;&#x2F;p&gt;
+&lt;&#x2F;li&gt;
+&lt;li&gt;
+&lt;p&gt;Not so significant. But what happened to the doctoral students?&lt;&#x2F;p&gt;
+&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;&#x2F;li&gt;
+&lt;li&gt;
+&lt;p&gt;Human expertise not necessarily aligns with LLM expertise.&lt;&#x2F;p&gt;
+&lt;&#x2F;li&gt;
+&lt;&#x2F;ol&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Perplexity measures how surprising a text passage is to an LLM. Using these measures (Supplementary Fig. 6), the mean Spearman correlation between an LLM and human experts was 0.15 ($\pm$0.03), whereas the mean Spearman correlation between LLMs was 0.75 ($\pm$0.08).&lt;&#x2F;p&gt;
+&lt;&#x2F;blockquote&gt;
+&lt;ol start=&quot;4&quot;&gt;
+&lt;li&gt;No indication of brute-force memorization...&lt;&#x2F;li&gt;
+&lt;&#x2F;ol&gt;
+&lt;blockquote&gt;
+&lt;p&gt;We found no indication that BrainBench was memorized by LLMs (Supplementary Fig. 7). ... As a final check (Methods and Supplementary Fig. 8), we confirmed that LLMs do not perform better on items published earlier in 2023 (for example, January 2023 versus October 2023), which addresses the concern that early items are more likely to have a preprint or other precursor appear in the training set that affected BrainBench performance.&lt;&#x2F;p&gt;
+&lt;&#x2F;blockquote&gt;
+&lt;ol start=&quot;5&quot;&gt;
+&lt;li&gt;Github repo: &lt;code&gt;https:&#x2F;&#x2F;huggingface.co&#x2F;BrainGPT&lt;&#x2F;code&gt;&lt;&#x2F;li&gt;
+&lt;&#x2F;ol&gt;
+</content>
+        
+    </entry>
     <entry xml:lang="en">
         <title>Why we need to consider learning a new language</title>
         <published>2024-11-25T00:00:00+00:00</published>
