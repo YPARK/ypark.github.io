@@ -25,6 +25,14 @@
         <loc>https://ypark.github.io/posts/</loc>
     </url>
     <url>
+        <loc>https://ypark.github.io/posts/2025-alcohol-causality/</loc>
+        <lastmod>2025-01-03</lastmod>
+    </url>
+    <url>
+        <loc>https://ypark.github.io/posts/alcohol-cancer/</loc>
+        <lastmod>2025-01-03</lastmod>
+    </url>
+    <url>
         <loc>https://ypark.github.io/posts/batch-correction-2023/</loc>
         <lastmod>2023-06-19</lastmod>
     </url>
@@ -50,6 +58,9 @@
     </url>
     <url>
         <loc>https://ypark.github.io/posts/page/1/</loc>
+    </url>
+    <url>
+        <loc>https://ypark.github.io/posts/page/2/</loc>
     </url>
     <url>
         <loc>https://ypark.github.io/posts/stat548-2024/</loc>
@@ -79,6 +90,9 @@
         <loc>https://ypark.github.io/tags/big-picture/</loc>
     </url>
     <url>
+        <loc>https://ypark.github.io/tags/cancer/</loc>
+    </url>
+    <url>
         <loc>https://ypark.github.io/tags/causal-inference/</loc>
     </url>
     <url>
@@ -92,6 +106,9 @@
     </url>
     <url>
         <loc>https://ypark.github.io/tags/emacs/</loc>
+    </url>
+    <url>
+        <loc>https://ypark.github.io/tags/epidemiology/</loc>
     </url>
     <url>
         <loc>https://ypark.github.io/tags/ethernet/</loc>

@@ -13,12 +13,12 @@
     
     
     <title>
-         Large Language Model vs. Human Experts
+         Alcohol can cause cancers?
         
     </title>
 
         
-            <meta property="og:title" content="Large Language Model vs. Human Experts" />
+            <meta property="og:title" content="Alcohol can cause cancers?" />
         
      
 
@@ -164,13 +164,13 @@
             
             
     <div class="page-header">
-        Large Language Model vs. Human Experts<span class="primary-color" style="font-size: 1.6em">.</span>
+        Alcohol can cause cancers?<span class="primary-color" style="font-size: 1.6em">.</span>
     </div>
 
 
                 <div class="meta">
                     
-                        Posted on <time>2024-11-28</time>
+                        Posted on <time>2025-01-03</time>
                     
 
                     
@@ -181,9 +181,11 @@
                     
                             <span class="tags-label"> :: Tags:</span>
                             <span class="tags">
-                                    <a href="https://ypark.github.io/tags/large-language-model/" class="post-tag">large language model</a>, 
+                                    <a href="https://ypark.github.io/tags/epidemiology/" class="post-tag">epidemiology</a>, 
                                 
-                                    <a href="https://ypark.github.io/tags/llm/" class="post-tag">llm</a>
+                                    <a href="https://ypark.github.io/tags/causal-inference/" class="post-tag">causal inference</a>, 
+                                
+                                    <a href="https://ypark.github.io/tags/cancer/" class="post-tag">cancer</a>
                                 
                             </span>
                     
@@ -211,44 +213,46 @@
         
 
         <section class="body">
-            <p>I've randomly stumbled upon this article, <a href="https://www.nature.com/articles/s41562-024-02046-9">Large language models surpass human experts in predicting neuroscience results</a>. Should we worry about this?</p>
-<ol>
-<li>Tests were drawn from BrainBench, testing/checking neuroscience knowledge.</li>
-</ol>
-<blockquote>
-<p>Co-authors (Supplementary Table 5) and GPT-4 (Azure OpenAI API; version 2023-05-15) created test cases that formed BrainBench. All test cases were sourced from Journal of Neuroscience abstracts published in 2023 under the Creative Commons Attribution 4.0 International License (CC-BY). The abstracts are organized into five sections, namely, behavioural/cognitive, systems/circuits, neurobiology of disease, development/plasticity/repair and cellular/molecular.</p>
-</blockquote>
-<ol start="2">
-<li>
-<p>LLMs outperformed human experts. LLM ($&gt;$ 0.8 accuracy) vs. predoctoral student ($\approx$ 0.65), doctoral student ($\approx$ 0.6), postdoctoral researcher ($\approx$ 0.65), faculty ($\approx$ 0.65).</p>
+            <p>Perhaps based on <a href="https://www.ajpmonline.org/article/S0749-3797(23)00501-9/fulltext">this prospective study</a> and many other articles, the US Surgeon General identified heavy alcohol consumption as <a href="https://www.hhs.gov/surgeongeneral/priorities/alcohol-cancer/index.html">a potential cause of many cancers</a>. There are several biological mechanisms. See <a href="https://www.hhs.gov/sites/default/files/oash-alcohol-cancer-fig4.jpg">Four ways alcohol can cause cancer</a>.</p>
+<p>All of them remind me of cancer biology courses I took a decade ago. I agree alcohol can cause cancer in some ways, but proving the causality and measuring causal effect sizes will probably be another research question. Showing tobacco causes cancer took nearly a half-century from the earliest wakeup calls until the US Surgeon General finally acknowledged the fact, and perhaps longer until the tobacco companies took meaningful action.</p>
+<p>I am wondering if there are any (genetic) instrumental variables to establish some sense of causality. Well... In fact, there are some:</p>
 <ul>
 <li>
-<p>Shouldn't we (humans) be more critical in paper reading?</p>
+<p><a href="https://www.science.org/doi/10.1126/sciadv.ade2780">Genetic architecture of alcohol consumption identified by a genotype-stratified GWAS and impact on esophageal cancer risk in Japanese people</a></p>
+<ul>
+<li>No wonder several alcohol intake GWAS variants are located in biochemically-relevant genes, including <em>ALDH1B</em> and <em>ALDH2</em>; they are also "colocalized" in interaction analysis with cancer GWAS studies.</li>
+</ul>
 </li>
 <li>
-<p>Should we update neuroscience textbooks?</p>
+<p><a href="https://aacrjournals.org/cebp/article/31/5/1077/694750/Beyond-GWAS-of-Colorectal-Cancer-Evidence-of">Beyond GWAS of Colorectal Cancer: Evidence of Interaction with Alcohol Consumption and Putative Causal Variant for the 10q24.2 Region</a></p>
+<ul>
+<li>
+<p><em>"Another possibility is that light-to-moderate drinking has a protective effect on risk of colorectal cancer, even though heavier consumption is detrimental."</em> This clearly sets their questions and why they designed the study to show in which direction effects could go.</p>
 </li>
 <li>
-<p>Not so significant. But what happened to the doctoral students?</p>
+<p>Also, G x E interaction analysis with stratification--non-drinking, light-drinking, and heavy-drinking. We see some significant hits (why?), and they end up with somewhat bizarre conclusion: <em>"Our study suggests that the association with colorectal cancer in 10q24.2/COX15 observed in genome-wide association study is strongest in nondrinkers."</em> What about the other variants?</p>
+</li>
+<li>
+<p>What if drinking behaviour is a mediator variable (genetic variant to drinking to cancer)? The stratification step could create artificial associations between genetic variants and cancer phenotypes.</p>
 </li>
 </ul>
 </li>
 <li>
-<p>Human expertise not necessarily aligns with LLM expertise.</p>
+<p><a href="https://www.nature.com/articles/s41598-024-53926-z">The causal effects of genetically predicted alcohol consumption on endometrial cancer risk from a Mendelian randomization study</a></p>
+<ul>
+<li>
+<p>Summary-based MR analysis.</p>
 </li>
-</ol>
-<blockquote>
-<p>Perplexity measures how surprising a text passage is to an LLM. Using these measures (Supplementary Fig. 6), the mean Spearman correlation between an LLM and human experts was 0.15 ($\pm$0.03), whereas the mean Spearman correlation between LLMs was 0.75 ($\pm$0.08).</p>
-</blockquote>
-<ol start="4">
-<li>No indication of brute-force memorization...</li>
-</ol>
-<blockquote>
-<p>We found no indication that BrainBench was memorized by LLMs (Supplementary Fig. 7). ... As a final check (Methods and Supplementary Fig. 8), we confirmed that LLMs do not perform better on items published earlier in 2023 (for example, January 2023 versus October 2023), which addresses the concern that early items are more likely to have a preprint or other precursor appear in the training set that affected BrainBench performance.</p>
-</blockquote>
-<ol start="5">
-<li>Github repo: <code>https://huggingface.co/BrainGPT</code></li>
-</ol>
+<li>
+<p>Also, a bit weird conclusion: <em>"This MR study suggests that genetically predicted alcohol consumption is a protective factor for EC, particularly for EEC, and this protective effect may be mediated through the reduction of HCG and IGF1."</em></p>
+</li>
+<li>
+<p>What if people abstained from drinking because of health concerns, such as a family history of endometrial cancer? IV assumptions would be easily invalid. EC GWAS is also sampled from the same UK Biobank cohorts, which could put the study design in a precarious position.</p>
+</li>
+</ul>
+</li>
+</ul>
+<p>Okay, I may want to believe that alcohol is a cause of cancer. But I don't think we have a definitive answer to the underlying causal questions. Studies often disagree with each other. It's like opening up another decade of debate among researchers, policymakers, and the general public. However, I don't think we are missing a chance to potential protective effects of alcohol by not cutting down on drinking. A more constructive way forward will be looping in molecular mechanisms in causal inference exercises. We identified the mechanisms in laboratory settings. How does it work at a population level? Are there alcohol-interaction molecular QTL studies? Shouldn't we consider gene-gene interactions and compensatory mechanisms? Lots of "could've done" items.</p>
 
         </section>
     </article>
