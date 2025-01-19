@@ -19,65 +19,6 @@
           </name>
         </author>
         
-        <link rel="alternate" type="text/html" href="https://ypark.github.io/posts/2025-alcohol-causality/"/>
-        <id>https://ypark.github.io/posts/2025-alcohol-causality/</id>
-        
-        <content type="html" xml:base="https://ypark.github.io/posts/2025-alcohol-causality/">&lt;p&gt;Perhaps based on &lt;a href=&quot;https:&#x2F;&#x2F;www.ajpmonline.org&#x2F;article&#x2F;S0749-3797(23)00501-9&#x2F;fulltext&quot;&gt;this prospective study&lt;&#x2F;a&gt; and many other articles, the US Surgeon General identified heavy alcohol consumption as &lt;a href=&quot;https:&#x2F;&#x2F;www.hhs.gov&#x2F;surgeongeneral&#x2F;priorities&#x2F;alcohol-cancer&#x2F;index.html&quot;&gt;a potential cause of many cancers&lt;&#x2F;a&gt;. There are several biological mechanisms. See &lt;a href=&quot;https:&#x2F;&#x2F;www.hhs.gov&#x2F;sites&#x2F;default&#x2F;files&#x2F;oash-alcohol-cancer-fig4.jpg&quot;&gt;Four ways alcohol can cause cancer&lt;&#x2F;a&gt;.&lt;&#x2F;p&gt;
-&lt;p&gt;All of them remind me of cancer biology courses I took a decade ago. I agree alcohol can cause cancer in some ways, but proving the causality and measuring causal effect sizes will probably be another research question. Showing tobacco causes cancer took nearly a half-century from the earliest wakeup calls until the US Surgeon General finally acknowledged the fact, and perhaps longer until the tobacco companies took meaningful action.&lt;&#x2F;p&gt;
-&lt;p&gt;I am wondering if there are any (genetic) instrumental variables to establish some sense of causality. Well... In fact, there are some:&lt;&#x2F;p&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;a href=&quot;https:&#x2F;&#x2F;www.science.org&#x2F;doi&#x2F;10.1126&#x2F;sciadv.ade2780&quot;&gt;Genetic architecture of alcohol consumption identified by a genotype-stratified GWAS and impact on esophageal cancer risk in Japanese people&lt;&#x2F;a&gt;&lt;&#x2F;p&gt;
-&lt;ul&gt;
-&lt;li&gt;No wonder several alcohol intake GWAS variants are located in biochemically-relevant genes, including &lt;em&gt;ALDH1B&lt;&#x2F;em&gt; and &lt;em&gt;ALDH2&lt;&#x2F;em&gt;; they are also &quot;colocalized&quot; in interaction analysis with cancer GWAS studies.&lt;&#x2F;li&gt;
-&lt;&#x2F;ul&gt;
-&lt;&#x2F;li&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;a href=&quot;https:&#x2F;&#x2F;aacrjournals.org&#x2F;cebp&#x2F;article&#x2F;31&#x2F;5&#x2F;1077&#x2F;694750&#x2F;Beyond-GWAS-of-Colorectal-Cancer-Evidence-of&quot;&gt;Beyond GWAS of Colorectal Cancer: Evidence of Interaction with Alcohol Consumption and Putative Causal Variant for the 10q24.2 Region&lt;&#x2F;a&gt;&lt;&#x2F;p&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;em&gt;&quot;Another possibility is that light-to-moderate drinking has a protective effect on risk of colorectal cancer, even though heavier consumption is detrimental.&quot;&lt;&#x2F;em&gt; This clearly sets their questions and why they designed the study to show in which direction effects could go.&lt;&#x2F;p&gt;
-&lt;&#x2F;li&gt;
-&lt;li&gt;
-&lt;p&gt;Also, G x E interaction analysis with stratification--non-drinking, light-drinking, and heavy-drinking. We see some significant hits (why?), and they end up with somewhat bizarre conclusion: &lt;em&gt;&quot;Our study suggests that the association with colorectal cancer in 10q24.2&#x2F;COX15 observed in genome-wide association study is strongest in nondrinkers.&quot;&lt;&#x2F;em&gt; What about the other variants?&lt;&#x2F;p&gt;
-&lt;&#x2F;li&gt;
-&lt;li&gt;
-&lt;p&gt;What if drinking behaviour is a mediator variable (genetic variant to drinking to cancer)? The stratification step could create artificial associations between genetic variants and cancer phenotypes.&lt;&#x2F;p&gt;
-&lt;&#x2F;li&gt;
-&lt;&#x2F;ul&gt;
-&lt;&#x2F;li&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;a href=&quot;https:&#x2F;&#x2F;www.nature.com&#x2F;articles&#x2F;s41598-024-53926-z&quot;&gt;The causal effects of genetically predicted alcohol consumption on endometrial cancer risk from a Mendelian randomization study&lt;&#x2F;a&gt;&lt;&#x2F;p&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;Summary-based MR analysis.&lt;&#x2F;p&gt;
-&lt;&#x2F;li&gt;
-&lt;li&gt;
-&lt;p&gt;Also, a bit weird conclusion: &lt;em&gt;&quot;This MR study suggests that genetically predicted alcohol consumption is a protective factor for EC, particularly for EEC, and this protective effect may be mediated through the reduction of HCG and IGF1.&quot;&lt;&#x2F;em&gt;&lt;&#x2F;p&gt;
-&lt;&#x2F;li&gt;
-&lt;li&gt;
-&lt;p&gt;What if people abstained from drinking because of health concerns, such as a family history of endometrial cancer? IV assumptions would be easily invalid. EC GWAS is also sampled from the same UK Biobank cohorts, which could put the study design in a precarious position.&lt;&#x2F;p&gt;
-&lt;&#x2F;li&gt;
-&lt;&#x2F;ul&gt;
-&lt;&#x2F;li&gt;
-&lt;&#x2F;ul&gt;
-&lt;p&gt;Okay, I may want to believe that alcohol is a cause of cancer. But I don&#x27;t think we have a definitive answer to the underlying causal questions. Studies often disagree with each other. It&#x27;s like opening up another decade of debate among researchers, policymakers, and the general public. However, I don&#x27;t think we are missing a chance to potential protective effects of alcohol by not cutting down on drinking. A more constructive way forward will be looping in molecular mechanisms in causal inference exercises. We identified the mechanisms in laboratory settings. How does it work at a population level? Are there alcohol-interaction molecular QTL studies? Shouldn&#x27;t we consider gene-gene interactions and compensatory mechanisms? Lots of &quot;could&#x27;ve done&quot; items.&lt;&#x2F;p&gt;
-</content>
-        
-    </entry>
-    <entry xml:lang="en">
-        <title>Alcohol can cause cancers?</title>
-        <published>2025-01-03T00:00:00+00:00</published>
-        <updated>2025-01-03T00:00:00+00:00</updated>
-        
-        <author>
-          <name>
-            
-              Unknown
-            
-          </name>
-        </author>
-        
         <link rel="alternate" type="text/html" href="https://ypark.github.io/posts/alcohol-cancer/"/>
         <id>https://ypark.github.io/posts/alcohol-cancer/</id>
         
