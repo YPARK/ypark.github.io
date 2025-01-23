@@ -46,6 +46,25 @@
 &lt;pre style=&quot;background-color:#fafafa;color:#61676c;&quot;&gt;&lt;code&gt;&lt;span&gt;MAKEFLAGS = -j10
 &lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
 &lt;p&gt;Here, we run 10 jobs simultaneously.&lt;&#x2F;p&gt;
+&lt;h3 id=&quot;another-issue-on-openmp&quot;&gt;&lt;a class=&quot;zola-anchor&quot; href=&quot;#another-issue-on-openmp&quot; aria-label=&quot;Anchor link for: another-issue-on-openmp&quot;&gt;Another issue on &lt;code&gt;openmp&lt;&#x2F;code&gt;&lt;&#x2F;a&gt;&lt;&#x2F;h3&gt;
+&lt;p&gt;In order to compile &lt;code&gt;Rcpp&lt;&#x2F;code&gt; codes with &lt;code&gt;&amp;lt;omp.h&amp;gt;&lt;&#x2F;code&gt;, we also need &lt;code&gt;libomp&lt;&#x2F;code&gt; for multi-threading. We can add more lines to &lt;code&gt;.R&#x2F;Makevars&lt;&#x2F;code&gt; and here is an example:&lt;&#x2F;p&gt;
+&lt;pre style=&quot;background-color:#fafafa;color:#61676c;&quot;&gt;&lt;code&gt;&lt;span&gt;LDFLAGS += -L&#x2F;opt&#x2F;homebrew&#x2F;opt&#x2F;llvm&#x2F;lib
+&lt;&#x2F;span&gt;&lt;span&gt;LDFLAGS += -L&#x2F;opt&#x2F;homebrew&#x2F;opt&#x2F;libomp&#x2F;lib -lomp
+&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span&gt;CXXFLAGS += -I&#x2F;opt&#x2F;homebrew&#x2F;opt&#x2F;llvm&#x2F;include
+&lt;&#x2F;span&gt;&lt;span&gt;CXXFLAGS += -I&#x2F;opt&#x2F;homebrew&#x2F;opt&#x2F;libomp&#x2F;include -Xclang -fopenmp
+&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span&gt;CPPFLAGS += -I&#x2F;opt&#x2F;homebrew&#x2F;opt&#x2F;llvm&#x2F;include
+&lt;&#x2F;span&gt;&lt;span&gt;CPPFLAGS += -I&#x2F;opt&#x2F;homebrew&#x2F;opt&#x2F;libomp&#x2F;include -Xclang -fopenmp
+&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span&gt;PKG_LDFLAGS += $(LDFLAGS)
+&lt;&#x2F;span&gt;&lt;span&gt;PKG_CXXFLAGS += $(CXXFLAGS)
+&lt;&#x2F;span&gt;&lt;span&gt;PKG_CPPFLAGS += $(CPPFLAGS)
+&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span&gt;OBJCXX = clang++ -std=gnu++17
+&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span&gt;MAKEFLAGS = -j10
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
 </content>
         
     </entry>

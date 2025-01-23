@@ -222,6 +222,11 @@
                             
                         </li>
                     
+                        <li>
+                            <a href="https://ypark.github.io/posts/r-tips/#another-issue-on-openmp">Another issue on openmp</a>
+                            
+                        </li>
+                    
                 </ul>
             </div>
         
@@ -252,6 +257,25 @@
 <pre style="background-color:#fafafa;color:#61676c;"><code><span>MAKEFLAGS = -j10
 </span></code></pre>
 <p>Here, we run 10 jobs simultaneously.</p>
+<h3 id="another-issue-on-openmp"><a class="zola-anchor" href="#another-issue-on-openmp" aria-label="Anchor link for: another-issue-on-openmp">Another issue on <code>openmp</code></a></h3>
+<p>In order to compile <code>Rcpp</code> codes with <code>&lt;omp.h&gt;</code>, we also need <code>libomp</code> for multi-threading. We can add more lines to <code>.R/Makevars</code> and here is an example:</p>
+<pre style="background-color:#fafafa;color:#61676c;"><code><span>LDFLAGS += -L/opt/homebrew/opt/llvm/lib
+</span><span>LDFLAGS += -L/opt/homebrew/opt/libomp/lib -lomp
+</span><span>
+</span><span>CXXFLAGS += -I/opt/homebrew/opt/llvm/include
+</span><span>CXXFLAGS += -I/opt/homebrew/opt/libomp/include -Xclang -fopenmp
+</span><span>
+</span><span>CPPFLAGS += -I/opt/homebrew/opt/llvm/include
+</span><span>CPPFLAGS += -I/opt/homebrew/opt/libomp/include -Xclang -fopenmp
+</span><span>
+</span><span>PKG_LDFLAGS += $(LDFLAGS)
+</span><span>PKG_CXXFLAGS += $(CXXFLAGS)
+</span><span>PKG_CPPFLAGS += $(CPPFLAGS)
+</span><span>
+</span><span>OBJCXX = clang++ -std=gnu++17
+</span><span>
+</span><span>MAKEFLAGS = -j10
+</span></code></pre>
 
         </section>
     </article>
