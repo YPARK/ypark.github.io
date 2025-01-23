@@ -56,6 +56,13 @@
         <loc>https://ypark.github.io/posts/page/1/</loc>
     </url>
     <url>
+        <loc>https://ypark.github.io/posts/page/2/</loc>
+    </url>
+    <url>
+        <loc>https://ypark.github.io/posts/r-tips/</loc>
+        <lastmod>2025-01-22</lastmod>
+    </url>
+    <url>
         <loc>https://ypark.github.io/posts/stat548-2024/</loc>
         <lastmod>2024-09-03</lastmod>
     </url>
@@ -131,6 +138,9 @@
         <loc>https://ypark.github.io/tags/potential-outcome/</loc>
     </url>
     <url>
+        <loc>https://ypark.github.io/tags/r/</loc>
+    </url>
+    <url>
         <loc>https://ypark.github.io/tags/single-cell/</loc>
     </url>
     <url>
@@ -141,6 +151,9 @@
     </url>
     <url>
         <loc>https://ypark.github.io/tags/tips/</loc>
+    </url>
+    <url>
+        <loc>https://ypark.github.io/tags/trouble-shooting/</loc>
     </url>
     <url>
         <loc>https://ypark.github.io/tags/variational-inference/</loc>

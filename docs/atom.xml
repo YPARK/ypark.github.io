@@ -4,8 +4,51 @@
     <link rel="self" type="application/atom+xml" href="https://ypark.github.io/atom.xml"/>
     <link rel="alternate" type="text/html" href="https://ypark.github.io"/>
     <generator uri="https://www.getzola.org/">Zola</generator>
-    <updated>2025-01-03T00:00:00+00:00</updated>
+    <updated>2025-01-22T00:00:00+00:00</updated>
     <id>https://ypark.github.io/atom.xml</id>
+    <entry xml:lang="en">
+        <title>`.R&#x2F;Makevars` on silicon Mac</title>
+        <published>2025-01-22T00:00:00+00:00</published>
+        <updated>2025-01-22T00:00:00+00:00</updated>
+        
+        <author>
+          <name>
+            
+              Unknown
+            
+          </name>
+        </author>
+        
+        <link rel="alternate" type="text/html" href="https://ypark.github.io/posts/r-tips/"/>
+        <id>https://ypark.github.io/posts/r-tips/</id>
+        
+        <content type="html" xml:base="https://ypark.github.io/posts/r-tips/">&lt;p&gt;TL;DR: include &lt;code&gt;OBJCXX=clang++ -std=gnu++17&lt;&#x2F;code&gt; in &lt;code&gt;.R&#x2F;Makevars&lt;&#x2F;code&gt; to help &lt;code&gt;install.pacakges&lt;&#x2F;code&gt; to help Object-C code compilation.&lt;&#x2F;p&gt;
+&lt;h3 id=&quot;error-messages&quot;&gt;&lt;a class=&quot;zola-anchor&quot; href=&quot;#error-messages&quot; aria-label=&quot;Anchor link for: error-messages&quot;&gt;Error messages&lt;&#x2F;a&gt;&lt;&#x2F;h3&gt;
+&lt;p&gt;I wanted to install &lt;code&gt;tidyverse&lt;&#x2F;code&gt; on a new Mac. Almost everything worked out of the box, except for one thing: &lt;code&gt;R&lt;&#x2F;code&gt;&#x27;s &lt;code&gt;systemfonts&lt;&#x2F;code&gt; triggered an hour of pain. &lt;code&gt;clang++&lt;&#x2F;code&gt; stopped parsing when it encountered &lt;code&gt;mac&#x2F;FontManagerMac.mm&lt;&#x2F;code&gt; while complaining that it was unable to understand &lt;code&gt;c++11&lt;&#x2F;code&gt; features, e.g., &lt;code&gt;constexpr&lt;&#x2F;code&gt;.&lt;&#x2F;p&gt;
+&lt;pre style=&quot;background-color:#fafafa;color:#61676c;&quot;&gt;&lt;code&gt;&lt;span&gt;clang++ -I&amp;quot;&#x2F;opt&#x2F;homebrew&#x2F;Cellar&#x2F;r&#x2F;4.4.2_2&#x2F;lib&#x2F;R&#x2F;include&amp;quot; -DNDEBUG -I&#x2F;opt&#x2F;homebrew&#x2F;opt&#x2F;freetype&#x2F;include&#x2F;freetype2 -I&#x2F;opt&#x2F;homebrew&#x2F;opt&#x2F;libpng&#x2F;include&#x2F;libpng16 -I&amp;#39;&#x2F;opt&#x2F;homebrew&#x2F;lib&#x2F;R&#x2F;4.4&#x2F;site-library&#x2F;cpp11&#x2F;include&amp;#39; -I&#x2F;opt&#x2F;homebrew&#x2F;opt&#x2F;gettext&#x2F;include -I&#x2F;opt&#x2F;homebrew&#x2F;opt&#x2F;readline&#x2F;include -I&#x2F;opt&#x2F;homebrew&#x2F;opt&#x2F;xz&#x2F;include -I&#x2F;opt&#x2F;homebrew&#x2F;include   -fobjc-arc -fPIC   -c mac&#x2F;FontManagerMac.mm -o mac&#x2F;FontManagerMac.o
+&lt;&#x2F;span&gt;&lt;span&gt;In file included from mac&#x2F;FontManagerMac.mm:5:
+&lt;&#x2F;span&gt;&lt;span&gt;In file included from mac&#x2F;..&#x2F;FontDescriptor.h:11:
+&lt;&#x2F;span&gt;&lt;span&gt;In file included from mac&#x2F;..&#x2F;utils.h:9:
+&lt;&#x2F;span&gt;&lt;span&gt;In file included from &#x2F;opt&#x2F;homebrew&#x2F;lib&#x2F;R&#x2F;4.4&#x2F;site-library&#x2F;cpp11&#x2F;include&#x2F;cpp11&#x2F;protect.hpp:10:
+&lt;&#x2F;span&gt;&lt;span&gt;&#x2F;opt&#x2F;homebrew&#x2F;lib&#x2F;R&#x2F;4.4&#x2F;site-library&#x2F;cpp11&#x2F;include&#x2F;cpp11&#x2F;R.hpp:52:1: error: unknown type name &amp;#39;constexpr&amp;#39;
+&lt;&#x2F;span&gt;&lt;span&gt;   52 | constexpr R_xlen_t operator&amp;quot;&amp;quot; _xl(unsigned long long int value) { return value; }
+&lt;&#x2F;span&gt;&lt;span&gt;      | ^
+&lt;&#x2F;span&gt;&lt;span&gt;&#x2F;opt&#x2F;homebrew&#x2F;lib&#x2F;R&#x2F;4.4&#x2F;site-library&#x2F;cpp11&#x2F;include&#x2F;cpp11&#x2F;R.hpp:52:19: error: expected &amp;#39;;&amp;#39; after top level declarator
+&lt;&#x2F;span&gt;&lt;span&gt;   52 | constexpr R_xlen_t operator&amp;quot;&amp;quot; _xl(unsigned long long int value) { return value; }
+&lt;&#x2F;span&gt;&lt;span&gt;      |                   ^
+&lt;&#x2F;span&gt;&lt;span&gt;      |                   ;
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;h3 id=&quot;solution-make-your-clang-understand-new-features&quot;&gt;&lt;a class=&quot;zola-anchor&quot; href=&quot;#solution-make-your-clang-understand-new-features&quot; aria-label=&quot;Anchor link for: solution-make-your-clang-understand-new-features&quot;&gt;Solution: make your &lt;code&gt;Clang++&lt;&#x2F;code&gt; understand new features&lt;&#x2F;a&gt;&lt;&#x2F;h3&gt;
+&lt;p&gt;I believe CRAN packages are generally well prepared to handle C&#x2F;C++ compiling, except for Object-C! We need to include the following line to &lt;code&gt;.R&#x2F;Makevars&lt;&#x2F;code&gt; for a silicon Mac:&lt;&#x2F;p&gt;
+&lt;pre style=&quot;background-color:#fafafa;color:#61676c;&quot;&gt;&lt;code&gt;&lt;span&gt;OBJCXX=clang++ -std=gnu++17
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;We could additionally tweak so that compilation processes can take place on many files with an additional flag:&lt;&#x2F;p&gt;
+&lt;pre style=&quot;background-color:#fafafa;color:#61676c;&quot;&gt;&lt;code&gt;&lt;span&gt;MAKEFLAGS = -j10
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;Here, we run 10 jobs simultaneously.&lt;&#x2F;p&gt;
+</content>
+        
+    </entry>
     <entry xml:lang="en">
         <title>Alcohol can cause cancers?</title>
         <published>2025-01-03T00:00:00+00:00</published>
