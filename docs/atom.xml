@@ -4,8 +4,89 @@
     <link rel="self" type="application/atom+xml" href="https://ypark.github.io/atom.xml"/>
     <link rel="alternate" type="text/html" href="https://ypark.github.io"/>
     <generator uri="https://www.getzola.org/">Zola</generator>
-    <updated>2025-01-22T00:00:00+00:00</updated>
+    <updated>2025-03-17T00:00:00+00:00</updated>
     <id>https://ypark.github.io/atom.xml</id>
+    <entry xml:lang="en">
+        <title>Notes on &#x27;How altered cancer metabolism influences cancer progression&#x27;</title>
+        <published>2025-03-17T00:00:00+00:00</published>
+        <updated>2025-03-17T00:00:00+00:00</updated>
+        
+        <author>
+          <name>
+            
+              Unknown
+            
+          </name>
+        </author>
+        
+        <link rel="alternate" type="text/html" href="https://ypark.github.io/posts/altered-metabolism-cancer/"/>
+        <id>https://ypark.github.io/posts/altered-metabolism-cancer/</id>
+        
+        <content type="html" xml:base="https://ypark.github.io/posts/altered-metabolism-cancer/">&lt;p&gt;&lt;a href=&quot;https:&#x2F;&#x2F;ki.mit.edu&#x2F;people&#x2F;faculty&#x2F;matthew-vander-heiden&quot;&gt;Matthew Vander Heiden&lt;&#x2F;a&gt; gave this talk at the BC Cancer Seminar. This is just my note jotted down during the seminar.&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;strong&gt;TL;DR&lt;&#x2F;strong&gt; Potentially interesting previous work is already out.&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href=&quot;https:&#x2F;&#x2F;www.nature.com&#x2F;articles&#x2F;s42255-024-01105-9&quot;&gt;Cancer tissue of origin constrains the growth and metabolism of metastases&lt;&#x2F;a&gt;&lt;&#x2F;p&gt;
+&lt;&#x2F;li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href=&quot;https:&#x2F;&#x2F;www.nature.com&#x2F;articles&#x2F;s41556-024-01402-1&quot;&gt;A CRISPRi&#x2F;a screening platform to study cellular nutrient transport in diverse microenvironments&lt;&#x2F;a&gt;&lt;&#x2F;p&gt;
+&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;p&gt;How do cancer cells adapt to make metabolic alterations? What factors affect how cancer cell metabolism changes? (1) lineage, (2) genetic Mutation, and (3) tissue environment.  The cells definitely need to express many enzymes to overcome thermodynamic barriers. Well, nutrients found in normal tissues can tell us about those found in tumours.  It makes sense to think that cancer needs to adapt to the metabolic environment (shaped by resident tissues&#x2F;cells) rather than changing it.&lt;&#x2F;p&gt;
+&lt;h4 id=&quot;a-seed-and-soil-model&quot;&gt;&lt;a class=&quot;zola-anchor&quot; href=&quot;#a-seed-and-soil-model&quot; aria-label=&quot;Anchor link for: a-seed-and-soil-model&quot;&gt;A &quot;seed and soil&quot; model&lt;&#x2F;a&gt;&lt;&#x2F;h4&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href=&quot;https:&#x2F;&#x2F;www.nature.com&#x2F;articles&#x2F;s42255-024-01105-9&quot;&gt;Cancer tissue of origin constrains the growth and metabolism of metastases&lt;&#x2F;a&gt;&lt;&#x2F;p&gt;
+&lt;&#x2F;li&gt;
+&lt;li&gt;
+&lt;p&gt;PDAC tumour cells prefer to grow in environments similar to the tissue of origin.&lt;&#x2F;p&gt;
+&lt;&#x2F;li&gt;
+&lt;li&gt;
+&lt;p&gt;How much effect can be attributed to the soil? How much variance can be explained by metabolite changes?&lt;&#x2F;p&gt;
+&lt;&#x2F;li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code&gt;DepMap&lt;&#x2F;code&gt; project also profiles cancer metabolism &lt;code&gt;MetMap&lt;&#x2F;code&gt; &lt;a href=&quot;https:&#x2F;&#x2F;www.nature.com&#x2F;articles&#x2F;s41586-020-2969-2&quot;&gt;A metastasis map of human cancer cell lines&lt;&#x2F;a&gt;&lt;&#x2F;p&gt;
+&lt;&#x2F;li&gt;
+&lt;li&gt;
+&lt;p&gt;Preliminary work reveal the complexity of underlying regulatory mechanisms. Specific nutrient deficiencies not necessarily predict metastatic tumour growth. They tested their hypothesis by measuring growth of auxotrophs.&lt;&#x2F;p&gt;
+&lt;&#x2F;li&gt;
+&lt;li&gt;
+&lt;p&gt;Is this an opportunity to study how cells and genes respond to differential metabolic environments?&lt;&#x2F;p&gt;
+&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;h4 id=&quot;energy-consumption-vs-budget-vs-cellular-growth&quot;&gt;&lt;a class=&quot;zola-anchor&quot; href=&quot;#energy-consumption-vs-budget-vs-cellular-growth&quot; aria-label=&quot;Anchor link for: energy-consumption-vs-budget-vs-cellular-growth&quot;&gt;Energy consumption vs. budget vs. cellular growth&lt;&#x2F;a&gt;&lt;&#x2F;h4&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;Nutrients are both the source of ATP and budget (protein, nucleic acids, lipids, etc.) and eventually NAD+ regeneration. Mitosis aligned with oxygen consumption, NAD+ regeneration, and less protein synthesis, where cell growth was reduced. Respiration-deficient cells grow slowly, why? Cells that underwent unsuccessful mitosis die more frequently.&lt;&#x2F;p&gt;
+&lt;&#x2F;li&gt;
+&lt;li&gt;
+&lt;p&gt;Aurora kinase can shed lights into mechanisms as cellular phenotype are similar.  Aneuploidy confirmed by single-cell CNV profiles.&lt;&#x2F;p&gt;
+&lt;&#x2F;li&gt;
+&lt;li&gt;
+&lt;p&gt;Basically Cancer is a &quot;reduced&quot; state. These results emphasize that somatic mutation is necessary but not sufficient to drive cancer.&lt;&#x2F;p&gt;
+&lt;&#x2F;li&gt;
+&lt;li&gt;
+&lt;p&gt;Nucleotide imbalance leads to stress and lineage-dependent changes, and eventually, gene expression program changes (epigenetic states and enzymatic activities to reach a steady state?).&lt;&#x2F;p&gt;
+&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;h4 id=&quot;immune-and-metabolism&quot;&gt;&lt;a class=&quot;zola-anchor&quot; href=&quot;#immune-and-metabolism&quot; aria-label=&quot;Anchor link for: immune-and-metabolism&quot;&gt;Immune and metabolism&lt;&#x2F;a&gt;&lt;&#x2F;h4&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;Adenosine nucleotide metabolic pathways can influence immune response (suppression).&lt;&#x2F;p&gt;
+&lt;&#x2F;li&gt;
+&lt;li&gt;
+&lt;p&gt;Interesting paper: &lt;a href=&quot;https:&#x2F;&#x2F;www.nature.com&#x2F;articles&#x2F;s41571-020-0382-2&quot;&gt;The adenosine pathway in immuno-oncology&lt;&#x2F;a&gt;&lt;&#x2F;p&gt;
+&lt;&#x2F;li&gt;
+&lt;li&gt;
+&lt;p&gt;Adenosine uptake blockage rescued CD8+ T-cells proliferation. Blocking A2A receptor might have a therapeutic value.&lt;&#x2F;p&gt;
+&lt;&#x2F;li&gt;
+&lt;li&gt;
+&lt;p&gt;Synergy with immune checkpont blockade therapy.&lt;&#x2F;p&gt;
+&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+</content>
+        
+    </entry>
     <entry xml:lang="en">
         <title>`.R&#x2F;Makevars` on silicon Mac</title>
         <published>2025-01-22T00:00:00+00:00</published>
