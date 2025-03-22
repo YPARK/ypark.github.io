@@ -4,8 +4,69 @@
     <link rel="self" type="application/atom+xml" href="https://ypark.github.io/atom.xml"/>
     <link rel="alternate" type="text/html" href="https://ypark.github.io"/>
     <generator uri="https://www.getzola.org/">Zola</generator>
-    <updated>2025-03-17T00:00:00+00:00</updated>
+    <updated>2025-03-22T00:00:00+00:00</updated>
     <id>https://ypark.github.io/atom.xml</id>
+    <entry xml:lang="en">
+        <title>Brain Age Gap GWAS</title>
+        <published>2025-03-22T00:00:00+00:00</published>
+        <updated>2025-03-22T00:00:00+00:00</updated>
+        
+        <author>
+          <name>
+            
+              Unknown
+            
+          </name>
+        </author>
+        
+        <link rel="alternate" type="text/html" href="https://ypark.github.io/posts/brain-age-gwas/"/>
+        <id>https://ypark.github.io/posts/brain-age-gwas/</id>
+        
+        <content type="html" xml:base="https://ypark.github.io/posts/brain-age-gwas/">&lt;p&gt;&lt;a href=&quot;https:&#x2F;&#x2F;www.science.org&#x2F;doi&#x2F;10.1126&#x2F;sciadv.adr3757&quot;&gt;Genetically supported targets and drug repurposing for brain aging: A systematic study in the UK Biobank&lt;&#x2F;a&gt;&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;img src=&quot;https:&#x2F;&#x2F;www.science.org&#x2F;cms&#x2F;10.1126&#x2F;sciadv.adr3757&#x2F;asset&#x2F;8b04120a-df0a-47f0-b40d-e6ad34cf1414&#x2F;assets&#x2F;images&#x2F;large&#x2F;sciadv.adr3757-f1.jpg&quot; alt=&quot;&quot; &#x2F;&gt;&lt;&#x2F;p&gt;
+&lt;p&gt;Brain age gap (BAG), the difference between chronological and biological&#x2F;estimated ages, is an interesting observation to think about. $\Delta$ age sounds more natural to me. A colleague and collaborator in my previous lab also attempted to estimate biological aging using molecular profiles of postmortem data:&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;https:&#x2F;&#x2F;www.life-science-alliance.org&#x2F;content&#x2F;2&#x2F;3&#x2F;e201900303&quot;&gt;Rate of brain aging and APOE ε4 are synergistic risk factors for Alzheimer’s disease&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;p&gt;As noted in the paper, several related works have been done to measure the difference between biological and chronological ages in multiple organs.&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;https:&#x2F;&#x2F;www.nature.com&#x2F;articles&#x2F;s41591-023-02296-6&quot;&gt;Heterogeneous aging across multiple organ systems and prediction of chronic disease and mortality&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Although existing studies emphasize the polygenic architecture of
+brain aging, genetically supported drug target studies of brain
+aging, as a tool to anticipate the effect of drug action on brain
+aging, are incredibly lacking [regarding the above].&lt;&#x2F;p&gt;
+&lt;&#x2F;blockquote&gt;
+&lt;p&gt;Brain imaging data confer an invaluable window to look into how old (biologically) person&#x27;s cognitive ability is.&lt;&#x2F;p&gt;
+&lt;ol start=&quot;0&quot;&gt;
+&lt;li&gt;Train $f$: image $\to$ age (and $\Delta$ age)&lt;&#x2F;li&gt;
+&lt;li&gt;Some genetic variant $\to$ $\Delta$ age&lt;&#x2F;li&gt;
+&lt;li&gt;The same genetic variant $\to$ gene expressions (GTEx v8)&lt;&#x2F;li&gt;
+&lt;li&gt;Sort out druggable targets overlapping TWAS genes (eQTL and GWAS co-localized) with drug-gene interaction networks&lt;&#x2F;li&gt;
+&lt;li&gt;Mendelian Randomization to build up a causal model: genetic variant $\to$ druggable protein&#x2F;gene $\to$ $\Delta$ brain age.&lt;&#x2F;li&gt;
+&lt;&#x2F;ol&gt;
+&lt;p&gt;It&#x27;s great to know that 3d-vision transformer works great:&lt;&#x2F;p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;A promising finding in our study was the clear advantage of using a
+state-of-the-art deep learning model, namely, 3D-ViT, for brain age
+estimation.  [...] We performed early stopping to prevent potential
+overfitting problems if the validation error did not improve within
+10 epochs.&lt;&#x2F;p&gt;
+&lt;&#x2F;blockquote&gt;
+&lt;p&gt;However, it also raises my question: What if an optimal predictor can perfectly estimate a person&#x27;s age based on image or molecular profiles? Could we ever see $\Delta$ age? How do we know that enough is enough?&lt;&#x2F;p&gt;
+&lt;p&gt;Finding genetic underpinnings of the druggable disease mechanisms is probably one of the most important contributions of this work (as we can get around potential confounding issues). But can we really?&lt;&#x2F;p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;To accurately identify druggable targets for brain aging, it is crucial to mitigate the confounding impact of brain disorders on brain aging.&lt;&#x2F;p&gt;
+&lt;&#x2F;blockquote&gt;
+&lt;p&gt;Potentially, I think ageing processes are naturally heteroscedastic, so measuring $\Delta$, not taking into account over&#x2F;under-dispersion, seems like a serious issue. Finding a cancer-related gene can be both interesting and worrying.&lt;&#x2F;p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;In addition to confirming the associations between well-known genes like &lt;em&gt;RUNX2&lt;&#x2F;em&gt;, &lt;em&gt;CRHR1&lt;&#x2F;em&gt;, and &lt;em&gt;INPP5A&lt;&#x2F;em&gt; with BAG, our study has also identified genes, including &lt;em&gt;TP53&lt;&#x2F;em&gt;, that are associated with BAG in the context of brain aging.&lt;&#x2F;p&gt;
+&lt;&#x2F;blockquote&gt;
+&lt;p&gt;What if the whole analysis is just confounded by a person&#x27;s age? Even so, the study has some value since we characterized what would have happened during ageing and potential drug targets and repurposing, etc.&lt;&#x2F;p&gt;
+</content>
+        
+    </entry>
     <entry xml:lang="en">
         <title>Notes on &#x27;How altered cancer metabolism influences cancer progression&#x27;</title>
         <published>2025-03-17T00:00:00+00:00</published>

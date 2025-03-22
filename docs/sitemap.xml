@@ -37,6 +37,10 @@
         <lastmod>2023-06-19</lastmod>
     </url>
     <url>
+        <loc>https://ypark.github.io/posts/brain-age-gwas/</loc>
+        <lastmod>2025-03-22</lastmod>
+    </url>
+    <url>
         <loc>https://ypark.github.io/posts/causal-bio-2020/</loc>
         <lastmod>2020-09-04</lastmod>
     </url>
@@ -91,6 +95,9 @@
         <loc>https://ypark.github.io/tags/big-picture/</loc>
     </url>
     <url>
+        <loc>https://ypark.github.io/tags/brain/</loc>
+    </url>
+    <url>
         <loc>https://ypark.github.io/tags/cancer/</loc>
     </url>
     <url>
@@ -122,6 +129,9 @@
     </url>
     <url>
         <loc>https://ypark.github.io/tags/html/</loc>
+    </url>
+    <url>
+        <loc>https://ypark.github.io/tags/image/</loc>
     </url>
     <url>
         <loc>https://ypark.github.io/tags/integration/</loc>
@@ -158,6 +168,9 @@
     </url>
     <url>
         <loc>https://ypark.github.io/tags/trouble-shooting/</loc>
+    </url>
+    <url>
+        <loc>https://ypark.github.io/tags/ukb/</loc>
     </url>
     <url>
         <loc>https://ypark.github.io/tags/variational-inference/</loc>
