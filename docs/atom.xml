@@ -4,8 +4,187 @@
     <link rel="self" type="application/atom+xml" href="https://ypark.github.io/atom.xml"/>
     <link rel="alternate" type="text/html" href="https://ypark.github.io"/>
     <generator uri="https://www.getzola.org/">Zola</generator>
-    <updated>2025-03-22T00:00:00+00:00</updated>
+    <updated>2025-03-24T00:00:00+00:00</updated>
     <id>https://ypark.github.io/atom.xml</id>
+    <entry xml:lang="en">
+        <title>Single-cell (pseudotime) trajectory analysis</title>
+        <published>2025-03-24T00:00:00+00:00</published>
+        <updated>2025-03-24T00:00:00+00:00</updated>
+        
+        <author>
+          <name>
+            
+              Unknown
+            
+          </name>
+        </author>
+        
+        <link rel="alternate" type="text/html" href="https://ypark.github.io/posts/sc-trajectory/"/>
+        <id>https://ypark.github.io/posts/sc-trajectory/</id>
+        
+        <content type="html" xml:base="https://ypark.github.io/posts/sc-trajectory/">&lt;p&gt;&lt;strong&gt;TL;DR&lt;&#x2F;strong&gt;: The goal is to give a &quot;pseudotime&quot; for each cell. Use minimum spanning tree (MST) to estimate &quot;independent&quot; lineages. Sort the cells within each lineage to assign &quot;time&quot; information.&lt;&#x2F;p&gt;
+&lt;h3 id=&quot;pseudotime-trajectory-inference&quot;&gt;&lt;a class=&quot;zola-anchor&quot; href=&quot;#pseudotime-trajectory-inference&quot; aria-label=&quot;Anchor link for: pseudotime-trajectory-inference&quot;&gt;Pseudotime trajectory inference&lt;&#x2F;a&gt;&lt;&#x2F;h3&gt;
+&lt;h4 id=&quot;monocle-the-dynamics-and-regulators-of-cell-fate-decisions-are-revealed-by-pseudotemporal-ordering-of-single-cells&quot;&gt;&lt;a class=&quot;zola-anchor&quot; href=&quot;#monocle-the-dynamics-and-regulators-of-cell-fate-decisions-are-revealed-by-pseudotemporal-ordering-of-single-cells&quot; aria-label=&quot;Anchor link for: monocle-the-dynamics-and-regulators-of-cell-fate-decisions-are-revealed-by-pseudotemporal-ordering-of-single-cells&quot;&gt;&lt;code&gt;monocle&lt;&#x2F;code&gt; &lt;a href=&quot;https:&#x2F;&#x2F;www.nature.com&#x2F;articles&#x2F;nbt.2859&quot;&gt;The dynamics and regulators of cell fate decisions are revealed by pseudotemporal ordering of single cells&lt;&#x2F;a&gt;&lt;&#x2F;a&gt;&lt;&#x2F;h4&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;monocle&lt;&#x2F;code&gt; deals with pairs of cells directly:&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;blockquote&gt;
+&lt;p&gt;We developed Monocle to informatically order the cells by their progress through differentiation rather than by the time they were collected, maximizing the transcriptional similarity between successive pairs of cells.&lt;&#x2F;p&gt;
+&lt;&#x2F;blockquote&gt;
+&lt;ul&gt;
+&lt;li&gt;Independent Component Analysis to reduce dimensions:&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;blockquote&gt;
+&lt;p&gt;It reduces the dimensionality of this space using independent component analysis17. Dimensionality reduction transforms the cell data from a high-dimensional space into a low-dimensional one that preserves essential relationships between cell populations but is much easier to visualize and interpret.&lt;&#x2F;p&gt;
+&lt;&#x2F;blockquote&gt;
+&lt;ul&gt;
+&lt;li&gt;Fit a minimum spanning tree on the cells and identify the longest path:&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Monocle constructs a minimum spanning tree (MST) on the cells [...] The algorithm finds the longest path through the MST, corresponding to the longest sequence of transcriptionally similar cells.&lt;&#x2F;p&gt;
+&lt;&#x2F;blockquote&gt;
+&lt;ul&gt;
+&lt;li&gt;Assign &quot;pseudo time&quot; to each cell along the path:&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Finally, Monocle uses this sequence to produce a &#x27;trajectory&#x27; of an individual cell&#x27;s progress through differentiation.&lt;&#x2F;p&gt;
+&lt;&#x2F;blockquote&gt;
+&lt;h4 id=&quot;tscan-tscan-pseudo-time-reconstruction-and-evaluation-in-single-cell-rna-seq-analysis&quot;&gt;&lt;a class=&quot;zola-anchor&quot; href=&quot;#tscan-tscan-pseudo-time-reconstruction-and-evaluation-in-single-cell-rna-seq-analysis&quot; aria-label=&quot;Anchor link for: tscan-tscan-pseudo-time-reconstruction-and-evaluation-in-single-cell-rna-seq-analysis&quot;&gt;&lt;code&gt;TSCAN&lt;&#x2F;code&gt; &lt;a href=&quot;https:&#x2F;&#x2F;academic.oup.com&#x2F;nar&#x2F;article&#x2F;44&#x2F;13&#x2F;e117&#x2F;2457590&quot;&gt;TSCAN: Pseudo-time reconstruction and evaluation in single-cell RNA-seq analysis&lt;&#x2F;a&gt;&lt;&#x2F;a&gt;&lt;&#x2F;h4&gt;
+&lt;ul&gt;
+&lt;li&gt;Gene clustering to reduce &quot;drop out&quot; genes:&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Before pseudo-time reconstruction, [...] in order to alleviate the
+effect of drop-out events on the subsequent analyses, genes with
+similar expression patterns are grouped into clusters by
+hierarchical clustering (using Euclidean distance and complete
+linkage). [...] For each cluster and each cell, the expression
+measurements of all genes in the cluster are averaged to produce a
+cluster-level expression which will be used for subsequent MST
+construction.&lt;&#x2F;p&gt;
+&lt;&#x2F;blockquote&gt;
+&lt;ul&gt;
+&lt;li&gt;Then, they performed PCA on the clustered matrix.&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;blockquote&gt;
+&lt;p&gt;After gene clustering, single-cell transcriptome for cell $i$
+becomes a $H$ dimensional vector $E_{i}$ Here, $H$ is the
+number of gene clusters. $E_{i}$ still has high dimension,
+and many components in this vector are still correlated. The
+dimensionality makes visualization and statistical modeling
+difficult. For this reason, TSCAN further reduces the dimension of
+using principal component analysis (PCA). [...] After PCA, the H
+dimensional vector is mapped to a lower dimensional space and
+becomes a $K$ dimensional vector $\tilde{E}_{i}$.  Here,
+$K$ is much smaller than $H$.&lt;&#x2F;p&gt;
+&lt;&#x2F;blockquote&gt;
+&lt;ul&gt;
+&lt;li&gt;Cell clustering by fitting a mixture of multivariate Gaussian&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;blockquote&gt;
+&lt;p&gt;The clustering is performed using the mclust (22) package in R
+which fits a mixture of multivariate normal distributions to the
+data $\tilde{E}_{i}$.&lt;&#x2F;p&gt;
+&lt;&#x2F;blockquote&gt;
+&lt;ul&gt;
+&lt;li&gt;Minimum spanning tree&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Next, TSCAN constructs a minimum spanning tree to connect all
+cluster centers. In a connected and undirected graph, a spanning
+tree is a subgraph that is a tree and connects all the vertices (or
+&#x27;nodes&#x27;).  [...] Unlike the MST approach used by Monocle where the
+tree is constructed to connect individual cells, the MST in TSCAN is
+constructed to connect clusters of cells.&lt;&#x2F;p&gt;
+&lt;&#x2F;blockquote&gt;
+&lt;ul&gt;
+&lt;li&gt;Identify &quot;main&quot; branch and pick the root randomly&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;blockquote&gt;
+&lt;p&gt;A tree may have multiple branches. By default, we define the main
+path of the tree (solid lines in Figure 1D) as the path with the
+largest number of clusters. If more than one path has the same
+largest number of clusters, the path with the largest number of
+cells becomes the main path. The main path has two ends. Without
+other information, one end will be randomly picked up as the origin
+of the path.&lt;&#x2F;p&gt;
+&lt;&#x2F;blockquote&gt;
+&lt;ul&gt;
+&lt;li&gt;Cell ordering and pseudo-time calculation; we can learn an average direction between clusters $i$ and $j$ and apply each cell in the cluster $i$ (the preceding one) with respect to this vectorial information:&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;blockquote&gt;
+&lt;p&gt;All cells in these clusters will be ordered along the path as follows. Let $C_{i}$ ($i$ = 1, 2, $\ldots$, $M$) indicate the ordered clusters, where $M$ is the number of clusters on the ordered path.&lt;&#x2F;p&gt;
+&lt;&#x2F;blockquote&gt;
+&lt;!-- $v_{ij} = \tilde{E}_{j} - \tilde{E}_{i}$ --&gt;
+&lt;!-- $v_{ij}^{\top}\tilde{E}_{k}&#x2F;\|v_{ij}\|$ --&gt;
+&lt;ul&gt;
+&lt;li&gt;Sort all the cells by these vectorial information:&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Cell orderings are determined in three steps. First, for cells which
+are in the same cluster and are projected onto the same edge, their
+order is determined by the projected values on the edge. Second,
+within each cluster, the order of cells projected onto different
+edges is determined by the order of edges, which is given by the
+cluster-level ordering. Third, the order of cells in different
+clusters is determined by the order of clusters. In this way, all
+cells can be placed in order.&lt;&#x2F;p&gt;
+&lt;&#x2F;blockquote&gt;
+&lt;h4 id=&quot;slingshot-slingshot-cell-lineage-and-pseudotime-inference-for-single-cell-transcriptomics&quot;&gt;&lt;a class=&quot;zola-anchor&quot; href=&quot;#slingshot-slingshot-cell-lineage-and-pseudotime-inference-for-single-cell-transcriptomics&quot; aria-label=&quot;Anchor link for: slingshot-slingshot-cell-lineage-and-pseudotime-inference-for-single-cell-transcriptomics&quot;&gt;&lt;code&gt;slingshot&lt;&#x2F;code&gt; &lt;a href=&quot;https:&#x2F;&#x2F;link.springer.com&#x2F;article&#x2F;10.1186&#x2F;s12864-018-4772-0&quot;&gt;Slingshot: cell lineage and pseudotime inference for single-cell transcriptomics&lt;&#x2F;a&gt;&lt;&#x2F;a&gt;&lt;&#x2F;h4&gt;
+&lt;ul&gt;
+&lt;li&gt;Estimate cluster-level MST&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Slingshot identifies lineages by treating clusters of cells as nodes in a graph and drawing a minimum spanning tree (MST) between the nodes, [...]  We have found that a Mahalanobis-like distance, i.e., a covariance-scaled Euclidean distance, that accounts for cluster shape, works well in practice, but users have the option of specifying any type of distance measure (e.g., Euclidean, Manhattan).&lt;&#x2F;p&gt;
+&lt;&#x2F;blockquote&gt;
+&lt;ul&gt;
+&lt;li&gt;Estimate pseudotime by principal curves&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;blockquote&gt;
+&lt;p&gt;The second stage of Slingshot is concerned with assigning pseudotimes to individual cells. For this purpose, we make use of principal curves to draw a path through the gene expression space of each lineage&lt;&#x2F;p&gt;
+&lt;&#x2F;blockquote&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;Project all data points onto the curve and calculate the arc length from the beginning of the curve to each point’s projection. Setting the lowest value to zero, this produces pseudotimes.&lt;&#x2F;p&gt;
+&lt;&#x2F;li&gt;
+&lt;li&gt;
+&lt;p&gt;For each dimension $j$, $j \in {1,…,J&#x27;}$, use the cells&#x27; pseudotimes to predict their coordinates, typically with a smoothing spline. This produces a set of J&#x27; functions which collectively map pseudotime values, thereby defining a smooth curve in J&#x27; dimensions.&lt;&#x2F;p&gt;
+&lt;&#x2F;li&gt;
+&lt;li&gt;
+&lt;p&gt;Repeat this process until convergence. We use the sum of squared distances between cells’ actual coordinates and their projections on the curves to determine convergence.&lt;&#x2F;p&gt;
+&lt;&#x2F;li&gt;
+&lt;&#x2F;ol&gt;
+&lt;h4 id=&quot;monocle3-the-single-cell-transcriptional-landscape-of-mammalian-organogenesis&quot;&gt;&lt;a class=&quot;zola-anchor&quot; href=&quot;#monocle3-the-single-cell-transcriptional-landscape-of-mammalian-organogenesis&quot; aria-label=&quot;Anchor link for: monocle3-the-single-cell-transcriptional-landscape-of-mammalian-organogenesis&quot;&gt;&lt;code&gt;monocle3&lt;&#x2F;code&gt; &lt;a href=&quot;https:&#x2F;&#x2F;www.nature.com&#x2F;articles&#x2F;s41586-019-0969-x&quot;&gt;The single-cell transcriptional landscape of mammalian organogenesis&lt;&#x2F;a&gt;&lt;&#x2F;a&gt;&lt;&#x2F;h4&gt;
+&lt;ul&gt;
+&lt;li&gt;I think &lt;code&gt;monocle3&lt;&#x2F;code&gt; made a wrong decision. Okay, the original &lt;code&gt;monocle&lt;&#x2F;code&gt; might have resulted in a noisy MST backbone, or the method is infeasible for a million cells. However, there is no rationale behind &quot;projecting data onto UMAP and performing clustering,&quot; and the trajectories &lt;code&gt;monocle3&lt;&#x2F;code&gt; report report never looks like a trajectory (because UMAP internally optimizes for cluster-like patterns).&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;code&gt;Monocle3&lt;&#x2F;code&gt; first projects cells onto a low-dimensional space
+encoding transcriptional state using UMAP. It then groups mutually
+similar cells using the Louvain community detection algorithm, and
+merges adjacent groups into ‘supergroups’. Finally, it resolves the
+paths or trajectories that individual cells can take during
+development, identifying the locations of branches and convergences
+within each supergroup. Finally, it resolves the paths or
+trajectories that individual cells can take during development,
+identifying the locations of branches and convergences within each
+supergroup.&lt;&#x2F;p&gt;
+&lt;&#x2F;blockquote&gt;
+&lt;h3 id=&quot;downstream-analysis-to-statistically-test-dynamic-gene-programs&quot;&gt;&lt;a class=&quot;zola-anchor&quot; href=&quot;#downstream-analysis-to-statistically-test-dynamic-gene-programs&quot; aria-label=&quot;Anchor link for: downstream-analysis-to-statistically-test-dynamic-gene-programs&quot;&gt;Downstream analysis to statistically test &quot;dynamic&quot; gene programs&lt;&#x2F;a&gt;&lt;&#x2F;h3&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href=&quot;https:&#x2F;&#x2F;www.nature.com&#x2F;articles&#x2F;s41467-024-44823-0&quot;&gt;Trajectory inference across multiple conditions with condiments&lt;&#x2F;a&gt;&lt;&#x2F;p&gt;
+&lt;&#x2F;li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href=&quot;https:&#x2F;&#x2F;www.nature.com&#x2F;articles&#x2F;s43588-021-00025-y&quot;&gt;Enabling single-cell trajectory network enrichment&lt;&#x2F;a&gt;&lt;&#x2F;p&gt;
+&lt;&#x2F;li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href=&quot;https:&#x2F;&#x2F;www.nature.com&#x2F;articles&#x2F;s41467-023-42841-y&quot;&gt;A statistical framework for differential pseudotime analysis with multiple single-cell RNA-seq samples&lt;&#x2F;a&gt;&lt;&#x2F;p&gt;
+&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+</content>
+        
+    </entry>
     <entry xml:lang="en">
         <title>Brain Age Gap GWAS</title>
         <published>2025-03-22T00:00:00+00:00</published>

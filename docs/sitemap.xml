@@ -68,6 +68,10 @@
         <lastmod>2025-01-22</lastmod>
     </url>
     <url>
+        <loc>https://ypark.github.io/posts/sc-trajectory/</loc>
+        <lastmod>2025-03-24</lastmod>
+    </url>
+    <url>
         <loc>https://ypark.github.io/posts/stat548-2024/</loc>
         <lastmod>2024-09-03</lastmod>
     </url>
@@ -165,6 +169,9 @@
     </url>
     <url>
         <loc>https://ypark.github.io/tags/tips/</loc>
+    </url>
+    <url>
+        <loc>https://ypark.github.io/tags/trajectory/</loc>
     </url>
     <url>
         <loc>https://ypark.github.io/tags/trouble-shooting/</loc>

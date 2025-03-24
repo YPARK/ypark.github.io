@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="en">
+<html class="dark light">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    
+
+    
+    
+    
+    <title>
+         Single-cell (pseudotime) trajectory analysis
+        
+    </title>
+
+        
+            <meta property="og:title" content="Single-cell (pseudotime) trajectory analysis" />
+        
+     
+
+     
+         
+     
+
+     
+         
+    
+
+    
+    
+        <link rel="icon" type="image/png" href=&#x2F;icon&#x2F;favicon.ico />
+    
+
+    
+    
+        <link href=https://ypark.github.io/fonts.css rel="stylesheet" />
+    
+
+    
+    
+
+    
+    
+        <script src=https://ypark.github.io/js/codeblock.js></script>
+    
+
+    
+    
+        <script src=https://ypark.github.io/js/toc.js></script>
+    
+    
+    
+    
+
+    
+
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+
+        <script type="text/javascript" id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+        </script>
+        
+            <script>
+            MathJax = {
+              tex: {
+                  inlineMath: [['$', '$'], ['\\(', '\\)'], ['$$', '$$']]
+              }
+            };
+            </script>
+        
+
+	<!-- <\!-- KaTeX CSS -\-> -->
+	<!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.15.2/katex.min.css"> -->
+	
+	<!-- <\!-- KaTeX JS -\-> -->
+	<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.15.2/katex.min.js"></script> -->
+	
+	<!-- <\!-- Optional: KaTeX Auto-render extension -\-> -->
+	<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.15.2/contrib/auto-render.min.js"></script> -->
+	
+	<!-- <script> -->
+	<!--   document.addEventListener("DOMContentLoaded", function() { -->
+	<!--       renderMathInElement(document.body, { -->
+	<!-- 	  delimiters: [ -->
+	<!-- 	      {left: "$$", right: "$$", display: true}, -->
+	<!-- 	      {left: "$", right: "$", display: false} -->
+	<!-- 	  ] -->
+	<!--       }); -->
+	<!--   }); -->
+	<!-- </script> -->
+
+    
+
+    
+    <link rel="alternate" type="application/atom+xml" title="" href="https://ypark.github.io/atom.xml">
+
+
+    
+    
+        <link rel="stylesheet" type="text/css" href=https://ypark.github.io/theme/light.css />
+        <link id="darkModeStyle" rel="stylesheet" type="text/css" href="https://ypark.github.io/theme/dark.css" />
+    
+
+    <!-- Set the correct theme in the script -->
+    <script src=https://ypark.github.io/js/themetoggle.js></script>
+    
+        <script>setTheme(getSavedTheme());</script>
+    
+
+    <link rel="stylesheet" type="text/css" media="screen" href=https://ypark.github.io/main.css />
+
+    
+</head>
+
+
+<body>
+    <div class="content">
+        <header>
+    <div class="main">
+        <a href=https:&#x2F;&#x2F;ypark.github.io></a>
+
+        <div class="socials">
+            
+            <a rel="me" href="https:&#x2F;&#x2F;github.com&#x2F;causalpathlab&#x2F;" class="social">
+                <img alt=github src=https://ypark.github.io/social_icons/github.svg>
+            </a>
+            
+        </div>
+    </div>
+
+    <nav>
+        
+        <a href=https://ypark.github.io style="margin-left: 0.5em">home</a>
+        
+        <a href=https://ypark.github.io/about style="margin-left: 0.5em">&#x2F;about</a>
+        
+        <a href=https://ypark.github.io/posts style="margin-left: 0.5em">&#x2F;posts</a>
+        
+        <a href=https://ypark.github.io/team style="margin-left: 0.5em">&#x2F;team</a>
+        
+        <a href=https://ypark.github.io/alumni style="margin-left: 0.5em">&#x2F;alumni</a>
+        
+
+        
+        |<a id="dark-mode-toggle" onclick="toggleTheme(); event.preventDefault();" href="#">
+            <img src=https://ypark.github.io/feather/sun.svg id="sun-icon" style="filter: invert(1);" alt="Light" />
+            <img src=https://ypark.github.io/feather/moon.svg id="moon-icon" alt="Dark" />
+        </a>
+
+        <!-- Inititialize the theme toggle icons -->
+        <script>updateItemToggleTheme()</script>
+        
+    </nav>
+</header>
+
+
+        
+        
+    
+<main>
+    <article>
+        <div class="title">
+            
+            
+    <div class="page-header">
+        Single-cell (pseudotime) trajectory analysis<span class="primary-color" style="font-size: 1.6em">.</span>
+    </div>
+
+
+                <div class="meta">
+                    
+                        Posted on <time>2025-03-24</time>
+                    
+
+                    
+
+                    
+
+                    
+                    
+                            <span class="tags-label"> :: Tags:</span>
+                            <span class="tags">
+                                    <a href="https://ypark.github.io/tags/trajectory/" class="post-tag">trajectory</a>, 
+                                
+                                    <a href="https://ypark.github.io/tags/single-cell/" class="post-tag">single-cell</a>
+                                
+                            </span>
+                    
+
+                    
+                    
+                        
+                        
+                            
+                        
+
+                        
+                    
+
+                    
+
+                </div>
+        </div>
+
+        
+
+        
+        
+        
+            <div class="toc-container">
+                <h1 class="toc-title">Table of Contents</h1>
+                <ul class="toc-list">
+                    
+                        <li>
+                            <a href="https://ypark.github.io/posts/sc-trajectory/#pseudotime-trajectory-inference">Pseudotime trajectory inference</a>
+                            
+                                <ul>
+                                    
+                                        <li>
+                                            <a href="https://ypark.github.io/posts/sc-trajectory/#monocle-the-dynamics-and-regulators-of-cell-fate-decisions-are-revealed-by-pseudotemporal-ordering-of-single-cells">monocle The dynamics and regulators of cell fate decisions are revealed by pseudotemporal ordering of single cells</a>
+                                        </li>
+
+                                        
+                                    
+                                        <li>
+                                            <a href="https://ypark.github.io/posts/sc-trajectory/#tscan-tscan-pseudo-time-reconstruction-and-evaluation-in-single-cell-rna-seq-analysis">TSCAN TSCAN: Pseudo-time reconstruction and evaluation in single-cell RNA-seq analysis</a>
+                                        </li>
+
+                                        
+                                    
+                                        <li>
+                                            <a href="https://ypark.github.io/posts/sc-trajectory/#slingshot-slingshot-cell-lineage-and-pseudotime-inference-for-single-cell-transcriptomics">slingshot Slingshot: cell lineage and pseudotime inference for single-cell transcriptomics</a>
+                                        </li>
+
+                                        
+                                    
+                                        <li>
+                                            <a href="https://ypark.github.io/posts/sc-trajectory/#monocle3-the-single-cell-transcriptional-landscape-of-mammalian-organogenesis">monocle3 The single-cell transcriptional landscape of mammalian organogenesis</a>
+                                        </li>
+
+                                        
+                                    
+                                </ul>
+                            
+                        </li>
+                    
+                        <li>
+                            <a href="https://ypark.github.io/posts/sc-trajectory/#downstream-analysis-to-statistically-test-dynamic-gene-programs">Downstream analysis to statistically test &quot;dynamic&quot; gene programs</a>
+                            
+                        </li>
+                    
+                </ul>
+            </div>
+        
+        
+
+        <section class="body">
+            <p><strong>TL;DR</strong>: The goal is to give a "pseudotime" for each cell. Use minimum spanning tree (MST) to estimate "independent" lineages. Sort the cells within each lineage to assign "time" information.</p>
+<h3 id="pseudotime-trajectory-inference"><a class="zola-anchor" href="#pseudotime-trajectory-inference" aria-label="Anchor link for: pseudotime-trajectory-inference">Pseudotime trajectory inference</a></h3>
+<h4 id="monocle-the-dynamics-and-regulators-of-cell-fate-decisions-are-revealed-by-pseudotemporal-ordering-of-single-cells"><a class="zola-anchor" href="#monocle-the-dynamics-and-regulators-of-cell-fate-decisions-are-revealed-by-pseudotemporal-ordering-of-single-cells" aria-label="Anchor link for: monocle-the-dynamics-and-regulators-of-cell-fate-decisions-are-revealed-by-pseudotemporal-ordering-of-single-cells"><code>monocle</code> <a href="https://www.nature.com/articles/nbt.2859">The dynamics and regulators of cell fate decisions are revealed by pseudotemporal ordering of single cells</a></a></h4>
+<ul>
+<li><code>monocle</code> deals with pairs of cells directly:</li>
+</ul>
+<blockquote>
+<p>We developed Monocle to informatically order the cells by their progress through differentiation rather than by the time they were collected, maximizing the transcriptional similarity between successive pairs of cells.</p>
+</blockquote>
+<ul>
+<li>Independent Component Analysis to reduce dimensions:</li>
+</ul>
+<blockquote>
+<p>It reduces the dimensionality of this space using independent component analysis17. Dimensionality reduction transforms the cell data from a high-dimensional space into a low-dimensional one that preserves essential relationships between cell populations but is much easier to visualize and interpret.</p>
+</blockquote>
+<ul>
+<li>Fit a minimum spanning tree on the cells and identify the longest path:</li>
+</ul>
+<blockquote>
+<p>Monocle constructs a minimum spanning tree (MST) on the cells [...] The algorithm finds the longest path through the MST, corresponding to the longest sequence of transcriptionally similar cells.</p>
+</blockquote>
+<ul>
+<li>Assign "pseudo time" to each cell along the path:</li>
+</ul>
+<blockquote>
+<p>Finally, Monocle uses this sequence to produce a 'trajectory' of an individual cell's progress through differentiation.</p>
+</blockquote>
+<h4 id="tscan-tscan-pseudo-time-reconstruction-and-evaluation-in-single-cell-rna-seq-analysis"><a class="zola-anchor" href="#tscan-tscan-pseudo-time-reconstruction-and-evaluation-in-single-cell-rna-seq-analysis" aria-label="Anchor link for: tscan-tscan-pseudo-time-reconstruction-and-evaluation-in-single-cell-rna-seq-analysis"><code>TSCAN</code> <a href="https://academic.oup.com/nar/article/44/13/e117/2457590">TSCAN: Pseudo-time reconstruction and evaluation in single-cell RNA-seq analysis</a></a></h4>
+<ul>
+<li>Gene clustering to reduce "drop out" genes:</li>
+</ul>
+<blockquote>
+<p>Before pseudo-time reconstruction, [...] in order to alleviate the
+effect of drop-out events on the subsequent analyses, genes with
+similar expression patterns are grouped into clusters by
+hierarchical clustering (using Euclidean distance and complete
+linkage). [...] For each cluster and each cell, the expression
+measurements of all genes in the cluster are averaged to produce a
+cluster-level expression which will be used for subsequent MST
+construction.</p>
+</blockquote>
+<ul>
+<li>Then, they performed PCA on the clustered matrix.</li>
+</ul>
+<blockquote>
+<p>After gene clustering, single-cell transcriptome for cell $i$
+becomes a $H$ dimensional vector $E_{i}$ Here, $H$ is the
+number of gene clusters. $E_{i}$ still has high dimension,
+and many components in this vector are still correlated. The
+dimensionality makes visualization and statistical modeling
+difficult. For this reason, TSCAN further reduces the dimension of
+using principal component analysis (PCA). [...] After PCA, the H
+dimensional vector is mapped to a lower dimensional space and
+becomes a $K$ dimensional vector $\tilde{E}_{i}$.  Here,
+$K$ is much smaller than $H$.</p>
+</blockquote>
+<ul>
+<li>Cell clustering by fitting a mixture of multivariate Gaussian</li>
+</ul>
+<blockquote>
+<p>The clustering is performed using the mclust (22) package in R
+which fits a mixture of multivariate normal distributions to the
+data $\tilde{E}_{i}$.</p>
+</blockquote>
+<ul>
+<li>Minimum spanning tree</li>
+</ul>
+<blockquote>
+<p>Next, TSCAN constructs a minimum spanning tree to connect all
+cluster centers. In a connected and undirected graph, a spanning
+tree is a subgraph that is a tree and connects all the vertices (or
+'nodes').  [...] Unlike the MST approach used by Monocle where the
+tree is constructed to connect individual cells, the MST in TSCAN is
+constructed to connect clusters of cells.</p>
+</blockquote>
+<ul>
+<li>Identify "main" branch and pick the root randomly</li>
+</ul>
+<blockquote>
+<p>A tree may have multiple branches. By default, we define the main
+path of the tree (solid lines in Figure 1D) as the path with the
+largest number of clusters. If more than one path has the same
+largest number of clusters, the path with the largest number of
+cells becomes the main path. The main path has two ends. Without
+other information, one end will be randomly picked up as the origin
+of the path.</p>
+</blockquote>
+<ul>
+<li>Cell ordering and pseudo-time calculation; we can learn an average direction between clusters $i$ and $j$ and apply each cell in the cluster $i$ (the preceding one) with respect to this vectorial information:</li>
+</ul>
+<blockquote>
+<p>All cells in these clusters will be ordered along the path as follows. Let $C_{i}$ ($i$ = 1, 2, $\ldots$, $M$) indicate the ordered clusters, where $M$ is the number of clusters on the ordered path.</p>
+</blockquote>
+<!-- $v_{ij} = \tilde{E}_{j} - \tilde{E}_{i}$ -->
+<!-- $v_{ij}^{\top}\tilde{E}_{k}/\|v_{ij}\|$ -->
+<ul>
+<li>Sort all the cells by these vectorial information:</li>
+</ul>
+<blockquote>
+<p>Cell orderings are determined in three steps. First, for cells which
+are in the same cluster and are projected onto the same edge, their
+order is determined by the projected values on the edge. Second,
+within each cluster, the order of cells projected onto different
+edges is determined by the order of edges, which is given by the
+cluster-level ordering. Third, the order of cells in different
+clusters is determined by the order of clusters. In this way, all
+cells can be placed in order.</p>
+</blockquote>
+<h4 id="slingshot-slingshot-cell-lineage-and-pseudotime-inference-for-single-cell-transcriptomics"><a class="zola-anchor" href="#slingshot-slingshot-cell-lineage-and-pseudotime-inference-for-single-cell-transcriptomics" aria-label="Anchor link for: slingshot-slingshot-cell-lineage-and-pseudotime-inference-for-single-cell-transcriptomics"><code>slingshot</code> <a href="https://link.springer.com/article/10.1186/s12864-018-4772-0">Slingshot: cell lineage and pseudotime inference for single-cell transcriptomics</a></a></h4>
+<ul>
+<li>Estimate cluster-level MST</li>
+</ul>
+<blockquote>
+<p>Slingshot identifies lineages by treating clusters of cells as nodes in a graph and drawing a minimum spanning tree (MST) between the nodes, [...]  We have found that a Mahalanobis-like distance, i.e., a covariance-scaled Euclidean distance, that accounts for cluster shape, works well in practice, but users have the option of specifying any type of distance measure (e.g., Euclidean, Manhattan).</p>
+</blockquote>
+<ul>
+<li>Estimate pseudotime by principal curves</li>
+</ul>
+<blockquote>
+<p>The second stage of Slingshot is concerned with assigning pseudotimes to individual cells. For this purpose, we make use of principal curves to draw a path through the gene expression space of each lineage</p>
+</blockquote>
+<ol>
+<li>
+<p>Project all data points onto the curve and calculate the arc length from the beginning of the curve to each point’s projection. Setting the lowest value to zero, this produces pseudotimes.</p>
+</li>
+<li>
+<p>For each dimension $j$, $j \in {1,…,J'}$, use the cells' pseudotimes to predict their coordinates, typically with a smoothing spline. This produces a set of J' functions which collectively map pseudotime values, thereby defining a smooth curve in J' dimensions.</p>
+</li>
+<li>
+<p>Repeat this process until convergence. We use the sum of squared distances between cells’ actual coordinates and their projections on the curves to determine convergence.</p>
+</li>
+</ol>
+<h4 id="monocle3-the-single-cell-transcriptional-landscape-of-mammalian-organogenesis"><a class="zola-anchor" href="#monocle3-the-single-cell-transcriptional-landscape-of-mammalian-organogenesis" aria-label="Anchor link for: monocle3-the-single-cell-transcriptional-landscape-of-mammalian-organogenesis"><code>monocle3</code> <a href="https://www.nature.com/articles/s41586-019-0969-x">The single-cell transcriptional landscape of mammalian organogenesis</a></a></h4>
+<ul>
+<li>I think <code>monocle3</code> made a wrong decision. Okay, the original <code>monocle</code> might have resulted in a noisy MST backbone, or the method is infeasible for a million cells. However, there is no rationale behind "projecting data onto UMAP and performing clustering," and the trajectories <code>monocle3</code> report report never looks like a trajectory (because UMAP internally optimizes for cluster-like patterns).</li>
+</ul>
+<blockquote>
+<p><code>Monocle3</code> first projects cells onto a low-dimensional space
+encoding transcriptional state using UMAP. It then groups mutually
+similar cells using the Louvain community detection algorithm, and
+merges adjacent groups into ‘supergroups’. Finally, it resolves the
+paths or trajectories that individual cells can take during
+development, identifying the locations of branches and convergences
+within each supergroup. Finally, it resolves the paths or
+trajectories that individual cells can take during development,
+identifying the locations of branches and convergences within each
+supergroup.</p>
+</blockquote>
+<h3 id="downstream-analysis-to-statistically-test-dynamic-gene-programs"><a class="zola-anchor" href="#downstream-analysis-to-statistically-test-dynamic-gene-programs" aria-label="Anchor link for: downstream-analysis-to-statistically-test-dynamic-gene-programs">Downstream analysis to statistically test "dynamic" gene programs</a></h3>
+<ul>
+<li>
+<p><a href="https://www.nature.com/articles/s41467-024-44823-0">Trajectory inference across multiple conditions with condiments</a></p>
+</li>
+<li>
+<p><a href="https://www.nature.com/articles/s43588-021-00025-y">Enabling single-cell trajectory network enrichment</a></p>
+</li>
+<li>
+<p><a href="https://www.nature.com/articles/s41467-023-42841-y">A statistical framework for differential pseudotime analysis with multiple single-cell RNA-seq samples</a></p>
+</li>
+</ul>
+
+        </section>
+    </article>
+</main>
+
+
+
+        
+
+    </div>
+</body>
+
+</html>
