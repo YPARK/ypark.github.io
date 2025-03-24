@@ -60,7 +60,7 @@ If we can accurately estimate a true batch effect matrix, say $\delta_{gk}$, it 
 
 ### A causal inference approach to identify batch effects
 
-To dissect batch-specific effect in a causal inference (potential outcome) framework, we assume our confounding variables $Q$ are well-distributed across different batches: 
+To dissect batch-specific effect in a causal inference (potential outcome) framework, we assume our confounding variables $Q$ are well-distributed across different batches:
 
 * Overlap: $0 < p(X_{kj}=1|Q) < 1$ for all $k$.
 
@@ -93,9 +93,9 @@ Letting $p_{sk} = n_{sk} / n_{s}$,
 
 $$\mu_{gs} \gets \frac{ Y_{gs} + Z_{gs}}{\sum_{k} \delta_{gk} p_{sk} + \gamma_{gs}}$$
 
-If $\delta_{gk} \to 0$ and $p_{sk}=1$, meaning that this sample $s$ is just sampled from the batch $k$ only, 
-$\mu_{gs} \to Y_{gs} + Z_{gs}$ and 
-$Y_{gs} \to Y_{gsk} = 0$. 
+If $\delta_{gk} \to 0$ and $p_{sk}=1$, meaning that this sample $s$ is just sampled from the batch $k$ only,
+$\mu_{gs} \to Y_{gs} + Z_{gs}$ and
+$Y_{gs} \to Y_{gsk} = 0$.
 Therefore, $\mu_{gs} \to Z_{gs}$.
 
 #### Global update
@@ -108,20 +108,20 @@ If $Y_{gsk} \to \mu_{gs}$ for all $s$, $\delta_{gk} \to 1$. If $Y_{gsk} < \mu_{g
 
 #### Algorithm
 
-1. Initialize batch effect $\delta_{gk} \gets 1$ for each gene $g$ and batch $k$ 
+1. Initialize batch effect $\delta_{gk} \gets 1$ for each gene $g$ and batch $k$
 
 2. Initialize $\gamma_{gs} \gets 1$ for each sample $s$
 
 3. Static global stat: $S_{gk} \gets 0$
 
-4. For each pseudo-bulk sample $s$ with cells $C_{s}$, 
+4. For each pseudo-bulk sample $s$ with cells $C_{s}$,
 
 	- $n_{sk} \gets \sum_{j \in C_{s}} X_{kj}$, $n_{s} \gets \sum_{k} n_{sk}$, $p_{sk} \gets n_{sk}/n_{s}$
 
     - $Y_{gs} \gets \sum_{j \in C_{s}} Y_{gj} / n_{s}$
-	
+
 	- $Y_{gsk} \gets \sum_{j \in C_{s}} Y_{gj} X_{kj} / n_{s}$
-	
+
     - $Z_{gs} \gets \sum_{j \in C_{s}} Z_{gj} / n_{s}$ after matching and imputation
 
 	- $S_{gk} \gets S_{gk} + Y_{gsk} n_{sk}$
@@ -133,7 +133,7 @@ If $Y_{gsk} \to \mu_{gs}$ for all $s$, $\delta_{gk} \to 1$. If $Y_{gsk} < \mu_{g
     - $\delta_{gs} \gets \sum_{k} \delta_{gk} p_{sk}$
 
     - $\mu_{gs} \gets (Y_{gs} + Z_{gs}) / (\gamma_{gs} + \delta_{gs})$
-	
+
     - $\gamma_{gs} \gets (Y_{gs})/(\mu_{gs})$
 
     - For each $k$: $T_{gk} \gets T_{gk} + \mu_{gs} n_{sk}$
@@ -275,67 +275,47 @@ for(iter in 1:100){
 
 Can we recover the original batch effects?
 
-```{r results="asis", echo=FALSE}
-library(txtplot)
-cat("```\n")
-cat("batch #1\n")
-
-txtplot(.delta.db[,1], W.true[,1], width=50, height=20,
-        xlab="estimated delta (batch 1)",
-        ylab="true delta effect")
-
-cat("batch #2\n")
-txtplot(.delta.db[,2], W.true[,2], width=50, height=20,
-        xlab="estimated delta (batch 2)",
-        ylab="true delta effect")
-cat("```\n")
+```{r fig.width=7, fig.height=4}
+par(mfrow=c(1,2))
+plot(.delta.db[,1], W.true[,1],
+     xlab="estimated delta (batch 1)",
+     ylab="true delta effect")
+plot(.delta.db[,2], W.true[,2],
+     xlab="estimated delta (batch 2)",
+     ylab="true delta effect")
 ```
 
 Are they independent of the cell type effects?
 
-```{r results="asis", echo=FALSE}
+```{r fig.width=7, fig.height=4}
+par(mfrow=c(1,2))
 y.true <- sweep(lambda.true %*% X, 2, colSums(X), `/`)
-cat("```\n")
-cat("batch #1\n")
-txtplot(.delta.db[,1], y.true[,1], xlab="estimated delta 1", ylab="true y mean 1")
-cat("batch #2\n")
-txtplot(.delta.db[,2], y.true[,2], xlab="estimated delta 2", ylab="true y mean 2")
-cat("```\n")
+plot(.delta.db[,1], y.true[,1], xlab="estimated delta 1", ylab="true y mean 1", main = "batch1")
+plot(.delta.db[,2], y.true[,2], xlab="estimated delta 2", ylab="true y mean 2", main = "batch2")
 ```
 
 While adjusting the estimated batch effects, can we recover the unbiased cell type effects? The following is before adjustment:
 
-```{r results="asis", echo=FALSE}
+```{r fig.width=7, fig.height=4}
 ybar <- sweep(yy %*% X, 2, colSums(X), `/`)
-cat("```\n")
-cat("batch #1\n")
-txtplot(log1p(ybar[,1]), y.true[,1], xlab="log1p sample mean", ylab="true y mean #1")
-cat("batch #2\n")
-txtplot(log1p(ybar[,2]), y.true[,2], xlab="log1p sample mean", ylab="true y mean #2")
-cat("```\n")
+par(mfrow=c(1,2))
+plot(log1p(ybar[,1]), y.true[,1], xlab="log1p sample mean", ylab="true y mean #1", main = "batch1")
+plot(log1p(ybar[,2]), y.true[,2], xlab="log1p sample mean", ylab="true y mean #2", main = "batch2")
 ```
 
 Here, we adjusted the batch effects:
 
-```{r results="asis", echo=FALSE}
+```{r fig.width=7, fig.height=4}
 ybar.adj <- sweep((yy / .delta.db[, batch]) %*% X, 2, colSums(X), `/`)
-
-cat("```\n")
-cat("batch #1\n")
-txtplot(log1p(ybar.adj[,1]), y.true[,1], xlab="adjusted sample mean", ylab="true y mean")
-cat("batch #2\n")
-txtplot(log1p(ybar.adj[,2]), y.true[,2], xlab="adjusted sample mean", ylab="true y mean")
-cat("```\n")
+par(mfrow=c(1,2))
+plot(log1p(ybar.adj[,1]), y.true[,1], xlab="adjusted sample mean", ylab="true y mean", main = "batch1")
+plot(log1p(ybar.adj[,2]), y.true[,2], xlab="adjusted sample mean", ylab="true y mean", main = "batch2")
 ```
 
-```{r results="asis", echo=FALSE}
-cat("```\n")
+```{r fig.width=7, fig.height=4}
+par(mfrow=c(1,2))
 .tsne <- Rtsne::Rtsne(log(1 + t(yy)), num_threads=4)$Y
-cat("before batch adjustment\n")
-txtplot(.tsne[,1], .tsne[,2], xlab = "tsne1", ylab = "tsne2", width=50, height=20)
-
+plot(.tsne[,1], .tsne[,2], xlab = "tsne1", ylab = "tsne2", col = batch, main = "before")
 .tsne <- Rtsne::Rtsne(log(1 + t(yy/.delta.db[,batch])), num_threads=4)$Y
-cat("after batch adjustment\n")
-txtplot(.tsne[,1], .tsne[,2], xlab = "tsne1 adj", ylab = "tsne2 adj", width=50, height=20)
-cat("```\n")
+plot(.tsne[,1], .tsne[,2], xlab = "tsne1 adj", ylab = "tsne2 adj", col = batch, main = "after")
 ```

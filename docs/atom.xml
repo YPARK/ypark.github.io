@@ -947,7 +947,7 @@ overfitting problems if the validation error did not improve within
         
     </entry>
     <entry xml:lang="en">
-        <title>Adjusting batch effect in pseudobulk samples is a causal inference problem</title>
+        <title>Adjusting batch effect in pseudobulk scRNA</title>
         <published>2023-06-19T00:00:00+00:00</published>
         <updated>2023-06-19T00:00:00+00:00</updated>
         
@@ -1131,11 +1131,11 @@ Therefore, $\mu_{gs} \to Z_{gs}$.&lt;&#x2F;p&gt;
 &lt;pre data-lang=&quot;r&quot; style=&quot;background-color:#fafafa;color:#61676c;&quot; class=&quot;language-r &quot;&gt;&lt;code class=&quot;language-r&quot; data-lang=&quot;r&quot;&gt;&lt;span style=&quot;color:#f07171;&quot;&gt;cor&lt;&#x2F;span&gt;&lt;span&gt;(Q.t&lt;&#x2F;span&gt;&lt;span style=&quot;color:#61676ccc;&quot;&gt;,&lt;&#x2F;span&gt;&lt;span&gt; X)
 &lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
 &lt;pre style=&quot;background-color:#fafafa;color:#61676c;&quot;&gt;&lt;code&gt;&lt;span&gt;##               [,1]          [,2]
-&lt;&#x2F;span&gt;&lt;span&gt;## [1,] -2.744966e-16  2.744966e-16
-&lt;&#x2F;span&gt;&lt;span&gt;## [2,] -6.208765e-16  6.208765e-16
-&lt;&#x2F;span&gt;&lt;span&gt;## [3,]  3.233061e-16 -3.233061e-16
-&lt;&#x2F;span&gt;&lt;span&gt;## [4,]  1.992261e-16 -1.992261e-16
-&lt;&#x2F;span&gt;&lt;span&gt;## [5,] -2.716381e-16  2.716381e-16
+&lt;&#x2F;span&gt;&lt;span&gt;## [1,] -3.700647e-16  3.700647e-16
+&lt;&#x2F;span&gt;&lt;span&gt;## [2,] -6.145885e-16  6.145885e-16
+&lt;&#x2F;span&gt;&lt;span&gt;## [3,]  1.390839e-16 -1.390839e-16
+&lt;&#x2F;span&gt;&lt;span&gt;## [4,]  3.551708e-16 -3.551708e-16
+&lt;&#x2F;span&gt;&lt;span&gt;## [5,] -7.981593e-17  7.981593e-17
 &lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
 &lt;pre data-lang=&quot;r&quot; style=&quot;background-color:#fafafa;color:#61676c;&quot; class=&quot;language-r &quot;&gt;&lt;code class=&quot;language-r&quot; data-lang=&quot;r&quot;&gt;&lt;span&gt;q.svd &lt;&#x2F;span&gt;&lt;span style=&quot;color:#ed9366;&quot;&gt;&amp;lt;- &lt;&#x2F;span&gt;&lt;span style=&quot;color:#f07171;&quot;&gt;svd&lt;&#x2F;span&gt;&lt;span&gt;(Q)
 &lt;&#x2F;span&gt;&lt;span&gt;
@@ -1221,200 +1221,43 @@ Therefore, $\mu_{gs} \to Z_{gs}$.&lt;&#x2F;p&gt;
 &lt;&#x2F;span&gt;&lt;span&gt;}
 &lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
 &lt;p&gt;Can we recover the original batch effects?&lt;&#x2F;p&gt;
-&lt;pre style=&quot;background-color:#fafafa;color:#61676c;&quot;&gt;&lt;code&gt;&lt;span&gt;batch #1
-&lt;&#x2F;span&gt;&lt;span&gt;   3 +-+--------+---------+--------+---------+---+
-&lt;&#x2F;span&gt;&lt;span&gt;t    |                                      **   |
-&lt;&#x2F;span&gt;&lt;span&gt;r    |            *           *  *      ** **  * |
-&lt;&#x2F;span&gt;&lt;span&gt;u  2 +                        **  **     * * *   +
-&lt;&#x2F;span&gt;&lt;span&gt;e    |                       *  *    ***** **  * |
-&lt;&#x2F;span&gt;&lt;span&gt;     |          * *  **  * ** ************ **    |
-&lt;&#x2F;span&gt;&lt;span&gt;d  1 +        ** *  ** **  **** ****** **** *    +
-&lt;&#x2F;span&gt;&lt;span&gt;e    |       ** ** ****  ****************        |
-&lt;&#x2F;span&gt;&lt;span&gt;l    |     *****************************  * *    |
-&lt;&#x2F;span&gt;&lt;span&gt;t  0 +  ***  ********************** **           +
-&lt;&#x2F;span&gt;&lt;span&gt;a    |   * ************ ** ** ****   *    *      |
-&lt;&#x2F;span&gt;&lt;span&gt;  -1 +   ************** * ***** *                +
-&lt;&#x2F;span&gt;&lt;span&gt;e    |   ************   *  *    *       *        |
-&lt;&#x2F;span&gt;&lt;span&gt;f    |  **** *** **    *    *         *          |
-&lt;&#x2F;span&gt;&lt;span&gt;f -2 +  * *  *    *    *                         +
-&lt;&#x2F;span&gt;&lt;span&gt;e    |  * **   *                                 |
-&lt;&#x2F;span&gt;&lt;span&gt;c    | * **                                      |
-&lt;&#x2F;span&gt;&lt;span&gt;t    +-+--------+---------+--------+---------+---+
-&lt;&#x2F;span&gt;&lt;span&gt;       0       0.5        1       1.5        2    
-&lt;&#x2F;span&gt;&lt;span&gt;               estimated delta (batch 1)          
-&lt;&#x2F;span&gt;&lt;span&gt;batch #2
-&lt;&#x2F;span&gt;&lt;span&gt;     ++----------+---------+----------+----------+
-&lt;&#x2F;span&gt;&lt;span&gt;t    |                                       *   |
-&lt;&#x2F;span&gt;&lt;span&gt;r    |                            *           *  |
-&lt;&#x2F;span&gt;&lt;span&gt;u    |                               *  *  ***   |
-&lt;&#x2F;span&gt;&lt;span&gt;e  2 +                          * * * ** *   * * +
-&lt;&#x2F;span&gt;&lt;span&gt;     |            * ***       **   ********* **  |
-&lt;&#x2F;span&gt;&lt;span&gt;d    |               ******   ************ ****  |
-&lt;&#x2F;span&gt;&lt;span&gt;e    |      *  *  ** ************************ *  |
-&lt;&#x2F;span&gt;&lt;span&gt;l    |     *** ****** ******* *************  *   |
-&lt;&#x2F;span&gt;&lt;span&gt;t  0 +  ** *****************************  ***  * +
-&lt;&#x2F;span&gt;&lt;span&gt;a    |  ********* ******** *** ** ** **  *       |
-&lt;&#x2F;span&gt;&lt;span&gt;     | ***************** ** **    *              |
-&lt;&#x2F;span&gt;&lt;span&gt;e    | *** *  **  *** ***                        |
-&lt;&#x2F;span&gt;&lt;span&gt;f -2 +  *   *   *   *       *                    +
-&lt;&#x2F;span&gt;&lt;span&gt;f    |  **                                       |
-&lt;&#x2F;span&gt;&lt;span&gt;e    |   *    *                                  |
-&lt;&#x2F;span&gt;&lt;span&gt;c    |   *                                       |
-&lt;&#x2F;span&gt;&lt;span&gt;t    ++----------+---------+----------+----------+
-&lt;&#x2F;span&gt;&lt;span&gt;      0         0.5        1         1.5         2
-&lt;&#x2F;span&gt;&lt;span&gt;               estimated delta (batch 2)          
+&lt;pre data-lang=&quot;r&quot; style=&quot;background-color:#fafafa;color:#61676c;&quot; class=&quot;language-r &quot;&gt;&lt;code class=&quot;language-r&quot; data-lang=&quot;r&quot;&gt;&lt;span style=&quot;color:#f07171;&quot;&gt;par&lt;&#x2F;span&gt;&lt;span&gt;(&lt;&#x2F;span&gt;&lt;span style=&quot;color:#ff8f40;&quot;&gt;mfrow&lt;&#x2F;span&gt;&lt;span style=&quot;color:#ed9366;&quot;&gt;=&lt;&#x2F;span&gt;&lt;span style=&quot;color:#f07171;&quot;&gt;c&lt;&#x2F;span&gt;&lt;span&gt;(&lt;&#x2F;span&gt;&lt;span style=&quot;color:#ff8f40;&quot;&gt;1&lt;&#x2F;span&gt;&lt;span style=&quot;color:#61676ccc;&quot;&gt;,&lt;&#x2F;span&gt;&lt;span style=&quot;color:#ff8f40;&quot;&gt;2&lt;&#x2F;span&gt;&lt;span&gt;))
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#f07171;&quot;&gt;plot&lt;&#x2F;span&gt;&lt;span&gt;(.delta.db[&lt;&#x2F;span&gt;&lt;span style=&quot;color:#61676ccc;&quot;&gt;,&lt;&#x2F;span&gt;&lt;span style=&quot;color:#ff8f40;&quot;&gt;1&lt;&#x2F;span&gt;&lt;span&gt;]&lt;&#x2F;span&gt;&lt;span style=&quot;color:#61676ccc;&quot;&gt;,&lt;&#x2F;span&gt;&lt;span&gt; W.true[&lt;&#x2F;span&gt;&lt;span style=&quot;color:#61676ccc;&quot;&gt;,&lt;&#x2F;span&gt;&lt;span style=&quot;color:#ff8f40;&quot;&gt;1&lt;&#x2F;span&gt;&lt;span&gt;]&lt;&#x2F;span&gt;&lt;span style=&quot;color:#61676ccc;&quot;&gt;,
+&lt;&#x2F;span&gt;&lt;span&gt;     &lt;&#x2F;span&gt;&lt;span style=&quot;color:#ff8f40;&quot;&gt;xlab&lt;&#x2F;span&gt;&lt;span style=&quot;color:#ed9366;&quot;&gt;=&lt;&#x2F;span&gt;&lt;span style=&quot;color:#86b300;&quot;&gt;&amp;quot;estimated delta (batch 1)&amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#61676ccc;&quot;&gt;,
+&lt;&#x2F;span&gt;&lt;span&gt;     &lt;&#x2F;span&gt;&lt;span style=&quot;color:#ff8f40;&quot;&gt;ylab&lt;&#x2F;span&gt;&lt;span style=&quot;color:#ed9366;&quot;&gt;=&lt;&#x2F;span&gt;&lt;span style=&quot;color:#86b300;&quot;&gt;&amp;quot;true delta effect&amp;quot;&lt;&#x2F;span&gt;&lt;span&gt;)
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#f07171;&quot;&gt;plot&lt;&#x2F;span&gt;&lt;span&gt;(.delta.db[&lt;&#x2F;span&gt;&lt;span style=&quot;color:#61676ccc;&quot;&gt;,&lt;&#x2F;span&gt;&lt;span style=&quot;color:#ff8f40;&quot;&gt;2&lt;&#x2F;span&gt;&lt;span&gt;]&lt;&#x2F;span&gt;&lt;span style=&quot;color:#61676ccc;&quot;&gt;,&lt;&#x2F;span&gt;&lt;span&gt; W.true[&lt;&#x2F;span&gt;&lt;span style=&quot;color:#61676ccc;&quot;&gt;,&lt;&#x2F;span&gt;&lt;span style=&quot;color:#ff8f40;&quot;&gt;2&lt;&#x2F;span&gt;&lt;span&gt;]&lt;&#x2F;span&gt;&lt;span style=&quot;color:#61676ccc;&quot;&gt;,
+&lt;&#x2F;span&gt;&lt;span&gt;     &lt;&#x2F;span&gt;&lt;span style=&quot;color:#ff8f40;&quot;&gt;xlab&lt;&#x2F;span&gt;&lt;span style=&quot;color:#ed9366;&quot;&gt;=&lt;&#x2F;span&gt;&lt;span style=&quot;color:#86b300;&quot;&gt;&amp;quot;estimated delta (batch 2)&amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#61676ccc;&quot;&gt;,
+&lt;&#x2F;span&gt;&lt;span&gt;     &lt;&#x2F;span&gt;&lt;span style=&quot;color:#ff8f40;&quot;&gt;ylab&lt;&#x2F;span&gt;&lt;span style=&quot;color:#ed9366;&quot;&gt;=&lt;&#x2F;span&gt;&lt;span style=&quot;color:#86b300;&quot;&gt;&amp;quot;true delta effect&amp;quot;&lt;&#x2F;span&gt;&lt;span&gt;)
 &lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;&lt;img src=&quot;https:&#x2F;&#x2F;ypark.github.io&#x2F;posts&#x2F;batch-correction-2023&#x2F;batch-correction-2023_files&#x2F;figure-markdown_strict&#x2F;unnamed-chunk-6-1.png&quot; alt=&quot;&quot; &#x2F;&gt;&lt;&#x2F;p&gt;
 &lt;p&gt;Are they independent of the cell type effects?&lt;&#x2F;p&gt;
-&lt;pre style=&quot;background-color:#fafafa;color:#61676c;&quot;&gt;&lt;code&gt;&lt;span&gt;batch #1
-&lt;&#x2F;span&gt;&lt;span&gt;  15 +-+------------+------------+-----------+------------+----+
-&lt;&#x2F;span&gt;&lt;span&gt;t    |            *                            *               |
-&lt;&#x2F;span&gt;&lt;span&gt;r    |       *   *    *                                        |
-&lt;&#x2F;span&gt;&lt;span&gt;u    |           *                                             |
-&lt;&#x2F;span&gt;&lt;span&gt;e 10 +            *                     *        *             +
-&lt;&#x2F;span&gt;&lt;span&gt;     |   *            *   **  * * * * *  *           *         |
-&lt;&#x2F;span&gt;&lt;span&gt;y    |    ****   *************  *** *   * *** *      *   *     |
-&lt;&#x2F;span&gt;&lt;span&gt;     |   **    ** ****    ** * * ********** ** *    *  *       |
-&lt;&#x2F;span&gt;&lt;span&gt;m    |    **** ***********   * ************ *  *******  **     |
-&lt;&#x2F;span&gt;&lt;span&gt;e  5 +   * ****************** ***************  ******** **     +
-&lt;&#x2F;span&gt;&lt;span&gt;a    |   ******* ********************** ********* **** * *  *  |
-&lt;&#x2F;span&gt;&lt;span&gt;n    |  **** *************** **  ******* ***  *******  **      |
-&lt;&#x2F;span&gt;&lt;span&gt;     |    * ** * ** *  **   ** *    ** ** * * *  ***   * *     |
-&lt;&#x2F;span&gt;&lt;span&gt;1    +-+------------+------------+-----------+------------+----+
-&lt;&#x2F;span&gt;&lt;span&gt;       0           0.5           1          1.5           2     
-&lt;&#x2F;span&gt;&lt;span&gt;                          estimated delta 1                     
-&lt;&#x2F;span&gt;&lt;span&gt;batch #2
-&lt;&#x2F;span&gt;&lt;span&gt;  15 +-+-------------+-------------+-------------+-------------+
-&lt;&#x2F;span&gt;&lt;span&gt;t    |         *                              *                |
-&lt;&#x2F;span&gt;&lt;span&gt;r    |                                                  *      |
-&lt;&#x2F;span&gt;&lt;span&gt;u    |                                     *      *            |
-&lt;&#x2F;span&gt;&lt;span&gt;e    |                  *             *          *             |
-&lt;&#x2F;span&gt;&lt;span&gt;  10 +      *   *        *    *  *   *   *    *            *   +
-&lt;&#x2F;span&gt;&lt;span&gt;y    |       *     ** ***  * * * **   ** ******* * * **  *     |
-&lt;&#x2F;span&gt;&lt;span&gt;     |  * * *    **  * *** * ****** ** **  ******  *** **** *  |
-&lt;&#x2F;span&gt;&lt;span&gt;m    |  *** ** ******* ******* ****   ** ***** ***  * ****     |
-&lt;&#x2F;span&gt;&lt;span&gt;e  5 +   ** ********* **************** ****** *** ** ***** *   +
-&lt;&#x2F;span&gt;&lt;span&gt;a    |  * ****** ***************** ******* *************  **   |
-&lt;&#x2F;span&gt;&lt;span&gt;n    |  **** ********** * ***** ** ******** ******* ** ******  |
-&lt;&#x2F;span&gt;&lt;span&gt;     |  *   * **** * ** ** *  *   *  ******* ***    * *  *  *  |
-&lt;&#x2F;span&gt;&lt;span&gt;2    +-+-------------+-------------+-------------+-------------+
-&lt;&#x2F;span&gt;&lt;span&gt;       0            0.5            1            1.5            2
-&lt;&#x2F;span&gt;&lt;span&gt;                          estimated delta 2                     
+&lt;pre data-lang=&quot;r&quot; style=&quot;background-color:#fafafa;color:#61676c;&quot; class=&quot;language-r &quot;&gt;&lt;code class=&quot;language-r&quot; data-lang=&quot;r&quot;&gt;&lt;span style=&quot;color:#f07171;&quot;&gt;par&lt;&#x2F;span&gt;&lt;span&gt;(&lt;&#x2F;span&gt;&lt;span style=&quot;color:#ff8f40;&quot;&gt;mfrow&lt;&#x2F;span&gt;&lt;span style=&quot;color:#ed9366;&quot;&gt;=&lt;&#x2F;span&gt;&lt;span style=&quot;color:#f07171;&quot;&gt;c&lt;&#x2F;span&gt;&lt;span&gt;(&lt;&#x2F;span&gt;&lt;span style=&quot;color:#ff8f40;&quot;&gt;1&lt;&#x2F;span&gt;&lt;span style=&quot;color:#61676ccc;&quot;&gt;,&lt;&#x2F;span&gt;&lt;span style=&quot;color:#ff8f40;&quot;&gt;2&lt;&#x2F;span&gt;&lt;span&gt;))
+&lt;&#x2F;span&gt;&lt;span&gt;y.true &lt;&#x2F;span&gt;&lt;span style=&quot;color:#ed9366;&quot;&gt;&amp;lt;- &lt;&#x2F;span&gt;&lt;span style=&quot;color:#f07171;&quot;&gt;sweep&lt;&#x2F;span&gt;&lt;span&gt;(lambda.true &lt;&#x2F;span&gt;&lt;span style=&quot;color:#ed9366;&quot;&gt;%*%&lt;&#x2F;span&gt;&lt;span&gt; X&lt;&#x2F;span&gt;&lt;span style=&quot;color:#61676ccc;&quot;&gt;, &lt;&#x2F;span&gt;&lt;span style=&quot;color:#ff8f40;&quot;&gt;2&lt;&#x2F;span&gt;&lt;span style=&quot;color:#61676ccc;&quot;&gt;, &lt;&#x2F;span&gt;&lt;span style=&quot;color:#f07171;&quot;&gt;colSums&lt;&#x2F;span&gt;&lt;span&gt;(X)&lt;&#x2F;span&gt;&lt;span style=&quot;color:#61676ccc;&quot;&gt;,&lt;&#x2F;span&gt;&lt;span&gt; `&#x2F;`)
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#f07171;&quot;&gt;plot&lt;&#x2F;span&gt;&lt;span&gt;(.delta.db[&lt;&#x2F;span&gt;&lt;span style=&quot;color:#61676ccc;&quot;&gt;,&lt;&#x2F;span&gt;&lt;span style=&quot;color:#ff8f40;&quot;&gt;1&lt;&#x2F;span&gt;&lt;span&gt;]&lt;&#x2F;span&gt;&lt;span style=&quot;color:#61676ccc;&quot;&gt;,&lt;&#x2F;span&gt;&lt;span&gt; y.true[&lt;&#x2F;span&gt;&lt;span style=&quot;color:#61676ccc;&quot;&gt;,&lt;&#x2F;span&gt;&lt;span style=&quot;color:#ff8f40;&quot;&gt;1&lt;&#x2F;span&gt;&lt;span&gt;]&lt;&#x2F;span&gt;&lt;span style=&quot;color:#61676ccc;&quot;&gt;, &lt;&#x2F;span&gt;&lt;span style=&quot;color:#ff8f40;&quot;&gt;xlab&lt;&#x2F;span&gt;&lt;span style=&quot;color:#ed9366;&quot;&gt;=&lt;&#x2F;span&gt;&lt;span style=&quot;color:#86b300;&quot;&gt;&amp;quot;estimated delta 1&amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#61676ccc;&quot;&gt;, &lt;&#x2F;span&gt;&lt;span style=&quot;color:#ff8f40;&quot;&gt;ylab&lt;&#x2F;span&gt;&lt;span style=&quot;color:#ed9366;&quot;&gt;=&lt;&#x2F;span&gt;&lt;span style=&quot;color:#86b300;&quot;&gt;&amp;quot;true y mean 1&amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#61676ccc;&quot;&gt;, &lt;&#x2F;span&gt;&lt;span style=&quot;color:#ff8f40;&quot;&gt;main &lt;&#x2F;span&gt;&lt;span style=&quot;color:#ed9366;&quot;&gt;= &lt;&#x2F;span&gt;&lt;span style=&quot;color:#86b300;&quot;&gt;&amp;quot;batch1&amp;quot;&lt;&#x2F;span&gt;&lt;span&gt;)
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#f07171;&quot;&gt;plot&lt;&#x2F;span&gt;&lt;span&gt;(.delta.db[&lt;&#x2F;span&gt;&lt;span style=&quot;color:#61676ccc;&quot;&gt;,&lt;&#x2F;span&gt;&lt;span style=&quot;color:#ff8f40;&quot;&gt;2&lt;&#x2F;span&gt;&lt;span&gt;]&lt;&#x2F;span&gt;&lt;span style=&quot;color:#61676ccc;&quot;&gt;,&lt;&#x2F;span&gt;&lt;span&gt; y.true[&lt;&#x2F;span&gt;&lt;span style=&quot;color:#61676ccc;&quot;&gt;,&lt;&#x2F;span&gt;&lt;span style=&quot;color:#ff8f40;&quot;&gt;2&lt;&#x2F;span&gt;&lt;span&gt;]&lt;&#x2F;span&gt;&lt;span style=&quot;color:#61676ccc;&quot;&gt;, &lt;&#x2F;span&gt;&lt;span style=&quot;color:#ff8f40;&quot;&gt;xlab&lt;&#x2F;span&gt;&lt;span style=&quot;color:#ed9366;&quot;&gt;=&lt;&#x2F;span&gt;&lt;span style=&quot;color:#86b300;&quot;&gt;&amp;quot;estimated delta 2&amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#61676ccc;&quot;&gt;, &lt;&#x2F;span&gt;&lt;span style=&quot;color:#ff8f40;&quot;&gt;ylab&lt;&#x2F;span&gt;&lt;span style=&quot;color:#ed9366;&quot;&gt;=&lt;&#x2F;span&gt;&lt;span style=&quot;color:#86b300;&quot;&gt;&amp;quot;true y mean 2&amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#61676ccc;&quot;&gt;, &lt;&#x2F;span&gt;&lt;span style=&quot;color:#ff8f40;&quot;&gt;main &lt;&#x2F;span&gt;&lt;span style=&quot;color:#ed9366;&quot;&gt;= &lt;&#x2F;span&gt;&lt;span style=&quot;color:#86b300;&quot;&gt;&amp;quot;batch2&amp;quot;&lt;&#x2F;span&gt;&lt;span&gt;)
 &lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;&lt;img src=&quot;https:&#x2F;&#x2F;ypark.github.io&#x2F;posts&#x2F;batch-correction-2023&#x2F;batch-correction-2023_files&#x2F;figure-markdown_strict&#x2F;unnamed-chunk-7-1.png&quot; alt=&quot;&quot; &#x2F;&gt;&lt;&#x2F;p&gt;
 &lt;p&gt;While adjusting the estimated batch effects, can we recover the unbiased cell type effects? The following is before adjustment:&lt;&#x2F;p&gt;
-&lt;pre style=&quot;background-color:#fafafa;color:#61676c;&quot;&gt;&lt;code&gt;&lt;span&gt;batch #1
-&lt;&#x2F;span&gt;&lt;span&gt;  15 ++-----------+-----------+-----------+-----------+--------+
-&lt;&#x2F;span&gt;&lt;span&gt;t    |                 *                               *       |
-&lt;&#x2F;span&gt;&lt;span&gt;r    |                    *              *        *            |
-&lt;&#x2F;span&gt;&lt;span&gt;u    |                                  *                      |
-&lt;&#x2F;span&gt;&lt;span&gt;e 10 +              *                            *    *        +
-&lt;&#x2F;span&gt;&lt;span&gt;     |       *            *  * **** *   ** *      *            |
-&lt;&#x2F;span&gt;&lt;span&gt;y    |         *  ******* ******   ******     ***        *  *  |
-&lt;&#x2F;span&gt;&lt;span&gt;     |    *   * * *  * ** *******  *** * ** *  **              |
-&lt;&#x2F;span&gt;&lt;span&gt;m    |     *   ***** **** ********************       *      *  |
-&lt;&#x2F;span&gt;&lt;span&gt;e  5 +       ********* ************** **** *  **  *****        +
-&lt;&#x2F;span&gt;&lt;span&gt;a    |    **** ************************* **   ***  *           |
-&lt;&#x2F;span&gt;&lt;span&gt;n    |  ** *************** * **********             *          |
-&lt;&#x2F;span&gt;&lt;span&gt;     |  * ****** *********  *** ***  *                         |
-&lt;&#x2F;span&gt;&lt;span&gt;#    ++-----------+-----------+-----------+-----------+--------+
-&lt;&#x2F;span&gt;&lt;span&gt;      0           1           2           3           4         
-&lt;&#x2F;span&gt;&lt;span&gt;                          log1p sample mean                     
-&lt;&#x2F;span&gt;&lt;span&gt;batch #2
-&lt;&#x2F;span&gt;&lt;span&gt;  15 +-+---------+----------+----------+----------+----------+-+
-&lt;&#x2F;span&gt;&lt;span&gt;t    |                          * *                            |
-&lt;&#x2F;span&gt;&lt;span&gt;r    |                                                      *  |
-&lt;&#x2F;span&gt;&lt;span&gt;u    |                                *             *  *       |
-&lt;&#x2F;span&gt;&lt;span&gt;e    |                         *  *   *                        |
-&lt;&#x2F;span&gt;&lt;span&gt;  10 +              *   *  *  *  **  **     *                  +
-&lt;&#x2F;span&gt;&lt;span&gt;y    |          *   *   ******* ********  *  * *         *     |
-&lt;&#x2F;span&gt;&lt;span&gt;     |         *  *****************  * *   ******  ****        |
-&lt;&#x2F;span&gt;&lt;span&gt;m    |     * * **** ******************    *        *           |
-&lt;&#x2F;span&gt;&lt;span&gt;e  5 +  ***  ************************  *** * *  *        *     +
-&lt;&#x2F;span&gt;&lt;span&gt;a    |  *************************** ***** *  **            *   |
-&lt;&#x2F;span&gt;&lt;span&gt;n    |    * ********************* **** **                      |
-&lt;&#x2F;span&gt;&lt;span&gt;     |   **  ********  * **  *** *                             |
-&lt;&#x2F;span&gt;&lt;span&gt;#    +-+---------+----------+----------+----------+----------+-+
-&lt;&#x2F;span&gt;&lt;span&gt;       0         1          2          3          4          5  
-&lt;&#x2F;span&gt;&lt;span&gt;                          log1p sample mean                     
+&lt;pre data-lang=&quot;r&quot; style=&quot;background-color:#fafafa;color:#61676c;&quot; class=&quot;language-r &quot;&gt;&lt;code class=&quot;language-r&quot; data-lang=&quot;r&quot;&gt;&lt;span&gt;ybar &lt;&#x2F;span&gt;&lt;span style=&quot;color:#ed9366;&quot;&gt;&amp;lt;- &lt;&#x2F;span&gt;&lt;span style=&quot;color:#f07171;&quot;&gt;sweep&lt;&#x2F;span&gt;&lt;span&gt;(yy &lt;&#x2F;span&gt;&lt;span style=&quot;color:#ed9366;&quot;&gt;%*%&lt;&#x2F;span&gt;&lt;span&gt; X&lt;&#x2F;span&gt;&lt;span style=&quot;color:#61676ccc;&quot;&gt;, &lt;&#x2F;span&gt;&lt;span style=&quot;color:#ff8f40;&quot;&gt;2&lt;&#x2F;span&gt;&lt;span style=&quot;color:#61676ccc;&quot;&gt;, &lt;&#x2F;span&gt;&lt;span style=&quot;color:#f07171;&quot;&gt;colSums&lt;&#x2F;span&gt;&lt;span&gt;(X)&lt;&#x2F;span&gt;&lt;span style=&quot;color:#61676ccc;&quot;&gt;,&lt;&#x2F;span&gt;&lt;span&gt; `&#x2F;`)
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#f07171;&quot;&gt;par&lt;&#x2F;span&gt;&lt;span&gt;(&lt;&#x2F;span&gt;&lt;span style=&quot;color:#ff8f40;&quot;&gt;mfrow&lt;&#x2F;span&gt;&lt;span style=&quot;color:#ed9366;&quot;&gt;=&lt;&#x2F;span&gt;&lt;span style=&quot;color:#f07171;&quot;&gt;c&lt;&#x2F;span&gt;&lt;span&gt;(&lt;&#x2F;span&gt;&lt;span style=&quot;color:#ff8f40;&quot;&gt;1&lt;&#x2F;span&gt;&lt;span style=&quot;color:#61676ccc;&quot;&gt;,&lt;&#x2F;span&gt;&lt;span style=&quot;color:#ff8f40;&quot;&gt;2&lt;&#x2F;span&gt;&lt;span&gt;))
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#f07171;&quot;&gt;plot&lt;&#x2F;span&gt;&lt;span&gt;(&lt;&#x2F;span&gt;&lt;span style=&quot;color:#f07171;&quot;&gt;log1p&lt;&#x2F;span&gt;&lt;span&gt;(ybar[&lt;&#x2F;span&gt;&lt;span style=&quot;color:#61676ccc;&quot;&gt;,&lt;&#x2F;span&gt;&lt;span style=&quot;color:#ff8f40;&quot;&gt;1&lt;&#x2F;span&gt;&lt;span&gt;])&lt;&#x2F;span&gt;&lt;span style=&quot;color:#61676ccc;&quot;&gt;,&lt;&#x2F;span&gt;&lt;span&gt; y.true[&lt;&#x2F;span&gt;&lt;span style=&quot;color:#61676ccc;&quot;&gt;,&lt;&#x2F;span&gt;&lt;span style=&quot;color:#ff8f40;&quot;&gt;1&lt;&#x2F;span&gt;&lt;span&gt;]&lt;&#x2F;span&gt;&lt;span style=&quot;color:#61676ccc;&quot;&gt;, &lt;&#x2F;span&gt;&lt;span style=&quot;color:#ff8f40;&quot;&gt;xlab&lt;&#x2F;span&gt;&lt;span style=&quot;color:#ed9366;&quot;&gt;=&lt;&#x2F;span&gt;&lt;span style=&quot;color:#86b300;&quot;&gt;&amp;quot;log1p sample mean&amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#61676ccc;&quot;&gt;, &lt;&#x2F;span&gt;&lt;span style=&quot;color:#ff8f40;&quot;&gt;ylab&lt;&#x2F;span&gt;&lt;span style=&quot;color:#ed9366;&quot;&gt;=&lt;&#x2F;span&gt;&lt;span style=&quot;color:#86b300;&quot;&gt;&amp;quot;true y mean #1&amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#61676ccc;&quot;&gt;, &lt;&#x2F;span&gt;&lt;span style=&quot;color:#ff8f40;&quot;&gt;main &lt;&#x2F;span&gt;&lt;span style=&quot;color:#ed9366;&quot;&gt;= &lt;&#x2F;span&gt;&lt;span style=&quot;color:#86b300;&quot;&gt;&amp;quot;batch1&amp;quot;&lt;&#x2F;span&gt;&lt;span&gt;)
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#f07171;&quot;&gt;plot&lt;&#x2F;span&gt;&lt;span&gt;(&lt;&#x2F;span&gt;&lt;span style=&quot;color:#f07171;&quot;&gt;log1p&lt;&#x2F;span&gt;&lt;span&gt;(ybar[&lt;&#x2F;span&gt;&lt;span style=&quot;color:#61676ccc;&quot;&gt;,&lt;&#x2F;span&gt;&lt;span style=&quot;color:#ff8f40;&quot;&gt;2&lt;&#x2F;span&gt;&lt;span&gt;])&lt;&#x2F;span&gt;&lt;span style=&quot;color:#61676ccc;&quot;&gt;,&lt;&#x2F;span&gt;&lt;span&gt; y.true[&lt;&#x2F;span&gt;&lt;span style=&quot;color:#61676ccc;&quot;&gt;,&lt;&#x2F;span&gt;&lt;span style=&quot;color:#ff8f40;&quot;&gt;2&lt;&#x2F;span&gt;&lt;span&gt;]&lt;&#x2F;span&gt;&lt;span style=&quot;color:#61676ccc;&quot;&gt;, &lt;&#x2F;span&gt;&lt;span style=&quot;color:#ff8f40;&quot;&gt;xlab&lt;&#x2F;span&gt;&lt;span style=&quot;color:#ed9366;&quot;&gt;=&lt;&#x2F;span&gt;&lt;span style=&quot;color:#86b300;&quot;&gt;&amp;quot;log1p sample mean&amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#61676ccc;&quot;&gt;, &lt;&#x2F;span&gt;&lt;span style=&quot;color:#ff8f40;&quot;&gt;ylab&lt;&#x2F;span&gt;&lt;span style=&quot;color:#ed9366;&quot;&gt;=&lt;&#x2F;span&gt;&lt;span style=&quot;color:#86b300;&quot;&gt;&amp;quot;true y mean #2&amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#61676ccc;&quot;&gt;, &lt;&#x2F;span&gt;&lt;span style=&quot;color:#ff8f40;&quot;&gt;main &lt;&#x2F;span&gt;&lt;span style=&quot;color:#ed9366;&quot;&gt;= &lt;&#x2F;span&gt;&lt;span style=&quot;color:#86b300;&quot;&gt;&amp;quot;batch2&amp;quot;&lt;&#x2F;span&gt;&lt;span&gt;)
 &lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;&lt;img src=&quot;https:&#x2F;&#x2F;ypark.github.io&#x2F;posts&#x2F;batch-correction-2023&#x2F;batch-correction-2023_files&#x2F;figure-markdown_strict&#x2F;unnamed-chunk-8-1.png&quot; alt=&quot;&quot; &#x2F;&gt;&lt;&#x2F;p&gt;
 &lt;p&gt;Here, we adjusted the batch effects:&lt;&#x2F;p&gt;
-&lt;pre style=&quot;background-color:#fafafa;color:#61676c;&quot;&gt;&lt;code&gt;&lt;span&gt;batch #1
-&lt;&#x2F;span&gt;&lt;span&gt;  15 +----------+------------+------------+------------+-------+
-&lt;&#x2F;span&gt;&lt;span&gt;     |                       *                    *            |
-&lt;&#x2F;span&gt;&lt;span&gt;t    |                             *                     *  *  |
-&lt;&#x2F;span&gt;&lt;span&gt;r    |                                              *          |
-&lt;&#x2F;span&gt;&lt;span&gt;u 10 +                     *                   * *             +
-&lt;&#x2F;span&gt;&lt;span&gt;e    |                     *  * **** *  * **                   |
-&lt;&#x2F;span&gt;&lt;span&gt;     |         * *     * ** *********  * *****   *****  *      |
-&lt;&#x2F;span&gt;&lt;span&gt;y    |         *  * * * **** * *****   ***   *  *   *          |
-&lt;&#x2F;span&gt;&lt;span&gt;     |           ** ***************** *****   *  *   *         |
-&lt;&#x2F;span&gt;&lt;span&gt;m  5 +    *  ****** ***************** *  *****  ** *    *   *  +
-&lt;&#x2F;span&gt;&lt;span&gt;e    |  **** ********************** **** **** *            *   |
-&lt;&#x2F;span&gt;&lt;span&gt;a    |  ** * ***********************  **    *                  |
-&lt;&#x2F;span&gt;&lt;span&gt;n    |   * * * ****** ******  *   *                            |
-&lt;&#x2F;span&gt;&lt;span&gt;     +----------+------------+------------+------------+-------+
-&lt;&#x2F;span&gt;&lt;span&gt;                1            2            3            4        
-&lt;&#x2F;span&gt;&lt;span&gt;                        adjusted sample mean                    
-&lt;&#x2F;span&gt;&lt;span&gt;batch #2
-&lt;&#x2F;span&gt;&lt;span&gt;  15 +----------+------------+------------+------------+-------+
-&lt;&#x2F;span&gt;&lt;span&gt;     |                       *                     *           |
-&lt;&#x2F;span&gt;&lt;span&gt;t    |                                                      *  |
-&lt;&#x2F;span&gt;&lt;span&gt;r    |                              *               *     *    |
-&lt;&#x2F;span&gt;&lt;span&gt;u    |                     *       *           *               |
-&lt;&#x2F;span&gt;&lt;span&gt;e 10 +                     *  * *  * *  * * *     *            +
-&lt;&#x2F;span&gt;&lt;span&gt;     |         *       * ************  *  ** *   *  *  *       |
-&lt;&#x2F;span&gt;&lt;span&gt;y    |           ** * * *** * ******    *** **  *  ****        |
-&lt;&#x2F;span&gt;&lt;span&gt;     |         *  **** **********************  **      *       |
-&lt;&#x2F;span&gt;&lt;span&gt;m  5 +    *  * *** ******** ************ ** ****** *    *   *  +
-&lt;&#x2F;span&gt;&lt;span&gt;e    |  * ** ******************** * **  * * ***           *    |
-&lt;&#x2F;span&gt;&lt;span&gt;a    |  *  * ************************ *   *  *                 |
-&lt;&#x2F;span&gt;&lt;span&gt;n    |  *  * ** ************* **  *                            |
-&lt;&#x2F;span&gt;&lt;span&gt;     +----------+------------+------------+------------+-------+
-&lt;&#x2F;span&gt;&lt;span&gt;                1            2            3            4        
-&lt;&#x2F;span&gt;&lt;span&gt;                        adjusted sample mean                    
+&lt;pre data-lang=&quot;r&quot; style=&quot;background-color:#fafafa;color:#61676c;&quot; class=&quot;language-r &quot;&gt;&lt;code class=&quot;language-r&quot; data-lang=&quot;r&quot;&gt;&lt;span&gt;ybar.adj &lt;&#x2F;span&gt;&lt;span style=&quot;color:#ed9366;&quot;&gt;&amp;lt;- &lt;&#x2F;span&gt;&lt;span style=&quot;color:#f07171;&quot;&gt;sweep&lt;&#x2F;span&gt;&lt;span&gt;((yy &lt;&#x2F;span&gt;&lt;span style=&quot;color:#ed9366;&quot;&gt;&#x2F;&lt;&#x2F;span&gt;&lt;span&gt; .delta.db[&lt;&#x2F;span&gt;&lt;span style=&quot;color:#61676ccc;&quot;&gt;,&lt;&#x2F;span&gt;&lt;span&gt; batch]) &lt;&#x2F;span&gt;&lt;span style=&quot;color:#ed9366;&quot;&gt;%*%&lt;&#x2F;span&gt;&lt;span&gt; X&lt;&#x2F;span&gt;&lt;span style=&quot;color:#61676ccc;&quot;&gt;, &lt;&#x2F;span&gt;&lt;span style=&quot;color:#ff8f40;&quot;&gt;2&lt;&#x2F;span&gt;&lt;span style=&quot;color:#61676ccc;&quot;&gt;, &lt;&#x2F;span&gt;&lt;span style=&quot;color:#f07171;&quot;&gt;colSums&lt;&#x2F;span&gt;&lt;span&gt;(X)&lt;&#x2F;span&gt;&lt;span style=&quot;color:#61676ccc;&quot;&gt;,&lt;&#x2F;span&gt;&lt;span&gt; `&#x2F;`)
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#f07171;&quot;&gt;par&lt;&#x2F;span&gt;&lt;span&gt;(&lt;&#x2F;span&gt;&lt;span style=&quot;color:#ff8f40;&quot;&gt;mfrow&lt;&#x2F;span&gt;&lt;span style=&quot;color:#ed9366;&quot;&gt;=&lt;&#x2F;span&gt;&lt;span style=&quot;color:#f07171;&quot;&gt;c&lt;&#x2F;span&gt;&lt;span&gt;(&lt;&#x2F;span&gt;&lt;span style=&quot;color:#ff8f40;&quot;&gt;1&lt;&#x2F;span&gt;&lt;span style=&quot;color:#61676ccc;&quot;&gt;,&lt;&#x2F;span&gt;&lt;span style=&quot;color:#ff8f40;&quot;&gt;2&lt;&#x2F;span&gt;&lt;span&gt;))
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#f07171;&quot;&gt;plot&lt;&#x2F;span&gt;&lt;span&gt;(&lt;&#x2F;span&gt;&lt;span style=&quot;color:#f07171;&quot;&gt;log1p&lt;&#x2F;span&gt;&lt;span&gt;(ybar.adj[&lt;&#x2F;span&gt;&lt;span style=&quot;color:#61676ccc;&quot;&gt;,&lt;&#x2F;span&gt;&lt;span style=&quot;color:#ff8f40;&quot;&gt;1&lt;&#x2F;span&gt;&lt;span&gt;])&lt;&#x2F;span&gt;&lt;span style=&quot;color:#61676ccc;&quot;&gt;,&lt;&#x2F;span&gt;&lt;span&gt; y.true[&lt;&#x2F;span&gt;&lt;span style=&quot;color:#61676ccc;&quot;&gt;,&lt;&#x2F;span&gt;&lt;span style=&quot;color:#ff8f40;&quot;&gt;1&lt;&#x2F;span&gt;&lt;span&gt;]&lt;&#x2F;span&gt;&lt;span style=&quot;color:#61676ccc;&quot;&gt;, &lt;&#x2F;span&gt;&lt;span style=&quot;color:#ff8f40;&quot;&gt;xlab&lt;&#x2F;span&gt;&lt;span style=&quot;color:#ed9366;&quot;&gt;=&lt;&#x2F;span&gt;&lt;span style=&quot;color:#86b300;&quot;&gt;&amp;quot;adjusted sample mean&amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#61676ccc;&quot;&gt;, &lt;&#x2F;span&gt;&lt;span style=&quot;color:#ff8f40;&quot;&gt;ylab&lt;&#x2F;span&gt;&lt;span style=&quot;color:#ed9366;&quot;&gt;=&lt;&#x2F;span&gt;&lt;span style=&quot;color:#86b300;&quot;&gt;&amp;quot;true y mean&amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#61676ccc;&quot;&gt;, &lt;&#x2F;span&gt;&lt;span style=&quot;color:#ff8f40;&quot;&gt;main &lt;&#x2F;span&gt;&lt;span style=&quot;color:#ed9366;&quot;&gt;= &lt;&#x2F;span&gt;&lt;span style=&quot;color:#86b300;&quot;&gt;&amp;quot;batch1&amp;quot;&lt;&#x2F;span&gt;&lt;span&gt;)
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#f07171;&quot;&gt;plot&lt;&#x2F;span&gt;&lt;span&gt;(&lt;&#x2F;span&gt;&lt;span style=&quot;color:#f07171;&quot;&gt;log1p&lt;&#x2F;span&gt;&lt;span&gt;(ybar.adj[&lt;&#x2F;span&gt;&lt;span style=&quot;color:#61676ccc;&quot;&gt;,&lt;&#x2F;span&gt;&lt;span style=&quot;color:#ff8f40;&quot;&gt;2&lt;&#x2F;span&gt;&lt;span&gt;])&lt;&#x2F;span&gt;&lt;span style=&quot;color:#61676ccc;&quot;&gt;,&lt;&#x2F;span&gt;&lt;span&gt; y.true[&lt;&#x2F;span&gt;&lt;span style=&quot;color:#61676ccc;&quot;&gt;,&lt;&#x2F;span&gt;&lt;span style=&quot;color:#ff8f40;&quot;&gt;2&lt;&#x2F;span&gt;&lt;span&gt;]&lt;&#x2F;span&gt;&lt;span style=&quot;color:#61676ccc;&quot;&gt;, &lt;&#x2F;span&gt;&lt;span style=&quot;color:#ff8f40;&quot;&gt;xlab&lt;&#x2F;span&gt;&lt;span style=&quot;color:#ed9366;&quot;&gt;=&lt;&#x2F;span&gt;&lt;span style=&quot;color:#86b300;&quot;&gt;&amp;quot;adjusted sample mean&amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#61676ccc;&quot;&gt;, &lt;&#x2F;span&gt;&lt;span style=&quot;color:#ff8f40;&quot;&gt;ylab&lt;&#x2F;span&gt;&lt;span style=&quot;color:#ed9366;&quot;&gt;=&lt;&#x2F;span&gt;&lt;span style=&quot;color:#86b300;&quot;&gt;&amp;quot;true y mean&amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#61676ccc;&quot;&gt;, &lt;&#x2F;span&gt;&lt;span style=&quot;color:#ff8f40;&quot;&gt;main &lt;&#x2F;span&gt;&lt;span style=&quot;color:#ed9366;&quot;&gt;= &lt;&#x2F;span&gt;&lt;span style=&quot;color:#86b300;&quot;&gt;&amp;quot;batch2&amp;quot;&lt;&#x2F;span&gt;&lt;span&gt;)
 &lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
-&lt;pre style=&quot;background-color:#fafafa;color:#61676c;&quot;&gt;&lt;code&gt;&lt;span&gt;before batch adjustment
-&lt;&#x2F;span&gt;&lt;span&gt;      +------+------+------+-------+------+------+
-&lt;&#x2F;span&gt;&lt;span&gt;   20 +                           ***            +
-&lt;&#x2F;span&gt;&lt;span&gt;      |     ******               ******          |
-&lt;&#x2F;span&gt;&lt;span&gt;      |   *********             ********         |
-&lt;&#x2F;span&gt;&lt;span&gt;      |  ** *******             *********        |
-&lt;&#x2F;span&gt;&lt;span&gt;   10 + ********* **            * *******        +
-&lt;&#x2F;span&gt;&lt;span&gt;      |  **** *******             ***********    |
-&lt;&#x2F;span&gt;&lt;span&gt;t     | *************             *** *********  |
-&lt;&#x2F;span&gt;&lt;span&gt;s     |  ***** *** *              ************** |
-&lt;&#x2F;span&gt;&lt;span&gt;n   0 +    **********             *** ******* ** +
-&lt;&#x2F;span&gt;&lt;span&gt;e     |    **** *****            ************    |
-&lt;&#x2F;span&gt;&lt;span&gt;2     |     ****** ****           ** *** **** *  |
-&lt;&#x2F;span&gt;&lt;span&gt;  -10 +       *********            *********     +
-&lt;&#x2F;span&gt;&lt;span&gt;      |       *********            *********     |
-&lt;&#x2F;span&gt;&lt;span&gt;      |       *********             *********    |
-&lt;&#x2F;span&gt;&lt;span&gt;      |        *****                ********     |
-&lt;&#x2F;span&gt;&lt;span&gt;  -20 +         **                   ** **       +
-&lt;&#x2F;span&gt;&lt;span&gt;      +------+------+------+-------+------+------+
-&lt;&#x2F;span&gt;&lt;span&gt;            -20    -10     0      10     20       
-&lt;&#x2F;span&gt;&lt;span&gt;                          tsne1                   
-&lt;&#x2F;span&gt;&lt;span&gt;after batch adjustment
-&lt;&#x2F;span&gt;&lt;span&gt;   20 +---+-----+------+-----+-----+------+-----++
-&lt;&#x2F;span&gt;&lt;span&gt;      |           ***   **     *                 |
-&lt;&#x2F;span&gt;&lt;span&gt;      |          ***      *   ****** *           |
-&lt;&#x2F;span&gt;&lt;span&gt;      |       ** **  ****    *********           |
-&lt;&#x2F;span&gt;&lt;span&gt;   10 +    * *** ****  **** * ********           +
-&lt;&#x2F;span&gt;&lt;span&gt;t     |   ** *** ************ ********  ****     |
-&lt;&#x2F;span&gt;&lt;span&gt;s     | ****** ******* ** *** ** ***********     |
-&lt;&#x2F;span&gt;&lt;span&gt;n     | ************** * ***** ** ** ******      |
-&lt;&#x2F;span&gt;&lt;span&gt;e   0 +   *********** ********************* * *  +
-&lt;&#x2F;span&gt;&lt;span&gt;2     |    ******************** ********* ****** |
-&lt;&#x2F;span&gt;&lt;span&gt;      |        **** *** ********* ******** ***** |
-&lt;&#x2F;span&gt;&lt;span&gt;a     |          ******************************* |
-&lt;&#x2F;span&gt;&lt;span&gt;d -10 +             **  *********  **** ******** +
-&lt;&#x2F;span&gt;&lt;span&gt;j     |                ** *********************  |
-&lt;&#x2F;span&gt;&lt;span&gt;      |                    ***** ***** *** ****  |
-&lt;&#x2F;span&gt;&lt;span&gt;      |                   * ******   **** ****   |
-&lt;&#x2F;span&gt;&lt;span&gt;      |                              ** * *      |
-&lt;&#x2F;span&gt;&lt;span&gt;  -20 +---+-----+------+-----+-----+------+-----++
-&lt;&#x2F;span&gt;&lt;span&gt;         -30   -20    -10    0    10     20    30 
-&lt;&#x2F;span&gt;&lt;span&gt;                        tsne1 adj                 
+&lt;p&gt;&lt;img src=&quot;https:&#x2F;&#x2F;ypark.github.io&#x2F;posts&#x2F;batch-correction-2023&#x2F;batch-correction-2023_files&#x2F;figure-markdown_strict&#x2F;unnamed-chunk-9-1.png&quot; alt=&quot;&quot; &#x2F;&gt;&lt;&#x2F;p&gt;
+&lt;pre data-lang=&quot;r&quot; style=&quot;background-color:#fafafa;color:#61676c;&quot; class=&quot;language-r &quot;&gt;&lt;code class=&quot;language-r&quot; data-lang=&quot;r&quot;&gt;&lt;span style=&quot;color:#f07171;&quot;&gt;par&lt;&#x2F;span&gt;&lt;span&gt;(&lt;&#x2F;span&gt;&lt;span style=&quot;color:#ff8f40;&quot;&gt;mfrow&lt;&#x2F;span&gt;&lt;span style=&quot;color:#ed9366;&quot;&gt;=&lt;&#x2F;span&gt;&lt;span style=&quot;color:#f07171;&quot;&gt;c&lt;&#x2F;span&gt;&lt;span&gt;(&lt;&#x2F;span&gt;&lt;span style=&quot;color:#ff8f40;&quot;&gt;1&lt;&#x2F;span&gt;&lt;span style=&quot;color:#61676ccc;&quot;&gt;,&lt;&#x2F;span&gt;&lt;span style=&quot;color:#ff8f40;&quot;&gt;2&lt;&#x2F;span&gt;&lt;span&gt;))
+&lt;&#x2F;span&gt;&lt;span&gt;.tsne &lt;&#x2F;span&gt;&lt;span style=&quot;color:#ed9366;&quot;&gt;&amp;lt;-&lt;&#x2F;span&gt;&lt;span&gt; Rtsne&lt;&#x2F;span&gt;&lt;span style=&quot;color:#ed9366;&quot;&gt;::&lt;&#x2F;span&gt;&lt;span style=&quot;color:#f29718;&quot;&gt;Rtsne&lt;&#x2F;span&gt;&lt;span&gt;(&lt;&#x2F;span&gt;&lt;span style=&quot;color:#f07171;&quot;&gt;log&lt;&#x2F;span&gt;&lt;span&gt;(&lt;&#x2F;span&gt;&lt;span style=&quot;color:#ff8f40;&quot;&gt;1 &lt;&#x2F;span&gt;&lt;span style=&quot;color:#ed9366;&quot;&gt;+ &lt;&#x2F;span&gt;&lt;span style=&quot;color:#f07171;&quot;&gt;t&lt;&#x2F;span&gt;&lt;span&gt;(yy))&lt;&#x2F;span&gt;&lt;span style=&quot;color:#61676ccc;&quot;&gt;, &lt;&#x2F;span&gt;&lt;span style=&quot;color:#ff8f40;&quot;&gt;num_threads&lt;&#x2F;span&gt;&lt;span style=&quot;color:#ed9366;&quot;&gt;=&lt;&#x2F;span&gt;&lt;span style=&quot;color:#ff8f40;&quot;&gt;4&lt;&#x2F;span&gt;&lt;span&gt;)&lt;&#x2F;span&gt;&lt;span style=&quot;color:#fa6e32;&quot;&gt;$&lt;&#x2F;span&gt;&lt;span&gt;Y
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#f07171;&quot;&gt;plot&lt;&#x2F;span&gt;&lt;span&gt;(.tsne[&lt;&#x2F;span&gt;&lt;span style=&quot;color:#61676ccc;&quot;&gt;,&lt;&#x2F;span&gt;&lt;span style=&quot;color:#ff8f40;&quot;&gt;1&lt;&#x2F;span&gt;&lt;span&gt;]&lt;&#x2F;span&gt;&lt;span style=&quot;color:#61676ccc;&quot;&gt;,&lt;&#x2F;span&gt;&lt;span&gt; .tsne[&lt;&#x2F;span&gt;&lt;span style=&quot;color:#61676ccc;&quot;&gt;,&lt;&#x2F;span&gt;&lt;span style=&quot;color:#ff8f40;&quot;&gt;2&lt;&#x2F;span&gt;&lt;span&gt;]&lt;&#x2F;span&gt;&lt;span style=&quot;color:#61676ccc;&quot;&gt;, &lt;&#x2F;span&gt;&lt;span style=&quot;color:#ff8f40;&quot;&gt;xlab &lt;&#x2F;span&gt;&lt;span style=&quot;color:#ed9366;&quot;&gt;= &lt;&#x2F;span&gt;&lt;span style=&quot;color:#86b300;&quot;&gt;&amp;quot;tsne1&amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#61676ccc;&quot;&gt;, &lt;&#x2F;span&gt;&lt;span style=&quot;color:#ff8f40;&quot;&gt;ylab &lt;&#x2F;span&gt;&lt;span style=&quot;color:#ed9366;&quot;&gt;= &lt;&#x2F;span&gt;&lt;span style=&quot;color:#86b300;&quot;&gt;&amp;quot;tsne2&amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#61676ccc;&quot;&gt;, &lt;&#x2F;span&gt;&lt;span style=&quot;color:#ff8f40;&quot;&gt;col &lt;&#x2F;span&gt;&lt;span style=&quot;color:#ed9366;&quot;&gt;=&lt;&#x2F;span&gt;&lt;span&gt; batch&lt;&#x2F;span&gt;&lt;span style=&quot;color:#61676ccc;&quot;&gt;, &lt;&#x2F;span&gt;&lt;span style=&quot;color:#ff8f40;&quot;&gt;main &lt;&#x2F;span&gt;&lt;span style=&quot;color:#ed9366;&quot;&gt;= &lt;&#x2F;span&gt;&lt;span style=&quot;color:#86b300;&quot;&gt;&amp;quot;before&amp;quot;&lt;&#x2F;span&gt;&lt;span&gt;)
+&lt;&#x2F;span&gt;&lt;span&gt;.tsne &lt;&#x2F;span&gt;&lt;span style=&quot;color:#ed9366;&quot;&gt;&amp;lt;-&lt;&#x2F;span&gt;&lt;span&gt; Rtsne&lt;&#x2F;span&gt;&lt;span style=&quot;color:#ed9366;&quot;&gt;::&lt;&#x2F;span&gt;&lt;span style=&quot;color:#f29718;&quot;&gt;Rtsne&lt;&#x2F;span&gt;&lt;span&gt;(&lt;&#x2F;span&gt;&lt;span style=&quot;color:#f07171;&quot;&gt;log&lt;&#x2F;span&gt;&lt;span&gt;(&lt;&#x2F;span&gt;&lt;span style=&quot;color:#ff8f40;&quot;&gt;1 &lt;&#x2F;span&gt;&lt;span style=&quot;color:#ed9366;&quot;&gt;+ &lt;&#x2F;span&gt;&lt;span style=&quot;color:#f07171;&quot;&gt;t&lt;&#x2F;span&gt;&lt;span&gt;(yy&lt;&#x2F;span&gt;&lt;span style=&quot;color:#ed9366;&quot;&gt;&#x2F;&lt;&#x2F;span&gt;&lt;span&gt;.delta.db[&lt;&#x2F;span&gt;&lt;span style=&quot;color:#61676ccc;&quot;&gt;,&lt;&#x2F;span&gt;&lt;span&gt;batch]))&lt;&#x2F;span&gt;&lt;span style=&quot;color:#61676ccc;&quot;&gt;, &lt;&#x2F;span&gt;&lt;span style=&quot;color:#ff8f40;&quot;&gt;num_threads&lt;&#x2F;span&gt;&lt;span style=&quot;color:#ed9366;&quot;&gt;=&lt;&#x2F;span&gt;&lt;span style=&quot;color:#ff8f40;&quot;&gt;4&lt;&#x2F;span&gt;&lt;span&gt;)&lt;&#x2F;span&gt;&lt;span style=&quot;color:#fa6e32;&quot;&gt;$&lt;&#x2F;span&gt;&lt;span&gt;Y
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#f07171;&quot;&gt;plot&lt;&#x2F;span&gt;&lt;span&gt;(.tsne[&lt;&#x2F;span&gt;&lt;span style=&quot;color:#61676ccc;&quot;&gt;,&lt;&#x2F;span&gt;&lt;span style=&quot;color:#ff8f40;&quot;&gt;1&lt;&#x2F;span&gt;&lt;span&gt;]&lt;&#x2F;span&gt;&lt;span style=&quot;color:#61676ccc;&quot;&gt;,&lt;&#x2F;span&gt;&lt;span&gt; .tsne[&lt;&#x2F;span&gt;&lt;span style=&quot;color:#61676ccc;&quot;&gt;,&lt;&#x2F;span&gt;&lt;span style=&quot;color:#ff8f40;&quot;&gt;2&lt;&#x2F;span&gt;&lt;span&gt;]&lt;&#x2F;span&gt;&lt;span style=&quot;color:#61676ccc;&quot;&gt;, &lt;&#x2F;span&gt;&lt;span style=&quot;color:#ff8f40;&quot;&gt;xlab &lt;&#x2F;span&gt;&lt;span style=&quot;color:#ed9366;&quot;&gt;= &lt;&#x2F;span&gt;&lt;span style=&quot;color:#86b300;&quot;&gt;&amp;quot;tsne1 adj&amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#61676ccc;&quot;&gt;, &lt;&#x2F;span&gt;&lt;span style=&quot;color:#ff8f40;&quot;&gt;ylab &lt;&#x2F;span&gt;&lt;span style=&quot;color:#ed9366;&quot;&gt;= &lt;&#x2F;span&gt;&lt;span style=&quot;color:#86b300;&quot;&gt;&amp;quot;tsne2 adj&amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#61676ccc;&quot;&gt;, &lt;&#x2F;span&gt;&lt;span style=&quot;color:#ff8f40;&quot;&gt;col &lt;&#x2F;span&gt;&lt;span style=&quot;color:#ed9366;&quot;&gt;=&lt;&#x2F;span&gt;&lt;span&gt; batch&lt;&#x2F;span&gt;&lt;span style=&quot;color:#61676ccc;&quot;&gt;, &lt;&#x2F;span&gt;&lt;span style=&quot;color:#ff8f40;&quot;&gt;main &lt;&#x2F;span&gt;&lt;span style=&quot;color:#ed9366;&quot;&gt;= &lt;&#x2F;span&gt;&lt;span style=&quot;color:#86b300;&quot;&gt;&amp;quot;after&amp;quot;&lt;&#x2F;span&gt;&lt;span&gt;)
 &lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;&lt;img src=&quot;https:&#x2F;&#x2F;ypark.github.io&#x2F;posts&#x2F;batch-correction-2023&#x2F;batch-correction-2023_files&#x2F;figure-markdown_strict&#x2F;unnamed-chunk-10-1.png&quot; alt=&quot;&quot; &#x2F;&gt;&lt;&#x2F;p&gt;
 </content>
         
     </entry>

@@ -1,0 +1,6 @@
+# Emacs backups
+*.*~
+*~
+
+# Mac
+.DS_Store
