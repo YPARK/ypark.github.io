@@ -61,6 +61,10 @@
         <lastmod>2024-11-28</lastmod>
     </url>
     <url>
+        <loc>https://ypark.github.io/posts/ml-cheatsheet/</loc>
+        <lastmod>2025-03-27</lastmod>
+    </url>
+    <url>
         <loc>https://ypark.github.io/posts/page/1/</loc>
     </url>
     <url>
@@ -88,6 +92,12 @@
     </url>
     <url>
         <loc>https://ypark.github.io/tags/advice/</loc>
+    </url>
+    <url>
+        <loc>https://ypark.github.io/tags/ai/</loc>
+    </url>
+    <url>
+        <loc>https://ypark.github.io/tags/attention/</loc>
     </url>
     <url>
         <loc>https://ypark.github.io/tags/batch-effect/</loc>
@@ -118,6 +128,9 @@
     </url>
     <url>
         <loc>https://ypark.github.io/tags/emacs/</loc>
+    </url>
+    <url>
+        <loc>https://ypark.github.io/tags/encoder/</loc>
     </url>
     <url>
         <loc>https://ypark.github.io/tags/epidemiology/</loc>
@@ -153,6 +166,9 @@
         <loc>https://ypark.github.io/tags/metabolism/</loc>
     </url>
     <url>
+        <loc>https://ypark.github.io/tags/ml/</loc>
+    </url>
+    <url>
         <loc>https://ypark.github.io/tags/potential-outcome/</loc>
     </url>
     <url>
@@ -172,6 +188,9 @@
     </url>
     <url>
         <loc>https://ypark.github.io/tags/trajectory/</loc>
+    </url>
+    <url>
+        <loc>https://ypark.github.io/tags/transformer/</loc>
     </url>
     <url>
         <loc>https://ypark.github.io/tags/trouble-shooting/</loc>
