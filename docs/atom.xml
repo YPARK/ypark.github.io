@@ -4,8 +4,107 @@
     <link rel="self" type="application/atom+xml" href="https://ypark.github.io/atom.xml"/>
     <link rel="alternate" type="text/html" href="https://ypark.github.io"/>
     <generator uri="https://www.getzola.org/">Zola</generator>
-    <updated>2025-03-27T00:00:00+00:00</updated>
+    <updated>2025-03-30T00:00:00+00:00</updated>
     <id>https://ypark.github.io/atom.xml</id>
+    <entry xml:lang="en">
+        <title>A stochastic block model and decades later</title>
+        <published>2025-03-30T00:00:00+00:00</published>
+        <updated>2025-03-30T00:00:00+00:00</updated>
+        
+        <author>
+          <name>
+            
+              Unknown
+            
+          </name>
+        </author>
+        
+        <link rel="alternate" type="text/html" href="https://ypark.github.io/posts/block-model-with-vae/"/>
+        <id>https://ypark.github.io/posts/block-model-with-vae/</id>
+        
+        <content type="html" xml:base="https://ypark.github.io/posts/block-model-with-vae/">&lt;h2 id=&quot;generative-models&quot;&gt;&lt;a class=&quot;zola-anchor&quot; href=&quot;#generative-models&quot; aria-label=&quot;Anchor link for: generative-models&quot;&gt;Generative models&lt;&#x2F;a&gt;&lt;&#x2F;h2&gt;
+&lt;h3 id=&quot;discrete-non-mixed-stochastic-block-models&quot;&gt;&lt;a class=&quot;zola-anchor&quot; href=&quot;#discrete-non-mixed-stochastic-block-models&quot; aria-label=&quot;Anchor link for: discrete-non-mixed-stochastic-block-models&quot;&gt;Discrete (non-mixed) stochastic block models&lt;&#x2F;a&gt;&lt;&#x2F;h3&gt;
+&lt;p&gt;One of the most well-known examples in early social network study is this: &lt;a href=&quot;https:&#x2F;&#x2F;www.jstor.org&#x2F;stable&#x2F;3629752&quot;&gt;An Information Flow Model for Conflict and Fission in Small Groups&lt;&#x2F;a&gt; Zachary (1977).&lt;&#x2F;p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;At the beginning of the study there was an incipient conflict
+between the club president, John A., and Mr. Hi over the price of
+karate lessons. Mr. Hi, who wished to raise prices, claimed the
+authority to set his own lesson fees, since he was the
+instructor. John A., who wished to stabilize prices, claimed the&lt;&#x2F;p&gt;
+&lt;&#x2F;blockquote&gt;
+&lt;p&gt;Letting information flow from the president (John A, or vertex &lt;code&gt;1&lt;&#x2F;code&gt;) to a new faction leader (Mr. Hi, or vertex &lt;code&gt;34&lt;&#x2F;code&gt;), the min-cut, max-flow algorithm results in two groups in the social network data:&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;img src=&quot;https:&#x2F;&#x2F;upload.wikimedia.org&#x2F;wikipedia&#x2F;en&#x2F;thumb&#x2F;8&#x2F;87&#x2F;Zachary_karate_club_social_network.png&#x2F;330px-Zachary_karate_club_social_network.png&quot; alt=&quot;Zachary&amp;#39;s Karate Club&quot; &#x2F;&gt;&lt;&#x2F;p&gt;
+&lt;p&gt;In classical stochastic block modelling, we assign a vertex (node) to a certain group or block (cluster). Each vertex may belong to only one of the blocks.&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href=&quot;https:&#x2F;&#x2F;www.sciencedirect.com&#x2F;science&#x2F;article&#x2F;abs&#x2F;pii&#x2F;0022249675900280&quot;&gt;An algorithm for clustering relational data with applications to social network analysis and comparison with multidimensional scaling&lt;&#x2F;a&gt; (1975)&lt;&#x2F;p&gt;
+&lt;&#x2F;li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href=&quot;https:&#x2F;&#x2F;dl.acm.org&#x2F;doi&#x2F;10.5555&#x2F;1597538.1597600&quot;&gt;Learning systems of concepts with an infinite relational model&lt;&#x2F;a&gt; (2006) or use &lt;a href=&quot;https:&#x2F;&#x2F;cocosci.princeton.edu&#x2F;tom&#x2F;papers&#x2F;irm.pdf&quot;&gt;this link&lt;&#x2F;a&gt;&lt;&#x2F;p&gt;
+&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;p&gt;We can define a generative model for a binary relationship between vertices $i$ and $j$:&lt;&#x2F;p&gt;
+&lt;p&gt;$$Y_{ij} | B \cdot \sim \prod_{k,l} B_{kl}^{z_{i}^{(k)} z_{j}^{(l)}}$$&lt;&#x2F;p&gt;
+&lt;p&gt;where
+$z_{i}^{(k)} = 1$ if and only if a vertex $i$ belongs to a cluster $k$; otherwise, $z_{i}^{(k)} = 0$. Here, $z_{i}^{k}$ can be modelled by &lt;a href=&quot;https:&#x2F;&#x2F;en.wikipedia.org&#x2F;wiki&#x2F;Chinese_restaurant_process&quot;&gt;Chinese Restaurant Process&lt;&#x2F;a&gt; &lt;em&gt;a priori&lt;&#x2F;em&gt; to accommodate an arbitrary number of groups&#x2F;blocks&#x2F;clusters.&lt;&#x2F;p&gt;
+&lt;h3 id=&quot;mixed-membership-stochastic-block-models&quot;&gt;&lt;a class=&quot;zola-anchor&quot; href=&quot;#mixed-membership-stochastic-block-models&quot; aria-label=&quot;Anchor link for: mixed-membership-stochastic-block-models&quot;&gt;Mixed-membership stochastic block models&lt;&#x2F;a&gt;&lt;&#x2F;h3&gt;
+&lt;p&gt;Modelling all the group structures by a block matrix $B$ (Bernoulli or Poisson rate) is somewhat restrictive and would require unnecessarily many groups to model detailed structures. Instead of giving vertices discrete membership assignments, we can relax that their membership can be partial or more continuous in some latent space.&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;https:&#x2F;&#x2F;www.tandfonline.com&#x2F;doi&#x2F;abs&#x2F;10.1198&#x2F;016214502388618906&quot;&gt;Latent Space Approaches to Social Network Analysis&lt;&#x2F;a&gt; (2002)&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;p&gt;$$p(Y) = \sigma\left( \beta_{0} + \sum_{a} \beta_{a} x_{ija} + \left. \sum_{k} z_{ik} z_{jk} \middle&#x2F; \sqrt{ \sum_{k} z_{jk}^{2} } \right. \right)$$&lt;&#x2F;p&gt;
+&lt;p&gt;where $x_{ija}$ denotes an attribute variable for a pair $(i,j)$ and $\sigma(x)=1&#x2F;(1+\exp(-x))$ for brevity and $z_{ik} \in \mathbb{R}$.&lt;&#x2F;p&gt;
+&lt;p&gt;Similarly, we can give a partial membership of a vertex by assigning discrete membership of each vertex&#x27;s incoming and outgoing interactions (edges&#x2F;pairs adjacent to a vertex).&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;https:&#x2F;&#x2F;www.jmlr.org&#x2F;papers&#x2F;v9&#x2F;airoldi08a.html&quot;&gt;Mixed Membership Stochastic Blockmodels&lt;&#x2F;a&gt; (2008)&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;p&gt;$$p(Y_{ij} =1 |\cdot) = \sum_{k,l} z_{i\to{j}}^{(k)} B_{kl} z_{j\to{i}}^{(l)}$$&lt;&#x2F;p&gt;
+&lt;p&gt;where we assign a discrete membership on the (directed) edges (all pairs). Here, each edge can belong to only one of the cluster, namely, $z_{i \to {j}}^{(k)} \in (0,1)$ and $\sum_{k} z_{i \to{j}}^{(k)} = 1$, but a vertex can be adjacent to multiple edge clusters without constraints.&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;https:&#x2F;&#x2F;papers.nips.cc&#x2F;paper_files&#x2F;paper&#x2F;2009&#x2F;hash&#x2F;437d7d1d97917cd627a34a6a0fb41136-Abstract.html&quot;&gt;Nonparametric Latent Feature Models for Link Prediction&lt;&#x2F;a&gt; (2009)&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;p&gt;We can relax the latent membership matrix $z_{ik}$ to allow mixed membership on nodes more explicitly:&lt;&#x2F;p&gt;
+&lt;p&gt;$$p(Y_{ij} = 1 | \cdot) = \sigma\left( \sum_{k,l} z_{ik}^{\top} W_{kl} z_{jl} \right)$$&lt;&#x2F;p&gt;
+&lt;p&gt;where $z_{ik} \in {0,1}$ without any row and column constraints.&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;https:&#x2F;&#x2F;journals.aps.org&#x2F;pre&#x2F;abstract&#x2F;10.1103&#x2F;PhysRevE.84.036103&quot;&gt;Efficient and principled method for detecting communities in networks&lt;&#x2F;a&gt; (2011)&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;p&gt;Another similar formulation can be found here with Poisson:&lt;&#x2F;p&gt;
+&lt;p&gt;$$p(Y_{ij}| \cdot) = \frac{\left(\sum_{k} \theta_{ik} \theta_{jk}\right)^{Y_{ij}}}{Y_{ij}!} \exp\left( \sum_{k} \theta_{ik} \theta_{jk} \right),$$&lt;&#x2F;p&gt;
+&lt;p&gt;where $\theta &amp;gt; 0$. Here, we can partially introduce latent variables for edges&lt;&#x2F;p&gt;
+&lt;p&gt;$$\log p(Y_{ij}| \cdot) \ge \sum_{k} \left[ Y_{ij} z_{ij}^{(k)} \log\frac{\theta_{ik}\theta_{jk}}{z_{ij}^{(k)}} - \theta_{ik} \theta_{jk} \right] - \log Y_{ij}$$
+where the bound was derived by Jansen&#x27;s inequality.&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;let-s-put-a-stochastic-block-model-onto-a-vae-framework&quot;&gt;&lt;a class=&quot;zola-anchor&quot; href=&quot;#let-s-put-a-stochastic-block-model-onto-a-vae-framework&quot; aria-label=&quot;Anchor link for: let-s-put-a-stochastic-block-model-onto-a-vae-framework&quot;&gt;Let&#x27;s put a stochastic block model onto a VAE framework&lt;&#x2F;a&gt;&lt;&#x2F;h2&gt;
+&lt;p&gt;&lt;a href=&quot;https:&#x2F;&#x2F;proceedings.mlr.press&#x2F;v97&#x2F;mehta19a.html&quot;&gt;Stochastic Blockmodels meet Graph Neural Networks&lt;&#x2F;a&gt; (2019)&lt;&#x2F;p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;It is therefore desirable to have a model that retains the basic
+spirit to
+OSBM&#x2F;&lt;a href=&quot;https:&#x2F;&#x2F;papers.nips.cc&#x2F;paper_files&#x2F;paper&#x2F;2009&#x2F;hash&#x2F;437d7d1d97917cd627a34a6a0fb41136-Abstract.html&quot;&gt;LFRM&lt;&#x2F;a&gt;
+(e.g., easy interpretability and strong link prediction
+performance), but with greater expressiveness, and a simpler and
+scalable inference procedure.&lt;&#x2F;p&gt;
+&lt;&#x2F;blockquote&gt;
+&lt;p&gt;&lt;img src=&quot;https:&#x2F;&#x2F;ypark.github.io&#x2F;posts&#x2F;block-model-with-vae&#x2F;sbm_gnn.png&quot; alt=&quot;&quot; &#x2F;&gt;&lt;&#x2F;p&gt;
+&lt;p&gt;The decoder model (the left) is almost the same as the latent feature relational model:&lt;&#x2F;p&gt;
+&lt;p&gt;$$p(A_{ij}| \cdot) = \sigma(f_{i}(z_{i})^{\top}f_{j}(z_{j}))$$
+where $f_{i}$ is a neural network-like model for a vertex $i$ that maps a latent state $z_{i}$ to latent feature vectors.&lt;&#x2F;p&gt;
+&lt;p&gt;I think the encoder part is more interesting:&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;$q(v_{ik}) = \textsf{Beta}(c_{ik}, d_{ik})$&lt;&#x2F;p&gt;
+&lt;&#x2F;li&gt;
+&lt;li&gt;
+&lt;p&gt;$q(b_{ik}) = \textsf{Bernoulli}(c_{ik}, d_{ik})$&lt;&#x2F;p&gt;
+&lt;&#x2F;li&gt;
+&lt;li&gt;
+&lt;p&gt;$q(r_{i}) = \mathcal{N}(\mu_{i}, \textsf{diag}(\sigma_{i}^{2}))$&lt;&#x2F;p&gt;
+&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;p&gt;All these &quot;variational&quot; parameters are modelled by a neural network model mapping a full adjacency matrix $A$ and a feature matrix $X$. We can make sampling steps differentiable by approximate reparameterization tricks.&lt;&#x2F;p&gt;
+&lt;!-- [A scalable gene network model of regulatory dynamics in single cells](https:&#x2F;&#x2F;arxiv.org&#x2F;abs&#x2F;2503.20027) (2023) --&gt;
+</content>
+        
+    </entry>
     <entry xml:lang="en">
         <title>ML&#x2F;AI cheat sheet: Encoder</title>
         <published>2025-03-27T00:00:00+00:00</published>

@@ -37,6 +37,10 @@
         <lastmod>2023-06-19</lastmod>
     </url>
     <url>
+        <loc>https://ypark.github.io/posts/block-model-with-vae/</loc>
+        <lastmod>2025-03-30</lastmod>
+    </url>
+    <url>
         <loc>https://ypark.github.io/posts/brain-age-gwas/</loc>
         <lastmod>2025-03-22</lastmod>
     </url>
@@ -109,6 +113,9 @@
         <loc>https://ypark.github.io/tags/big-picture/</loc>
     </url>
     <url>
+        <loc>https://ypark.github.io/tags/block-model/</loc>
+    </url>
+    <url>
         <loc>https://ypark.github.io/tags/brain/</loc>
     </url>
     <url>
@@ -142,6 +149,12 @@
         <loc>https://ypark.github.io/tags/genomics/</loc>
     </url>
     <url>
+        <loc>https://ypark.github.io/tags/graph-neural-network/</loc>
+    </url>
+    <url>
+        <loc>https://ypark.github.io/tags/graph/</loc>
+    </url>
+    <url>
         <loc>https://ypark.github.io/tags/gwas/</loc>
     </url>
     <url>
@@ -169,10 +182,16 @@
         <loc>https://ypark.github.io/tags/ml/</loc>
     </url>
     <url>
+        <loc>https://ypark.github.io/tags/neural-network/</loc>
+    </url>
+    <url>
         <loc>https://ypark.github.io/tags/potential-outcome/</loc>
     </url>
     <url>
         <loc>https://ypark.github.io/tags/r/</loc>
+    </url>
+    <url>
+        <loc>https://ypark.github.io/tags/sbm/</loc>
     </url>
     <url>
         <loc>https://ypark.github.io/tags/single-cell/</loc>
