@@ -1025,6 +1025,140 @@ overfitting problems if the validation error did not improve within
         
     </entry>
     <entry xml:lang="en">
+        <title>Transparent parameterization for a partially identified model</title>
+        <published>2024-04-07T00:00:00+00:00</published>
+        <updated>2024-04-07T00:00:00+00:00</updated>
+        
+        <author>
+          <name>
+            
+              Unknown
+            
+          </name>
+        </author>
+        
+        <link rel="alternate" type="text/html" href="https://ypark.github.io/posts/transparent-parameterization/"/>
+        <id>https://ypark.github.io/posts/transparent-parameterization/</id>
+        
+        <content type="html" xml:base="https://ypark.github.io/posts/transparent-parameterization/">&lt;p&gt;TL;DR: Consider transparent parameterization for a partially identified model if a strong dependency with prior distributions was found in Bayesian causal inference.&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;https:&#x2F;&#x2F;academic.oup.com&#x2F;book&#x2F;1879&#x2F;chapter-abstract&#x2F;141661815&quot;&gt;Transparent Parametrizations of Models for Potential Outcomes&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;p&gt;Set-up:&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;$Z \in {0,1}$: a randomized assignment or &quot;instrument&quot;; $Z$ is a treatment, presumed to be randomized, e.g., the assigned treatment.&lt;&#x2F;li&gt;
+&lt;li&gt;$X \in {0,1}$: an exposure measure; $X$ is an exposure subsequent to treatment assignment.&lt;&#x2F;li&gt;
+&lt;li&gt;$Y \in {0,1}$: a final response; $Y$ is the response.&lt;&#x2F;li&gt;
+&lt;li&gt;There might be confounding on $X$ and $Y$&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;p&gt;Goal: What is the effect of $X$ on $Y$?&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;identifiability-matters-so-we-should-make-which-parts-are-identifiable-and-which-parts-not&quot;&gt;&lt;a class=&quot;zola-anchor&quot; href=&quot;#identifiability-matters-so-we-should-make-which-parts-are-identifiable-and-which-parts-not&quot; aria-label=&quot;Anchor link for: identifiability-matters-so-we-should-make-which-parts-are-identifiable-and-which-parts-not&quot;&gt;Identifiability matters, so we should make which parts are identifiable and which parts not.&lt;&#x2F;a&gt;&lt;&#x2F;h2&gt;
+&lt;blockquote&gt;
+&lt;p&gt;It is often argued that identifiability is of secondary importance
+in a Bayesian analysis provided that the prior and likelihood lead
+to a proper joint posterior for all the parameters in the model.
+[...] we argue that partially identified models should be
+re-parameterized so that the complete parameter vector may be
+divided into point-identified and entirely non-identified
+subvectors.  Such an approach facilitates &quot;transparency&quot;, allowing a
+reader to see clearly which parts of the analysis have been informed
+by the data&lt;&#x2F;p&gt;
+&lt;&#x2F;blockquote&gt;
+&lt;h3 id=&quot;a-potential-outcome-problem&quot;&gt;&lt;a class=&quot;zola-anchor&quot; href=&quot;#a-potential-outcome-problem&quot; aria-label=&quot;Anchor link for: a-potential-outcome-problem&quot;&gt;A potential outcome problem&lt;&#x2F;a&gt;&lt;&#x2F;h3&gt;
+&lt;p&gt;We further define:&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;$X^{(z=0)}$ or $X^{(z=1)}$ for the treatment a patient would receive if assigned to $Z=z$&lt;&#x2F;li&gt;
+&lt;li&gt;$Y^{(x,z)}$ for the outcome for a given patient if they were to be assigned to $Z = z$, and then were exposed to $X = x$.&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;p&gt;Why is it a potential outcome problem? A person may or may not take a pill (exposure) in relations with the assignment $Z$:&lt;&#x2F;p&gt;
+&lt;table&gt;&lt;thead&gt;&lt;tr&gt;&lt;th style=&quot;text-align: right&quot;&gt;compliance type&lt;&#x2F;th&gt;&lt;th style=&quot;text-align: left&quot;&gt;$X^{(z=0)}$&lt;&#x2F;th&gt;&lt;th style=&quot;text-align: left&quot;&gt;$X^{(z=1)}$&lt;&#x2F;th&gt;&lt;&#x2F;tr&gt;&lt;&#x2F;thead&gt;&lt;tbody&gt;
+&lt;tr&gt;&lt;td style=&quot;text-align: right&quot;&gt;Never Taker (NT)&lt;&#x2F;td&gt;&lt;td style=&quot;text-align: left&quot;&gt;0&lt;&#x2F;td&gt;&lt;td style=&quot;text-align: left&quot;&gt;0&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td style=&quot;text-align: right&quot;&gt;Complier (CO)&lt;&#x2F;td&gt;&lt;td style=&quot;text-align: left&quot;&gt;0&lt;&#x2F;td&gt;&lt;td style=&quot;text-align: left&quot;&gt;1&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td style=&quot;text-align: right&quot;&gt;Defier (DE)&lt;&#x2F;td&gt;&lt;td style=&quot;text-align: left&quot;&gt;1&lt;&#x2F;td&gt;&lt;td style=&quot;text-align: left&quot;&gt;0&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td style=&quot;text-align: right&quot;&gt;Always Taker (AT)&lt;&#x2F;td&gt;&lt;td style=&quot;text-align: left&quot;&gt;1&lt;&#x2F;td&gt;&lt;td style=&quot;text-align: left&quot;&gt;1&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;&#x2F;tbody&gt;&lt;&#x2F;table&gt;
+&lt;p&gt;What are the potential responses regarding the exposure and response variables?&lt;&#x2F;p&gt;
+&lt;table&gt;&lt;thead&gt;&lt;tr&gt;&lt;th style=&quot;text-align: right&quot;&gt;response type&lt;&#x2F;th&gt;&lt;th style=&quot;text-align: left&quot;&gt;$Y^{(x=0)}$&lt;&#x2F;th&gt;&lt;th style=&quot;text-align: left&quot;&gt;$Y^{(x=1)}$&lt;&#x2F;th&gt;&lt;&#x2F;tr&gt;&lt;&#x2F;thead&gt;&lt;tbody&gt;
+&lt;tr&gt;&lt;td style=&quot;text-align: right&quot;&gt;Never Recover (NR)&lt;&#x2F;td&gt;&lt;td style=&quot;text-align: left&quot;&gt;0&lt;&#x2F;td&gt;&lt;td style=&quot;text-align: left&quot;&gt;0&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td style=&quot;text-align: right&quot;&gt;Helped (HE)&lt;&#x2F;td&gt;&lt;td style=&quot;text-align: left&quot;&gt;0&lt;&#x2F;td&gt;&lt;td style=&quot;text-align: left&quot;&gt;1&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td style=&quot;text-align: right&quot;&gt;Hurt (HU)&lt;&#x2F;td&gt;&lt;td style=&quot;text-align: left&quot;&gt;1&lt;&#x2F;td&gt;&lt;td style=&quot;text-align: left&quot;&gt;0&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td style=&quot;text-align: right&quot;&gt;Always Recover (AR)&lt;&#x2F;td&gt;&lt;td style=&quot;text-align: left&quot;&gt;1&lt;&#x2F;td&gt;&lt;td style=&quot;text-align: left&quot;&gt;1&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;&#x2F;tbody&gt;&lt;&#x2F;table&gt;
+&lt;h4 id=&quot;pearl-2000-considering-a-subset-of-data&quot;&gt;&lt;a class=&quot;zola-anchor&quot; href=&quot;#pearl-2000-considering-a-subset-of-data&quot; aria-label=&quot;Anchor link for: pearl-2000-considering-a-subset-of-data&quot;&gt;Pearl (2000) considering a subset of data&lt;&#x2F;a&gt;&lt;&#x2F;h4&gt;
+&lt;p&gt;If we only consider &quot;possible&quot; (or partially factual) cases, $Z=0$ implies $X=0$, which leaves us only NT and CO.  We can assume $Z \to X \to Y$ but no direct path $Z \to Y$ that skips over $X$.&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;img src=&quot;https:&#x2F;&#x2F;ypark.github.io&#x2F;posts&#x2F;transparent-parameterization&#x2F;TP_Pearl_DAG.png&quot; alt=&quot;&quot; &#x2F;&gt;&lt;&#x2F;p&gt;
+&lt;p&gt;$$\textsf{ACE}(X \to Y) \equiv \mathbb{E}\left[Y^{(x=1,z)} - Y^{(x=0,z)}\right]$$&lt;&#x2F;p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Pearl proposes analyzing the model by placing a prior distribution
+over $p(tX , tY)$ and then using Gibbs sampling to sample from the
+resulting posterior distribution for ACE($X \to Y$).&lt;&#x2F;p&gt;
+&lt;&#x2F;blockquote&gt;
+&lt;p&gt;Sensitivity to the choice of prior distribution over compliance and response types:&lt;&#x2F;p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;If the model were identified, we would expect such a change in the
+prior to have little effect (the smallest observed count is
+12). However, as the plot shows, this perturbation makes a
+considerable difference to the posterior.&lt;&#x2F;p&gt;
+&lt;&#x2F;blockquote&gt;
+&lt;p&gt;$$\textsf{ACE}(X \to Y) = \pi_{\textsf{CO}}\left(\gamma_{\textsf{CO}}^{(1,\cdot)} - \gamma_{\textsf{CO}}^{(0,\cdot)}\right) + \pi_{\textsf{NT}}\left(\gamma_{\textsf{NT}}^{(1,\cdot)} - \gamma_{\textsf{NT}}^{(0,\cdot)}\right)$$&lt;&#x2F;p&gt;
+&lt;p&gt;Why is it not fully identified? The following factor graph (or PGM-like) well summarizes.&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;img src=&quot;https:&#x2F;&#x2F;ypark.github.io&#x2F;posts&#x2F;transparent-parameterization&#x2F;TP_Pearl_DAG_factor_graph.png&quot; alt=&quot;&quot; &#x2F;&gt;&lt;&#x2F;p&gt;
+&lt;p&gt;We need to calculate two types of differences:&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;$\gamma_{\textsf{CO}}^{(1,\cdot)}$ vs. $\gamma_{\textsf{CO}}^{(1,\cdot)}$&lt;&#x2F;li&gt;
+&lt;li&gt;$\gamma_{\textsf{NT}}^{(1,\cdot)}$ vs. $\gamma_{\textsf{NT}}^{(1,\cdot)}$&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;p&gt;Here, $\gamma_{\textsf{NT}}^{(1,\cdot)}$ has to rely on Bayesian sampling over some prior distribution. Okay, we could average out unidentified random variables, but if they were not attached to any part of the data, we would resort to the shape of the prior distribution.&lt;&#x2F;p&gt;
+&lt;h4 id=&quot;from-a-saturated-model-to-the-model-considered-by-hirano-et-al-2000&quot;&gt;&lt;a class=&quot;zola-anchor&quot; href=&quot;#from-a-saturated-model-to-the-model-considered-by-hirano-et-al-2000&quot; aria-label=&quot;Anchor link for: from-a-saturated-model-to-the-model-considered-by-hirano-et-al-2000&quot;&gt;From a saturated model to the model considered by Hirano &lt;em&gt;et al.&lt;&#x2F;em&gt; (2000)&lt;&#x2F;a&gt;&lt;&#x2F;h4&gt;
+&lt;p&gt;We need to consider more data to be able to identify all the parameters:&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;img src=&quot;https:&#x2F;&#x2F;ypark.github.io&#x2F;posts&#x2F;transparent-parameterization&#x2F;TP_saturated_factor_graph.png&quot; alt=&quot;&quot; &#x2F;&gt;&lt;&#x2F;p&gt;
+&lt;p&gt;Or at least, we should make each parameter attached to measurable sufficient statistics with a bit more assumptions:&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;Monotonicity of $X$ of $Z$: There are no defiers, meaning $X^{(0)} \le X^{(1)}$.&lt;&#x2F;p&gt;
+&lt;&#x2F;li&gt;
+&lt;li&gt;
+&lt;p&gt;Stochastic exclusion of NT: $\gamma_{NT}^{(0,1)} = \gamma_{NT}^{(0,0)}$&lt;&#x2F;p&gt;
+&lt;&#x2F;li&gt;
+&lt;li&gt;
+&lt;p&gt;Stochastic exclusion of AT: $\gamma_{AT}^{(1,1)} = \gamma_{AT}^{(1,0)}$&lt;&#x2F;p&gt;
+&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;p&gt;&lt;img src=&quot;https:&#x2F;&#x2F;ypark.github.io&#x2F;posts&#x2F;transparent-parameterization&#x2F;TP_richardson_factor_graph.png&quot; alt=&quot;&quot; &#x2F;&gt;&lt;&#x2F;p&gt;
+&lt;p&gt;Intent-to-treat effect (Hirano &lt;em&gt;et al.&lt;&#x2F;em&gt; 2000):&lt;&#x2F;p&gt;
+&lt;p&gt;$$\textsf{ITT}(\textsf{compliance type}) = \mathbb{E}\left[ Y^{(X(1),1)} - Y^{(X(0),0)} | \textsf{compliance type}\right].$$&lt;&#x2F;p&gt;
+&lt;p&gt;We can parameterize this by:&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;$\textsf{ITT}(\textsf{CO}) = \gamma_{CO}^{(x=1,z=1)} - \gamma_{CO}^{(x=0,z=0)}$&lt;&#x2F;p&gt;
+&lt;&#x2F;li&gt;
+&lt;li&gt;
+&lt;p&gt;$\textsf{ITT}(\textsf{NT}) = \gamma_{NT}^{(x=0,z=1)} - \gamma_{NT}^{(x=0,z=0)} = 0$ (by the above exclusion assumption 2)&lt;&#x2F;p&gt;
+&lt;&#x2F;li&gt;
+&lt;li&gt;
+&lt;p&gt;$\textsf{ITT}(\textsf{AT}) = \gamma_{AT}^{(x=1,z=1)} - \gamma_{AT}^{(x=1,z=0)} = 0$ (by the above exclusion assumption 3)&lt;&#x2F;p&gt;
+&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;h2 id=&quot;my-takeaway&quot;&gt;&lt;a class=&quot;zola-anchor&quot; href=&quot;#my-takeaway&quot; aria-label=&quot;Anchor link for: my-takeaway&quot;&gt;My takeaway&lt;&#x2F;a&gt;&lt;&#x2F;h2&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;I didn&#x27;t go over all the inequalities laid out by the authors, so there is more clarity to be found.&lt;&#x2F;p&gt;
+&lt;&#x2F;li&gt;
+&lt;li&gt;
+&lt;p&gt;Working out some sort of factor graph representation will be useful to see which parameters are identifiable.&lt;&#x2F;p&gt;
+&lt;&#x2F;li&gt;
+&lt;li&gt;
+&lt;p&gt;I wonder if we can design an algorithm that detects partially or fully identified model parameters.&lt;&#x2F;p&gt;
+&lt;&#x2F;li&gt;
+&lt;li&gt;
+&lt;p&gt;A Bayesian inference engine geared toward &quot;integrate out&quot; will not always yield identifiable results.&lt;&#x2F;p&gt;
+&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;!-- [Bayesian Inference for Partially Identified Models](https:&#x2F;&#x2F;www.degruyterbrill.com&#x2F;document&#x2F;doi&#x2F;10.2202&#x2F;1557-4679.1206&#x2F;html) --&gt;
+</content>
+        
+    </entry>
+    <entry xml:lang="en">
         <title>Maxwell Douglas</title>
         <published>2024-01-15T00:00:00+00:00</published>
         <updated>2024-01-15T00:00:00+00:00</updated>

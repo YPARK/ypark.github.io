@@ -1,0 +1,30 @@
++++
+title = "Can we take gene-level image patches in spatial transcriptomics?"
+date = "2024-04-07"
+draft = true
+
+[taxonomies]
+tags=["image","spatial transcriptomics"]
+
+[extra]
+repo_view = true
++++
+
+Use my jax environment during R markdown compilation:
+
+```{r}
+knitr::opts_chunk$set(engine.path = list(python="~/.python/jax/bin/python"))
+```
+
+
+
+```{python}
+import os
+import numpy as np
+import math
+
+
+
+```
+
+

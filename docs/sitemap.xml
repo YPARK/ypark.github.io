@@ -88,6 +88,10 @@
         <lastmod>2020-09-03</lastmod>
     </url>
     <url>
+        <loc>https://ypark.github.io/posts/transparent-parameterization/</loc>
+        <lastmod>2024-04-07</lastmod>
+    </url>
+    <url>
         <loc>https://ypark.github.io/posts/zola-setups-2024/</loc>
         <lastmod>2024-08-01</lastmod>
     </url>
@@ -105,6 +109,9 @@
     </url>
     <url>
         <loc>https://ypark.github.io/tags/batch-effect/</loc>
+    </url>
+    <url>
+        <loc>https://ypark.github.io/tags/bayesian-inference/</loc>
     </url>
     <url>
         <loc>https://ypark.github.io/tags/bayesian/</loc>
@@ -204,6 +211,9 @@
     </url>
     <url>
         <loc>https://ypark.github.io/tags/tips/</loc>
+    </url>
+    <url>
+        <loc>https://ypark.github.io/tags/tp/</loc>
     </url>
     <url>
         <loc>https://ypark.github.io/tags/trajectory/</loc>
