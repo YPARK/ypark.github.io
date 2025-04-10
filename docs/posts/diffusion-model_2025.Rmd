@@ -1,0 +1,28 @@
++++
+title = "Study note on variational diffusion model"
+date = "2025-04-06"
+draft = true
+
+[taxonomies]
+tags = ["vae","vdm","variational","diffusion","elbo"]
+
+[extra]
+repo_view = true
++++
+
+**TL;DR**: A diffusion model is a multi-time-point variational autoencoder model.
+
+Here, I will attempt to summarize and understand [variational Diffusion Models](https://proceedings.neurips.cc/paper/2021/hash/b578f2a52a0229873fefc2a4b06377fa-Abstract.html).
+
+## What is diffusion process?
+
+
+
+
+
+## 
+
+[variational-diffusion-models](https://github.com/addtt/variational-diffusion-models)
+
+
+[CVPR tutorial](https://cvpr2022-tutorial-diffusion-models.github.io/)

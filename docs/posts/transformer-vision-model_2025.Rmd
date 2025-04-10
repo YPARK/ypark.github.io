@@ -1,0 +1,17 @@
++++
+title = "Study note on a vision transformer model"
+date = "2025-04-06"
+draft = true
+
+[taxonomies]
+tags = ["vae","vdm","variational","diffusion","elbo"]
+
+[extra]
+repo_view = true
++++
+
+**TL;DR**: ???
+
+vision transformer
+
+
