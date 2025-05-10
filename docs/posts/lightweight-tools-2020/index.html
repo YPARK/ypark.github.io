@@ -161,76 +161,76 @@
         
     
 <main>
-    <article>
-        <div class="title">
-            
-            
-    <div class="page-header">
-        Lightweight tools for integrative single-cell data analysis<span class="primary-color" style="font-size: 1.6em">.</span>
+  <article>
+    <div class="title">
+      
+      
+<div class="page-header">
+  Lightweight tools for integrative single-cell data analysis<span class="primary-color" style="font-size: 1.6em">.</span>
+</div>
+
+
+      <div class="meta">
+        
+        Posted on <time>2020-09-06</time>
+        
+
+        
+
+        
+
+        
+        
+        <span class="tags-label"> :: Tags:</span>
+        <span class="tags">
+          <a href="https://ypark.github.io/tags/lightweight/" class="post-tag">lightweight</a>, 
+          
+          <a href="https://ypark.github.io/tags/single-cell/" class="post-tag">single cell</a>, 
+          
+          <a href="https://ypark.github.io/tags/integration/" class="post-tag">integration</a>
+          
+        </span>
+        
+
+        
+        
+
+        
+
+      </div>
     </div>
 
+    
 
-                <div class="meta">
-                    
-                        Posted on <time>2020-09-06</time>
-                    
-
-                    
-
-                    
-
-                    
-                    
-                            <span class="tags-label"> :: Tags:</span>
-                            <span class="tags">
-                                    <a href="https://ypark.github.io/tags/lightweight/" class="post-tag">lightweight</a>, 
-                                
-                                    <a href="https://ypark.github.io/tags/single-cell/" class="post-tag">single cell</a>, 
-                                
-                                    <a href="https://ypark.github.io/tags/integration/" class="post-tag">integration</a>
-                                
-                            </span>
-                    
-
-                    
-                    
-
-                    
-
-                </div>
-        </div>
-
+    
+    
+    
+    <div class="toc-container">
+      <h1 class="toc-title">Table of Contents</h1>
+      <ul class="toc-list">
         
+        <li>
+          <a href="https://ypark.github.io/posts/lightweight-tools-2020/#there-are-already-many-tools">There are already many tools.</a>
+          
+        </li>
+        
+        <li>
+          <a href="https://ypark.github.io/posts/lightweight-tools-2020/#the-underlying-data-matrix-is-sparse-really-sparse-but-most-methods-make-it-dense">The underlying data matrix is sparse, really sparse, but most methods make it dense.</a>
+          
+        </li>
+        
+        <li>
+          <a href="https://ypark.github.io/posts/lightweight-tools-2020/#we-want-to-focus-on-integrative-data-analysis-across-multiple-data-types-and-modalities">We want to focus on integrative data analysis across multiple data types and modalities</a>
+          
+        </li>
+        
+      </ul>
+    </div>
+    
+    
 
-        
-        
-        
-            <div class="toc-container">
-                <h1 class="toc-title">Table of Contents</h1>
-                <ul class="toc-list">
-                    
-                        <li>
-                            <a href="https://ypark.github.io/posts/lightweight-tools-2020/#there-are-already-many-tools">There are already many tools.</a>
-                            
-                        </li>
-                    
-                        <li>
-                            <a href="https://ypark.github.io/posts/lightweight-tools-2020/#the-underlying-data-matrix-is-sparse-really-sparse-but-most-methods-make-it-dense">The underlying data matrix is sparse, really sparse, but most methods make it dense.</a>
-                            
-                        </li>
-                    
-                        <li>
-                            <a href="https://ypark.github.io/posts/lightweight-tools-2020/#we-want-to-focus-on-integrative-data-analysis-across-multiple-data-types-and-modalities">We want to focus on integrative data analysis across multiple data types and modalities</a>
-                            
-                        </li>
-                    
-                </ul>
-            </div>
-        
-        
-
-        <section class="body">
-            <h3 id="there-are-already-many-tools"><a class="zola-anchor" href="#there-are-already-many-tools" aria-label="Anchor link for: there-are-already-many-tools">There are already many tools.</a></h3>
+    <section class="body">
+      <h3 id="there-are-already-many-tools"><a class="zola-anchor" href="#there-are-already-many-tools" aria-label="Anchor link for: there-are-already-many-tools">There are already many tools.</a></h3>
 <p>Ever since single-cell technology was introduced to the world, every year, every month, we see more tools. See <a href="https://www.scrna-tools.org/">scRNA-tools</a>, for example. Single-cell data analysis often involves many steps of data processing, quantification, and statistical inference. The technology is imperfect, and each step deserves careful consideration of different types of approaches. We, bioinformaticians, test a different combination of small tools and tailor a pipeline that works best for each project. Perhaps, there is no master algorithm, and the competitions among computational biologists are indeed fierce.</p>
 <p>The history of genomics repeats itself. For a large part of current single-cell data analysis, we probably see what had happened in RNA-seq, even gene expression microarray analysis. Once we knew how to normalize scRNA-seq data, we would like to know how to test differentially-expressed genes. Then, we would want to build more audacious models, such as gene regulatory networks.  Are there any points that we may contribute from a unique perspective? Can existing tools address all the challenges of single-cell data analysis, e.g., <a href="https://genomebiology.biomedcentral.com/articles/10.1186/s13059-020-1926-6">"eleven grand challenges in single-cell data science"</a>? I believe not. We know there has always been enough room for innovation and creativity.</p>
 <p>Okay, that sounds meek and quite passive. Why do we dare to jump into the battlefield?  We are not a software-engineering lab, but we can become impatient enough to feel the need for a better tool.  Moreover, we want to understand why and how a certain method works, and when that method doesn't work as expected.</p>
@@ -242,8 +242,8 @@ We like to work on a sparse data matrix formatted as <a href="https://math.nist.
 <h3 id="we-want-to-focus-on-integrative-data-analysis-across-multiple-data-types-and-modalities"><a class="zola-anchor" href="#we-want-to-focus-on-integrative-data-analysis-across-multiple-data-types-and-modalities" aria-label="Anchor link for: we-want-to-focus-on-integrative-data-analysis-across-multiple-data-types-and-modalities">We want to focus on integrative data analysis across multiple data types and modalities</a></h3>
 <p>With these tools, including the ones under development, we want to do science. We want others to do science using our tools. We will continuously update a bit more complicated routines for convenience, including cell type annotation, data aggregation, cell type deconvolution, batch-balancing k-nearest neighborhood, etc.</p>
 
-        </section>
-    </article>
+    </section>
+  </article>
 </main>
 
 

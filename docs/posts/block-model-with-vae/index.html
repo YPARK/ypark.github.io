@@ -161,98 +161,98 @@
         
     
 <main>
-    <article>
-        <div class="title">
-            
-            
-    <div class="page-header">
-        A stochastic block model and decades later<span class="primary-color" style="font-size: 1.6em">.</span>
+  <article>
+    <div class="title">
+      
+      
+<div class="page-header">
+  A stochastic block model and decades later<span class="primary-color" style="font-size: 1.6em">.</span>
+</div>
+
+
+      <div class="meta">
+        
+        Posted on <time>2025-03-30</time>
+        
+
+        
+
+        
+
+        
+        
+        <span class="tags-label"> :: Tags:</span>
+        <span class="tags">
+          <a href="https://ypark.github.io/tags/sbm/" class="post-tag">sbm</a>, 
+          
+          <a href="https://ypark.github.io/tags/block-model/" class="post-tag">block model</a>, 
+          
+          <a href="https://ypark.github.io/tags/graph/" class="post-tag">graph</a>, 
+          
+          <a href="https://ypark.github.io/tags/graph-neural-network/" class="post-tag">graph neural network</a>, 
+          
+          <a href="https://ypark.github.io/tags/neural-network/" class="post-tag">neural network</a>
+          
+        </span>
+        
+
+        
+        
+        
+        
+        
+        
+
+        
+        
+
+        
+
+      </div>
     </div>
 
+    
 
-                <div class="meta">
-                    
-                        Posted on <time>2025-03-30</time>
-                    
-
-                    
-
-                    
-
-                    
-                    
-                            <span class="tags-label"> :: Tags:</span>
-                            <span class="tags">
-                                    <a href="https://ypark.github.io/tags/sbm/" class="post-tag">sbm</a>, 
-                                
-                                    <a href="https://ypark.github.io/tags/block-model/" class="post-tag">block model</a>, 
-                                
-                                    <a href="https://ypark.github.io/tags/graph/" class="post-tag">graph</a>, 
-                                
-                                    <a href="https://ypark.github.io/tags/graph-neural-network/" class="post-tag">graph neural network</a>, 
-                                
-                                    <a href="https://ypark.github.io/tags/neural-network/" class="post-tag">neural network</a>
-                                
-                            </span>
-                    
-
-                    
-                    
-                        
-                        
-                            
-                        
-
-                        
-                    
-
-                    
-
-                </div>
-        </div>
-
+    
+    
+    
+    <div class="toc-container">
+      <h1 class="toc-title">Table of Contents</h1>
+      <ul class="toc-list">
         
+        <li>
+          <a href="https://ypark.github.io/posts/block-model-with-vae/#generative-models">Generative models</a>
+          
+          <ul>
+            
+            <li>
+              <a href="https://ypark.github.io/posts/block-model-with-vae/#discrete-non-mixed-stochastic-block-models">Discrete (non-mixed) stochastic block models</a>
+            </li>
 
-        
-        
-        
-            <div class="toc-container">
-                <h1 class="toc-title">Table of Contents</h1>
-                <ul class="toc-list">
-                    
-                        <li>
-                            <a href="https://ypark.github.io/posts/block-model-with-vae/#generative-models">Generative models</a>
-                            
-                                <ul>
-                                    
-                                        <li>
-                                            <a href="https://ypark.github.io/posts/block-model-with-vae/#discrete-non-mixed-stochastic-block-models">Discrete (non-mixed) stochastic block models</a>
-                                        </li>
+            
+            
+            <li>
+              <a href="https://ypark.github.io/posts/block-model-with-vae/#mixed-membership-stochastic-block-models">Mixed-membership stochastic block models</a>
+            </li>
 
-                                        
-                                    
-                                        <li>
-                                            <a href="https://ypark.github.io/posts/block-model-with-vae/#mixed-membership-stochastic-block-models">Mixed-membership stochastic block models</a>
-                                        </li>
-
-                                        
-                                    
-                                </ul>
-                            
-                        </li>
-                    
-                        <li>
-                            <a href="https://ypark.github.io/posts/block-model-with-vae/#let-s-put-a-stochastic-block-model-onto-a-vae-framework">Let&#x27;s put a stochastic block model onto a VAE framework</a>
-                            
-                        </li>
-                    
-                </ul>
-            </div>
+            
+            
+          </ul>
+          
+        </li>
         
+        <li>
+          <a href="https://ypark.github.io/posts/block-model-with-vae/#let-s-put-a-stochastic-block-model-onto-a-vae-framework">Let&#x27;s put a stochastic block model onto a VAE framework</a>
+          
+        </li>
         
+      </ul>
+    </div>
+    
+    
 
-        <section class="body">
-            <h2 id="generative-models"><a class="zola-anchor" href="#generative-models" aria-label="Anchor link for: generative-models">Generative models</a></h2>
+    <section class="body">
+      <h2 id="generative-models"><a class="zola-anchor" href="#generative-models" aria-label="Anchor link for: generative-models">Generative models</a></h2>
 <h3 id="discrete-non-mixed-stochastic-block-models"><a class="zola-anchor" href="#discrete-non-mixed-stochastic-block-models" aria-label="Anchor link for: discrete-non-mixed-stochastic-block-models">Discrete (non-mixed) stochastic block models</a></h3>
 <p>One of the most well-known examples in early social network study is this: <a href="https://www.jstor.org/stable/3629752">An Information Flow Model for Conflict and Fission in Small Groups</a> Zachary (1977).</p>
 <blockquote>
@@ -333,8 +333,8 @@ where $f_{i}$ is a neural network-like model for a vertex $i$ that maps a latent
 <p>All these "variational" parameters are modelled by a neural network model mapping a full adjacency matrix $A$ and a feature matrix $X$. We can make sampling steps differentiable by approximate reparameterization tricks.</p>
 <!-- [A scalable gene network model of regulatory dynamics in single cells](https://arxiv.org/abs/2503.20027) (2023) -->
 
-        </section>
-    </article>
+    </section>
+  </article>
 </main>
 
 

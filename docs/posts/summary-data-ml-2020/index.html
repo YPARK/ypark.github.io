@@ -161,90 +161,90 @@
         
     
 <main>
-    <article>
-        <div class="title">
-            
-            
-    <div class="page-header">
-        Bayesian modelling of summary statistics data<span class="primary-color" style="font-size: 1.6em">.</span>
+  <article>
+    <div class="title">
+      
+      
+<div class="page-header">
+  Bayesian modelling of summary statistics data<span class="primary-color" style="font-size: 1.6em">.</span>
+</div>
+
+
+      <div class="meta">
+        
+        Posted on <time>2020-09-03</time>
+        
+
+        
+
+        
+
+        
+        
+        <span class="tags-label"> :: Tags:</span>
+        <span class="tags">
+          <a href="https://ypark.github.io/tags/gwas/" class="post-tag">GWAS</a>, 
+          
+          <a href="https://ypark.github.io/tags/bayesian/" class="post-tag">Bayesian</a>, 
+          
+          <a href="https://ypark.github.io/tags/variational-inference/" class="post-tag">variational inference</a>, 
+          
+          <a href="https://ypark.github.io/tags/summary-statistics/" class="post-tag">summary statistics</a>
+          
+        </span>
+        
+
+        
+        
+        
+        
+        
+        
+
+        
+        
+
+        
+
+      </div>
     </div>
 
+    
 
-                <div class="meta">
-                    
-                        Posted on <time>2020-09-03</time>
-                    
-
-                    
-
-                    
-
-                    
-                    
-                            <span class="tags-label"> :: Tags:</span>
-                            <span class="tags">
-                                    <a href="https://ypark.github.io/tags/gwas/" class="post-tag">GWAS</a>, 
-                                
-                                    <a href="https://ypark.github.io/tags/bayesian/" class="post-tag">Bayesian</a>, 
-                                
-                                    <a href="https://ypark.github.io/tags/variational-inference/" class="post-tag">variational inference</a>, 
-                                
-                                    <a href="https://ypark.github.io/tags/summary-statistics/" class="post-tag">summary statistics</a>
-                                
-                            </span>
-                    
-
-                    
-                    
-                        
-                        
-                            
-                        
-
-                        
-                    
-
-                    
-
-                </div>
-        </div>
-
+    
+    
+    
+    <div class="toc-container">
+      <h1 class="toc-title">Table of Contents</h1>
+      <ul class="toc-list">
         
+        <li>
+          <a href="https://ypark.github.io/posts/summary-data-ml-2020/#what-are-summary-statistics-data">What are summary statistics data?</a>
+          
+        </li>
+        
+        <li>
+          <a href="https://ypark.github.io/posts/summary-data-ml-2020/#why-do-we-bother-summary-statistics">Why do we bother summary statistics?</a>
+          
+        </li>
+        
+        <li>
+          <a href="https://ypark.github.io/posts/summary-data-ml-2020/#summary-based-regression-modelling">Summary-based regression modelling</a>
+          
+        </li>
+        
+        <li>
+          <a href="https://ypark.github.io/posts/summary-data-ml-2020/#summary-statistics-based-machine-learning">Summary statistics-based machine learning</a>
+          
+        </li>
+        
+      </ul>
+    </div>
+    
+    
 
-        
-        
-        
-            <div class="toc-container">
-                <h1 class="toc-title">Table of Contents</h1>
-                <ul class="toc-list">
-                    
-                        <li>
-                            <a href="https://ypark.github.io/posts/summary-data-ml-2020/#what-are-summary-statistics-data">What are summary statistics data?</a>
-                            
-                        </li>
-                    
-                        <li>
-                            <a href="https://ypark.github.io/posts/summary-data-ml-2020/#why-do-we-bother-summary-statistics">Why do we bother summary statistics?</a>
-                            
-                        </li>
-                    
-                        <li>
-                            <a href="https://ypark.github.io/posts/summary-data-ml-2020/#summary-based-regression-modelling">Summary-based regression modelling</a>
-                            
-                        </li>
-                    
-                        <li>
-                            <a href="https://ypark.github.io/posts/summary-data-ml-2020/#summary-statistics-based-machine-learning">Summary statistics-based machine learning</a>
-                            
-                        </li>
-                    
-                </ul>
-            </div>
-        
-        
-
-        <section class="body">
-            <p>TL;DR. We develop Bayesian machine learning methods that excavate a latent structure or underlying joint models of summary statistics data.</p>
+    <section class="body">
+      <p>TL;DR. We develop Bayesian machine learning methods that excavate a latent structure or underlying joint models of summary statistics data.</p>
 <hr />
 <h3 id="what-are-summary-statistics-data"><a class="zola-anchor" href="#what-are-summary-statistics-data" aria-label="Anchor link for: what-are-summary-statistics-data">What are summary statistics data?</a></h3>
 <p>There is no clear boundary to define that data are made available at the summary or observation level.  Suppose the size of a data matrix/tensor $Z$ is smaller than the underlying sample size (number of observations). Each element in the data matrix $Z$ is generated as a result of some transformation of raw data. In that case, we often consider that the data $Z$ is observed at the summary level.  Summary statistics data could be first and second-order moments (mean and variance), p-values, z-scores, effect sizes, and standard errors, etc. As the most well-known summary statistics data, we could think of the results of genome-wide association studies (GWAS).</p>
@@ -258,8 +258,8 @@
 <h3 id="summary-statistics-based-machine-learning"><a class="zola-anchor" href="#summary-statistics-based-machine-learning" aria-label="Anchor link for: summary-statistics-based-machine-learning">Summary statistics-based machine learning</a></h3>
 <p>Our next challenge is to widen the scope of computational biology, genomics applications that can be benefited from summary-based learning methods. About a decade ago, the ML community also realized the value of exploiting the spectral structure of the summary data matrix/tensor. Hsu <em>et al.</em> (2012) <a href="https://arxiv.org/abs/0811.4413">Hsu+Kakade+Zhang</a> beautifully demonstrates an optimal state of a hidden Markov model can be easily recovered by the spectral decomposition of marginal probability matrices.</p>
 
-        </section>
-    </article>
+    </section>
+  </article>
 </main>
 
 

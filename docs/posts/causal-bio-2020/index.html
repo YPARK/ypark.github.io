@@ -161,105 +161,105 @@
         
     
 <main>
-    <article>
-        <div class="title">
-            
-            
-    <div class="page-header">
-        Causal Inference in Genomics<span class="primary-color" style="font-size: 1.6em">.</span>
+  <article>
+    <div class="title">
+      
+      
+<div class="page-header">
+  Causal Inference in Genomics<span class="primary-color" style="font-size: 1.6em">.</span>
+</div>
+
+
+      <div class="meta">
+        
+        Posted on <time>2020-09-04</time>
+        
+
+        
+
+        
+
+        
+        
+        <span class="tags-label"> :: Tags:</span>
+        <span class="tags">
+          <a href="https://ypark.github.io/tags/big-picture/" class="post-tag">big picture</a>, 
+          
+          <a href="https://ypark.github.io/tags/causal-inference/" class="post-tag">causal inference</a>, 
+          
+          <a href="https://ypark.github.io/tags/single-cell/" class="post-tag">single cell</a>, 
+          
+          <a href="https://ypark.github.io/tags/genomics/" class="post-tag">genomics</a>
+          
+        </span>
+        
+
+        
+        
+        
+        
+        
+        
+
+        
+        
+
+        
+
+      </div>
     </div>
 
+    
 
-                <div class="meta">
-                    
-                        Posted on <time>2020-09-04</time>
-                    
-
-                    
-
-                    
-
-                    
-                    
-                            <span class="tags-label"> :: Tags:</span>
-                            <span class="tags">
-                                    <a href="https://ypark.github.io/tags/big-picture/" class="post-tag">big picture</a>, 
-                                
-                                    <a href="https://ypark.github.io/tags/causal-inference/" class="post-tag">causal inference</a>, 
-                                
-                                    <a href="https://ypark.github.io/tags/single-cell/" class="post-tag">single cell</a>, 
-                                
-                                    <a href="https://ypark.github.io/tags/genomics/" class="post-tag">genomics</a>
-                                
-                            </span>
-                    
-
-                    
-                    
-                        
-                        
-                            
-                        
-
-                        
-                    
-
-                    
-
-                </div>
-        </div>
-
+    
+    
+    
+    <div class="toc-container">
+      <h1 class="toc-title">Table of Contents</h1>
+      <ul class="toc-list">
         
+        <li>
+          <a href="https://ypark.github.io/posts/causal-bio-2020/#causal-inference-based-on-a-causal-structure-model">Causal inference based on a causal structure model</a>
+          
+          <ul>
+            
+            <li>
+              <a href="https://ypark.github.io/posts/causal-bio-2020/#identification-of-causal-effects-by-an-instrumental-variable-mediation">Identification of causal effects by an instrumental variable (mediation)</a>
+            </li>
 
+            
+            
+          </ul>
+          
+        </li>
         
+        <li>
+          <a href="https://ypark.github.io/posts/causal-bio-2020/#removing-unwanted-variability-by-control-data">Removing unwanted variability by &quot;control&quot; data</a>
+          
+        </li>
         
-        
-            <div class="toc-container">
-                <h1 class="toc-title">Table of Contents</h1>
-                <ul class="toc-list">
-                    
-                        <li>
-                            <a href="https://ypark.github.io/posts/causal-bio-2020/#causal-inference-based-on-a-causal-structure-model">Causal inference based on a causal structure model</a>
-                            
-                                <ul>
-                                    
-                                        <li>
-                                            <a href="https://ypark.github.io/posts/causal-bio-2020/#identification-of-causal-effects-by-an-instrumental-variable-mediation">Identification of causal effects by an instrumental variable (mediation)</a>
-                                        </li>
+        <li>
+          <a href="https://ypark.github.io/posts/causal-bio-2020/#a-potential-outcome-framework-for-causally-differential-expression-analysis">A potential outcome framework for causally-differential expression analysis</a>
+          
+          <ul>
+            
+            <li>
+              <a href="https://ypark.github.io/posts/causal-bio-2020/#bayesian-causal-inference-for-single-cell-data-analysis">&quot;Bayesian&quot; causal inference for single-cell data analysis</a>
+            </li>
 
-                                        
-                                    
-                                </ul>
-                            
-                        </li>
-                    
-                        <li>
-                            <a href="https://ypark.github.io/posts/causal-bio-2020/#removing-unwanted-variability-by-control-data">Removing unwanted variability by &quot;control&quot; data</a>
-                            
-                        </li>
-                    
-                        <li>
-                            <a href="https://ypark.github.io/posts/causal-bio-2020/#a-potential-outcome-framework-for-causally-differential-expression-analysis">A potential outcome framework for causally-differential expression analysis</a>
-                            
-                                <ul>
-                                    
-                                        <li>
-                                            <a href="https://ypark.github.io/posts/causal-bio-2020/#bayesian-causal-inference-for-single-cell-data-analysis">&quot;Bayesian&quot; causal inference for single-cell data analysis</a>
-                                        </li>
-
-                                        
-                                    
-                                </ul>
-                            
-                        </li>
-                    
-                </ul>
-            </div>
+            
+            
+          </ul>
+          
+        </li>
         
-        
+      </ul>
+    </div>
+    
+    
 
-        <section class="body">
-            <p>TL;DR.  We reinvent traditional bioinformatics methods to ascertain the causality of discoveries made in high-dimensional omics data.</p>
+    <section class="body">
+      <p>TL;DR.  We reinvent traditional bioinformatics methods to ascertain the causality of discoveries made in high-dimensional omics data.</p>
 <hr />
 <p>Massive data generation in genomics has transformed the methodology and practice of researches in medicine and human biology. A common practice of research is genomic and functional genomic profiling of hundreds of individuals. If desired data is not available, large consortium-level projects and collaborations can often meet the needs. In terms of both volume and dimensionality, the sizes of genomics data have exploded in the past decade, and it is not hard to predict that the speed of data accumulation will be further accelerated.</p>
 <p>Genomics has made a breakthrough in medicine and science, armed with two powerful scientific methods--hypothesis testing and machine learning (ML). Hypothesis testing with well-designed null distributions proves meaningful scientific discoveries are made on the observed data. Likewise, a traditional ML method is designed to efficiently search the most plausible models from a particular class of models, mainly focusing on minimizing generalization errors on the observed data.  However, biology's ultimate question is perhaps more about unobserved principles, asking counterfactual "what if" questions, rather than simply describing phenomena. We desire to uncover causal mechanisms and laws underlying observations and ultimately provide testable cause-effect relationships.</p>
@@ -300,8 +300,8 @@
 <p>Well, there is a catch. In traditional omics data analysis, such an imputation problem is pretty challenging unless we have a good understanding of the data-generating process, which is often a black box to us. For one individual, we only have one data point $Y_{i}$ unless we borrow information from related genes. We might have to rely on faithful pretreatment variables $W$ as in a causal path, $W \to X \to Y$, and construct propensity scores to reweight observed samples.</p>
 <p>However, single-cell data provide a unique opportunity for modelling high-dimensional omics profiles. A clear advantage over bulk data is simply that we have more data points per sample (individual).  Assuming that single-cell profiling's sensitivity will become better each year, it is not too far until we can achieve reliable and accurate Bayesian imputation methods--not only the observed values but also the counterfactual values.</p>
 
-        </section>
-    </article>
+    </section>
+  </article>
 </main>
 
 

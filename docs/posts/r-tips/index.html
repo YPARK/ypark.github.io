@@ -161,81 +161,81 @@
         
     
 <main>
-    <article>
-        <div class="title">
-            
-            
-    <div class="page-header">
-        `.R&#x2F;Makevars` on silicon Mac<span class="primary-color" style="font-size: 1.6em">.</span>
+  <article>
+    <div class="title">
+      
+      
+<div class="page-header">
+  `.R&#x2F;Makevars` on silicon Mac<span class="primary-color" style="font-size: 1.6em">.</span>
+</div>
+
+
+      <div class="meta">
+        
+        Posted on <time>2025-01-22</time>
+        
+
+        
+
+        
+
+        
+        
+        <span class="tags-label"> :: Tags:</span>
+        <span class="tags">
+          <a href="https://ypark.github.io/tags/trouble-shooting/" class="post-tag">trouble-shooting</a>, 
+          
+          <a href="https://ypark.github.io/tags/r/" class="post-tag">R</a>
+          
+        </span>
+        
+
+        
+        
+        
+        
+        
+        
+
+        
+        
+
+        
+
+      </div>
     </div>
 
+    
 
-                <div class="meta">
-                    
-                        Posted on <time>2025-01-22</time>
-                    
-
-                    
-
-                    
-
-                    
-                    
-                            <span class="tags-label"> :: Tags:</span>
-                            <span class="tags">
-                                    <a href="https://ypark.github.io/tags/trouble-shooting/" class="post-tag">trouble-shooting</a>, 
-                                
-                                    <a href="https://ypark.github.io/tags/r/" class="post-tag">R</a>
-                                
-                            </span>
-                    
-
-                    
-                    
-                        
-                        
-                            
-                        
-
-                        
-                    
-
-                    
-
-                </div>
-        </div>
-
+    
+    
+    
+    <div class="toc-container">
+      <h1 class="toc-title">Table of Contents</h1>
+      <ul class="toc-list">
         
+        <li>
+          <a href="https://ypark.github.io/posts/r-tips/#error-messages">Error messages</a>
+          
+        </li>
+        
+        <li>
+          <a href="https://ypark.github.io/posts/r-tips/#solution-make-your-clang-understand-new-features">Solution: make your Clang++ understand new features</a>
+          
+        </li>
+        
+        <li>
+          <a href="https://ypark.github.io/posts/r-tips/#another-issue-on-openmp">Another issue on openmp</a>
+          
+        </li>
+        
+      </ul>
+    </div>
+    
+    
 
-        
-        
-        
-            <div class="toc-container">
-                <h1 class="toc-title">Table of Contents</h1>
-                <ul class="toc-list">
-                    
-                        <li>
-                            <a href="https://ypark.github.io/posts/r-tips/#error-messages">Error messages</a>
-                            
-                        </li>
-                    
-                        <li>
-                            <a href="https://ypark.github.io/posts/r-tips/#solution-make-your-clang-understand-new-features">Solution: make your Clang++ understand new features</a>
-                            
-                        </li>
-                    
-                        <li>
-                            <a href="https://ypark.github.io/posts/r-tips/#another-issue-on-openmp">Another issue on openmp</a>
-                            
-                        </li>
-                    
-                </ul>
-            </div>
-        
-        
-
-        <section class="body">
-            <p>TL;DR: include <code>OBJCXX=clang++ -std=gnu++17</code> in <code>.R/Makevars</code> to help <code>install.pacakges</code> to help Object-C code compilation.</p>
+    <section class="body">
+      <p>TL;DR: include <code>OBJCXX=clang++ -std=gnu++17</code> in <code>.R/Makevars</code> to help <code>install.pacakges</code> to help Object-C code compilation.</p>
 <h3 id="error-messages"><a class="zola-anchor" href="#error-messages" aria-label="Anchor link for: error-messages">Error messages</a></h3>
 <p>I wanted to install <code>tidyverse</code> on a new Mac. Almost everything worked out of the box, except for one thing: <code>R</code>'s <code>systemfonts</code> triggered an hour of pain. <code>clang++</code> stopped parsing when it encountered <code>mac/FontManagerMac.mm</code> while complaining that it was unable to understand <code>c++11</code> features, e.g., <code>constexpr</code>.</p>
 <pre style="background-color:#fafafa;color:#61676c;"><code><span>clang++ -I&quot;/opt/homebrew/Cellar/r/4.4.2_2/lib/R/include&quot; -DNDEBUG -I/opt/homebrew/opt/freetype/include/freetype2 -I/opt/homebrew/opt/libpng/include/libpng16 -I&#39;/opt/homebrew/lib/R/4.4/site-library/cpp11/include&#39; -I/opt/homebrew/opt/gettext/include -I/opt/homebrew/opt/readline/include -I/opt/homebrew/opt/xz/include -I/opt/homebrew/include   -fobjc-arc -fPIC   -c mac/FontManagerMac.mm -o mac/FontManagerMac.o
@@ -279,8 +279,8 @@
 </span><span>MAKEFLAGS = -j10
 </span></code></pre>
 
-        </section>
-    </article>
+    </section>
+  </article>
 </main>
 
 

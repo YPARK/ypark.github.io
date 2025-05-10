@@ -161,104 +161,104 @@
         
     
 <main>
-    <article>
-        <div class="title">
-            
-            
-    <div class="page-header">
-        Single-cell (pseudotime) trajectory analysis<span class="primary-color" style="font-size: 1.6em">.</span>
+  <article>
+    <div class="title">
+      
+      
+<div class="page-header">
+  Single-cell (pseudotime) trajectory analysis<span class="primary-color" style="font-size: 1.6em">.</span>
+</div>
+
+
+      <div class="meta">
+        
+        Posted on <time>2025-03-24</time>
+        
+
+        
+
+        
+
+        
+        
+        <span class="tags-label"> :: Tags:</span>
+        <span class="tags">
+          <a href="https://ypark.github.io/tags/trajectory/" class="post-tag">trajectory</a>, 
+          
+          <a href="https://ypark.github.io/tags/single-cell/" class="post-tag">single-cell</a>
+          
+        </span>
+        
+
+        
+        
+        
+        
+        
+        
+
+        
+        
+
+        
+
+      </div>
     </div>
 
+    
 
-                <div class="meta">
-                    
-                        Posted on <time>2025-03-24</time>
-                    
-
-                    
-
-                    
-
-                    
-                    
-                            <span class="tags-label"> :: Tags:</span>
-                            <span class="tags">
-                                    <a href="https://ypark.github.io/tags/trajectory/" class="post-tag">trajectory</a>, 
-                                
-                                    <a href="https://ypark.github.io/tags/single-cell/" class="post-tag">single-cell</a>
-                                
-                            </span>
-                    
-
-                    
-                    
-                        
-                        
-                            
-                        
-
-                        
-                    
-
-                    
-
-                </div>
-        </div>
-
+    
+    
+    
+    <div class="toc-container">
+      <h1 class="toc-title">Table of Contents</h1>
+      <ul class="toc-list">
         
+        <li>
+          <a href="https://ypark.github.io/posts/sc-trajectory/#pseudotime-trajectory-inference">Pseudotime trajectory inference</a>
+          
+          <ul>
+            
+            <li>
+              <a href="https://ypark.github.io/posts/sc-trajectory/#monocle-the-dynamics-and-regulators-of-cell-fate-decisions-are-revealed-by-pseudotemporal-ordering-of-single-cells">monocle The dynamics and regulators of cell fate decisions are revealed by pseudotemporal ordering of single cells</a>
+            </li>
 
+            
+            
+            <li>
+              <a href="https://ypark.github.io/posts/sc-trajectory/#tscan-tscan-pseudo-time-reconstruction-and-evaluation-in-single-cell-rna-seq-analysis">TSCAN TSCAN: Pseudo-time reconstruction and evaluation in single-cell RNA-seq analysis</a>
+            </li>
+
+            
+            
+            <li>
+              <a href="https://ypark.github.io/posts/sc-trajectory/#slingshot-slingshot-cell-lineage-and-pseudotime-inference-for-single-cell-transcriptomics">slingshot Slingshot: cell lineage and pseudotime inference for single-cell transcriptomics</a>
+            </li>
+
+            
+            
+            <li>
+              <a href="https://ypark.github.io/posts/sc-trajectory/#monocle3-the-single-cell-transcriptional-landscape-of-mammalian-organogenesis">monocle3 The single-cell transcriptional landscape of mammalian organogenesis</a>
+            </li>
+
+            
+            
+          </ul>
+          
+        </li>
         
+        <li>
+          <a href="https://ypark.github.io/posts/sc-trajectory/#downstream-analysis-to-statistically-test-dynamic-gene-programs">Downstream analysis to statistically test &quot;dynamic&quot; gene programs</a>
+          
+        </li>
         
-        
-            <div class="toc-container">
-                <h1 class="toc-title">Table of Contents</h1>
-                <ul class="toc-list">
-                    
-                        <li>
-                            <a href="https://ypark.github.io/posts/sc-trajectory/#pseudotime-trajectory-inference">Pseudotime trajectory inference</a>
-                            
-                                <ul>
-                                    
-                                        <li>
-                                            <a href="https://ypark.github.io/posts/sc-trajectory/#monocle-the-dynamics-and-regulators-of-cell-fate-decisions-are-revealed-by-pseudotemporal-ordering-of-single-cells">monocle The dynamics and regulators of cell fate decisions are revealed by pseudotemporal ordering of single cells</a>
-                                        </li>
+      </ul>
+    </div>
+    
+    
 
-                                        
-                                    
-                                        <li>
-                                            <a href="https://ypark.github.io/posts/sc-trajectory/#tscan-tscan-pseudo-time-reconstruction-and-evaluation-in-single-cell-rna-seq-analysis">TSCAN TSCAN: Pseudo-time reconstruction and evaluation in single-cell RNA-seq analysis</a>
-                                        </li>
-
-                                        
-                                    
-                                        <li>
-                                            <a href="https://ypark.github.io/posts/sc-trajectory/#slingshot-slingshot-cell-lineage-and-pseudotime-inference-for-single-cell-transcriptomics">slingshot Slingshot: cell lineage and pseudotime inference for single-cell transcriptomics</a>
-                                        </li>
-
-                                        
-                                    
-                                        <li>
-                                            <a href="https://ypark.github.io/posts/sc-trajectory/#monocle3-the-single-cell-transcriptional-landscape-of-mammalian-organogenesis">monocle3 The single-cell transcriptional landscape of mammalian organogenesis</a>
-                                        </li>
-
-                                        
-                                    
-                                </ul>
-                            
-                        </li>
-                    
-                        <li>
-                            <a href="https://ypark.github.io/posts/sc-trajectory/#downstream-analysis-to-statistically-test-dynamic-gene-programs">Downstream analysis to statistically test &quot;dynamic&quot; gene programs</a>
-                            
-                        </li>
-                    
-                </ul>
-            </div>
-        
-        
-
-        <section class="body">
-            <p><strong>TL;DR</strong>: The goal is to give a "pseudotime" for each cell. Use minimum spanning tree (MST) to estimate "independent" lineages. Sort the cells within each lineage to assign "time" information.</p>
+    <section class="body">
+      <p><strong>TL;DR</strong>: The goal is to give a "pseudotime" for each cell. Use minimum spanning tree (MST) to estimate "independent" lineages. Sort the cells within each lineage to assign "time" information.</p>
 <h3 id="pseudotime-trajectory-inference"><a class="zola-anchor" href="#pseudotime-trajectory-inference" aria-label="Anchor link for: pseudotime-trajectory-inference">Pseudotime trajectory inference</a></h3>
 <h4 id="monocle-the-dynamics-and-regulators-of-cell-fate-decisions-are-revealed-by-pseudotemporal-ordering-of-single-cells"><a class="zola-anchor" href="#monocle-the-dynamics-and-regulators-of-cell-fate-decisions-are-revealed-by-pseudotemporal-ordering-of-single-cells" aria-label="Anchor link for: monocle-the-dynamics-and-regulators-of-cell-fate-decisions-are-revealed-by-pseudotemporal-ordering-of-single-cells"><code>monocle</code> <a href="https://www.nature.com/articles/nbt.2859">The dynamics and regulators of cell fate decisions are revealed by pseudotemporal ordering of single cells</a></a></h4>
 <ul>
@@ -419,8 +419,8 @@ supergroup.</p>
 </li>
 </ul>
 
-        </section>
-    </article>
+    </section>
+  </article>
 </main>
 
 

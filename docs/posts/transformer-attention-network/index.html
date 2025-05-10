@@ -161,133 +161,133 @@
         
     
 <main>
-    <article>
-        <div class="title">
-            
-            
-    <div class="page-header">
-        Embedding, attention, and transformers<span class="primary-color" style="font-size: 1.6em">.</span>
+  <article>
+    <div class="title">
+      
+      
+<div class="page-header">
+  Embedding, attention, and transformers<span class="primary-color" style="font-size: 1.6em">.</span>
+</div>
+
+
+      <div class="meta">
+        
+        Posted on <time>2025-04-10</time>
+        
+
+        
+
+        
+
+        
+        
+        <span class="tags-label"> :: Tags:</span>
+        <span class="tags">
+          <a href="https://ypark.github.io/tags/attention/" class="post-tag">attention</a>, 
+          
+          <a href="https://ypark.github.io/tags/architecture/" class="post-tag">architecture</a>, 
+          
+          <a href="https://ypark.github.io/tags/network/" class="post-tag">network</a>, 
+          
+          <a href="https://ypark.github.io/tags/transformer/" class="post-tag">transformer</a>, 
+          
+          <a href="https://ypark.github.io/tags/embedding/" class="post-tag">embedding</a>
+          
+        </span>
+        
+
+        
+        
+        
+        
+        
+        
+
+        
+        
+
+        
+
+      </div>
     </div>
 
+    
 
-                <div class="meta">
-                    
-                        Posted on <time>2025-04-10</time>
-                    
-
-                    
-
-                    
-
-                    
-                    
-                            <span class="tags-label"> :: Tags:</span>
-                            <span class="tags">
-                                    <a href="https://ypark.github.io/tags/attention/" class="post-tag">attention</a>, 
-                                
-                                    <a href="https://ypark.github.io/tags/architecture/" class="post-tag">architecture</a>, 
-                                
-                                    <a href="https://ypark.github.io/tags/network/" class="post-tag">network</a>, 
-                                
-                                    <a href="https://ypark.github.io/tags/transformer/" class="post-tag">transformer</a>, 
-                                
-                                    <a href="https://ypark.github.io/tags/embedding/" class="post-tag">embedding</a>
-                                
-                            </span>
-                    
-
-                    
-                    
-                        
-                        
-                            
-                        
-
-                        
-                    
-
-                    
-
-                </div>
-        </div>
-
+    
+    
+    
+    <div class="toc-container">
+      <h1 class="toc-title">Table of Contents</h1>
+      <ul class="toc-list">
         
+        <li>
+          <a href="https://ypark.github.io/posts/transformer-attention-network/#1-how-should-we-embed-locate-genes-words-and-why-do-we-need-embedding">1. How should we &quot;embed&quot; (locate) genes (words)? And why do we need embedding?</a>
+          
+          <ul>
+            
+            <li>
+              <a href="https://ypark.github.io/posts/transformer-attention-network/#a-document-or-cell-as-a-bag-of-words">A document (or cell) as a bag of words</a>
+            </li>
 
+            
+            <ul>
+              
+              <li>
+                <a href="https://ypark.github.io/posts/transformer-attention-network/#what-have-we-missed-with-the-bag-of-words-assumption">What have we missed with the bag-of-words assumption?</a>
+              </li>
+              
+            </ul>
+            
+            
+            <li>
+              <a href="https://ypark.github.io/posts/transformer-attention-network/#gene-embedding-is-like-word-embedding-in-nlp">Gene embedding is like word embedding in NLP</a>
+            </li>
+
+            
+            
+          </ul>
+          
+        </li>
         
+        <li>
+          <a href="https://ypark.github.io/posts/transformer-attention-network/#2-what-attention-mechanisms-can-do-with-gene-embedding-vectors">2. What attention mechanisms can do with gene embedding vectors?</a>
+          
+          <ul>
+            
+            <li>
+              <a href="https://ypark.github.io/posts/transformer-attention-network/#how-can-we-represent-a-sentence-of-words-in-a-meaningful-way">How can we represent a sentence of words in a meaningful way?</a>
+            </li>
+
+            
+            
+            <li>
+              <a href="https://ypark.github.io/posts/transformer-attention-network/#an-attention-mechanism-simplifies-this-sentence-generating-process">An attention mechanism simplifies this sentence-generating process.</a>
+            </li>
+
+            
+            
+            <li>
+              <a href="https://ypark.github.io/posts/transformer-attention-network/#hashing-dictionary-and-query-key-and-value">Hashing, dictionary, and (query, key, and value)</a>
+            </li>
+
+            
+            
+          </ul>
+          
+        </li>
         
+        <li>
+          <a href="https://ypark.github.io/posts/transformer-attention-network/#3-can-attention-based-models-be-foundational-for-single-cell-rna-seq-modelling">3. Can attention-based models be foundational for single-cell RNA-seq modelling?</a>
+          
+        </li>
         
-            <div class="toc-container">
-                <h1 class="toc-title">Table of Contents</h1>
-                <ul class="toc-list">
-                    
-                        <li>
-                            <a href="https://ypark.github.io/posts/transformer-attention-network/#1-how-should-we-embed-locate-genes-words-and-why-do-we-need-embedding">1. How should we &quot;embed&quot; (locate) genes (words)? And why do we need embedding?</a>
-                            
-                                <ul>
-                                    
-                                        <li>
-                                            <a href="https://ypark.github.io/posts/transformer-attention-network/#a-document-or-cell-as-a-bag-of-words">A document (or cell) as a bag of words</a>
-                                        </li>
+      </ul>
+    </div>
+    
+    
 
-                                        
-                                            <ul>
-                                                
-                                                    <li>
-                                                        <a href="https://ypark.github.io/posts/transformer-attention-network/#what-have-we-missed-with-the-bag-of-words-assumption">What have we missed with the bag-of-words assumption?</a>
-                                                    </li>
-                                                
-                                            </ul>
-                                        
-                                    
-                                        <li>
-                                            <a href="https://ypark.github.io/posts/transformer-attention-network/#gene-embedding-is-like-word-embedding-in-nlp">Gene embedding is like word embedding in NLP</a>
-                                        </li>
-
-                                        
-                                    
-                                </ul>
-                            
-                        </li>
-                    
-                        <li>
-                            <a href="https://ypark.github.io/posts/transformer-attention-network/#2-what-attention-mechanisms-can-do-with-gene-embedding-vectors">2. What attention mechanisms can do with gene embedding vectors?</a>
-                            
-                                <ul>
-                                    
-                                        <li>
-                                            <a href="https://ypark.github.io/posts/transformer-attention-network/#how-can-we-represent-a-sentence-of-words-in-a-meaningful-way">How can we represent a sentence of words in a meaningful way?</a>
-                                        </li>
-
-                                        
-                                    
-                                        <li>
-                                            <a href="https://ypark.github.io/posts/transformer-attention-network/#an-attention-mechanism-simplifies-this-sentence-generating-process">An attention mechanism simplifies this sentence-generating process.</a>
-                                        </li>
-
-                                        
-                                    
-                                        <li>
-                                            <a href="https://ypark.github.io/posts/transformer-attention-network/#hashing-dictionary-and-query-key-and-value">Hashing, dictionary, and (query, key, and value)</a>
-                                        </li>
-
-                                        
-                                    
-                                </ul>
-                            
-                        </li>
-                    
-                        <li>
-                            <a href="https://ypark.github.io/posts/transformer-attention-network/#3-can-attention-based-models-be-foundational-for-single-cell-rna-seq-modelling">3. Can attention-based models be foundational for single-cell RNA-seq modelling?</a>
-                            
-                        </li>
-                    
-                </ul>
-            </div>
-        
-        
-
-        <section class="body">
-            <p>We hear lots of excitement about a transformer network. However, I did not find an easy explanation (at least to me) on why and how it works.</p>
+    <section class="body">
+      <p>We hear lots of excitement about a transformer network. However, I did not find an easy explanation (at least to me) on why and how it works.</p>
 <h2 id="1-how-should-we-embed-locate-genes-words-and-why-do-we-need-embedding"><a class="zola-anchor" href="#1-how-should-we-embed-locate-genes-words-and-why-do-we-need-embedding" aria-label="Anchor link for: 1-how-should-we-embed-locate-genes-words-and-why-do-we-need-embedding">1. How should we "embed" (locate) genes (words)? And why do we need embedding?</a></h2>
 <p>Embedding is like mapping a gene expression value in some latent space well spread between the values. In other words, from a point in the embedding space, we can recover each gene's name and its expression value (or ranking). It's important to understand what the embedding of a gene onto $d$-dimensional space does. Since my mindset has been stuck in a matrix factorization-like model for many years, I find this embedding step quite counter-intuitive. My other complaint is that "embedding" is not a good terminology at all. I think the whole step is more closely related to "stochastic" registration, dictionary, etc (just my complaint).</p>
 <h3 id="a-document-or-cell-as-a-bag-of-words"><a class="zola-anchor" href="#a-document-or-cell-as-a-bag-of-words" aria-label="Anchor link for: a-document-or-cell-as-a-bag-of-words">A document (or cell) as a bag of words</a></h3>
@@ -333,8 +333,8 @@ First of all, what is "word embedding?" In <code>PyTorch</code>'s documentation 
 <h2 id="3-can-attention-based-models-be-foundational-for-single-cell-rna-seq-modelling"><a class="zola-anchor" href="#3-can-attention-based-models-be-foundational-for-single-cell-rna-seq-modelling" aria-label="Anchor link for: 3-can-attention-based-models-be-foundational-for-single-cell-rna-seq-modelling">3. Can attention-based models be foundational for single-cell RNA-seq modelling?</a></h2>
 <p>I think gene embedding is a good idea. Well, I also like the way we represent gene-gene interactions as a stack of attention layers. But could we derive a foundational model? For a model to be foundational, well, what features, characteristics, or properties should a model possess and demonstrate? Very roughly... If we roughly consider each transformer layer modelled by attention networks as a scene or a set of rules for generating a scene, we may be able to run a realistic show with fifty of them stacked together, so is true with diffusion-based models. Well, is it foundational? We may need to define what the "foundation" model exactly means, though. I will leave all these sorts of questions for other posts.</p>
 
-        </section>
-    </article>
+    </section>
+  </article>
 </main>
 
 

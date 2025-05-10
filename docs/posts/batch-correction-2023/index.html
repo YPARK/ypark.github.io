@@ -161,117 +161,117 @@
         
     
 <main>
-    <article>
-        <div class="title">
-            
-            
-    <div class="page-header">
-        Adjusting batch effect in pseudobulk scRNA<span class="primary-color" style="font-size: 1.6em">.</span>
+  <article>
+    <div class="title">
+      
+      
+<div class="page-header">
+  Adjusting batch effect in pseudobulk scRNA<span class="primary-color" style="font-size: 1.6em">.</span>
+</div>
+
+
+      <div class="meta">
+        
+        Posted on <time>2023-06-19</time>
+        
+
+        
+
+        
+
+        
+        
+        <span class="tags-label"> :: Tags:</span>
+        <span class="tags">
+          <a href="https://ypark.github.io/tags/batch-effect/" class="post-tag">batch effect</a>, 
+          
+          <a href="https://ypark.github.io/tags/causal-inference/" class="post-tag">causal inference</a>, 
+          
+          <a href="https://ypark.github.io/tags/single-cell/" class="post-tag">single cell</a>, 
+          
+          <a href="https://ypark.github.io/tags/potential-outcome/" class="post-tag">potential outcome</a>
+          
+        </span>
+        
+
+        
+        
+        
+        
+        
+        
+
+        
+        
+
+        
+
+      </div>
     </div>
 
+    
 
-                <div class="meta">
-                    
-                        Posted on <time>2023-06-19</time>
-                    
-
-                    
-
-                    
-
-                    
-                    
-                            <span class="tags-label"> :: Tags:</span>
-                            <span class="tags">
-                                    <a href="https://ypark.github.io/tags/batch-effect/" class="post-tag">batch effect</a>, 
-                                
-                                    <a href="https://ypark.github.io/tags/causal-inference/" class="post-tag">causal inference</a>, 
-                                
-                                    <a href="https://ypark.github.io/tags/single-cell/" class="post-tag">single cell</a>, 
-                                
-                                    <a href="https://ypark.github.io/tags/potential-outcome/" class="post-tag">potential outcome</a>
-                                
-                            </span>
-                    
-
-                    
-                    
-                        
-                        
-                            
-                        
-
-                        
-                    
-
-                    
-
-                </div>
-        </div>
-
+    
+    
+    
+    <div class="toc-container">
+      <h1 class="toc-title">Table of Contents</h1>
+      <ul class="toc-list">
         
-
+        <li>
+          <a href="https://ypark.github.io/posts/batch-correction-2023/#inspiration">Inspiration</a>
+          
+        </li>
         
+        <li>
+          <a href="https://ypark.github.io/posts/batch-correction-2023/#a-generative-scheme-for-a-single-cell-count-matrix-with-multiplicative-batch-effects">A generative scheme for a single-cell count matrix with multiplicative batch effects</a>
+          
+        </li>
         
+        <li>
+          <a href="https://ypark.github.io/posts/batch-correction-2023/#a-causal-inference-approach-to-identify-batch-effects">A causal inference approach to identify batch effects</a>
+          
+        </li>
         
-            <div class="toc-container">
-                <h1 class="toc-title">Table of Contents</h1>
-                <ul class="toc-list">
-                    
-                        <li>
-                            <a href="https://ypark.github.io/posts/batch-correction-2023/#inspiration">Inspiration</a>
-                            
-                        </li>
-                    
-                        <li>
-                            <a href="https://ypark.github.io/posts/batch-correction-2023/#a-generative-scheme-for-a-single-cell-count-matrix-with-multiplicative-batch-effects">A generative scheme for a single-cell count matrix with multiplicative batch effects</a>
-                            
-                        </li>
-                    
-                        <li>
-                            <a href="https://ypark.github.io/posts/batch-correction-2023/#a-causal-inference-approach-to-identify-batch-effects">A causal inference approach to identify batch effects</a>
-                            
-                        </li>
-                    
-                        <li>
-                            <a href="https://ypark.github.io/posts/batch-correction-2023/#estimation-of-the-batch-effects-by-matching">Estimation of the batch effects by matching</a>
-                            
-                                <ul>
-                                    
-                                        <li>
-                                            <a href="https://ypark.github.io/posts/batch-correction-2023/#local-update-maximize-batch-s-specific-parameters">Local update: Maximize batch $s$-specific parameters</a>
-                                        </li>
+        <li>
+          <a href="https://ypark.github.io/posts/batch-correction-2023/#estimation-of-the-batch-effects-by-matching">Estimation of the batch effects by matching</a>
+          
+          <ul>
+            
+            <li>
+              <a href="https://ypark.github.io/posts/batch-correction-2023/#local-update-maximize-batch-s-specific-parameters">Local update: Maximize batch $s$-specific parameters</a>
+            </li>
 
-                                        
-                                    
-                                        <li>
-                                            <a href="https://ypark.github.io/posts/batch-correction-2023/#global-update">Global update</a>
-                                        </li>
+            
+            
+            <li>
+              <a href="https://ypark.github.io/posts/batch-correction-2023/#global-update">Global update</a>
+            </li>
 
-                                        
-                                    
-                                        <li>
-                                            <a href="https://ypark.github.io/posts/batch-correction-2023/#algorithm">Algorithm</a>
-                                        </li>
+            
+            
+            <li>
+              <a href="https://ypark.github.io/posts/batch-correction-2023/#algorithm">Algorithm</a>
+            </li>
 
-                                        
-                                    
-                                </ul>
-                            
-                        </li>
-                    
-                        <li>
-                            <a href="https://ypark.github.io/posts/batch-correction-2023/#a-toy-example">A toy example</a>
-                            
-                        </li>
-                    
-                </ul>
-            </div>
+            
+            
+          </ul>
+          
+        </li>
         
+        <li>
+          <a href="https://ypark.github.io/posts/batch-correction-2023/#a-toy-example">A toy example</a>
+          
+        </li>
         
+      </ul>
+    </div>
+    
+    
 
-        <section class="body">
-            <h3 id="inspiration"><a class="zola-anchor" href="#inspiration" aria-label="Anchor link for: inspiration">Inspiration</a></h3>
+    <section class="body">
+      <h3 id="inspiration"><a class="zola-anchor" href="#inspiration" aria-label="Anchor link for: inspiration">Inspiration</a></h3>
 <ul>
 <li>
 <p>Our previous work demonstrates that fiding causal difference at a pseudobulk level is easier than dealing with noisy cell-level data: <a href="https://genomebiology.biomedcentral.com/articles/10.1186/s13059-021-02438-4">Counterfactual inference for single-cell gene expression analysis</a></p>
@@ -568,8 +568,8 @@ Therefore, $\mu_{gs} \to Z_{gs}$.</p>
 </span></code></pre>
 <p><img src="https://ypark.github.io/posts/batch-correction-2023/batch-correction-2023_files/figure-markdown_strict/unnamed-chunk-10-1.png" alt="" /></p>
 
-        </section>
-    </article>
+    </section>
+  </article>
 </main>
 
 
