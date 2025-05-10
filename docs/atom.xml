@@ -4,8 +4,61 @@
     <link rel="self" type="application/atom+xml" href="https://ypark.github.io/atom.xml"/>
     <link rel="alternate" type="text/html" href="https://ypark.github.io"/>
     <generator uri="https://www.getzola.org/">Zola</generator>
-    <updated>2025-04-10T00:00:00+00:00</updated>
+    <updated>2025-05-10T00:00:00+00:00</updated>
     <id>https://ypark.github.io/atom.xml</id>
+    <entry xml:lang="en">
+        <title>Excerpts from Ideaflow on creativity - part 1</title>
+        <published>2025-05-10T00:00:00+00:00</published>
+        <updated>2025-05-10T00:00:00+00:00</updated>
+        
+        <author>
+          <name>
+            
+              Unknown
+            
+          </name>
+        </author>
+        
+        <link rel="alternate" type="text/html" href="https://ypark.github.io/posts/ideaflow/"/>
+        <id>https://ypark.github.io/posts/ideaflow/</id>
+        
+        <content type="html" xml:base="https://ypark.github.io/posts/ideaflow/">&lt;p&gt;These are quotes and memos from Ideaflow written by Jeremy Utley and Perry Klebahn.&lt;&#x2F;p&gt;
+&lt;p&gt;TL;DR: &lt;strong&gt;Quantity drives quality.&lt;&#x2F;strong&gt; Creativity is learned.&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&quot;Creativity is doing more than the first thing that comes to your mind.&quot; - a seventh-grader in Ohio&lt;&#x2F;p&gt;
+&lt;&#x2F;li&gt;
+&lt;li&gt;
+&lt;p&gt;Creativity isn&#x27;t a gift reserved for a precious few. &lt;strong&gt;It&#x27;s learned.&lt;&#x2F;strong&gt;&lt;&#x2F;p&gt;
+&lt;&#x2F;li&gt;
+&lt;li&gt;
+&lt;p&gt;In other words, it&#x27;s the capacity to keep generating ideas after the first one that&#x27;s &quot;good enough.&quot;&lt;&#x2F;p&gt;
+&lt;&#x2F;li&gt;
+&lt;li&gt;
+&lt;p&gt;Your brain never makes anything truly from scratch.&lt;&#x2F;p&gt;
+&lt;&#x2F;li&gt;
+&lt;li&gt;
+&lt;p&gt;&quot;Inspiration is a discipline.&quot; - Lacrae&lt;&#x2F;p&gt;
+&lt;&#x2F;li&gt;
+&lt;li&gt;
+&lt;p&gt;Breakthrough results don&#x27;t happen by picking the &quot;right&quot; idea from a list but rather by winnowing ideas down through real-world experimentation and iteration until a clear winner emerges.&lt;&#x2F;p&gt;
+&lt;&#x2F;li&gt;
+&lt;li&gt;
+&lt;p&gt;In most cases, the flow of ideas gets disrupted not by the individuals on a team but by the well-meaning, misguided leader who is &lt;strong&gt;so fixated on feasibility&lt;&#x2F;strong&gt; and relevance that every divergence from the status quo gets immediately quashed.&lt;&#x2F;p&gt;
+&lt;&#x2F;li&gt;
+&lt;li&gt;
+&lt;p&gt;To be disruptive, the new way of doing something must upend the old one. Designing the transistor, which ultimately makes vacuum tubes obsolete, is a disruptive innovation. To be clear, this is scary--if you happen to be a vacuum-tube manufacturer.&lt;&#x2F;p&gt;
+&lt;&#x2F;li&gt;
+&lt;li&gt;
+&lt;p&gt;Fear is what actually stands in the way of improvement.&lt;&#x2F;p&gt;
+&lt;&#x2F;li&gt;
+&lt;li&gt;
+&lt;p&gt;The riskiest move is no move at all. Conditions are always changing.&lt;&#x2F;p&gt;
+&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+</content>
+        
+    </entry>
     <entry xml:lang="en">
         <title>Embedding, attention, and transformers</title>
         <published>2025-04-10T00:00:00+00:00</published>
