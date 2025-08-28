@@ -4,8 +4,70 @@
     <link rel="self" type="application/atom+xml" href="https://ypark.github.io/atom.xml"/>
     <link rel="alternate" type="text/html" href="https://ypark.github.io"/>
     <generator uri="https://www.getzola.org/">Zola</generator>
-    <updated>2025-07-25T00:00:00+00:00</updated>
+    <updated>2025-08-28T00:00:00+00:00</updated>
     <id>https://ypark.github.io/atom.xml</id>
+    <entry xml:lang="en">
+        <title>STAT 548 PhD Qualifying Papers</title>
+        <published>2025-08-28T00:00:00+00:00</published>
+        <updated>2025-08-28T00:00:00+00:00</updated>
+        
+        <author>
+          <name>
+            
+              Unknown
+            
+          </name>
+        </author>
+        
+        <link rel="alternate" type="text/html" href="https://ypark.github.io/posts/stat548-2025/"/>
+        <id>https://ypark.github.io/posts/stat548-2025/</id>
+        
+        <content type="html" xml:base="https://ypark.github.io/posts/stat548-2025/">&lt;h2 id=&quot;introduction&quot;&gt;&lt;a class=&quot;zola-anchor&quot; href=&quot;#introduction&quot; aria-label=&quot;Anchor link for: introduction&quot;&gt;Introduction&lt;&#x2F;a&gt;&lt;&#x2F;h2&gt;
+&lt;p&gt;I am interested in almost all problems in computational biology and genomics. I expect a student to propose novel statistical approaches that can address challenges in data analysis and modelling of high-dimensional, large-volume biological problems.&lt;&#x2F;p&gt;
+&lt;p&gt;Feel free to contact me (&lt;code&gt;ypp@stat.ubc.ca&lt;&#x2F;code&gt;).&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;format&quot;&gt;&lt;a class=&quot;zola-anchor&quot; href=&quot;#format&quot; aria-label=&quot;Anchor link for: format&quot;&gt;Format&lt;&#x2F;a&gt;&lt;&#x2F;h2&gt;
+&lt;p&gt;You may organize your report including the following sections.&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Problem definition&lt;&#x2F;strong&gt; (1 page): Extract mathematical&#x2F;statistical problems from the paper and organize them. What are the input data? What is the expected output?&lt;&#x2F;p&gt;
+&lt;&#x2F;li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Significance&lt;&#x2F;strong&gt; (1 paragraph): Why is this an interesting problem? What can be learned by studying this problem? Why is it exciting for you? Author contribution: How did the author(s) find the solution? What was a novel contribution beyond traditional approaches?&lt;&#x2F;p&gt;
+&lt;&#x2F;li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Limitations&#x2F;challenges&lt;&#x2F;strong&gt; (1 paragraph): What are the assumptions? Are they realistic? What are the technical limitations that the authors acknowledge or not?&lt;&#x2F;p&gt;
+&lt;&#x2F;li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Novel idea&#x2F;methods&lt;&#x2F;strong&gt; (1-2 pages): Propose your idea and statistical methods. You could interpret the underlying problem in a different formulation. What are related problems&#x2F;frameworks, but not adopted by the authors?&lt;&#x2F;p&gt;
+&lt;&#x2F;li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Results&lt;&#x2F;strong&gt; (1-2 pages): Include one figure that sketches your approaches. Show tables and figures that clearly demonstrate your methods.&lt;&#x2F;p&gt;
+&lt;&#x2F;li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Discussion&lt;&#x2F;strong&gt; (1 page): Briefly discuss what you have learned and what you would achieve if you were to develop this to a full paper. How would you validate your findings in independent studies, including wet-lab experiments?&lt;&#x2F;p&gt;
+&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;h2 id=&quot;available-papers&quot;&gt;&lt;a class=&quot;zola-anchor&quot; href=&quot;#available-papers&quot; aria-label=&quot;Anchor link for: available-papers&quot;&gt;Available Papers&lt;&#x2F;a&gt;&lt;&#x2F;h2&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;Deshpande, S. K. (2025). FlexBART: Flexible Bayesian regression trees with categorical predictors. Journal of Computational and Graphical Statistics: A Joint Publication of American Statistical Association, Institute of Mathematical Statistics, Interface Foundation of North America, 34(3), 1117–1126.&lt;&#x2F;p&gt;
+&lt;&#x2F;li&gt;
+&lt;li&gt;
+&lt;p&gt;Marton, S., Lüdtke, S., Bartelt, C., &amp;amp; Stuckenschmidt, H. (2023, October 13). GRANDE: Gradient-Based Decision Tree Ensembles for Tabular Data. The Twelfth International Conference on Learning Representations. https:&#x2F;&#x2F;openreview.net&#x2F;forum?id=XEFWBxi075&lt;&#x2F;p&gt;
+&lt;&#x2F;li&gt;
+&lt;li&gt;
+&lt;p&gt;Rautenstrauch, P., &amp;amp; Ohler, U. (2025). Shortcomings of silhouette in single-cell integration benchmarking. Nature Biotechnology, 1–5.&lt;&#x2F;p&gt;
+&lt;&#x2F;li&gt;
+&lt;li&gt;
+&lt;p&gt;Zhang, L., Liu, L., Ji, J., Yan, R., Guo, P., Gong, W., Xue, F., Zhou, X., &amp;amp; Yuan, Z. (2025). Efficient Mendelian randomization analysis with self-adaptive determination of sample structure and multiple pleiotropic effects. The American Journal of Human Genetics, 0(0). https:&#x2F;&#x2F;doi.org&#x2F;10.1016&#x2F;j.ajhg.2025.06.002&lt;&#x2F;p&gt;
+&lt;&#x2F;li&gt;
+&lt;li&gt;
+&lt;p&gt;Bakhtiari, M., Bonn, S., Theis, F., Zolotareva, O., &amp;amp; Baumbach, J. (2025). FedscGen: privacy-preserving federated batch effect correction of single-cell RNA sequencing data. Genome Biology, 26(1), 216.&lt;&#x2F;p&gt;
+&lt;&#x2F;li&gt;
+&lt;&#x2F;ol&gt;
+</content>
+        
+    </entry>
     <entry xml:lang="en">
         <title>Excerpts from Ideaflow on creativity - part 3</title>
         <published>2025-07-25T00:00:00+00:00</published>
