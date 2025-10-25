@@ -4,8 +4,177 @@
     <link rel="self" type="application/atom+xml" href="https://ypark.github.io/atom.xml"/>
     <link rel="alternate" type="text/html" href="https://ypark.github.io"/>
     <generator uri="https://www.getzola.org/">Zola</generator>
-    <updated>2025-08-28T00:00:00+00:00</updated>
+    <updated>2025-10-16T00:00:00+00:00</updated>
     <id>https://ypark.github.io/atom.xml</id>
+    <entry xml:lang="en">
+        <title>American Society of Human Genetics meeting 2025</title>
+        <published>2025-10-16T00:00:00+00:00</published>
+        <updated>2025-10-16T00:00:00+00:00</updated>
+        
+        <author>
+          <name>
+            
+              Unknown
+            
+          </name>
+        </author>
+        
+        <link rel="alternate" type="text/html" href="https://ypark.github.io/posts/ashg/"/>
+        <id>https://ypark.github.io/posts/ashg/</id>
+        
+        <content type="html" xml:base="https://ypark.github.io/posts/ashg/">&lt;p&gt;TL;DR: Biased memos from ASHG 2025 talks&#x2F;posters. AI&#x2F;ML and new omics technologies always create new interests in the genetics community, but certain aspects of core genetic questions aren&#x27;t easily changed. Large-scale biobank GWAS data became the norm; then what&#x27;s next? Can we think of anything beyond polygenic risk predictions? Contextual information matters, but how so?&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;oct-15&quot;&gt;&lt;a class=&quot;zola-anchor&quot; href=&quot;#oct-15&quot; aria-label=&quot;Anchor link for: oct-15&quot;&gt;Oct 15&lt;&#x2F;a&gt;&lt;&#x2F;h2&gt;
+&lt;h3 id=&quot;non-linear-gwas-methods&quot;&gt;&lt;a class=&quot;zola-anchor&quot; href=&quot;#non-linear-gwas-methods&quot; aria-label=&quot;Anchor link for: non-linear-gwas-methods&quot;&gt;Non-linear GWAS methods&lt;&#x2F;a&gt;&lt;&#x2F;h3&gt;
+&lt;ul&gt;
+&lt;li&gt;Refine additive association models with dominant and recessive models&lt;&#x2F;li&gt;
+&lt;li&gt;Concerns over Type I error calibration&lt;&#x2F;li&gt;
+&lt;li&gt;How is it different from model checking?&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;h3 id=&quot;context-specific-polygenic-score-models&quot;&gt;&lt;a class=&quot;zola-anchor&quot; href=&quot;#context-specific-polygenic-score-models&quot; aria-label=&quot;Anchor link for: context-specific-polygenic-score-models&quot;&gt;Context-specific polygenic score models&lt;&#x2F;a&gt;&lt;&#x2F;h3&gt;
+&lt;ul&gt;
+&lt;li&gt;Fonseca, Andrew Dahl, U of Chicago&lt;&#x2F;li&gt;
+&lt;li&gt;Improve prediction performance
+&lt;ul&gt;
+&lt;li&gt;Can contexts be anything?&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;&#x2F;li&gt;
+&lt;li&gt;Straightforward idea: calculate interaction GWAS&lt;&#x2F;li&gt;
+&lt;li&gt;Build PGS models base off interaction coefficients&lt;&#x2F;li&gt;
+&lt;li&gt;Can we come up with summary-based extensions?&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;h3 id=&quot;how-can-include-gene-gene-interactions-in-mr&quot;&gt;&lt;a class=&quot;zola-anchor&quot; href=&quot;#how-can-include-gene-gene-interactions-in-mr&quot; aria-label=&quot;Anchor link for: how-can-include-gene-gene-interactions-in-mr&quot;&gt;How can include gene-gene interactions in MR?&lt;&#x2F;a&gt;&lt;&#x2F;h3&gt;
+&lt;ul&gt;
+&lt;li&gt;No satisfactory answers&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;h2 id=&quot;oct-16&quot;&gt;&lt;a class=&quot;zola-anchor&quot; href=&quot;#oct-16&quot; aria-label=&quot;Anchor link for: oct-16&quot;&gt;Oct 16&lt;&#x2F;a&gt;&lt;&#x2F;h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Squeezing AI models into genetic&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;h3 id=&quot;distinguishing-causal-variants-underlying-natural-selection&quot;&gt;&lt;a class=&quot;zola-anchor&quot; href=&quot;#distinguishing-causal-variants-underlying-natural-selection&quot; aria-label=&quot;Anchor link for: distinguishing-causal-variants-underlying-natural-selection&quot;&gt;Distinguishing causal variants underlying natural selection&lt;&#x2F;a&gt;&lt;&#x2F;h3&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;Arya Rao, Sabeti Lab (Harvard), Steven Riley (Yale), DeepSweep&lt;&#x2F;p&gt;
+&lt;&#x2F;li&gt;
+&lt;li&gt;
+&lt;p&gt;Selective sweep: SLC45A2, causal adaptive variants&lt;&#x2F;p&gt;
+&lt;&#x2F;li&gt;
+&lt;li&gt;
+&lt;p&gt;Distinguish causal and neural-hitchhiker variants&lt;&#x2F;p&gt;
+&lt;&#x2F;li&gt;
+&lt;li&gt;
+&lt;p&gt;Simulated data (coalescence model). Summary statistics.&lt;&#x2F;p&gt;
+&lt;&#x2F;li&gt;
+&lt;li&gt;
+&lt;p&gt;Transformer-based prediction (do we need label data?)&lt;&#x2F;p&gt;
+&lt;&#x2F;li&gt;
+&lt;li&gt;
+&lt;p&gt;GWAS and eQTL enrichment&lt;&#x2F;p&gt;
+&lt;&#x2F;li&gt;
+&lt;li&gt;
+&lt;p&gt;But where is causal guarantee?&lt;&#x2F;p&gt;
+&lt;&#x2F;li&gt;
+&lt;li&gt;
+&lt;p&gt;Question from audience:&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;Have you compared with colocalized or finemapping results?&lt;&#x2F;li&gt;
+&lt;li&gt;Do ages of variants matter?&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;&#x2F;li&gt;
+&lt;li&gt;
+&lt;p&gt;Takeaway: Probably useful... run simulation and train black box models.&lt;&#x2F;p&gt;
+&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;h3 id=&quot;pubmind-language-model-trained-on-pubmed&quot;&gt;&lt;a class=&quot;zola-anchor&quot; href=&quot;#pubmind-language-model-trained-on-pubmed&quot; aria-label=&quot;Anchor link for: pubmind-language-model-trained-on-pubmed&quot;&gt;&lt;code&gt;PubMind&lt;&#x2F;code&gt; language model trained on PUBMED&lt;&#x2F;a&gt;&lt;&#x2F;h3&gt;
+&lt;ul&gt;
+&lt;li&gt;Train LLM on millions of abstracts&lt;&#x2F;li&gt;
+&lt;li&gt;Existing resources: ClinVar, HGMD, LitVar2, ...&lt;&#x2F;li&gt;
+&lt;li&gt;inference module: SNV, SV, CNV, Gene fusion&lt;&#x2F;li&gt;
+&lt;li&gt;Focus on genetic evidence of pathogenecity&lt;&#x2F;li&gt;
+&lt;li&gt;What are the queries?&lt;&#x2F;li&gt;
+&lt;li&gt;LLaMa3.3, DeepSeek&lt;&#x2F;li&gt;
+&lt;li&gt;Standardize disease name&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;a href=&quot;https:&#x2F;&#x2F;pubmind.wglab.org&quot;&gt;&lt;code&gt;https:&#x2F;&#x2F;pubmind.wglab.org&lt;&#x2F;code&gt;&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
+&lt;li&gt;This is still a database... but the benefit of LLM is interactive API&lt;&#x2F;li&gt;
+&lt;li&gt;We could find more, but how should we use the method?&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;h3 id=&quot;spatial-3d-reconstruction-of-h-e-data&quot;&gt;&lt;a class=&quot;zola-anchor&quot; href=&quot;#spatial-3d-reconstruction-of-h-e-data&quot; aria-label=&quot;Anchor link for: spatial-3d-reconstruction-of-h-e-data&quot;&gt;Spatial 3D reconstruction of H&amp;amp;E data&lt;&#x2F;a&gt;&lt;&#x2F;h3&gt;
+&lt;ul&gt;
+&lt;li&gt;Hu, Yu, Emory&lt;&#x2F;li&gt;
+&lt;li&gt;Use long range dependency between snapshots&lt;&#x2F;li&gt;
+&lt;li&gt;Multi-resolution alignment&lt;&#x2F;li&gt;
+&lt;li&gt;Metamorphism (gradient flow)&lt;&#x2F;li&gt;
+&lt;li&gt;Cool data: CyCIF + H&amp;amp;E on colorectal cancer&lt;&#x2F;li&gt;
+&lt;li&gt;Cool 3D image... What did we learn?
+&lt;ul&gt;
+&lt;li&gt;Can we not find the same cell type identity mapping?&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;&#x2F;li&gt;
+&lt;li&gt;A question from moderator: Any downstream analysis?&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;h3 id=&quot;xenotransplantation&quot;&gt;&lt;a class=&quot;zola-anchor&quot; href=&quot;#xenotransplantation&quot; aria-label=&quot;Anchor link for: xenotransplantation&quot;&gt;Xenotransplantation&lt;&#x2F;a&gt;&lt;&#x2F;h3&gt;
+&lt;ul&gt;
+&lt;li&gt;Eloi Schmauch, Keating, NYU&lt;&#x2F;li&gt;
+&lt;li&gt;Pig kidney transplantation: pig vs. human cells?&lt;&#x2F;li&gt;
+&lt;li&gt;Too much technology details? Clustering?&lt;&#x2F;li&gt;
+&lt;li&gt;Visualization by &lt;a href=&quot;https:&#x2F;&#x2F;github.com&#x2F;broadinstitute&#x2F;celldega&quot;&gt;&lt;code&gt;Celldega&lt;&#x2F;code&gt;&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
+&lt;li&gt;Cell type colocalization over the course of transplantation&lt;&#x2F;li&gt;
+&lt;li&gt;Questions: How good is the pig genome?&lt;&#x2F;li&gt;
+&lt;li&gt;Suggestions: Try out different technologies for adjacent slides?&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;h3 id=&quot;mtdna-based-linage-tracing-in-spatial-data&quot;&gt;&lt;a class=&quot;zola-anchor&quot; href=&quot;#mtdna-based-linage-tracing-in-spatial-data&quot; aria-label=&quot;Anchor link for: mtdna-based-linage-tracing-in-spatial-data&quot;&gt;MtDNA-based linage tracing in spatial data&lt;&#x2F;a&gt;&lt;&#x2F;h3&gt;
+&lt;ul&gt;
+&lt;li&gt;Rong, Zhang, UPenn&lt;&#x2F;li&gt;
+&lt;li&gt;mtDNA far more abundant in cells&lt;&#x2F;li&gt;
+&lt;li&gt;Can linage information inferred from mtDNA implicate spatial changes?&lt;&#x2F;li&gt;
+&lt;li&gt;Send cDNA to (1) spatial slide-seq (2) PCR amplification for genotyping&lt;&#x2F;li&gt;
+&lt;li&gt;Input: MT Loci with cell type deconvolution (spots)&lt;&#x2F;li&gt;
+&lt;li&gt;Question: Which variant is significantly over-representing cell types?&lt;&#x2F;li&gt;
+&lt;li&gt;Assign MT variants to cell types&lt;&#x2F;li&gt;
+&lt;li&gt;Barrett&#x27;s Esophagus&lt;&#x2F;li&gt;
+&lt;li&gt;Bracht and Rong &lt;em&gt;et al.&lt;&#x2F;em&gt; (2025)&lt;&#x2F;li&gt;
+&lt;li&gt;Spot-level localization (testing the purity of nearest neighbors)&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;p&gt;Can we simply use MT expression to construct cell lineage?
+Why not using expression-based CNV method?&lt;&#x2F;p&gt;
+&lt;h3 id=&quot;spatial-neighbour-analysis&quot;&gt;&lt;a class=&quot;zola-anchor&quot; href=&quot;#spatial-neighbour-analysis&quot; aria-label=&quot;Anchor link for: spatial-neighbour-analysis&quot;&gt;Spatial neighbour analysis&lt;&#x2F;a&gt;&lt;&#x2F;h3&gt;
+&lt;ul&gt;
+&lt;li&gt;Jun Inamo, U of Colorado&lt;&#x2F;li&gt;
+&lt;li&gt;Juvenile Idiopathic Arthritis synovium&lt;&#x2F;li&gt;
+&lt;li&gt;10x Xenium, n=9&lt;&#x2F;li&gt;
+&lt;li&gt;co-varying neighborhood analysis (&lt;a href=&quot;https:&#x2F;&#x2F;www.nature.com&#x2F;articles&#x2F;s41587-021-01066-4&quot;&gt;Reshef YA, Nat Biotech 2022&lt;&#x2F;a&gt;)&lt;&#x2F;li&gt;
+&lt;li&gt;Can we relate this with locally-linear embedding?&lt;&#x2F;li&gt;
+&lt;li&gt;Show dynamics of many fibroblast marker genes as a function of distance from endothelial cells&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;code&gt;spatialCoocur&lt;&#x2F;code&gt; (by permutation tests)&lt;&#x2F;li&gt;
+&lt;li&gt;Compute colocalization scores between two cell types (e.g., T and myeloid, &lt;em&gt;CXCL9&lt;&#x2F;em&gt;-&lt;em&gt;CXCR3&lt;&#x2F;em&gt;)&lt;&#x2F;li&gt;
+&lt;li&gt;Tertiary Lymphoid Structure (TLS): T-cell and B-cell together&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;h3 id=&quot;clonal-hematopoiesis-non-coding-putative-driver-mutations&quot;&gt;&lt;a class=&quot;zola-anchor&quot; href=&quot;#clonal-hematopoiesis-non-coding-putative-driver-mutations&quot; aria-label=&quot;Anchor link for: clonal-hematopoiesis-non-coding-putative-driver-mutations&quot;&gt;Clonal hematopoiesis, non-coding putative driver mutations&lt;&#x2F;a&gt;&lt;&#x2F;h3&gt;
+&lt;ul&gt;
+&lt;li&gt;Josh Weinstock, Emory&lt;&#x2F;li&gt;
+&lt;li&gt;How does DNA changes over time?&lt;&#x2F;li&gt;
+&lt;li&gt;Clonal hematopoiesis of indeterminate potential&lt;&#x2F;li&gt;
+&lt;li&gt;Clonal extensions lack a mutation in canonical genes.&lt;&#x2F;li&gt;
+&lt;li&gt;490k UKBB whole genome&lt;&#x2F;li&gt;
+&lt;li&gt;frequency of alternate allele as a function of age at blood draw&lt;&#x2F;li&gt;
+&lt;li&gt;clonal hematopoiesis genes recapitulated!&lt;&#x2F;li&gt;
+&lt;li&gt;AML risk was also captured in phewas on the variants&lt;&#x2F;li&gt;
+&lt;li&gt;CH point mutations... how much variance was explained?&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;a href=&quot;https:&#x2F;&#x2F;somatic.emory.edu&quot;&gt;somatic.emory.edu&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;a href=&quot;https:&#x2F;&#x2F;www.medrxiv.org&#x2F;content&#x2F;10.1101&#x2F;2025.10.12.25337792v1&quot;&gt;preprint&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
+&lt;li&gt;Questions from audience:
+&lt;ul&gt;
+&lt;li&gt;How do we know this is somatic or rare germline?&lt;&#x2F;li&gt;
+&lt;li&gt;Most of them are germline point mutations.&lt;&#x2F;li&gt;
+&lt;li&gt;Do cell types matter?&lt;&#x2F;li&gt;
+&lt;li&gt;Copy number variants?&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;&#x2F;li&gt;
+&lt;li&gt;We may be able to ascertain &quot;age&quot; as a factor for somatic vs. germline... &lt;em&gt;Does it matter?&lt;&#x2F;em&gt;&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;h2 id=&quot;after-the-ashg-meeting&quot;&gt;&lt;a class=&quot;zola-anchor&quot; href=&quot;#after-the-ashg-meeting&quot; aria-label=&quot;Anchor link for: after-the-ashg-meeting&quot;&gt;After the ASHG meeting&lt;&#x2F;a&gt;&lt;&#x2F;h2&gt;
+</content>
+        
+    </entry>
     <entry xml:lang="en">
         <title>STAT 548 PhD Qualifying Papers</title>
         <published>2025-08-28T00:00:00+00:00</published>

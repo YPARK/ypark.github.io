@@ -33,6 +33,10 @@
         <lastmod>2025-03-17</lastmod>
     </url>
     <url>
+        <loc>https://ypark.github.io/posts/ashg/</loc>
+        <lastmod>2025-10-16</lastmod>
+    </url>
+    <url>
         <loc>https://ypark.github.io/posts/batch-correction-2023/</loc>
         <lastmod>2023-06-19</lastmod>
     </url>
@@ -158,6 +162,9 @@
         <loc>https://ypark.github.io/tags/coding/</loc>
     </url>
     <url>
+        <loc>https://ypark.github.io/tags/conference/</loc>
+    </url>
+    <url>
         <loc>https://ypark.github.io/tags/config/</loc>
     </url>
     <url>
@@ -179,6 +186,9 @@
         <loc>https://ypark.github.io/tags/ethernet/</loc>
     </url>
     <url>
+        <loc>https://ypark.github.io/tags/genetics/</loc>
+    </url>
+    <url>
         <loc>https://ypark.github.io/tags/genomics/</loc>
     </url>
     <url>
@@ -192,6 +202,9 @@
     </url>
     <url>
         <loc>https://ypark.github.io/tags/html/</loc>
+    </url>
+    <url>
+        <loc>https://ypark.github.io/tags/idea-flow/</loc>
     </url>
     <url>
         <loc>https://ypark.github.io/tags/ideaflow/</loc>
@@ -237,6 +250,9 @@
     </url>
     <url>
         <loc>https://ypark.github.io/tags/single-cell/</loc>
+    </url>
+    <url>
+        <loc>https://ypark.github.io/tags/spatial-omics/</loc>
     </url>
     <url>
         <loc>https://ypark.github.io/tags/stat548/</loc>
