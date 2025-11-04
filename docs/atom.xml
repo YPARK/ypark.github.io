@@ -176,6 +176,29 @@ Why not using expression-based CNV method?&lt;&#x2F;p&gt;
         
     </entry>
     <entry xml:lang="en">
+        <title>Sishir Subedi</title>
+        <published>2025-09-30T00:00:00+00:00</published>
+        <updated>2025-09-30T00:00:00+00:00</updated>
+        
+        <author>
+          <name>
+            
+              Unknown
+            
+          </name>
+        </author>
+        
+        <link rel="alternate" type="text/html" href="https://ypark.github.io/alumni/sishir/"/>
+        <id>https://ypark.github.io/alumni/sishir/</id>
+        
+        <content type="html" xml:base="https://ypark.github.io/alumni/sishir/">&lt;p&gt;&lt;a href=&quot;https:&#x2F;&#x2F;sishirsubedi.github.io&quot;&gt;A NEW WEBSITE&lt;&#x2F;a&gt;&lt;&#x2F;p&gt;
+&lt;p&gt;I am a Ph.D. student in the Department of Bioinformatics. I am interested in developing computational methods to understand the dynamics of cancer genomes. Mainly, I am fascinated by the interplay between the genomic architecture and the adaptive mechanisms of tumor cells in their heterogeneous microenvironment.&lt;&#x2F;p&gt;
+&lt;p&gt;Previously, I worked as a bioinformatician where I was involved in developing bioinformatics platforms for oncology diagnostics assays. During this time, pondering at clinical NGS data, I appreciated the importance of untangling DNA sequences and how it translates to helping a hopeful cancer patient. Also, I realized that each patient is unique, so is each cell, and I am excited to learn more about them- one cell at a time. I couldn&#x27;t agree more with what Aristotle famously wrote, &quot;The more you know, the more you realize you don&#x27;t know.&quot;&lt;&#x2F;p&gt;
+&lt;p&gt;While offline, I am up for anything outdoor. I like visiting new places, hiking hills, and kayaking.&lt;&#x2F;p&gt;
+</content>
+        
+    </entry>
+    <entry xml:lang="en">
         <title>STAT 548 PhD Qualifying Papers</title>
         <published>2025-08-28T00:00:00+00:00</published>
         <updated>2025-08-28T00:00:00+00:00</updated>
@@ -1575,7 +1598,7 @@ overfitting problems if the validation error did not improve within
         <link rel="alternate" type="text/html" href="https://ypark.github.io/team/tina0420/"/>
         <id>https://ypark.github.io/team/tina0420/</id>
         
-        <content type="html" xml:base="https://ypark.github.io/team/tina0420/">&lt;p&gt;I am currently a PhD student in Bioinformatics graduate program and interested in developing algorithms for innovating applications in the fields of medicine and biology. Not only coding, I also like to explore new sights of biology, especially about cancers.&lt;&#x2F;p&gt;
+        <content type="html" xml:base="https://ypark.github.io/team/tina0420/">&lt;p&gt;I am currently a graduate student in Bioinformatics program and interested in developing algorithms for innovating applications in the fields of medicine and biology. Not only coding, I also like to explore new sights of biology, especially about cancers.&lt;&#x2F;p&gt;
 &lt;p&gt;interests:&lt;&#x2F;p&gt;
 &lt;ul&gt;
 &lt;li&gt;Computational Biology&lt;&#x2F;li&gt;
@@ -2121,29 +2144,6 @@ Therefore, $\mu_{gs} \to Z_{gs}$.&lt;&#x2F;p&gt;
 &lt;&#x2F;ul&gt;
 &lt;&#x2F;li&gt;
 &lt;&#x2F;ul&gt;
-</content>
-        
-    </entry>
-    <entry xml:lang="en">
-        <title>Sishir Subedi</title>
-        <published>2021-01-01T00:00:00+00:00</published>
-        <updated>2021-01-01T00:00:00+00:00</updated>
-        
-        <author>
-          <name>
-            
-              Unknown
-            
-          </name>
-        </author>
-        
-        <link rel="alternate" type="text/html" href="https://ypark.github.io/team/sishir/"/>
-        <id>https://ypark.github.io/team/sishir/</id>
-        
-        <content type="html" xml:base="https://ypark.github.io/team/sishir/">&lt;p&gt;&lt;a href=&quot;https:&#x2F;&#x2F;sishirsubedi.github.io&quot;&gt;A NEW WEBSITE&lt;&#x2F;a&gt;&lt;&#x2F;p&gt;
-&lt;p&gt;I am a Ph.D. student in the Department of Bioinformatics. I am interested in developing computational methods to understand the dynamics of cancer genomes. Mainly, I am fascinated by the interplay between the genomic architecture and the adaptive mechanisms of tumor cells in their heterogeneous microenvironment.&lt;&#x2F;p&gt;
-&lt;p&gt;Previously, I worked as a bioinformatician where I was involved in developing bioinformatics platforms for oncology diagnostics assays. During this time, pondering at clinical NGS data, I appreciated the importance of untangling DNA sequences and how it translates to helping a hopeful cancer patient. Also, I realized that each patient is unique, so is each cell, and I am excited to learn more about them- one cell at a time. I couldn&#x27;t agree more with what Aristotle famously wrote, &quot;The more you know, the more you realize you don&#x27;t know.&quot;&lt;&#x2F;p&gt;
-&lt;p&gt;While offline, I am up for anything outdoor. I like visiting new places, hiking hills, and kayaking.&lt;&#x2F;p&gt;
 </content>
         
     </entry>
