@@ -1,0 +1,581 @@
+<!DOCTYPE html>
+<html lang="en">
+<html class="dark light">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    
+
+    
+    
+    
+    <title>
+         Study note on differential privacy
+        
+    </title>
+
+        
+            <meta property="og:title" content="Study note on differential privacy" />
+        
+     
+
+     
+         
+     
+
+     
+         
+    
+
+    
+    
+        <link rel="icon" type="image/png" href=&#x2F;icon&#x2F;favicon.ico />
+    
+
+    
+    
+        <link href=https://ypark.github.io/fonts.css rel="stylesheet" />
+    
+
+    
+    
+
+    
+    
+        <script src=https://ypark.github.io/js/codeblock.js></script>
+    
+
+    
+    
+        <script src=https://ypark.github.io/js/toc.js></script>
+    
+    
+    
+    
+
+    
+
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+
+        <script type="text/javascript" id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+        </script>
+        
+            <script>
+            MathJax = {
+              tex: {
+                  inlineMath: [['$', '$'], ['\\(', '\\)'], ['$$', '$$']]
+              }
+            };
+            </script>
+        
+
+	<!-- <\!-- KaTeX CSS -\-> -->
+	<!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.15.2/katex.min.css"> -->
+	
+	<!-- <\!-- KaTeX JS -\-> -->
+	<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.15.2/katex.min.js"></script> -->
+	
+	<!-- <\!-- Optional: KaTeX Auto-render extension -\-> -->
+	<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.15.2/contrib/auto-render.min.js"></script> -->
+	
+	<!-- <script> -->
+	<!--   document.addEventListener("DOMContentLoaded", function() { -->
+	<!--       renderMathInElement(document.body, { -->
+	<!-- 	  delimiters: [ -->
+	<!-- 	      {left: "$$", right: "$$", display: true}, -->
+	<!-- 	      {left: "$", right: "$", display: false} -->
+	<!-- 	  ] -->
+	<!--       }); -->
+	<!--   }); -->
+	<!-- </script> -->
+
+    
+
+    
+    <link rel="alternate" type="application/atom+xml" title="" href="https://ypark.github.io/atom.xml">
+
+
+    
+    
+        <link rel="stylesheet" type="text/css" href=https://ypark.github.io/theme/light.css />
+        <link id="darkModeStyle" rel="stylesheet" type="text/css" href="https://ypark.github.io/theme/dark.css" />
+    
+
+    <!-- Set the correct theme in the script -->
+    <script src=https://ypark.github.io/js/themetoggle.js></script>
+    
+        <script>setTheme(getSavedTheme());</script>
+    
+
+    <link rel="stylesheet" type="text/css" media="screen" href=https://ypark.github.io/main.css />
+
+    
+</head>
+
+
+<body>
+    <div class="content">
+        <header>
+    <div class="main">
+        <a href=https:&#x2F;&#x2F;ypark.github.io></a>
+
+        <div class="socials">
+            
+            <a rel="me" href="https:&#x2F;&#x2F;github.com&#x2F;causalpathlab&#x2F;" class="social">
+                <img alt=github src=https://ypark.github.io/social_icons/github.svg>
+            </a>
+            
+        </div>
+    </div>
+
+    <nav>
+        
+        <a href=https://ypark.github.io style="margin-left: 0.5em">home</a>
+        
+        <a href=https://ypark.github.io/about style="margin-left: 0.5em">&#x2F;about</a>
+        
+        <a href=https://ypark.github.io/posts style="margin-left: 0.5em">&#x2F;posts</a>
+        
+        <a href=https://ypark.github.io/team style="margin-left: 0.5em">&#x2F;team</a>
+        
+        <a href=https://ypark.github.io/alumni style="margin-left: 0.5em">&#x2F;alumni</a>
+        
+
+        
+        |<a id="dark-mode-toggle" onclick="toggleTheme(); event.preventDefault();" href="#">
+            <img src=https://ypark.github.io/feather/sun.svg id="sun-icon" style="filter: invert(1);" alt="Light" />
+            <img src=https://ypark.github.io/feather/moon.svg id="moon-icon" alt="Dark" />
+        </a>
+
+        <!-- Inititialize the theme toggle icons -->
+        <script>updateItemToggleTheme()</script>
+        
+    </nav>
+</header>
+
+
+        
+        
+    
+<main>
+  <article>
+    <div class="title">
+      
+      
+<div class="page-header">
+  Study note on differential privacy<span class="primary-color" style="font-size: 1.6em">.</span>
+</div>
+
+
+      <div class="meta">
+        
+        Posted on <time>2026-03-06</time>
+        
+
+        
+
+        
+
+        
+        
+        <span class="tags-label"> :: Tags:</span>
+        <span class="tags">
+          <a href="https://ypark.github.io/tags/differential-privacy/" class="post-tag">differential-privacy</a>, 
+          
+          <a href="https://ypark.github.io/tags/privacy/" class="post-tag">privacy</a>, 
+          
+          <a href="https://ypark.github.io/tags/statistics/" class="post-tag">statistics</a>, 
+          
+          <a href="https://ypark.github.io/tags/noise/" class="post-tag">noise</a>
+          
+        </span>
+        
+
+        
+        
+        
+        
+        
+        
+
+        
+        
+
+        
+
+      </div>
+    </div>
+
+    
+
+    
+    
+    
+    <div class="toc-container">
+      <h1 class="toc-title">Table of Contents</h1>
+      <ul class="toc-list">
+        
+        <li>
+          <a href="https://ypark.github.io/posts/diff-privacy/#linking-attacks-in-genomic-studies">Linking attacks in genomic studies</a>
+          
+        </li>
+        
+        <li>
+          <a href="https://ypark.github.io/posts/diff-privacy/#can-we-release-a-bit-noisy-yet-safer-eqtl-summary-statistics">Can we release a bit noisy yet safer eQTL summary statistics?</a>
+          
+        </li>
+        
+        <li>
+          <a href="https://ypark.github.io/posts/diff-privacy/#protecting-eqtl-statistics-with-differential-privacy">Protecting eQTL statistics with differential privacy</a>
+          
+        </li>
+        
+        <li>
+          <a href="https://ypark.github.io/posts/diff-privacy/#the-cost-can-we-still-detect-true-eqtls">The cost: can we still detect true eQTLs?</a>
+          
+        </li>
+        
+        <li>
+          <a href="https://ypark.github.io/posts/diff-privacy/#what-epsilon-actually-promises-it-s-all-about-membership-attack-protection">What $\epsilon$ actually promises: It&#x27;s all about membership attack&#x2F;protection</a>
+          
+        </li>
+        
+      </ul>
+    </div>
+    
+    
+
+    <section class="body">
+      <h2 id="linking-attacks-in-genomic-studies"><a class="zola-anchor" href="#linking-attacks-in-genomic-studies" aria-label="Anchor link for: linking-attacks-in-genomic-studies">Linking attacks in genomic studies</a></h2>
+<p>Several studies have shown that releasing gene expression data can leak private information about individuals (<a href="https://doi.org/10.1038/nmeth.3746">Harmanci &amp; Gerstein 2016</a>; <a href="https://doi.org/10.1016/j.cell.2024.09.012">Walker et al. 2024</a>).</p>
+<p>This is how an adversary would do it:</p>
+<ol>
+<li>
+<p>A study releases anonymized expression data with sensitive disease labels (e.g., HIV status)</p>
+</li>
+<li>
+<p>Gain access to eQTL summary statistics by examining how genotypes correlate with expression</p>
+</li>
+<li>
+<p>Predict genotypes from expression vectors by quantizing eQTL-predictable values to match possible 0 (homozygous reference), 1 (heterozygous), 2 (homozygous alternative) alleles.</p>
+</li>
+<li>
+<p>Match the predicted genotypes (bins) to a reference genotype database</p>
+</li>
+<li>
+<p>A successful match over many SNPs will probabilistically identify a targeted individual</p>
+</li>
+</ol>
+<p>Walker <em>et al.</em> showed <strong>93%+ linking accuracy</strong> on single-cell data, even with all the inherent interference.</p>
+<h2 id="can-we-release-a-bit-noisy-yet-safer-eqtl-summary-statistics"><a class="zola-anchor" href="#can-we-release-a-bit-noisy-yet-safer-eqtl-summary-statistics" aria-label="Anchor link for: can-we-release-a-bit-noisy-yet-safer-eqtl-summary-statistics">Can we release a bit noisy yet <em>safer</em> eQTL summary statistics?</a></h2>
+<p>One way to mitigate this is to release <strong>differentially private eQTL summary statistics</strong> instead of exact ones. Can we add enough noise to prevent linking while keeping the statistics useful?</p>
+<p>Let's build a toy example:</p>
+<ul>
+<li>$n = 100$ individuals</li>
+<li>One SNP with minor allele frequency 0.3</li>
+<li>Gene expression as a function of genotype: $E = \beta \cdot G + \epsilon$ (an eQTL)</li>
+</ul>
+<pre data-lang="r" style="background-color:#fafafa;color:#61676c;" class="language-r "><code class="language-r" data-lang="r"><span style="color:#f07171;">library</span><span>(ggplot2)
+</span><span style="color:#f07171;">set.seed</span><span>(</span><span style="color:#ff8f40;">42</span><span>)
+</span></code></pre>
+<pre data-lang="r" style="background-color:#fafafa;color:#61676c;" class="language-r "><code class="language-r" data-lang="r"><span>n </span><span style="color:#ed9366;">&lt;- </span><span style="color:#ff8f40;">100
+</span><span>maf </span><span style="color:#ed9366;">&lt;- </span><span style="color:#ff8f40;">0</span><span style="color:#61676ccc;">.</span><span style="color:#ff8f40;">3
+</span><span>
+</span><span style="font-style:italic;color:#abb0b6;">## genotype (private) and expression (released in the study)
+</span><span>G </span><span style="color:#ed9366;">&lt;- </span><span style="color:#f07171;">rbinom</span><span>(n</span><span style="color:#61676ccc;">, </span><span style="color:#ff8f40;">size </span><span style="color:#ed9366;">= </span><span style="color:#ff8f40;">2</span><span style="color:#61676ccc;">, </span><span style="color:#ff8f40;">prob </span><span style="color:#ed9366;">=</span><span> maf)
+</span><span>E </span><span style="color:#ed9366;">&lt;- </span><span style="color:#ff8f40;">0</span><span style="color:#61676ccc;">.</span><span style="color:#ff8f40;">5 </span><span style="color:#ed9366;">*</span><span> G </span><span style="color:#ed9366;">+ </span><span style="color:#f07171;">rnorm</span><span>(n)
+</span><span>
+</span><span>dat </span><span style="color:#ed9366;">&lt;- </span><span style="color:#f07171;">data.frame</span><span>(</span><span style="color:#ff8f40;">id </span><span style="color:#ed9366;">= </span><span style="color:#ff8f40;">1</span><span style="color:#fa6e32;">:</span><span>n</span><span style="color:#61676ccc;">, </span><span style="color:#ff8f40;">genotype </span><span style="color:#ed9366;">=</span><span> G</span><span style="color:#61676ccc;">, </span><span style="color:#ff8f40;">expression </span><span style="color:#ed9366;">= </span><span style="color:#f07171;">round</span><span>(E</span><span style="color:#61676ccc;">, </span><span style="color:#ff8f40;">3</span><span>))
+</span><span>dat
+</span></code></pre>
+<pre style="background-color:#fafafa;color:#61676c;"><code><span>##      id genotype expression
+</span><span>## 1     1        2      1.322
+</span><span>## 2     2        2      0.216
+</span><span>## 3     3        0      1.576
+</span><span>## 4     4        1      1.143
+</span><span>## 5     5        1      0.590
+</span><span>## 6     6        1      0.777
+</span><span>## 7     7        1      1.179
+</span><span>## 8     8        0      0.090
+</span><span>## 9     9        1     -2.493
+</span><span>## 10   10        1      0.785
+</span><span>## 11   11        0     -0.367
+</span><span>## 12   12        1      0.685
+</span><span>## 13   13        2      1.582
+</span><span>## 14   14        0      1.400
+</span><span>## 15   15        0     -0.727
+</span><span>## 16   16        2      2.303
+</span><span>## 17   17        2      1.336
+</span><span>## 18   18        0      1.039
+</span><span>## 19   19        0      0.921
+</span><span>## 20   20        1      1.221
+</span><span>## 21   21        1     -0.543
+</span><span>## 22   22        0     -0.090
+</span><span>## 23   23        2      1.624
+</span><span>## 24   24        2      0.046
+</span><span>## 25   25        0     -0.543
+</span><span>## 26   26        1      1.081
+</span><span>## 27   27        0      0.768
+</span><span>## 28   28        1      0.964
+</span><span>## 29   29        0     -0.886
+</span><span>## 30   30        1     -0.600
+</span><span>## 31   31        1      2.013
+</span><span>## 32   32        1      0.758
+</span><span>## 33   33        0      0.088
+</span><span>## 34   34        1      0.379
+</span><span>## 35   35        0     -1.194
+</span><span>## 36   36        1      1.112
+</span><span>## 37   37        0     -0.217
+</span><span>## 38   38        0     -0.183
+</span><span>## 39   39        1      1.433
+</span><span>## 40   40        1      1.322
+</span><span>## 41   41        0      1.392
+</span><span>## 42   42        0     -0.476
+</span><span>## 43   43        0      0.650
+</span><span>## 44   44        2      2.391
+</span><span>## 45   45        0     -1.111
+</span><span>## 46   46        2      0.139
+</span><span>## 47   47        1     -0.632
+</span><span>## 48   48        1     -0.959
+</span><span>## 49   49        2      1.080
+</span><span>## 50   50        1      1.153
+</span><span>## 51   51        0      1.201
+</span><span>## 52   52        0      1.045
+</span><span>## 53   53        0     -1.003
+</span><span>## 54   54        1      2.348
+</span><span>## 55   55        0     -0.667
+</span><span>## 56   56        1      0.606
+</span><span>## 57   57        1      0.078
+</span><span>## 58   58        0     -0.122
+</span><span>## 59   59        0      0.188
+</span><span>## 60   60        1      0.619
+</span><span>## 61   61        1      0.475
+</span><span>## 62   62        2      1.108
+</span><span>## 63   63        1      0.015
+</span><span>## 64   64        1     -0.004
+</span><span>## 65   65        1     -1.161
+</span><span>## 66   66        0     -0.382
+</span><span>## 67   67        0     -0.513
+</span><span>## 68   68        1      3.202
+</span><span>## 69   69        1     -0.862
+</span><span>## 70   70        0      0.137
+</span><span>## 71   71        0     -1.494
+</span><span>## 72   72        0     -1.470
+</span><span>## 73   73        0      0.125
+</span><span>## 74   74        0     -0.997
+</span><span>## 75   75        0     -0.002
+</span><span>## 76   76        1      0.072
+</span><span>## 77   77        0     -0.614
+</span><span>## 78   78        0     -2.025
+</span><span>## 79   79        1     -0.725
+</span><span>## 80   80        0      0.180
+</span><span>## 81   81        1      1.068
+</span><span>## 82   82        0     -0.493
+</span><span>## 83   83        0      0.000
+</span><span>## 84   84        1      1.623
+</span><span>## 85   85        1      1.940
+</span><span>## 86   86        1     -0.597
+</span><span>## 87   87        0     -0.117
+</span><span>## 88   88        0      1.201
+</span><span>## 89   89        0     -0.470
+</span><span>## 90   90        0     -0.052
+</span><span>## 91   91        1      0.414
+</span><span>## 92   92        0     -0.888
+</span><span>## 93   93        0     -0.445
+</span><span>## 94   94        2      0.971
+</span><span>## 95   95        2      0.586
+</span><span>## 96   96        1      1.613
+</span><span>## 97   97        0     -0.481
+</span><span>## 98   98        1      0.067
+</span><span>## 99   99        1      1.197
+</span><span>## 100 100        1     -0.556
+</span></code></pre>
+<p>The study releases the expression data (anonymized) along with disease labels. The genotypes are private. But the eQTL summary statistic, i.e., the regression coefficient $\hat{\beta}$ from $E \sim G$, captures the genotype-expression relationship:</p>
+<pre data-lang="r" style="background-color:#fafafa;color:#61676c;" class="language-r "><code class="language-r" data-lang="r"><span>beta_hat </span><span style="color:#ed9366;">&lt;- </span><span style="color:#f07171;">coef</span><span>(</span><span style="color:#f07171;">lm</span><span>(E </span><span style="color:#fa6e32;">~</span><span> G))
+</span><span style="color:#f07171;">cat</span><span>(</span><span style="color:#86b300;">&quot;eQTL intercept:&quot;</span><span style="color:#61676ccc;">,</span><span> beta_hat[</span><span style="color:#ff8f40;">1</span><span>]</span><span style="color:#61676ccc;">, </span><span style="color:#86b300;">&quot;</span><span style="color:#4cbf99;">\n</span><span style="color:#86b300;">&quot;</span><span>)
+</span></code></pre>
+<pre style="background-color:#fafafa;color:#61676c;"><code><span>## eQTL intercept: -0.1238356
+</span></code></pre>
+<pre data-lang="r" style="background-color:#fafafa;color:#61676c;" class="language-r "><code class="language-r" data-lang="r"><span style="color:#f07171;">cat</span><span>(</span><span style="color:#86b300;">&quot;eQTL effect:   &quot;</span><span style="color:#61676ccc;">,</span><span> beta_hat[</span><span style="color:#ff8f40;">2</span><span>]</span><span style="color:#61676ccc;">, </span><span style="color:#86b300;">&quot;</span><span style="color:#4cbf99;">\n</span><span style="color:#86b300;">&quot;</span><span>)
+</span></code></pre>
+<pre style="background-color:#fafafa;color:#61676c;"><code><span>## eQTL effect:    0.6449423
+</span></code></pre>
+<p>An attacker with access to these exact eQTL statistics can <strong>predict genotypes from expression</strong>. Each eQTL is a separate marginal regression, one SNP and one gene:</p>
+<p>$$
+E_k = \beta_k G_k + \epsilon_k, \quad k = 1, \ldots, p
+$$</p>
+<p>With many such pairs, the attacker builds a genotype profile for each individual: for each gene $k$, predict the most likely genotype $G_k$ given the observed expression $E_k$ and the released $\hat{\beta}_k$. More eQTLs = more bits of genotype information = more accurate linking.</p>
+<pre data-lang="r" style="background-color:#fafafa;color:#61676c;" class="language-r "><code class="language-r" data-lang="r"><span style="font-style:italic;color:#abb0b6;">## p independent eQTLs, each a marginal regression
+</span><span>p </span><span style="color:#ed9366;">&lt;- </span><span style="color:#ff8f40;">20
+</span><span>G_multi </span><span style="color:#ed9366;">&lt;- </span><span style="color:#f07171;">matrix</span><span>(</span><span style="color:#f07171;">rbinom</span><span>(n </span><span style="color:#ed9366;">*</span><span> p</span><span style="color:#61676ccc;">, </span><span style="color:#ff8f40;">size </span><span style="color:#ed9366;">= </span><span style="color:#ff8f40;">2</span><span style="color:#61676ccc;">, </span><span style="color:#ff8f40;">prob </span><span style="color:#ed9366;">=</span><span> maf)</span><span style="color:#61676ccc;">, </span><span style="color:#ff8f40;">nrow </span><span style="color:#ed9366;">=</span><span> n</span><span style="color:#61676ccc;">, </span><span style="color:#ff8f40;">ncol </span><span style="color:#ed9366;">=</span><span> p)
+</span><span>E_multi </span><span style="color:#ed9366;">&lt;- </span><span style="color:#f07171;">matrix</span><span>(</span><span style="color:#ff8f40;">nrow </span><span style="color:#ed9366;">=</span><span> n</span><span style="color:#61676ccc;">, </span><span style="color:#ff8f40;">ncol </span><span style="color:#ed9366;">=</span><span> p)
+</span><span>beta_true_vec </span><span style="color:#ed9366;">&lt;- </span><span style="color:#f07171;">rep</span><span>(</span><span style="color:#ff8f40;">0</span><span style="color:#61676ccc;">.</span><span style="color:#ff8f40;">5</span><span style="color:#61676ccc;">,</span><span> p)
+</span><span>
+</span><span style="color:#fa6e32;">for </span><span>(k </span><span style="color:#fa6e32;">in </span><span style="color:#ff8f40;">1</span><span style="color:#fa6e32;">:</span><span>p) {
+</span><span>  E_multi[</span><span style="color:#61676ccc;">,</span><span> k] </span><span style="color:#ed9366;">&lt;-</span><span> beta_true_vec[k] </span><span style="color:#ed9366;">*</span><span> G_multi[</span><span style="color:#61676ccc;">,</span><span> k] </span><span style="color:#ed9366;">+ </span><span style="color:#f07171;">rnorm</span><span>(n)
+</span><span>}
+</span><span>
+</span><span style="font-style:italic;color:#abb0b6;">## attacker runs marginal regression per eQTL
+</span><span>betahats </span><span style="color:#ed9366;">&lt;- </span><span style="color:#f07171;">sapply</span><span>(</span><span style="color:#ff8f40;">1</span><span style="color:#fa6e32;">:</span><span>p</span><span style="color:#61676ccc;">, </span><span style="color:#fa6e32;">function</span><span>(</span><span style="color:#ff8f40;">k</span><span>) </span><span style="color:#f07171;">coef</span><span>(</span><span style="color:#f07171;">lm</span><span>(E_multi[</span><span style="color:#61676ccc;">,</span><span> k] </span><span style="color:#fa6e32;">~</span><span> G_multi[</span><span style="color:#61676ccc;">,</span><span> k]))[</span><span style="color:#ff8f40;">2</span><span>])
+</span><span>
+</span><span style="font-style:italic;color:#abb0b6;">## predict genotype per eQTL: round(E / beta) clipped to {0, 1, 2}
+</span><span>G_predicted </span><span style="color:#ed9366;">&lt;- </span><span style="color:#f07171;">sapply</span><span>(</span><span style="color:#ff8f40;">1</span><span style="color:#fa6e32;">:</span><span>p</span><span style="color:#61676ccc;">, </span><span style="color:#fa6e32;">function</span><span>(</span><span style="color:#ff8f40;">k</span><span>) {
+</span><span>  </span><span style="color:#f07171;">pmin</span><span>(</span><span style="color:#f07171;">pmax</span><span>(</span><span style="color:#f07171;">round</span><span>(E_multi[</span><span style="color:#61676ccc;">,</span><span> k] </span><span style="color:#ed9366;">/</span><span> betahats[k])</span><span style="color:#61676ccc;">, </span><span style="color:#ff8f40;">0</span><span>)</span><span style="color:#61676ccc;">, </span><span style="color:#ff8f40;">2</span><span>)
+</span><span>})
+</span><span>
+</span><span style="font-style:italic;color:#abb0b6;">## how many genotypes does the attacker get right?
+</span><span>accuracy </span><span style="color:#ed9366;">&lt;- </span><span style="color:#f07171;">mean</span><span>(</span><span style="color:#f07171;">apply</span><span>(G_predicted </span><span style="color:#ed9366;">==</span><span> G_multi</span><span style="color:#61676ccc;">, </span><span style="color:#ff8f40;">2</span><span style="color:#61676ccc;">,</span><span> mean))
+</span><span style="color:#f07171;">cat</span><span>(</span><span style="color:#86b300;">&quot;Genotype prediction accuracy:&quot;</span><span style="color:#61676ccc;">, </span><span style="color:#f07171;">round</span><span>(accuracy</span><span style="color:#61676ccc;">, </span><span style="color:#ff8f40;">3</span><span>)</span><span style="color:#61676ccc;">, </span><span style="color:#86b300;">&quot;</span><span style="color:#4cbf99;">\n</span><span style="color:#86b300;">&quot;</span><span>)
+</span></code></pre>
+<pre style="background-color:#fafafa;color:#61676c;"><code><span>## Genotype prediction accuracy: 0.425
+</span></code></pre>
+<pre data-lang="r" style="background-color:#fafafa;color:#61676c;" class="language-r "><code class="language-r" data-lang="r"><span style="font-style:italic;color:#abb0b6;">## linking: match each individual&#39;s predicted genotype profile to the reference
+</span><span style="font-style:italic;color:#abb0b6;">## using Hamming distance
+</span><span>link_correct </span><span style="color:#ed9366;">&lt;- </span><span style="color:#ff8f40;">0
+</span><span style="color:#fa6e32;">for </span><span>(i </span><span style="color:#fa6e32;">in </span><span style="color:#ff8f40;">1</span><span style="color:#fa6e32;">:</span><span>n) {
+</span><span>  dists </span><span style="color:#ed9366;">&lt;- </span><span style="color:#f07171;">apply</span><span>(G_multi</span><span style="color:#61676ccc;">, </span><span style="color:#ff8f40;">1</span><span style="color:#61676ccc;">, </span><span style="color:#fa6e32;">function</span><span>(</span><span style="color:#ff8f40;">g_ref</span><span>) </span><span style="color:#f07171;">sum</span><span>(g_ref </span><span style="color:#ed9366;">!=</span><span> G_predicted[i</span><span style="color:#61676ccc;">, </span><span>]))
+</span><span>  link_correct </span><span style="color:#ed9366;">&lt;-</span><span> link_correct </span><span style="color:#ed9366;">+ </span><span>(</span><span style="color:#f07171;">which.min</span><span>(dists) </span><span style="color:#ed9366;">==</span><span> i)
+</span><span>}
+</span><span style="color:#f07171;">cat</span><span>(</span><span style="color:#86b300;">&quot;Linking accuracy:&quot;</span><span style="color:#61676ccc;">,</span><span> link_correct</span><span style="color:#61676ccc;">, </span><span style="color:#86b300;">&quot;/&quot;</span><span style="color:#61676ccc;">,</span><span> n</span><span style="color:#61676ccc;">, </span><span style="color:#86b300;">&quot;</span><span style="color:#4cbf99;">\n</span><span style="color:#86b300;">&quot;</span><span>)
+</span></code></pre>
+<pre style="background-color:#fafafa;color:#61676c;"><code><span>## Linking accuracy: 3 / 100
+</span></code></pre>
+<p>Each eQTL gives a noisy estimate of one SNP's genotype. But combined across many eQTLs, the predicted genotype profile becomes <strong>unique enough</strong> to link individuals to a reference database. This exactly how we do identity attack.</p>
+<h2 id="protecting-eqtl-statistics-with-differential-privacy"><a class="zola-anchor" href="#protecting-eqtl-statistics-with-differential-privacy" aria-label="Anchor link for: protecting-eqtl-statistics-with-differential-privacy">Protecting eQTL statistics with differential privacy</a></h2>
+<p>Before releasing $\hat{\beta}$, we can add random noise while calibrating the vulnerability of the data release. For a simple linear regression, changing one person's record shifts $\hat{\beta}$ by at most some $\Delta$.</p>
+<p>A common option is to add random jitter sampled from a Laplace distribution, as used for the sparse coding, L1-penalty, or LASSO. Namely, we achieve $\epsilon$-DP by adding noise sampled from $\mathsf{Laplace}(0,\Delta/\epsilon)$</p>
+<pre data-lang="r" style="background-color:#fafafa;color:#61676c;" class="language-r "><code class="language-r" data-lang="r"><span style="color:#f07171;">set.seed</span><span>(</span><span style="color:#ff8f40;">42</span><span>)
+</span><span style="font-style:italic;color:#abb0b6;">## sensitivity: how much can one person change a marginal beta?
+</span><span style="font-style:italic;color:#abb0b6;">## for bounded expression in [-B, B]:
+</span><span>B </span><span style="color:#ed9366;">&lt;- </span><span style="color:#ff8f40;">3
+</span><span>
+</span><span style="font-style:italic;color:#abb0b6;">## Laplace noise generator
+</span><span style="color:#f29718;">rlaplace </span><span style="color:#ed9366;">&lt;- </span><span style="color:#fa6e32;">function</span><span>(</span><span style="color:#ff8f40;">n</span><span style="color:#61676ccc;">, </span><span style="color:#ff8f40;">scale</span><span>) {
+</span><span>  u </span><span style="color:#ed9366;">&lt;- </span><span style="color:#f07171;">runif</span><span>(n</span><span style="color:#61676ccc;">, </span><span style="color:#ed9366;">-</span><span style="color:#ff8f40;">0</span><span style="color:#61676ccc;">.</span><span style="color:#ff8f40;">5</span><span style="color:#61676ccc;">, </span><span style="color:#ff8f40;">0</span><span style="color:#61676ccc;">.</span><span style="color:#ff8f40;">5</span><span>)
+</span><span>  </span><span style="color:#ed9366;">-</span><span>scale </span><span style="color:#ed9366;">* </span><span style="color:#f07171;">sign</span><span>(u) </span><span style="color:#ed9366;">* </span><span style="color:#f07171;">log</span><span>(</span><span style="color:#ff8f40;">1 </span><span style="color:#ed9366;">- </span><span style="color:#ff8f40;">2 </span><span style="color:#ed9366;">* </span><span style="color:#f07171;">abs</span><span>(u))
+</span><span>}
+</span><span>
+</span><span style="font-style:italic;color:#abb0b6;">## conservative sensitivity for a marginal regression coefficient
+</span><span>sensitivity </span><span style="color:#ed9366;">&lt;- </span><span style="color:#ff8f40;">2 </span><span style="color:#ed9366;">*</span><span> B </span><span style="color:#ed9366;">/</span><span> n
+</span><span>
+</span><span style="font-style:italic;color:#abb0b6;">## compare linking accuracy under different epsilon values
+</span><span>epsilons </span><span style="color:#ed9366;">&lt;- </span><span style="color:#f07171;">c</span><span>(</span><span style="color:#ff8f40;">0</span><span style="color:#61676ccc;">.</span><span style="color:#ff8f40;">1</span><span style="color:#61676ccc;">, </span><span style="color:#ff8f40;">0</span><span style="color:#61676ccc;">.</span><span style="color:#ff8f40;">5</span><span style="color:#61676ccc;">, </span><span style="color:#ff8f40;">1</span><span style="color:#61676ccc;">.</span><span style="color:#ff8f40;">0</span><span style="color:#61676ccc;">, </span><span style="color:#ff8f40;">10</span><span>)
+</span><span>
+</span><span style="color:#f07171;">par</span><span>(</span><span style="color:#ff8f40;">mfrow </span><span style="color:#ed9366;">= </span><span style="color:#f07171;">c</span><span>(</span><span style="color:#ff8f40;">2</span><span style="color:#61676ccc;">, </span><span style="color:#ff8f40;">2</span><span>))
+</span><span style="color:#fa6e32;">for </span><span>(eps </span><span style="color:#fa6e32;">in</span><span> epsilons) {
+</span><span>  </span><span style="font-style:italic;color:#abb0b6;">## add Laplace noise to each marginal beta
+</span><span>  beta_noisy </span><span style="color:#ed9366;">&lt;-</span><span> betahats </span><span style="color:#ed9366;">+ </span><span style="color:#f29718;">rlaplace</span><span>(p</span><span style="color:#61676ccc;">, </span><span style="color:#ff8f40;">scale </span><span style="color:#ed9366;">=</span><span> sensitivity </span><span style="color:#ed9366;">/</span><span> eps)
+</span><span>
+</span><span>  </span><span style="font-style:italic;color:#abb0b6;">## attacker predicts genotypes using noisy betas
+</span><span>  G_pred_noisy </span><span style="color:#ed9366;">&lt;- </span><span style="color:#f07171;">sapply</span><span>(</span><span style="color:#ff8f40;">1</span><span style="color:#fa6e32;">:</span><span>p</span><span style="color:#61676ccc;">, </span><span style="color:#fa6e32;">function</span><span>(</span><span style="color:#ff8f40;">k</span><span>) {
+</span><span>    </span><span style="color:#f07171;">pmin</span><span>(</span><span style="color:#f07171;">pmax</span><span>(</span><span style="color:#f07171;">round</span><span>(E_multi[</span><span style="color:#61676ccc;">,</span><span> k] </span><span style="color:#ed9366;">/</span><span> beta_noisy[k])</span><span style="color:#61676ccc;">, </span><span style="color:#ff8f40;">0</span><span>)</span><span style="color:#61676ccc;">, </span><span style="color:#ff8f40;">2</span><span>)
+</span><span>  })
+</span><span>
+</span><span>  </span><span style="font-style:italic;color:#abb0b6;">## linking via Hamming distance
+</span><span>  linked </span><span style="color:#ed9366;">&lt;- </span><span style="color:#ff8f40;">0
+</span><span>  </span><span style="color:#fa6e32;">for </span><span>(i </span><span style="color:#fa6e32;">in </span><span style="color:#ff8f40;">1</span><span style="color:#fa6e32;">:</span><span>n) {
+</span><span>    dists </span><span style="color:#ed9366;">&lt;- </span><span style="color:#f07171;">apply</span><span>(G_multi</span><span style="color:#61676ccc;">, </span><span style="color:#ff8f40;">1</span><span style="color:#61676ccc;">, </span><span style="color:#fa6e32;">function</span><span>(</span><span style="color:#ff8f40;">g</span><span>) </span><span style="color:#f07171;">sum</span><span>(g </span><span style="color:#ed9366;">!=</span><span> G_pred_noisy[i</span><span style="color:#61676ccc;">, </span><span>]))
+</span><span>    linked </span><span style="color:#ed9366;">&lt;-</span><span> linked </span><span style="color:#ed9366;">+ </span><span>(</span><span style="color:#f07171;">which.min</span><span>(dists) </span><span style="color:#ed9366;">==</span><span> i)
+</span><span>  }
+</span><span>
+</span><span>  acc </span><span style="color:#ed9366;">&lt;- </span><span style="color:#f07171;">mean</span><span>(G_pred_noisy </span><span style="color:#ed9366;">==</span><span> G_multi)
+</span><span>  </span><span style="color:#f07171;">plot</span><span>(</span><span style="color:#ff8f40;">1</span><span style="color:#fa6e32;">:</span><span>p</span><span style="color:#61676ccc;">,</span><span> betahats</span><span style="color:#61676ccc;">, </span><span style="color:#ff8f40;">pch </span><span style="color:#ed9366;">= </span><span style="color:#ff8f40;">19</span><span style="color:#61676ccc;">, </span><span style="color:#ff8f40;">col </span><span style="color:#ed9366;">= </span><span style="color:#86b300;">&quot;black&quot;</span><span style="color:#61676ccc;">, </span><span style="color:#ff8f40;">ylim </span><span style="color:#ed9366;">= </span><span style="color:#f07171;">range</span><span>(beta_noisy</span><span style="color:#61676ccc;">,</span><span> betahats)</span><span style="color:#61676ccc;">,
+</span><span>       </span><span style="color:#ff8f40;">xlab </span><span style="color:#ed9366;">= </span><span style="color:#86b300;">&quot;eQTL index&quot;</span><span style="color:#61676ccc;">, </span><span style="color:#ff8f40;">ylab </span><span style="color:#ed9366;">= </span><span style="color:#86b300;">&quot;Effect size&quot;</span><span style="color:#61676ccc;">,
+</span><span>       </span><span style="color:#ff8f40;">main </span><span style="color:#ed9366;">= </span><span style="color:#f07171;">bquote</span><span>(epsilon </span><span style="color:#ed9366;">== </span><span style="color:#f29718;">.</span><span>(eps) </span><span style="color:#fa6e32;">~ </span><span style="color:#86b300;">&quot; (linked &quot; </span><span style="color:#fa6e32;">~ </span><span style="color:#f29718;">.</span><span>(linked) </span><span style="color:#fa6e32;">~ </span><span style="color:#86b300;">&quot;/&quot; </span><span style="color:#fa6e32;">~ </span><span style="color:#f29718;">.</span><span>(n) </span><span style="color:#fa6e32;">~ </span><span style="color:#86b300;">&quot;)&quot;</span><span>))
+</span><span>  </span><span style="color:#f07171;">points</span><span>(</span><span style="color:#ff8f40;">1</span><span style="color:#fa6e32;">:</span><span>p</span><span style="color:#61676ccc;">,</span><span> beta_noisy</span><span style="color:#61676ccc;">, </span><span style="color:#ff8f40;">pch </span><span style="color:#ed9366;">= </span><span style="color:#ff8f40;">4</span><span style="color:#61676ccc;">, </span><span style="color:#ff8f40;">col </span><span style="color:#ed9366;">= </span><span style="color:#86b300;">&quot;red&quot;</span><span>)
+</span><span>  </span><span style="color:#f07171;">legend</span><span>(</span><span style="color:#86b300;">&quot;topright&quot;</span><span style="color:#61676ccc;">, </span><span style="color:#ff8f40;">legend </span><span style="color:#ed9366;">= </span><span style="color:#f07171;">c</span><span>(</span><span style="color:#86b300;">&quot;true&quot;</span><span style="color:#61676ccc;">, </span><span style="color:#86b300;">&quot;noisy&quot;</span><span>)</span><span style="color:#61676ccc;">, </span><span style="color:#ff8f40;">pch </span><span style="color:#ed9366;">= </span><span style="color:#f07171;">c</span><span>(</span><span style="color:#ff8f40;">19</span><span style="color:#61676ccc;">, </span><span style="color:#ff8f40;">4</span><span>)</span><span style="color:#61676ccc;">, </span><span style="color:#ff8f40;">col </span><span style="color:#ed9366;">= </span><span style="color:#f07171;">c</span><span>(</span><span style="color:#86b300;">&quot;black&quot;</span><span style="color:#61676ccc;">, </span><span style="color:#86b300;">&quot;red&quot;</span><span>)</span><span style="color:#61676ccc;">, </span><span style="color:#ff8f40;">cex </span><span style="color:#ed9366;">= </span><span style="color:#ff8f40;">0</span><span style="color:#61676ccc;">.</span><span style="color:#ff8f40;">8</span><span>)
+</span><span>}
+</span></code></pre>
+<p><img src="https://ypark.github.io/posts/diff-privacy/2026-03-06_diff-privacy_files/figure-markdown_strict/dp-eqtl-1.png" alt="" /></p>
+<ul>
+<li>At $\epsilon = 0.1$ (strong privacy), the attacker's predictions are essentially random. But the coefficients deviate too much from the true one.</li>
+<li>At $\epsilon = 10$ (weak privacy), the predictions are nearly as good as the exact case. But the data security breach may occur.</li>
+<li>The researcher must choose $\epsilon$ based on the acceptable trade-off between utility and privacy</li>
+</ul>
+<h2 id="the-cost-can-we-still-detect-true-eqtls"><a class="zola-anchor" href="#the-cost-can-we-still-detect-true-eqtls" aria-label="Anchor link for: the-cost-can-we-still-detect-true-eqtls">The cost: can we still detect true eQTLs?</a></h2>
+<p>Privacy is only useful if the released statistics are still scientifically meaningful. Let's simulate a more realistic scenario: many genes, some with real eQTLs and some without, and ask whether we can still distinguish them after adding DP noise.</p>
+<pre data-lang="r" style="background-color:#fafafa;color:#61676c;" class="language-r "><code class="language-r" data-lang="r"><span style="color:#f07171;">set.seed</span><span>(</span><span style="color:#ff8f40;">123</span><span>)
+</span><span>n_genes </span><span style="color:#ed9366;">&lt;- </span><span style="color:#ff8f40;">200
+</span><span>n_causal </span><span style="color:#ed9366;">&lt;- </span><span style="color:#ff8f40;">20  </span><span style="font-style:italic;color:#abb0b6;"># true eQTLs
+</span><span>
+</span><span style="font-style:italic;color:#abb0b6;">## one SNP, same genotype vector for simplicity
+</span><span>G_util </span><span style="color:#ed9366;">&lt;- </span><span style="color:#f07171;">rbinom</span><span>(n</span><span style="color:#61676ccc;">, </span><span style="color:#ff8f40;">size </span><span style="color:#ed9366;">= </span><span style="color:#ff8f40;">2</span><span style="color:#61676ccc;">, </span><span style="color:#ff8f40;">prob </span><span style="color:#ed9366;">=</span><span> maf)
+</span><span>
+</span><span style="font-style:italic;color:#abb0b6;">## simulate expression for each gene
+</span><span>beta_sim </span><span style="color:#ed9366;">&lt;- </span><span style="color:#f07171;">rep</span><span>(</span><span style="color:#ff8f40;">0</span><span style="color:#61676ccc;">,</span><span> n_genes)
+</span><span>beta_sim[</span><span style="color:#ff8f40;">1</span><span style="color:#fa6e32;">:</span><span>n_causal] </span><span style="color:#ed9366;">&lt;- </span><span style="color:#f07171;">rnorm</span><span>(n_causal</span><span style="color:#61676ccc;">, </span><span style="color:#ff8f40;">mean </span><span style="color:#ed9366;">= </span><span style="color:#ff8f40;">0</span><span style="color:#61676ccc;">.</span><span style="color:#ff8f40;">5</span><span style="color:#61676ccc;">, </span><span style="color:#ff8f40;">sd </span><span style="color:#ed9366;">= </span><span style="color:#ff8f40;">0</span><span style="color:#61676ccc;">.</span><span style="color:#ff8f40;">2</span><span>)
+</span><span>
+</span><span>E_mat </span><span style="color:#ed9366;">&lt;- </span><span style="color:#f07171;">sapply</span><span>(beta_sim</span><span style="color:#61676ccc;">, </span><span style="color:#fa6e32;">function</span><span>(</span><span style="color:#ff8f40;">b</span><span>) b </span><span style="color:#ed9366;">*</span><span> G_util </span><span style="color:#ed9366;">+ </span><span style="color:#f07171;">rnorm</span><span>(n))
+</span><span>
+</span><span style="font-style:italic;color:#abb0b6;">## compute true eQTL betas
+</span><span>beta_est </span><span style="color:#ed9366;">&lt;- </span><span style="color:#f07171;">apply</span><span>(E_mat</span><span style="color:#61676ccc;">, </span><span style="color:#ff8f40;">2</span><span style="color:#61676ccc;">, </span><span style="color:#fa6e32;">function</span><span>(</span><span style="color:#ff8f40;">e</span><span>) </span><span style="color:#f07171;">coef</span><span>(</span><span style="color:#f07171;">lm</span><span>(e </span><span style="color:#fa6e32;">~</span><span> G_util))[</span><span style="color:#ff8f40;">2</span><span>])
+</span><span>
+</span><span style="font-style:italic;color:#abb0b6;">## add DP noise at different epsilon levels
+</span><span>epsilons </span><span style="color:#ed9366;">&lt;- </span><span style="color:#f07171;">c</span><span>(</span><span style="color:#ff8f40;">0</span><span style="color:#61676ccc;">.</span><span style="color:#ff8f40;">1</span><span style="color:#61676ccc;">, </span><span style="color:#ff8f40;">0</span><span style="color:#61676ccc;">.</span><span style="color:#ff8f40;">5</span><span style="color:#61676ccc;">, </span><span style="color:#ff8f40;">1</span><span style="color:#61676ccc;">.</span><span style="color:#ff8f40;">0</span><span style="color:#61676ccc;">, </span><span style="color:#ff8f40;">10</span><span>)
+</span><span>
+</span><span>results </span><span style="color:#ed9366;">&lt;- </span><span style="color:#f07171;">do.call</span><span>(rbind</span><span style="color:#61676ccc;">, </span><span style="color:#f07171;">lapply</span><span>(epsilons</span><span style="color:#61676ccc;">, </span><span style="color:#fa6e32;">function</span><span>(</span><span style="color:#ff8f40;">eps</span><span>) {
+</span><span>  </span><span style="color:#fa6e32;">if </span><span>(</span><span style="color:#f07171;">is.finite</span><span>(eps)) {
+</span><span>    noisy </span><span style="color:#ed9366;">&lt;-</span><span> beta_est </span><span style="color:#ed9366;">+ </span><span style="color:#f29718;">rlaplace</span><span>(n_genes</span><span style="color:#61676ccc;">, </span><span style="color:#ff8f40;">scale </span><span style="color:#ed9366;">=</span><span> sensitivity </span><span style="color:#ed9366;">/</span><span> eps)
+</span><span>  } </span><span style="color:#fa6e32;">else </span><span>{
+</span><span>    noisy </span><span style="color:#ed9366;">&lt;-</span><span> beta_est
+</span><span>  }
+</span><span>  </span><span style="color:#f07171;">data.frame</span><span>(
+</span><span>    </span><span style="color:#ff8f40;">gene </span><span style="color:#ed9366;">= </span><span style="color:#ff8f40;">1</span><span style="color:#fa6e32;">:</span><span>n_genes</span><span style="color:#61676ccc;">,
+</span><span>    </span><span style="color:#ff8f40;">beta_noisy </span><span style="color:#ed9366;">=</span><span> noisy</span><span style="color:#61676ccc;">,
+</span><span>    </span><span style="color:#ff8f40;">causal </span><span style="color:#ed9366;">= </span><span style="color:#f07171;">ifelse</span><span>(</span><span style="color:#ff8f40;">1</span><span style="color:#fa6e32;">:</span><span>n_genes </span><span style="color:#ed9366;">&lt;=</span><span> n_causal</span><span style="color:#61676ccc;">, </span><span style="color:#86b300;">&quot;true eQTL&quot;</span><span style="color:#61676ccc;">, </span><span style="color:#86b300;">&quot;null&quot;</span><span>)</span><span style="color:#61676ccc;">,
+</span><span>    </span><span style="color:#ff8f40;">epsilon </span><span style="color:#ed9366;">= </span><span style="color:#fa6e32;">if </span><span>(</span><span style="color:#f07171;">is.finite</span><span>(eps)) </span><span style="color:#f07171;">paste0</span><span>(</span><span style="color:#86b300;">&quot;epsilon == &quot;</span><span style="color:#61676ccc;">,</span><span> eps) </span><span style="color:#fa6e32;">else </span><span style="color:#86b300;">&quot;epsilon == Inf&quot;
+</span><span>  )
+</span><span>}))
+</span><span>
+</span><span style="color:#f29718;">ggplot</span><span>(results</span><span style="color:#61676ccc;">, </span><span style="color:#f29718;">aes</span><span>(</span><span style="color:#ff8f40;">x </span><span style="color:#ed9366;">=</span><span> beta_noisy</span><span style="color:#61676ccc;">, </span><span style="color:#ff8f40;">fill </span><span style="color:#ed9366;">=</span><span> causal)) </span><span style="color:#ed9366;">+
+</span><span>  </span><span style="color:#f29718;">geom_histogram</span><span>(</span><span style="color:#ff8f40;">bins </span><span style="color:#ed9366;">= </span><span style="color:#ff8f40;">40</span><span style="color:#61676ccc;">, </span><span style="color:#ff8f40;">alpha </span><span style="color:#ed9366;">= </span><span style="color:#ff8f40;">0</span><span style="color:#61676ccc;">.</span><span style="color:#ff8f40;">7</span><span style="color:#61676ccc;">, </span><span style="color:#ff8f40;">position </span><span style="color:#ed9366;">= </span><span style="color:#86b300;">&quot;identity&quot;</span><span>) </span><span style="color:#ed9366;">+
+</span><span>  </span><span style="color:#f29718;">facet_wrap</span><span>(</span><span style="color:#fa6e32;">~</span><span>epsilon</span><span style="color:#61676ccc;">, </span><span style="color:#ff8f40;">scales </span><span style="color:#ed9366;">= </span><span style="color:#86b300;">&quot;free_y&quot;</span><span style="color:#61676ccc;">, </span><span style="color:#ff8f40;">labeller </span><span style="color:#ed9366;">=</span><span> label_parsed) </span><span style="color:#ed9366;">+
+</span><span>  </span><span style="color:#f29718;">geom_vline</span><span>(</span><span style="color:#ff8f40;">xintercept </span><span style="color:#ed9366;">= </span><span style="color:#ff8f40;">0</span><span style="color:#61676ccc;">, </span><span style="color:#ff8f40;">linetype </span><span style="color:#ed9366;">= </span><span style="color:#86b300;">&quot;dashed&quot;</span><span style="color:#61676ccc;">, </span><span style="color:#ff8f40;">color </span><span style="color:#ed9366;">= </span><span style="color:#86b300;">&quot;grey40&quot;</span><span>) </span><span style="color:#ed9366;">+
+</span><span>  </span><span style="color:#f29718;">labs</span><span>(</span><span style="color:#ff8f40;">x </span><span style="color:#ed9366;">= </span><span style="color:#86b300;">&quot;Released eQTL effect size&quot;</span><span style="color:#61676ccc;">, </span><span style="color:#ff8f40;">y </span><span style="color:#ed9366;">= </span><span style="color:#86b300;">&quot;Count&quot;</span><span style="color:#61676ccc;">,
+</span><span>       </span><span style="color:#ff8f40;">title </span><span style="color:#ed9366;">= </span><span style="color:#86b300;">&quot;True vs. null eQTLs under differential privacy&quot;</span><span style="color:#61676ccc;">,
+</span><span>       </span><span style="color:#ff8f40;">fill </span><span style="color:#ed9366;">= </span><span style="color:#86b300;">&quot;&quot;</span><span>) </span><span style="color:#ed9366;">+
+</span><span>  </span><span style="color:#f29718;">theme_minimal</span><span>()
+</span></code></pre>
+<p><img src="https://ypark.github.io/posts/diff-privacy/2026-03-06_diff-privacy_files/figure-markdown_strict/utility-cost-1.png" alt="" /></p>
+<h2 id="what-epsilon-actually-promises-it-s-all-about-membership-attack-protection"><a class="zola-anchor" href="#what-epsilon-actually-promises-it-s-all-about-membership-attack-protection" aria-label="Anchor link for: what-epsilon-actually-promises-it-s-all-about-membership-attack-protection">What $\epsilon$ actually promises: It's all about membership attack/protection</a></h2>
+<p>So what's the theory behind it? We don't want to reveal whether an individual's data point is included by adding some noise with an $\epsilon$-DP guarantee.</p>
+<p>$$\Pr{\text{stat with Laplace noise} \mid \text{you're in DB}} \le e^{\epsilon} \times \Pr{\text{stat with Laplace noise} \mid \text{you're out of DB}}$$</p>
+<p>The intuition is that an attacker who sees the output can't tell whether your data point is in or out since the output would have looked essentially the same regardless.</p>
+<ul>
+<li><strong>Small $\epsilon$</strong> (say 0.1): the two versions are nearly indistinguishable, so your privacy is strong, but we had to add a lot of noise, so the statistics are less accurate.</li>
+<li><strong>Large $\epsilon$</strong> (say 10): little noise, accurate statistics, but now your presence visibly shifts the output, so privacy is weak.</li>
+</ul>
+<p>We can make this concrete. Suppose before seeing the data the attacker gives some odds that you're in the study. After seeing the released statistics, they update those odds. The $\epsilon$-DP guarantee says this update can only be so large: the odds can grow (or shrink) by at most a factor of $e^{\epsilon}$:</p>
+<p>$$\frac{\text{odds you're in, after seeing the output}}{\text{odds you're in, before}} \le e^{\epsilon}$$</p>
+<p>So $\epsilon$ has a direct reading as a <strong>worst-case multiplier on the attacker's betting odds</strong>:</p>
+<table><thead><tr><th>$\epsilon$</th><th>$e^{\epsilon}$</th><th>plain reading</th></tr></thead><tbody>
+<tr><td>0.1</td><td>≈ 1.1</td><td>odds of guessing membership rise by at most ~10%</td></tr>
+<tr><td>0.5</td><td>≈ 1.6</td><td>at most ~1.6×, namely a 50/50 attacker reaches at most ~62%</td></tr>
+<tr><td>1.0</td><td>≈ 2.7</td><td>at most ~2.7×, namely a 50/50 attacker reaches at most ~73%</td></tr>
+</tbody></table>
+<p>Here is a concrete example. Say the attacker starts at even odds, a coin flip, 50/50 on whether you're in the study. With the <strong>exact</strong> statistic released, suppose the evidence is strong enough to push their odds up by 100 fold, to 100-to-1. That's a jump from 50% to about <strong>99%</strong> confidence that you're in, essentially identified.</p>
+<p>Now suppose we release the statistic under $\epsilon$-DP instead. The odds can move by at most $e^{\epsilon}$, so:</p>
+<ul>
+<li>At $\epsilon = 1$: the 100 fold increase of the security breach is capped at $e^1 \approx 2.7\times$, i.e. odds of at most 2.7-to-1, or about <strong>73%</strong> confidence, still uncertain.</li>
+</ul>
+<p>u- At $\epsilon = 0.5$: capped at $e^{0.5} \approx 1.6\times$, odds of at most 1.6-to-1, or about <strong>62%</strong> confidence, only a nudge above the coin flip.</p>
+<ul>
+<li>At $\epsilon = 0.1$: capped at $e^{0.1} \approx 1.1\times$, odds of at most 1.1-to-1, or about <strong>52%</strong>, barely better than the coin flip they started with.</li>
+</ul>
+<p>The protocol isn't really making the attack impossible. Instead, we make its guesswork much less likely.</p>
+
+    </section>
+  </article>
+</main>
+
+
+
+        
+
+    </div>
+</body>
+
+</html>

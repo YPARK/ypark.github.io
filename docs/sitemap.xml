@@ -61,6 +61,10 @@
         <lastmod>2024-08-30</lastmod>
     </url>
     <url>
+        <loc>https://ypark.github.io/posts/diff-privacy/</loc>
+        <lastmod>2026-03-06</lastmod>
+    </url>
+    <url>
         <loc>https://ypark.github.io/posts/ideaflow/</loc>
         <lastmod>2025-05-10</lastmod>
     </url>
@@ -172,6 +176,9 @@
         <loc>https://ypark.github.io/tags/config/</loc>
     </url>
     <url>
+        <loc>https://ypark.github.io/tags/differential-privacy/</loc>
+    </url>
+    <url>
         <loc>https://ypark.github.io/tags/display/</loc>
     </url>
     <url>
@@ -241,7 +248,13 @@
         <loc>https://ypark.github.io/tags/neural-network/</loc>
     </url>
     <url>
+        <loc>https://ypark.github.io/tags/noise/</loc>
+    </url>
+    <url>
         <loc>https://ypark.github.io/tags/potential-outcome/</loc>
+    </url>
+    <url>
+        <loc>https://ypark.github.io/tags/privacy/</loc>
     </url>
     <url>
         <loc>https://ypark.github.io/tags/r/</loc>
@@ -260,6 +273,9 @@
     </url>
     <url>
         <loc>https://ypark.github.io/tags/stat548/</loc>
+    </url>
+    <url>
+        <loc>https://ypark.github.io/tags/statistics/</loc>
     </url>
     <url>
         <loc>https://ypark.github.io/tags/summary-statistics/</loc>
