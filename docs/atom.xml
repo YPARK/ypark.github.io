@@ -4,8 +4,65 @@
     <link rel="self" type="application/atom+xml" href="https://ypark.github.io/atom.xml"/>
     <link rel="alternate" type="text/html" href="https://ypark.github.io"/>
     <generator uri="https://www.getzola.org/">Zola</generator>
-    <updated>2026-03-06T00:00:00+00:00</updated>
+    <updated>2026-07-31T00:00:00+00:00</updated>
     <id>https://ypark.github.io/atom.xml</id>
+    <entry xml:lang="en">
+        <title>Wanxin Li</title>
+        <published>2026-07-31T00:00:00+00:00</published>
+        <updated>2026-07-31T00:00:00+00:00</updated>
+        
+        <author>
+          <name>
+            
+              Unknown
+            
+          </name>
+        </author>
+        
+        <link rel="alternate" type="text/html" href="https://ypark.github.io/alumni/wanxinli/"/>
+        <id>https://ypark.github.io/alumni/wanxinli/</id>
+        
+        <content type="html" xml:base="https://ypark.github.io/alumni/wanxinli/">&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;Co-supervised by &lt;a href=&quot;https:&#x2F;&#x2F;kdaoduc.com&#x2F;&quot;&gt;Khanh Dao Duc&lt;&#x2F;a&gt;.&lt;&#x2F;p&gt;
+&lt;&#x2F;li&gt;
+&lt;li&gt;
+&lt;p&gt;Interests:&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;Computational biology&lt;&#x2F;li&gt;
+&lt;li&gt;Single cell problems&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+</content>
+        
+    </entry>
+    <entry xml:lang="en">
+        <title>Yi-Ting(Tina) Hsu</title>
+        <published>2026-05-31T00:00:00+00:00</published>
+        <updated>2026-05-31T00:00:00+00:00</updated>
+        
+        <author>
+          <name>
+            
+              Unknown
+            
+          </name>
+        </author>
+        
+        <link rel="alternate" type="text/html" href="https://ypark.github.io/alumni/tina0420/"/>
+        <id>https://ypark.github.io/alumni/tina0420/</id>
+        
+        <content type="html" xml:base="https://ypark.github.io/alumni/tina0420/">&lt;p&gt;I am currently a graduate student in Bioinformatics program and interested in developing algorithms for innovating applications in the fields of medicine and biology. Not only coding, I also like to explore new sights of biology, especially about cancers.&lt;&#x2F;p&gt;
+&lt;p&gt;interests:&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;Computational Biology&lt;&#x2F;li&gt;
+&lt;li&gt;Data Science&lt;&#x2F;li&gt;
+&lt;li&gt;Machine Learning&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+</content>
+        
+    </entry>
     <entry xml:lang="en">
         <title>Study note on differential privacy</title>
         <published>2026-03-06T00:00:00+00:00</published>
@@ -1922,32 +1979,6 @@ overfitting problems if the validation error did not improve within
         
     </entry>
     <entry xml:lang="en">
-        <title>Yi-Ting(Tina) Hsu</title>
-        <published>2024-07-01T00:00:00+00:00</published>
-        <updated>2024-07-01T00:00:00+00:00</updated>
-        
-        <author>
-          <name>
-            
-              Unknown
-            
-          </name>
-        </author>
-        
-        <link rel="alternate" type="text/html" href="https://ypark.github.io/alumni/tina0420/"/>
-        <id>https://ypark.github.io/alumni/tina0420/</id>
-        
-        <content type="html" xml:base="https://ypark.github.io/alumni/tina0420/">&lt;p&gt;I am currently a graduate student in Bioinformatics program and interested in developing algorithms for innovating applications in the fields of medicine and biology. Not only coding, I also like to explore new sights of biology, especially about cancers.&lt;&#x2F;p&gt;
-&lt;p&gt;interests:&lt;&#x2F;p&gt;
-&lt;ul&gt;
-&lt;li&gt;Computational Biology&lt;&#x2F;li&gt;
-&lt;li&gt;Data Science&lt;&#x2F;li&gt;
-&lt;li&gt;Machine Learning&lt;&#x2F;li&gt;
-&lt;&#x2F;ul&gt;
-</content>
-        
-    </entry>
-    <entry xml:lang="en">
         <title>Pattie Ye</title>
         <published>2024-05-31T00:00:00+00:00</published>
         <updated>2024-05-31T00:00:00+00:00</updated>
@@ -2451,37 +2482,6 @@ Therefore, $\mu_{gs} \to Z_{gs}$.&lt;&#x2F;p&gt;
 &lt;li&gt;Computational Biology&lt;&#x2F;li&gt;
 &lt;li&gt;Machine Learning&lt;&#x2F;li&gt;
 &lt;li&gt;Public Health&lt;&#x2F;li&gt;
-&lt;&#x2F;ul&gt;
-</content>
-        
-    </entry>
-    <entry xml:lang="en">
-        <title>Wanxin Li</title>
-        <published>2021-09-01T00:00:00+00:00</published>
-        <updated>2021-09-01T00:00:00+00:00</updated>
-        
-        <author>
-          <name>
-            
-              Unknown
-            
-          </name>
-        </author>
-        
-        <link rel="alternate" type="text/html" href="https://ypark.github.io/alumni/wanxinli/"/>
-        <id>https://ypark.github.io/alumni/wanxinli/</id>
-        
-        <content type="html" xml:base="https://ypark.github.io/alumni/wanxinli/">&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;Co-supervised by &lt;a href=&quot;https:&#x2F;&#x2F;kdaoduc.com&#x2F;&quot;&gt;Khanh Dao Duc&lt;&#x2F;a&gt;.&lt;&#x2F;p&gt;
-&lt;&#x2F;li&gt;
-&lt;li&gt;
-&lt;p&gt;Interests:&lt;&#x2F;p&gt;
-&lt;ul&gt;
-&lt;li&gt;Computational biology&lt;&#x2F;li&gt;
-&lt;li&gt;Single cell problems&lt;&#x2F;li&gt;
-&lt;&#x2F;ul&gt;
-&lt;&#x2F;li&gt;
 &lt;&#x2F;ul&gt;
 </content>
         
