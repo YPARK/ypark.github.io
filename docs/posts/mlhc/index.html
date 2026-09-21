@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="en">
+<html class="dark light">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    
+
+    
+    
+    
+    <title>
+         Machine Learning for Health Care
+        
+    </title>
+
+        
+            <meta property="og:title" content="Machine Learning for Health Care" />
+        
+     
+
+     
+         
+     
+
+     
+         
+    
+
+    
+    
+        <link rel="icon" type="image/png" href=&#x2F;icon&#x2F;favicon.ico />
+    
+
+    
+    
+        <link href=https://ypark.github.io/fonts.css rel="stylesheet" />
+    
+
+    
+    
+
+    
+    
+        <script src=https://ypark.github.io/js/codeblock.js></script>
+    
+
+    
+    
+        <script src=https://ypark.github.io/js/toc.js></script>
+    
+    
+    
+    
+
+    
+
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+
+        <script type="text/javascript" id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+        </script>
+        
+            <script>
+            MathJax = {
+              tex: {
+                  inlineMath: [['$', '$'], ['\\(', '\\)'], ['$$', '$$']]
+              }
+            };
+            </script>
+        
+
+	<!-- <\!-- KaTeX CSS -\-> -->
+	<!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.15.2/katex.min.css"> -->
+	
+	<!-- <\!-- KaTeX JS -\-> -->
+	<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.15.2/katex.min.js"></script> -->
+	
+	<!-- <\!-- Optional: KaTeX Auto-render extension -\-> -->
+	<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.15.2/contrib/auto-render.min.js"></script> -->
+	
+	<!-- <script> -->
+	<!--   document.addEventListener("DOMContentLoaded", function() { -->
+	<!--       renderMathInElement(document.body, { -->
+	<!-- 	  delimiters: [ -->
+	<!-- 	      {left: "$$", right: "$$", display: true}, -->
+	<!-- 	      {left: "$", right: "$", display: false} -->
+	<!-- 	  ] -->
+	<!--       }); -->
+	<!--   }); -->
+	<!-- </script> -->
+
+    
+
+    
+    <link rel="alternate" type="application/atom+xml" title="" href="https://ypark.github.io/atom.xml">
+
+
+    
+    
+        <link rel="stylesheet" type="text/css" href=https://ypark.github.io/theme/light.css />
+        <link id="darkModeStyle" rel="stylesheet" type="text/css" href="https://ypark.github.io/theme/dark.css" />
+    
+
+    <!-- Set the correct theme in the script -->
+    <script src=https://ypark.github.io/js/themetoggle.js></script>
+    
+        <script>setTheme(getSavedTheme());</script>
+    
+
+    <link rel="stylesheet" type="text/css" media="screen" href=https://ypark.github.io/main.css />
+
+    
+</head>
+
+
+<body>
+    <div class="content">
+        <header>
+    <div class="main">
+        <a href=https:&#x2F;&#x2F;ypark.github.io></a>
+
+        <div class="socials">
+            
+            <a rel="me" href="https:&#x2F;&#x2F;github.com&#x2F;causalpathlab&#x2F;" class="social">
+                <img alt=github src=https://ypark.github.io/social_icons/github.svg>
+            </a>
+            
+        </div>
+    </div>
+
+    <nav>
+        
+        <a href=https://ypark.github.io style="margin-left: 0.5em">home</a>
+        
+        <a href=https://ypark.github.io/about style="margin-left: 0.5em">&#x2F;about</a>
+        
+        <a href=https://ypark.github.io/posts style="margin-left: 0.5em">&#x2F;posts</a>
+        
+        <a href=https://ypark.github.io/team style="margin-left: 0.5em">&#x2F;team</a>
+        
+        <a href=https://ypark.github.io/alumni style="margin-left: 0.5em">&#x2F;alumni</a>
+        
+
+        
+        |<a id="dark-mode-toggle" onclick="toggleTheme(); event.preventDefault();" href="#">
+            <img src=https://ypark.github.io/feather/sun.svg id="sun-icon" style="filter: invert(1);" alt="Light" />
+            <img src=https://ypark.github.io/feather/moon.svg id="moon-icon" alt="Dark" />
+        </a>
+
+        <!-- Inititialize the theme toggle icons -->
+        <script>updateItemToggleTheme()</script>
+        
+    </nav>
+</header>
+
+
+        
+        
+    
+<main>
+  <article>
+    <div class="title">
+      
+      
+<div class="page-header">
+  Machine Learning for Health Care<span class="primary-color" style="font-size: 1.6em">.</span>
+</div>
+
+
+      <div class="meta">
+        
+        Posted on <time>2026-08-13</time>
+        
+
+        
+
+        
+
+        
+        
+        <span class="tags-label"> :: Tags:</span>
+        <span class="tags">
+          <a href="https://ypark.github.io/tags/conference/" class="post-tag">conference</a>, 
+          
+          <a href="https://ypark.github.io/tags/ml/" class="post-tag">ml</a>, 
+          
+          <a href="https://ypark.github.io/tags/machine-learning/" class="post-tag">machine learning</a>, 
+          
+          <a href="https://ypark.github.io/tags/medical/" class="post-tag">medical</a>, 
+          
+          <a href="https://ypark.github.io/tags/health-care/" class="post-tag">health care</a>, 
+          
+          <a href="https://ypark.github.io/tags/ai/" class="post-tag">AI</a>
+          
+        </span>
+        
+
+        
+        
+        
+        
+        
+        
+
+        
+        
+
+        
+
+      </div>
+    </div>
+
+    
+
+    
+    
+    
+    <div class="toc-container">
+      <h1 class="toc-title">Table of Contents</h1>
+      <ul class="toc-list">
+        
+        <li>
+          <a href="https://ypark.github.io/posts/mlhc/#thu-aug-13-09-00-edt-2026">Thu Aug 13 09:00 EDT 2026</a>
+          
+        </li>
+        
+        <li>
+          <a href="https://ypark.github.io/posts/mlhc/#thu-aug-13-14-05-edt-2026">Thu Aug 13 14:05 EDT 2026</a>
+          
+        </li>
+        
+        <li>
+          <a href="https://ypark.github.io/posts/mlhc/#fri-aug-14-09-50-edt-2026">Fri Aug 14 09:50 EDT 2026</a>
+          
+        </li>
+        
+      </ul>
+    </div>
+    
+    
+
+    <section class="body">
+      <p>TL;DR: Biased memos from MLHC 2026 talks/posters.</p>
+<h3 id="thu-aug-13-09-00-edt-2026"><a class="zola-anchor" href="#thu-aug-13-09-00-edt-2026" aria-label="Anchor link for: thu-aug-13-09-00-edt-2026">Thu Aug 13 09:00 EDT 2026</a></h3>
+<ul>
+<li>
+<p>Google AMIE team</p>
+<ul>
+<li>
+<p>Diagnosis: https://www.nature.com/articles/s41586-026-10764-5</p>
+</li>
+<li>
+<p>Expert-level medical care https://www.nature.com/articles/s41586-026-10764-5</p>
+</li>
+<li>
+<p>Had access to NEJM case studies and single-site EHR text</p>
+</li>
+<li>
+<p>No access to researchers</p>
+</li>
+</ul>
+</li>
+<li>
+<p>How can we leverage RCT in observational data analysis or vice versa</p>
+</li>
+<li>
+<p><a href="https://arxiv.org/abs/2604.08853v1">The Illusion of Learning from Observational Data: An Empirical Bayes Perspective</a></p>
+</li>
+<li>
+<p>Many people seem to (or would like to) train LLMs on PT-HCP interaction data</p>
+</li>
+<li>
+<p>Having an agentic system for healthcare, are we opening up the possibility of over-triage, over-diagnosis, and over-treatment?</p>
+</li>
+<li>
+<p>No physician will be judged numerically.</p>
+</li>
+<li>
+<p>What will be the major obstacles for human-computer collaborations?</p>
+</li>
+</ul>
+<h3 id="thu-aug-13-14-05-edt-2026"><a class="zola-anchor" href="#thu-aug-13-14-05-edt-2026" aria-label="Anchor link for: thu-aug-13-14-05-edt-2026">Thu Aug 13 14:05 EDT 2026</a></h3>
+<ul>
+<li>
+<p>Ilya Shpitser</p>
+<ul>
+<li>"Recursive equations for imputation of missing not at random"</li>
+<li>Two approaches:
+<ul>
+<li>Model missing status, e.g., (1) inverse propensity weighting (2) semi-parametric</li>
+<li>Model missing values</li>
+</ul>
+</li>
+<li>Missing data = a counterfactual problem</li>
+<li>MCAR: $X^{(1)} \to X \gets R$,</li>
+<li>MAR: confounder $\to X^{(1)}$ and $R$</li>
+<li>MNAR: $X^{(1)} \to R \to X$ and $X^{(1)} \to X$, "self-censoring"</li>
+<li>Need to model $p(X|R, X^{(1)})$
+<ul>
+<li>No self-censoring model, a conditional MRF</li>
+<li>IF a DAG is a submodel of NSC...</li>
+</ul>
+</li>
+<li>Semi-parametric estimator available</li>
+<li>MICE relies on MAR</li>
+<li>goal: $p(X^{(1)},O|r)$ = extrapolation $\times$ interpolation</li>
+<li>extra: $p(X|X',O,r)$, Gibbs</li>
+<li>intra: $p(X'|O,r)$</li>
+<li>Estimable vs. estimation</li>
+</ul>
+</li>
+<li>
+<p>Concept bottleneck model</p>
+<ul>
+<li>Can we prevent a large network from forgetting in continual learning?</li>
+<li>Just because we can choose <em>not</em> to learn a part of a model... we switch off gradient flows... (soft or hard)?</li>
+</ul>
+</li>
+<li>
+<p>Reinforcement learning with data censorship</p>
+<ul>
+<li>Matt Engelhard, Duke</li>
+<li>POMDP; Survival data sets are clearly censored.</li>
+<li>Early alert, pseudo label, post-hoc adaptation</li>
+</ul>
+</li>
+</ul>
+<h3 id="fri-aug-14-09-50-edt-2026"><a class="zola-anchor" href="#fri-aug-14-09-50-edt-2026" aria-label="Anchor link for: fri-aug-14-09-50-edt-2026">Fri Aug 14 09:50 EDT 2026</a></h3>
+<ul>
+<li>
+<p>Anna Goldenberg</p>
+<ul>
+<li>Heterogeneity in large-scale ICU data</li>
+<li>Self-supervised learning representation learning</li>
+<li>Different sampling intervals</li>
+<li>Not high-dimensional?</li>
+<li>Hierarchical Dirichlet Process, flow model...
+<ul>
+<li>Representation = latent states?</li>
+</ul>
+</li>
+<li>How do we take into account patient specificity?</li>
+<li>DynaSub: adaptive subgrouping with encoders</li>
+</ul>
+</li>
+<li>
+<p>Hoifung Poon</p>
+<ul>
+<li>Learning the language of patients across modalities</li>
+<li>Virtual patient</li>
+<li>Targeted therapy worked but hard to deal with relapse</li>
+<li>Immunotherapy, Keytruda (checkpoint blockade), not for everyone
+<ul>
+<li>Need to learn tumour microenvironment grammar</li>
+<li>The other side... autoimmune disease</li>
+</ul>
+</li>
+<li>Amara's Law
+<blockquote>
+<p>"We tend to overestimate the effect of a technology in the short run and underestimate the effect in the long run"</p>
+</blockquote>
+</li>
+<li>Physical experiments are expensive</li>
+<li>Can we simulate a clinical trial based on real-world data? (NEJM AI)
+<ul>
+<li><a href="https://ai.nejm.org/doi/full/10.1056/AIoa2400859">TRIALSCOPE — A Framework for Clinical Trial Simulation from Real-World Data</a></li>
+</ul>
+</li>
+<li>Patient journey is multimodal</li>
+<li>Precision health is a multimodal generation problem
+<ul>
+<li>Dealing with missing information is a genuinely important challenge</li>
+<li>Can we model out missing information?</li>
+<li>Virtual patient, digital twin</li>
+</ul>
+</li>
+<li>Unimodal: encoder $\to$ decoder</li>
+<li>Digital pathology: a transformer may not be the right architecture
+<ul>
+<li>16 x 16 = 56 million tokens</li>
+</ul>
+</li>
+<li><a href="https://www.nature.com/articles/s41586-024-07441-w">A whole-slide foundation model</a></li>
+<li>Proposing "text" as an interlingua medium</li>
+<li>Spatial proteomics/transcriptomics is expensive</li>
+<li><a href="https://www.cell.com/cell/fulltext/S0092-8674(25)01312-1">GigaTIME</a></li>
+<li>Can we predict next medical event of a person?
+<ul>
+<li><a href="https://ypark.github.io/posts/mlhc/(https://cosmos.epic.com/)">EPIC COSMOS</a> database contains 115 Billion medical events</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+    </section>
+  </article>
+</main>
+
+
+
+        
+
+    </div>
+</body>
+
+</html>

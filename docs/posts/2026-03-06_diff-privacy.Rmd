@@ -52,7 +52,7 @@ G <- rbinom(n, size = 2, prob = maf)
 E <- 0.5 * G + rnorm(n)
 
 dat <- data.frame(id = 1:n, genotype = G, expression = round(E, 3))
-dat
+head(dat)
 ```
 
 The study releases the expression data (anonymized) along with disease labels. The genotypes are private. But the eQTL summary statistic, i.e., the regression coefficient $\hat{\beta}$ from $E \sim G$, captures the genotype-expression relationship:
