@@ -4,8 +4,192 @@
     <link rel="self" type="application/atom+xml" href="https://ypark.github.io/atom.xml"/>
     <link rel="alternate" type="text/html" href="https://ypark.github.io"/>
     <generator uri="https://www.getzola.org/">Zola</generator>
-    <updated>2026-08-13T00:00:00+00:00</updated>
+    <updated>2026-10-22T00:00:00+00:00</updated>
     <id>https://ypark.github.io/atom.xml</id>
+    <entry xml:lang="en">
+        <title>American Society of Human Genetics meeting 2026</title>
+        <published>2026-10-22T00:00:00+00:00</published>
+        <updated>2026-10-22T00:00:00+00:00</updated>
+        
+        <author>
+          <name>
+            
+              Unknown
+            
+          </name>
+        </author>
+        
+        <link rel="alternate" type="text/html" href="https://ypark.github.io/posts/ashg-2026/"/>
+        <id>https://ypark.github.io/posts/ashg-2026/</id>
+        
+        <content type="html" xml:base="https://ypark.github.io/posts/ashg-2026/">&lt;p&gt;TL;DR: Biased memos from ASHG 2026 talks&#x2F;posters.&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;some-new-works-on-molecular-qtl-methods&quot;&gt;&lt;a class=&quot;zola-anchor&quot; href=&quot;#some-new-works-on-molecular-qtl-methods&quot; aria-label=&quot;Anchor link for: some-new-works-on-molecular-qtl-methods&quot;&gt;Some new works on molecular QTL methods&lt;&#x2F;a&gt;&lt;&#x2F;h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Using multiple PC across ancestry
+&lt;ul&gt;
+&lt;li&gt;Linear mixed effect model...&lt;&#x2F;li&gt;
+&lt;li&gt;Isn&#x27;t PC correlated with cell types?&lt;&#x2F;li&gt;
+&lt;li&gt;Are we imply recapitulating cell type QTL?&lt;&#x2F;li&gt;
+&lt;li&gt;Expression PCs are computed from expression and also track cell
+type, so they sit downstream of both genotype and expression: a
+collider.&lt;&#x2F;li&gt;
+&lt;li&gt;Adjusting for a collider opens the path G → C ← E, so PC
+correction can create or distort the genotype–expression
+association rather than only remove confounding.&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;pre class=&quot;mermaid&quot;&gt;
+graph LR
+  G[Genotype] --&gt;|eQTL effect| E[Gene expression]
+  G --&gt; C[Cell type &#x2F; expression PCs]
+  E --&gt; C
+&lt;&#x2F;pre&gt;
+&lt;script type=&quot;module&quot;&gt;
+  import mermaid from &quot;https:&#x2F;&#x2F;cdn.jsdelivr.net&#x2F;npm&#x2F;mermaid@10.9.1&#x2F;dist&#x2F;mermaid.esm.min.mjs&quot;;
+  mermaid.initialize({ startOnLoad: true });
+&lt;&#x2F;script&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;Poisson SuSiE&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;Poisson GLM and variational inference&lt;&#x2F;li&gt;
+&lt;li&gt;Not convinced why a Poisson model can do better.&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;&#x2F;li&gt;
+&lt;li&gt;
+&lt;p&gt;Developmental GTEx&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;Use OpenTargets for validation&lt;&#x2F;li&gt;
+&lt;li&gt;What disease prediction? Expression heritability.&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;&#x2F;li&gt;
+&lt;li&gt;
+&lt;p&gt;Genetic control of Treg suppression&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;Co-culture of Treg and CD4+ T-cell&lt;&#x2F;li&gt;
+&lt;li&gt;CRISPR KO CTLA4 and IL2RA to confirm&lt;&#x2F;li&gt;
+&lt;li&gt;3,600 Treg eQTL and co-localization&lt;&#x2F;li&gt;
+&lt;li&gt;Cytokine up&#x2F;down regulation via different mechanisms&lt;&#x2F;li&gt;
+&lt;li&gt;Recapitulate the findings via scRNA-seq with KO&lt;&#x2F;li&gt;
+&lt;li&gt;Highlight myeloid differentiation&lt;&#x2F;li&gt;
+&lt;li&gt;IKZF1 KO $\to$ destabilized Treg&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;&#x2F;li&gt;
+&lt;li&gt;
+&lt;p&gt;CCHC study&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;Brownsville, TX&lt;&#x2F;li&gt;
+&lt;li&gt;Admixture with EUR, Latino, American Indigenous&lt;&#x2F;li&gt;
+&lt;li&gt;Deeply phenotyped&lt;&#x2F;li&gt;
+&lt;li&gt;3,106 pQTLs across 1,361 proteins&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;&#x2F;li&gt;
+&lt;li&gt;
+&lt;p&gt;Single-molecule footprinting&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;Non-coding eQTLs&lt;&#x2F;li&gt;
+&lt;li&gt;eQTLs explain 10%&lt;&#x2F;li&gt;
+&lt;li&gt;caQTL explains more&lt;&#x2F;li&gt;
+&lt;li&gt;SMF as molecular phenotypes&lt;&#x2F;li&gt;
+&lt;li&gt;SMF-QTLs&lt;&#x2F;li&gt;
+&lt;li&gt;Allele specific&lt;&#x2F;li&gt;
+&lt;li&gt;open chromatin region vs. footprint&lt;&#x2F;li&gt;
+&lt;li&gt;What a single variant can do vs. associated within LD&lt;&#x2F;li&gt;
+&lt;li&gt;SNP is usually associated within motif&lt;&#x2F;li&gt;
+&lt;li&gt;Isn&#x27;t it a bit circular within tight LD?&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;h2 id=&quot;germline-and-somatic-interaction&quot;&gt;&lt;a class=&quot;zola-anchor&quot; href=&quot;#germline-and-somatic-interaction&quot; aria-label=&quot;Anchor link for: germline-and-somatic-interaction&quot;&gt;Germline and somatic interaction&lt;&#x2F;a&gt;&lt;&#x2F;h2&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;Cancer somatic mutations with germline mutations&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;Finish data (iCAN&#x2F;FiMM)&lt;&#x2F;li&gt;
+&lt;li&gt;PRS on Breast, Lung, Colorectal&lt;&#x2F;li&gt;
+&lt;li&gt;Mutational signatures vary across cancers&lt;&#x2F;li&gt;
+&lt;li&gt;e.g., SBS4 ~ smoking and lung cancer&lt;&#x2F;li&gt;
+&lt;li&gt;PRS association with somatic mutation signatures&lt;&#x2F;li&gt;
+&lt;li&gt;e.g., liver function PRS ~ colorectal cancer signatures&lt;&#x2F;li&gt;
+&lt;li&gt;What about cancer PRS vs. other PRS? Confounded? Collider bias?&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;&#x2F;li&gt;
+&lt;li&gt;
+&lt;p&gt;Multi-ancestry germline-somatic linkage&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;Genome-wide germline haplotype from panel sequencing&lt;&#x2F;li&gt;
+&lt;li&gt;MSK, tumour cohorts and normal EHR&lt;&#x2F;li&gt;
+&lt;li&gt;Gusev &lt;em&gt;et al.&lt;&#x2F;em&gt; Genome Medicine&lt;&#x2F;li&gt;
+&lt;li&gt;&quot;Driver&quot; GWAS replicated across cohorts in germline and somatic&lt;&#x2F;li&gt;
+&lt;li&gt;MDM4 TWAS associated with TP53 somatic mutations&lt;&#x2F;li&gt;
+&lt;li&gt;MDM4 CRISPR-CAS9 KO didn&#x27;t affect neighbouring genes&lt;&#x2F;li&gt;
+&lt;li&gt;Risk allele specific TMPRSS2-ERG fusion in EAS prostate cancer&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;&#x2F;li&gt;
+&lt;li&gt;
+&lt;p&gt;Cancer pathogenic&#x2F;likely pathogenic&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;https:&#x2F;&#x2F;jamanetwork.com&#x2F;journals&#x2F;jama&#x2F;fullarticle&#x2F;2840089&quot;&gt;Pathogenic Germline Variants in Cancer Susceptibility Genes
+&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
+&lt;li&gt;All of US&lt;&#x2F;li&gt;
+&lt;li&gt;Median age at first cancer diagnosis inversely correlated with some genes mutation occurrence and their cancer prevalence&lt;&#x2F;li&gt;
+&lt;li&gt;Several key genes still associated with cancer after accounting for germline-driven age effects (?)&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;h2 id=&quot;ehr-based-computational-and-ai-approach-to-clinical-genetics&quot;&gt;&lt;a class=&quot;zola-anchor&quot; href=&quot;#ehr-based-computational-and-ai-approach-to-clinical-genetics&quot; aria-label=&quot;Anchor link for: ehr-based-computational-and-ai-approach-to-clinical-genetics&quot;&gt;EHR-based computational and AI approach to clinical genetics&lt;&#x2F;a&gt;&lt;&#x2F;h2&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;Phenotype risk scores&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;Goal: cardiac amyloidosis, hereditary V1421, Mount Sinai&lt;&#x2F;li&gt;
+&lt;li&gt;ICD9 and ICD10 log odds ratio (heart traits?)&lt;&#x2F;li&gt;
+&lt;li&gt;True label: TTR genetic testing&lt;&#x2F;li&gt;
+&lt;li&gt;Workflow involving clinicians give out clinking alert&lt;&#x2F;li&gt;
+&lt;li&gt;Strong comorbidity... ?&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;&#x2F;li&gt;
+&lt;li&gt;
+&lt;p&gt;Multimodal agentic knowledge graph&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;Amyloid cardiomyopathy&lt;&#x2F;li&gt;
+&lt;li&gt;Phenotypic heterogeneity&lt;&#x2F;li&gt;
+&lt;li&gt;Didn&#x27;t explain what the graph is about...&lt;&#x2F;li&gt;
+&lt;li&gt;Multimodal data $\to$ patient graph $\to$ differential diagnosis agent $\to$ specialist&lt;&#x2F;li&gt;
+&lt;li&gt;Local open weight model&lt;&#x2F;li&gt;
+&lt;li&gt;Gather textual data and process raw ECG&lt;&#x2F;li&gt;
+&lt;li&gt;Build a disease agnostic patient graph&lt;&#x2F;li&gt;
+&lt;li&gt;Ask a local agent to spot differential or missed diagnosis&lt;&#x2F;li&gt;
+&lt;li&gt;What is the underlying cause of &quot;differential&quot; diagnosis?&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;a href=&quot;https:&#x2F;&#x2F;huggingface.co&#x2F;zai-org&#x2F;GLM-5.3&quot;&gt;GLM&lt;&#x2F;a&gt; was the most sensitive agent.&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;&#x2F;li&gt;
+&lt;li&gt;
+&lt;p&gt;Assessing diagnostic delays&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;1 in 20 genetic disorders in the US&lt;&#x2F;li&gt;
+&lt;li&gt;Curated diagnostic delay PTs followed by mixed effect regression&lt;&#x2F;li&gt;
+&lt;li&gt;1.4 years median delay; 2.8 years mean delay&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;&#x2F;li&gt;
+&lt;li&gt;
+&lt;p&gt;Predict cancer type progression using LLM&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;Dermatomyositis (DM), autoimmune, 3-7x higher cancer risk&lt;&#x2F;li&gt;
+&lt;li&gt;Myositis-specific antigen (MSA) tests 0.2%&lt;&#x2F;li&gt;
+&lt;li&gt;TriNetX cohort&lt;&#x2F;li&gt;
+&lt;li&gt;EHR = a sequence of chronological ICD-9&#x2F;10 codes&lt;&#x2F;li&gt;
+&lt;li&gt;Text embedding... why do we need to use pretrained LLM (gemma)?&lt;&#x2F;li&gt;
+&lt;li&gt;During the pretraining, fine-tune?&lt;&#x2F;li&gt;
+&lt;li&gt;Transfer learning (feature engineering), and then train a classifier&lt;&#x2F;li&gt;
+&lt;li&gt;Help prioritize high actionable PT groups&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+</content>
+        
+    </entry>
     <entry xml:lang="en">
         <title>Machine Learning for Health Care</title>
         <published>2026-08-13T00:00:00+00:00</published>
