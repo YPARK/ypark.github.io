@@ -238,47 +238,41 @@
       <p>TL;DR: include <code>OBJCXX=clang++ -std=gnu++17</code> in <code>.R/Makevars</code> to help <code>install.pacakges</code> to help Object-C code compilation.</p>
 <h3 id="error-messages"><a class="zola-anchor" href="#error-messages" aria-label="Anchor link for: error-messages">Error messages</a></h3>
 <p>I wanted to install <code>tidyverse</code> on a new Mac. Almost everything worked out of the box, except for one thing: <code>R</code>'s <code>systemfonts</code> triggered an hour of pain. <code>clang++</code> stopped parsing when it encountered <code>mac/FontManagerMac.mm</code> while complaining that it was unable to understand <code>c++11</code> features, e.g., <code>constexpr</code>.</p>
-<pre style="background-color:#fafafa;color:#61676c;"><code><span>clang++ -I&quot;/opt/homebrew/Cellar/r/4.4.2_2/lib/R/include&quot; -DNDEBUG -I/opt/homebrew/opt/freetype/include/freetype2 -I/opt/homebrew/opt/libpng/include/libpng16 -I&#39;/opt/homebrew/lib/R/4.4/site-library/cpp11/include&#39; -I/opt/homebrew/opt/gettext/include -I/opt/homebrew/opt/readline/include -I/opt/homebrew/opt/xz/include -I/opt/homebrew/include   -fobjc-arc -fPIC   -c mac/FontManagerMac.mm -o mac/FontManagerMac.o
-</span><span>In file included from mac/FontManagerMac.mm:5:
-</span><span>In file included from mac/../FontDescriptor.h:11:
-</span><span>In file included from mac/../utils.h:9:
-</span><span>In file included from /opt/homebrew/lib/R/4.4/site-library/cpp11/include/cpp11/protect.hpp:10:
-</span><span>/opt/homebrew/lib/R/4.4/site-library/cpp11/include/cpp11/R.hpp:52:1: error: unknown type name &#39;constexpr&#39;
-</span><span>   52 | constexpr R_xlen_t operator&quot;&quot; _xl(unsigned long long int value) { return value; }
-</span><span>      | ^
-</span><span>/opt/homebrew/lib/R/4.4/site-library/cpp11/include/cpp11/R.hpp:52:19: error: expected &#39;;&#39; after top level declarator
-</span><span>   52 | constexpr R_xlen_t operator&quot;&quot; _xl(unsigned long long int value) { return value; }
-</span><span>      |                   ^
-</span><span>      |                   ;
-</span></code></pre>
-<h3 id="solution-make-your-clang-understand-new-features"><a class="zola-anchor" href="#solution-make-your-clang-understand-new-features" aria-label="Anchor link for: solution-make-your-clang-understand-new-features">Solution: make your <code>Clang++</code> understand new features</a></h3>
+<pre class="giallo" style="color: #24292E; background-color: #FFFFFF;"><code data-lang="plain"><span class="giallo-l"><span>clang++ -I&quot;/opt/homebrew/Cellar/r/4.4.2_2/lib/R/include&quot; -DNDEBUG -I/opt/homebrew/opt/freetype/include/freetype2 -I/opt/homebrew/opt/libpng/include/libpng16 -I&#39;/opt/homebrew/lib/R/4.4/site-library/cpp11/include&#39; -I/opt/homebrew/opt/gettext/include -I/opt/homebrew/opt/readline/include -I/opt/homebrew/opt/xz/include -I/opt/homebrew/include   -fobjc-arc -fPIC   -c mac/FontManagerMac.mm -o mac/FontManagerMac.o</span></span>
+<span class="giallo-l"><span>In file included from mac/FontManagerMac.mm:5:</span></span>
+<span class="giallo-l"><span>In file included from mac/../FontDescriptor.h:11:</span></span>
+<span class="giallo-l"><span>In file included from mac/../utils.h:9:</span></span>
+<span class="giallo-l"><span>In file included from /opt/homebrew/lib/R/4.4/site-library/cpp11/include/cpp11/protect.hpp:10:</span></span>
+<span class="giallo-l"><span>/opt/homebrew/lib/R/4.4/site-library/cpp11/include/cpp11/R.hpp:52:1: error: unknown type name &#39;constexpr&#39;</span></span>
+<span class="giallo-l"><span>   52 | constexpr R_xlen_t operator&quot;&quot; _xl(unsigned long long int value) { return value; }</span></span>
+<span class="giallo-l"><span>      | ^</span></span>
+<span class="giallo-l"><span>/opt/homebrew/lib/R/4.4/site-library/cpp11/include/cpp11/R.hpp:52:19: error: expected &#39;;&#39; after top level declarator</span></span>
+<span class="giallo-l"><span>   52 | constexpr R_xlen_t operator&quot;&quot; _xl(unsigned long long int value) { return value; }</span></span>
+<span class="giallo-l"><span>      |                   ^</span></span>
+<span class="giallo-l"><span>      |                   ;</span></span></code></pre><h3 id="solution-make-your-clang-understand-new-features"><a class="zola-anchor" href="#solution-make-your-clang-understand-new-features" aria-label="Anchor link for: solution-make-your-clang-understand-new-features">Solution: make your <code>Clang++</code> understand new features</a></h3>
 <p>I believe CRAN packages are generally well prepared to handle C/C++ compiling, except for Object-C! We need to include the following line to <code>.R/Makevars</code> for a silicon Mac:</p>
-<pre style="background-color:#fafafa;color:#61676c;"><code><span>OBJCXX=clang++ -std=gnu++17
-</span></code></pre>
+<pre class="giallo" style="color: #24292E; background-color: #FFFFFF;"><code data-lang="plain"><span class="giallo-l"><span>OBJCXX=clang++ -std=gnu++17</span></span></code></pre>
 <p>We could additionally tweak so that compilation processes can take place on many files with an additional flag:</p>
-<pre style="background-color:#fafafa;color:#61676c;"><code><span>MAKEFLAGS = -j10
-</span></code></pre>
+<pre class="giallo" style="color: #24292E; background-color: #FFFFFF;"><code data-lang="plain"><span class="giallo-l"><span>MAKEFLAGS = -j10</span></span></code></pre>
 <p>Here, we run 10 jobs simultaneously.</p>
 <h3 id="another-issue-on-openmp"><a class="zola-anchor" href="#another-issue-on-openmp" aria-label="Anchor link for: another-issue-on-openmp">Another issue on <code>openmp</code></a></h3>
 <p>In order to compile <code>Rcpp</code> codes with <code>&lt;omp.h&gt;</code>, we also need <code>libomp</code> for multi-threading. We can add more lines to <code>.R/Makevars</code> and here is an example:</p>
-<pre style="background-color:#fafafa;color:#61676c;"><code><span>LDFLAGS += -L/opt/homebrew/opt/llvm/lib
-</span><span>LDFLAGS += -L/opt/homebrew/opt/libomp/lib -lomp
-</span><span>
-</span><span>CXXFLAGS += -I/opt/homebrew/opt/llvm/include
-</span><span>CXXFLAGS += -I/opt/homebrew/opt/libomp/include -Xclang -fopenmp
-</span><span>
-</span><span>CPPFLAGS += -I/opt/homebrew/opt/llvm/include
-</span><span>CPPFLAGS += -I/opt/homebrew/opt/libomp/include -Xclang -fopenmp
-</span><span>
-</span><span>PKG_LDFLAGS += $(LDFLAGS)
-</span><span>PKG_CXXFLAGS += $(CXXFLAGS)
-</span><span>PKG_CPPFLAGS += $(CPPFLAGS)
-</span><span>
-</span><span>OBJCXX = clang++ -std=gnu++17
-</span><span>
-</span><span>MAKEFLAGS = -j10
-</span></code></pre>
-
+<pre class="giallo" style="color: #24292E; background-color: #FFFFFF;"><code data-lang="plain"><span class="giallo-l"><span>LDFLAGS += -L/opt/homebrew/opt/llvm/lib</span></span>
+<span class="giallo-l"><span>LDFLAGS += -L/opt/homebrew/opt/libomp/lib -lomp</span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span>CXXFLAGS += -I/opt/homebrew/opt/llvm/include</span></span>
+<span class="giallo-l"><span>CXXFLAGS += -I/opt/homebrew/opt/libomp/include -Xclang -fopenmp</span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span>CPPFLAGS += -I/opt/homebrew/opt/llvm/include</span></span>
+<span class="giallo-l"><span>CPPFLAGS += -I/opt/homebrew/opt/libomp/include -Xclang -fopenmp</span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span>PKG_LDFLAGS += $(LDFLAGS)</span></span>
+<span class="giallo-l"><span>PKG_CXXFLAGS += $(CXXFLAGS)</span></span>
+<span class="giallo-l"><span>PKG_CPPFLAGS += $(CPPFLAGS)</span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span>OBJCXX = clang++ -std=gnu++17</span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span>MAKEFLAGS = -j10</span></span></code></pre>
     </section>
   </article>
 </main>

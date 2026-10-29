@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="46.9" height="26.3" viewBox="0 0 46.9 26.3">
+  <title>tui_icons</title>
+  <g id="Selection">
+    <path id="ps_page3" data-name="ps page3" d="M6.3 7 L23.3 7 L23.3 26 L6.3 26 Z" fill="#e6d3b8" stroke="#8a5a2b" stroke-width="0.6" stroke-miterlimit="10"/>
+    <path id="ps_page2" data-name="ps page2" d="M3.3 5 L20.3 5 L20.3 24 L3.3 24 Z" fill="#f0e3cf" stroke="#8a5a2b" stroke-width="0.6" stroke-miterlimit="10"/>
+    <path id="ps_page1" data-name="ps page1" d="M0.3 3 L12.8 3 L17.3 7.5 L17.3 22 L0.3 22 Z" fill="#ffffff" stroke="#8a5a2b" stroke-width="0.6" stroke-linejoin="round"/>
+    <path id="ps_fold" data-name="ps fold" d="M12.8 3 L12.8 7.5 L17.3 7.5" fill="#f0e3cf" stroke="#8a5a2b" stroke-width="0.6" stroke-linejoin="round"/>
+    <path id="ps_text" data-name="ps text" d="M2.8 8 L10.3 8 M2.8 10.5 L14.8 10.5 M2.8 13 L14.8 13 M2.8 15.5 L11.3 15.5" fill="none" stroke="#9e9e9e" stroke-width="0.8" stroke-miterlimit="10"/>
+    <path id="ps_pdf_tag" data-name="ps pdf tag" d="M2.9 17.5 L9.7 17.5 C10.031 17.5 10.3 17.769 10.3 18.1 L10.3 19.9 C10.3 20.231 10.031 20.5 9.7 20.5 L2.9 20.5 C2.569 20.5 2.3 20.231 2.3 19.9 L2.3 18.1 C2.3 17.769 2.569 17.5 2.9 17.5 Z" fill="#c0392b"/>
+    <path id="ps_ribbon" data-name="ps ribbon" d="M13.8 0 L16.8 0 L16.8 6 L15.3 4.6 L13.8 6 Z" fill="#3d8a2e"/>
+    <path d="M28.3 8.5 C28.3 7.672 28.972 7 29.8 7 C30.628 7 31.3 7.672 31.3 8.5 C31.3 9.328 30.628 10 29.8 10 C28.972 10 28.3 9.328 28.3 8.5 Z" fill="#7b4fa8"/>
+    <path d="M28.3 14.5 C28.3 13.672 28.972 13 29.8 13 C30.628 13 31.3 13.672 31.3 14.5 C31.3 15.328 30.628 16 29.8 16 C28.972 16 28.3 15.328 28.3 14.5 Z" fill="#7b4fa8"/>
+    <path d="M28.3 20.5 C28.3 19.672 28.972 19 29.8 19 C30.628 19 31.3 19.672 31.3 20.5 C31.3 21.328 30.628 22 29.8 22 C28.972 22 28.3 21.328 28.3 20.5 Z" fill="#7b4fa8"/>
+    <path id="ps_refs" data-name="ps refs" d="M33.3 8.5 L46.3 8.5 M33.3 14.5 L43.3 14.5 M33.3 20.5 L45.3 20.5" fill="none" stroke="#555555" stroke-width="1.2" stroke-linecap="round" stroke-miterlimit="10"/>
+    <path id="ps_refs2" data-name="ps refs2" d="M33.3 10.8 L40.3 10.8 M33.3 16.8 L38.3 16.8 M33.3 22.8 L41.3 22.8" fill="none" stroke="#b0b0b0" stroke-width="0.8" stroke-linecap="round" stroke-miterlimit="10"/>
+  </g>
+</svg>

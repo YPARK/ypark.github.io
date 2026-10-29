@@ -260,7 +260,7 @@
     <section class="body">
       <p><strong>TL;DR</strong>: The goal is to give a "pseudotime" for each cell. Use minimum spanning tree (MST) to estimate "independent" lineages. Sort the cells within each lineage to assign "time" information.</p>
 <h3 id="pseudotime-trajectory-inference"><a class="zola-anchor" href="#pseudotime-trajectory-inference" aria-label="Anchor link for: pseudotime-trajectory-inference">Pseudotime trajectory inference</a></h3>
-<h4 id="monocle-the-dynamics-and-regulators-of-cell-fate-decisions-are-revealed-by-pseudotemporal-ordering-of-single-cells"><a class="zola-anchor" href="#monocle-the-dynamics-and-regulators-of-cell-fate-decisions-are-revealed-by-pseudotemporal-ordering-of-single-cells" aria-label="Anchor link for: monocle-the-dynamics-and-regulators-of-cell-fate-decisions-are-revealed-by-pseudotemporal-ordering-of-single-cells"><code>monocle</code> <a href="https://www.nature.com/articles/nbt.2859">The dynamics and regulators of cell fate decisions are revealed by pseudotemporal ordering of single cells</a></a></h4>
+<h4 id="monocle-the-dynamics-and-regulators-of-cell-fate-decisions-are-revealed-by-pseudotemporal-ordering-of-single-cells"><a class="zola-anchor" href="#monocle-the-dynamics-and-regulators-of-cell-fate-decisions-are-revealed-by-pseudotemporal-ordering-of-single-cells" aria-label="Anchor link for: monocle-the-dynamics-and-regulators-of-cell-fate-decisions-are-revealed-by-pseudotemporal-ordering-of-single-cells"><code>monocle</code> <a rel="external" href="https://www.nature.com/articles/nbt.2859">The dynamics and regulators of cell fate decisions are revealed by pseudotemporal ordering of single cells</a></a></h4>
 <ul>
 <li><code>monocle</code> deals with pairs of cells directly:</li>
 </ul>
@@ -285,7 +285,7 @@
 <blockquote>
 <p>Finally, Monocle uses this sequence to produce a 'trajectory' of an individual cell's progress through differentiation.</p>
 </blockquote>
-<h4 id="tscan-tscan-pseudo-time-reconstruction-and-evaluation-in-single-cell-rna-seq-analysis"><a class="zola-anchor" href="#tscan-tscan-pseudo-time-reconstruction-and-evaluation-in-single-cell-rna-seq-analysis" aria-label="Anchor link for: tscan-tscan-pseudo-time-reconstruction-and-evaluation-in-single-cell-rna-seq-analysis"><code>TSCAN</code> <a href="https://academic.oup.com/nar/article/44/13/e117/2457590">TSCAN: Pseudo-time reconstruction and evaluation in single-cell RNA-seq analysis</a></a></h4>
+<h4 id="tscan-tscan-pseudo-time-reconstruction-and-evaluation-in-single-cell-rna-seq-analysis"><a class="zola-anchor" href="#tscan-tscan-pseudo-time-reconstruction-and-evaluation-in-single-cell-rna-seq-analysis" aria-label="Anchor link for: tscan-tscan-pseudo-time-reconstruction-and-evaluation-in-single-cell-rna-seq-analysis"><code>TSCAN</code> <a rel="external" href="https://academic.oup.com/nar/article/44/13/e117/2457590">TSCAN: Pseudo-time reconstruction and evaluation in single-cell RNA-seq analysis</a></a></h4>
 <ul>
 <li>Gene clustering to reduce "drop out" genes:</li>
 </ul>
@@ -366,7 +366,7 @@ cluster-level ordering. Third, the order of cells in different
 clusters is determined by the order of clusters. In this way, all
 cells can be placed in order.</p>
 </blockquote>
-<h4 id="slingshot-slingshot-cell-lineage-and-pseudotime-inference-for-single-cell-transcriptomics"><a class="zola-anchor" href="#slingshot-slingshot-cell-lineage-and-pseudotime-inference-for-single-cell-transcriptomics" aria-label="Anchor link for: slingshot-slingshot-cell-lineage-and-pseudotime-inference-for-single-cell-transcriptomics"><code>slingshot</code> <a href="https://link.springer.com/article/10.1186/s12864-018-4772-0">Slingshot: cell lineage and pseudotime inference for single-cell transcriptomics</a></a></h4>
+<h4 id="slingshot-slingshot-cell-lineage-and-pseudotime-inference-for-single-cell-transcriptomics"><a class="zola-anchor" href="#slingshot-slingshot-cell-lineage-and-pseudotime-inference-for-single-cell-transcriptomics" aria-label="Anchor link for: slingshot-slingshot-cell-lineage-and-pseudotime-inference-for-single-cell-transcriptomics"><code>slingshot</code> <a rel="external" href="https://link.springer.com/article/10.1186/s12864-018-4772-0">Slingshot: cell lineage and pseudotime inference for single-cell transcriptomics</a></a></h4>
 <ul>
 <li>Estimate cluster-level MST</li>
 </ul>
@@ -390,7 +390,7 @@ cells can be placed in order.</p>
 <p>Repeat this process until convergence. We use the sum of squared distances between cells’ actual coordinates and their projections on the curves to determine convergence.</p>
 </li>
 </ol>
-<h4 id="monocle3-the-single-cell-transcriptional-landscape-of-mammalian-organogenesis"><a class="zola-anchor" href="#monocle3-the-single-cell-transcriptional-landscape-of-mammalian-organogenesis" aria-label="Anchor link for: monocle3-the-single-cell-transcriptional-landscape-of-mammalian-organogenesis"><code>monocle3</code> <a href="https://www.nature.com/articles/s41586-019-0969-x">The single-cell transcriptional landscape of mammalian organogenesis</a></a></h4>
+<h4 id="monocle3-the-single-cell-transcriptional-landscape-of-mammalian-organogenesis"><a class="zola-anchor" href="#monocle3-the-single-cell-transcriptional-landscape-of-mammalian-organogenesis" aria-label="Anchor link for: monocle3-the-single-cell-transcriptional-landscape-of-mammalian-organogenesis"><code>monocle3</code> <a rel="external" href="https://www.nature.com/articles/s41586-019-0969-x">The single-cell transcriptional landscape of mammalian organogenesis</a></a></h4>
 <ul>
 <li>I think <code>monocle3</code> made a wrong decision. Okay, the original <code>monocle</code> might have resulted in a noisy MST backbone, or the method is infeasible for a million cells. However, there is no rationale behind "projecting data onto UMAP and performing clustering," and the trajectories <code>monocle3</code> report report never looks like a trajectory (because UMAP internally optimizes for cluster-like patterns).</li>
 </ul>
@@ -409,13 +409,13 @@ supergroup.</p>
 <h3 id="downstream-analysis-to-statistically-test-dynamic-gene-programs"><a class="zola-anchor" href="#downstream-analysis-to-statistically-test-dynamic-gene-programs" aria-label="Anchor link for: downstream-analysis-to-statistically-test-dynamic-gene-programs">Downstream analysis to statistically test "dynamic" gene programs</a></h3>
 <ul>
 <li>
-<p><a href="https://www.nature.com/articles/s41467-024-44823-0">Trajectory inference across multiple conditions with condiments</a></p>
+<p><a rel="external" href="https://www.nature.com/articles/s41467-024-44823-0">Trajectory inference across multiple conditions with condiments</a></p>
 </li>
 <li>
-<p><a href="https://www.nature.com/articles/s43588-021-00025-y">Enabling single-cell trajectory network enrichment</a></p>
+<p><a rel="external" href="https://www.nature.com/articles/s43588-021-00025-y">Enabling single-cell trajectory network enrichment</a></p>
 </li>
 <li>
-<p><a href="https://www.nature.com/articles/s41467-023-42841-y">A statistical framework for differential pseudotime analysis with multiple single-cell RNA-seq samples</a></p>
+<p><a rel="external" href="https://www.nature.com/articles/s41467-023-42841-y">A statistical framework for differential pseudotime analysis with multiple single-cell RNA-seq samples</a></p>
 </li>
 </ul>
 

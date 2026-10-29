@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="50.656" height="20.696" viewBox="0 0 50.656 20.696">
+  <title>NSERC_legume_tools</title>
+  <g id="Selection">
+    <path id="cocoa" d="M8.756 0.421 C14.456 2.296 17.456 6.796 17.081 10.546 C16.706 15.046 12.956 19.171 8.756 19.546 C4.556 19.171 0.806 15.046 0.431 10.546 C0.056 6.796 3.056 2.296 8.756 0.421 Z" fill="#b5562c" stroke="#6e2f12" stroke-width="0.8" stroke-miterlimit="10"/>
+    <path d="M8.756 1.546 L8.756 18.421 M5.006 3.421 C3.581 7.546 3.581 13.546 5.306 17.671 M12.506 3.421 C13.931 7.546 13.931 13.546 12.206 17.671" fill="none" stroke="#6e2f12" stroke-width="0.7" stroke-linecap="round" stroke-miterlimit="10"/>
+    <path id="cocoa_observed" data-name="cocoa observed" d="M24.856 3.796 L29.856 3.796 L29.856 20.296 L24.856 20.296 Z" fill="#b5562c"/>
+    <path d="M30.856 10.796 L35.856 10.796 L35.856 20.296 L30.856 20.296 Z" fill="none" stroke="#b5562c" stroke-width="0.8" stroke-miterlimit="10" stroke-dasharray="1.2 0.8"/>
+    <path d="M38.356 8.796 L43.356 8.796 L43.356 20.296 L38.356 20.296 Z" fill="#b5562c"/>
+    <path d="M44.356 7.796 L48.856 7.796 L48.856 20.296 L44.356 20.296 Z" fill="none" stroke="#b5562c" stroke-width="0.8" stroke-miterlimit="10" stroke-dasharray="1.2 0.8"/>
+    <path d="M23.356 20.296 L50.356 20.296" fill="none" stroke="#555555" stroke-width="0.6" stroke-miterlimit="10"/>
+  </g>
+</svg>

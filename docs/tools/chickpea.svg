@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="51.975" height="20.971" viewBox="0 0 51.975 20.971">
+  <title>NSERC_legume_tools</title>
+  <g id="Selection">
+    <path id="chickpea" d="M7.173 4.421 C9.588 4.421 11.162 5.471 11.688 6.521 C13.787 7.571 14.313 9.671 14.05 11.246 C13.787 14.396 10.9 16.496 7.173 16.496 C3.287 16.496 0.4 14.133 0.4 10.721 C0.4 7.046 3.287 4.946 5.388 5.208 C5.912 4.683 6.438 4.421 7.173 4.421 Z" fill="#dcb979" stroke="#9c7a3c" stroke-width="0.8" stroke-miterlimit="10"/>
+    <path d="M9.588 5.733 C10.375 6.521 10.9 7.571 10.638 8.621" fill="none" stroke="#9c7a3c" stroke-width="0.9" stroke-linecap="round" stroke-miterlimit="10"/>
+    <path id="chickpea_arrow" data-name="chickpea arrow" d="M14.65 10.721 L20.65 10.721 M18.4 8.471 L20.875 10.721 L18.4 12.971 M13.525 6.221 C14.65 3.971 16.525 3.221 18.025 3.596 C17.275 5.096 15.775 6.221 13.525 6.221 Z" fill="none" stroke="#3d8a2e" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+    <path id="chickpea_peak" data-name="chickpea peak" d="M24.675 19.971 C27.675 19.971 28.175 6.971 30.175 6.971 C32.175 6.971 32.675 19.971 35.675 19.971 Z" fill="#8e6bbf"/>
+    <path d="M30.175 4.971 C33.675 -3.029 42.675 -1.029 45.175 14.971" fill="none" stroke="#555555" stroke-width="0.8" stroke-miterlimit="10" stroke-dasharray="1.5 1"/>
+    <path id="gene" d="M38.675 15.971 L47.675 15.971 L50.675 18.471 L47.675 20.971 L38.675 20.971 Z" fill="#333333"/>
+    <path d="M23.675 20.471 L51.675 20.471" fill="none" stroke="#555555" stroke-width="0.6" stroke-miterlimit="10"/>
+  </g>
+</svg>

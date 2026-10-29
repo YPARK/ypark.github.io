@@ -217,88 +217,79 @@
     
 
     <section class="body">
-      <p>I've kept on telling my people that researchers should have a way to constantly write out what they think and learn, even though things may turn out to be wrong at some point. I posted <a href="https://nathanwpyle.threadless.com/designs/strange-planet-i-have-attempted-science">this</a> (from Nathan Pyle's comic, "Strange Planet") on my door to remind me of the importance of conveying ideas with evidence. I also believe that paper writing starts at the beginning of any project with a small step at a time. <a href="https://www.microsoft.com/en-us/research/academic-program/write-great-research-paper/">Idea conception, writing a paper, and doing research</a>.</p>
+      <p>I've kept on telling my people that researchers should have a way to constantly write out what they think and learn, even though things may turn out to be wrong at some point. I posted <a rel="external" href="https://nathanwpyle.threadless.com/designs/strange-planet-i-have-attempted-science">this</a> (from Nathan Pyle's comic, "Strange Planet") on my door to remind me of the importance of conveying ideas with evidence. I also believe that paper writing starts at the beginning of any project with a small step at a time. <a rel="external" href="https://www.microsoft.com/en-us/research/academic-program/write-great-research-paper/">Idea conception, writing a paper, and doing research</a>.</p>
 <p>Although I keep my markdown notes and scanned copies of scribbles, I have been searching for a quick and easy way to keep my ideas. First of all,  I was fed up enough with <code>R</code>'s <code>bookdown</code> and <code>Hugo</code> setup. It was more complex than I would ever need. I have some experience with old web programming, but <code>Hugo</code> was too hard for me. After searching and searching, I found <code>Zola</code> was simple enough, command line friendly, and editor friendly. It also took me some time to figure out, though.</p>
 <p>First, install <a href="https://ypark.github.io/posts/zola-setups-2024/%60https://www.getzola.org/%60">zola</a> locally. More details on installation can be found: <code>https://www.getzola.org/documentation/getting-started/installation/</code> and some web search.</p>
 <p>Then, we can set up a new <code>zola</code> directory:</p>
-<pre data-lang="sh" style="background-color:#fafafa;color:#61676c;" class="language-sh "><code class="language-sh" data-lang="sh"><span style="color:#f29718;">zola</span><span> init ${BLOG}
-</span></code></pre>
+<pre class="giallo" style="color: #24292E; background-color: #FFFFFF;"><code data-lang="shellscript"><span class="giallo-l"><span style="color: #6F42C1;">zola</span><span style="color: #032F62;"> init</span><span> ${BLOG}</span></span></code></pre>
 <p>Here, <code>${BLOG}</code> can be any working directory.</p>
-<p>I was too lazy to tweak HTML pages and styles, so I decide to use <a href="https://www.getzola.org/themes/apollo/">Apollo theme</a>.</p>
-<pre data-lang="sh" style="background-color:#fafafa;color:#61676c;" class="language-sh "><code class="language-sh" data-lang="sh"><span style="color:#f29718;">git</span><span> submodule add https://github.com/not-matthias/apollo themes/apollo
-</span></code></pre>
+<p>I was too lazy to tweak HTML pages and styles, so I decide to use <a rel="external" href="https://www.getzola.org/themes/apollo/">Apollo theme</a>.</p>
+<pre class="giallo" style="color: #24292E; background-color: #FFFFFF;"><code data-lang="shellscript"><span class="giallo-l"><span style="color: #6F42C1;">git</span><span style="color: #032F62;"> submodule add https://github.com/not-matthias/apollo themes/apollo</span></span></code></pre>
 <p>or simply clone:</p>
-<pre data-lang="sh" style="background-color:#fafafa;color:#61676c;" class="language-sh "><code class="language-sh" data-lang="sh"><span style="color:#f29718;">git</span><span> clone https://github.com/not-matthias/apollo themes/apollo
-</span></code></pre>
+<pre class="giallo" style="color: #24292E; background-color: #FFFFFF;"><code data-lang="shellscript"><span class="giallo-l"><span style="color: #6F42C1;">git</span><span style="color: #032F62;"> clone https://github.com/not-matthias/apollo themes/apollo</span></span></code></pre>
 <p>Out of the box, things work fine, but it's worth customizing <code>config.toml</code>:</p>
-<pre data-lang="toml" style="background-color:#fafafa;color:#61676c;" class="language-toml "><code class="language-toml" data-lang="toml"><span style="color:#399ee6;">theme </span><span>= </span><span style="color:#86b300;">&quot;apollo&quot;
-</span><span style="color:#399ee6;">taxonomies </span><span>= [{ </span><span style="color:#399ee6;">name </span><span>= </span><span style="color:#86b300;">&quot;tags&quot; </span><span>}]
-</span><span>
-</span><span style="font-style:italic;color:#abb0b6;"># The URL the site will be built for
-</span><span style="color:#399ee6;">base_url </span><span>= </span><span style="color:#86b300;">&quot;CHANGE ME&quot;
-</span><span>
-</span><span style="font-style:italic;color:#abb0b6;"># Whether to automatically compile all Sass files in the sass directory
-</span><span style="color:#399ee6;">compile_sass </span><span>= </span><span style="color:#ff8f40;">true
-</span><span>
-</span><span style="font-style:italic;color:#abb0b6;"># Whether to build a search index to be used later on by a JavaScript library
-</span><span style="color:#399ee6;">build_search_index </span><span>= </span><span style="color:#ff8f40;">true
-</span><span>
-</span><span style="color:#399ee6;">output_dir </span><span>= </span><span style="color:#86b300;">&quot;CHANGE ME&quot;
-</span><span>
-</span><span style="color:#399ee6;">generate_feeds </span><span>= </span><span style="color:#ff8f40;">true
-</span><span>
-</span><span>[</span><span style="color:#399ee6;">markdown</span><span>]
-</span><span style="font-style:italic;color:#abb0b6;"># Whether to do syntax highlighting
-</span><span style="font-style:italic;color:#abb0b6;"># Theme can be customised by setting the `highlight_theme` variable to a theme supported by Zola
-</span><span style="color:#399ee6;">highlight_code </span><span>= </span><span style="color:#ff8f40;">true
-</span><span style="color:#399ee6;">highlight_theme </span><span>= </span><span style="color:#86b300;">&quot;ayu-light&quot;
-</span><span>
-</span><span>[</span><span style="color:#399ee6;">extra</span><span>]
-</span><span style="font-style:italic;color:#abb0b6;"># See this for more options: https://github.com/not-matthias/apollo/blob/main/config.toml#L14
-</span><span style="color:#399ee6;">toc </span><span>= </span><span style="color:#ff8f40;">true
-</span><span style="color:#399ee6;">use_cdn </span><span>= </span><span style="color:#ff8f40;">false
-</span><span style="color:#399ee6;">theme </span><span>= </span><span style="color:#86b300;">&quot;toggle&quot;
-</span><span>
-</span><span style="color:#399ee6;">socials </span><span>= [
-</span><span>]
-</span><span style="color:#399ee6;">menu </span><span>= [
-</span><span>]
-</span><span>
-</span><span style="color:#399ee6;">mathjax </span><span>= </span><span style="color:#ff8f40;">true
-</span><span style="color:#399ee6;">mathjax_dollar_inline_enable </span><span>= </span><span style="color:#ff8f40;">true
-</span><span style="color:#399ee6;">fancy_code </span><span>= </span><span style="color:#ff8f40;">true
-</span><span style="color:#399ee6;">insert_anchor_links </span><span>= </span><span style="color:#86b300;">&quot;heading&quot;
-</span><span style="color:#399ee6;">favicon </span><span>= </span><span style="color:#86b300;">&quot;/icon/favicon.ico&quot;
-</span></code></pre>
+<pre class="giallo" style="color: #24292E; background-color: #FFFFFF;"><code data-lang="toml"><span class="giallo-l"><span>theme =</span><span style="color: #032F62;"> &quot;apollo&quot;</span></span>
+<span class="giallo-l"><span>taxonomies = [{ name =</span><span style="color: #032F62;"> &quot;tags&quot;</span><span> }]</span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span style="color: #6A737D;"># The URL the site will be built for</span></span>
+<span class="giallo-l"><span>base_url =</span><span style="color: #032F62;"> &quot;CHANGE ME&quot;</span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span style="color: #6A737D;"># Whether to automatically compile all Sass files in the sass directory</span></span>
+<span class="giallo-l"><span>compile_sass =</span><span style="color: #005CC5;"> true</span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span style="color: #6A737D;"># Whether to build a search index to be used later on by a JavaScript library</span></span>
+<span class="giallo-l"><span>build_search_index =</span><span style="color: #005CC5;"> true</span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span>output_dir =</span><span style="color: #032F62;"> &quot;CHANGE ME&quot;</span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span>generate_feeds =</span><span style="color: #005CC5;"> true</span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span>[</span><span style="color: #6F42C1;">markdown</span><span>]</span></span>
+<span class="giallo-l"><span style="color: #6A737D;"># Whether to do syntax highlighting</span></span>
+<span class="giallo-l"><span style="color: #6A737D;"># Theme can be customised by setting the `highlight_theme` variable to a theme supported by Zola</span></span>
+<span class="giallo-l"><span>highlight_code =</span><span style="color: #005CC5;"> true</span></span>
+<span class="giallo-l"><span>highlight_theme =</span><span style="color: #032F62;"> &quot;ayu-light&quot;</span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span>[</span><span style="color: #6F42C1;">extra</span><span>]</span></span>
+<span class="giallo-l"><span style="color: #6A737D;"># See this for more options: https://github.com/not-matthias/apollo/blob/main/config.toml#L14</span></span>
+<span class="giallo-l"><span>toc =</span><span style="color: #005CC5;"> true</span></span>
+<span class="giallo-l"><span>use_cdn =</span><span style="color: #005CC5;"> false</span></span>
+<span class="giallo-l"><span>theme =</span><span style="color: #032F62;"> &quot;toggle&quot;</span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span>socials = [</span></span>
+<span class="giallo-l"><span>]</span></span>
+<span class="giallo-l"><span>menu = [</span></span>
+<span class="giallo-l"><span>]</span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span>mathjax =</span><span style="color: #005CC5;"> true</span></span>
+<span class="giallo-l"><span>mathjax_dollar_inline_enable =</span><span style="color: #005CC5;"> true</span></span>
+<span class="giallo-l"><span>fancy_code =</span><span style="color: #005CC5;"> true</span></span>
+<span class="giallo-l"><span>insert_anchor_links =</span><span style="color: #032F62;"> &quot;heading&quot;</span></span>
+<span class="giallo-l"><span>favicon =</span><span style="color: #032F62;"> &quot;/icon/favicon.ico&quot;</span></span></code></pre>
 <p>Finally, we can create <code>_index.md</code> as a front page:</p>
-<pre data-lang="sh" style="background-color:#fafafa;color:#61676c;" class="language-sh "><code class="language-sh" data-lang="sh"><span style="color:#f29718;">emacs</span><span> content/_index.md
-</span></code></pre>
+<pre class="giallo" style="color: #24292E; background-color: #FFFFFF;"><code data-lang="shellscript"><span class="giallo-l"><span style="color: #6F42C1;">emacs</span><span style="color: #032F62;"> content/_index.md</span></span></code></pre>
 <p><code>_index.md</code> could be something like this:</p>
-<pre style="background-color:#fafafa;color:#61676c;"><code><span>+++
-</span><span>title= &quot;my blog&quot;
-</span><span>template = &quot;homepage.html&quot;
-</span><span>+++
-</span><span>
-</span><span>Welcome to my blog
-</span></code></pre>
+<pre class="giallo" style="color: #24292E; background-color: #FFFFFF;"><code data-lang="plain"><span class="giallo-l"><span>+++</span></span>
+<span class="giallo-l"><span>title= &quot;my blog&quot;</span></span>
+<span class="giallo-l"><span>template = &quot;homepage.html&quot;</span></span>
+<span class="giallo-l"><span>+++</span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span>Welcome to my blog</span></span></code></pre>
 <p>We can ask <code>zola</code> to generate HTML and <code>js</code> pages:</p>
-<pre data-lang="sh" style="background-color:#fafafa;color:#61676c;" class="language-sh "><code class="language-sh" data-lang="sh"><span style="color:#f29718;">zola</span><span> build
-</span></code></pre>
+<pre class="giallo" style="color: #24292E; background-color: #FFFFFF;"><code data-lang="shellscript"><span class="giallo-l"><span style="color: #6F42C1;">zola</span><span style="color: #032F62;"> build</span></span></code></pre>
 <p>A new site will be located under where the <code>output_dir</code> is pointing to. We can simply push the entire directory to <code>GitHub</code> or a similar kind.</p>
 <p>Every time we need to update, we can create a new 'md' file under 'content' where different. To have a handle to a new set of posts, we need to add a new menu item in <code>config.toml</code>:</p>
-<pre style="background-color:#fafafa;color:#61676c;"><code><span>menu = [
-</span><span>    { name = &quot;/posts&quot;, url = &quot;/posts&quot;, weight = 1 },
-</span><span>]
-</span></code></pre>
+<pre class="giallo" style="color: #24292E; background-color: #FFFFFF;"><code data-lang="plain"><span class="giallo-l"><span>menu = [</span></span>
+<span class="giallo-l"><span>    { name = &quot;/posts&quot;, url = &quot;/posts&quot;, weight = 1 },</span></span>
+<span class="giallo-l"><span>]</span></span></code></pre>
 <p>In <code>content/posts/</code>, we can add <code>_index.md</code> to help navigate posts:</p>
-<pre style="background-color:#fafafa;color:#61676c;"><code><span>+++
-</span><span>paginate_by = 7
-</span><span>title = &quot;Posts&quot;
-</span><span>sort_by = &quot;date&quot;
-</span><span>
-</span><span>insert_anchor_links = &quot;heading&quot;
-</span><span>+++
-</span></code></pre>
+<pre class="giallo" style="color: #24292E; background-color: #FFFFFF;"><code data-lang="plain"><span class="giallo-l"><span>+++</span></span>
+<span class="giallo-l"><span>paginate_by = 7</span></span>
+<span class="giallo-l"><span>title = &quot;Posts&quot;</span></span>
+<span class="giallo-l"><span>sort_by = &quot;date&quot;</span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span>insert_anchor_links = &quot;heading&quot;</span></span>
+<span class="giallo-l"><span>+++</span></span></code></pre>
 <p>Happy blogging!</p>
 
     </section>

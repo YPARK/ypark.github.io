@@ -243,92 +243,83 @@
     <section class="body">
       <h3 id="emacs-for-rust-with-rustic-and-lsp"><a class="zola-anchor" href="#emacs-for-rust-with-rustic-and-lsp" aria-label="Anchor link for: emacs-for-rust-with-rustic-and-lsp">Emacs for Rust with <code>rustic</code> and <code>lsp</code></a></h3>
 <p>Learning Rust is my personal goal for this year. It is very strict in type checking and memory ownership. So, I needed some help until I could fully grasp its key concepts and syntax. I use Emacs for almost everything, including coding. After an hour of searching, I think I found a pretty good setup (a part of <code>.emacs.d/init.el</code>):</p>
-<pre data-lang="lisp" style="background-color:#fafafa;color:#61676c;" class="language-lisp "><code class="language-lisp" data-lang="lisp"><span style="font-style:italic;color:#abb0b6;">;; Ensure that rust-mode is installed
-</span><span>(</span><span style="color:#f07171;">use-package</span><span> rust</span><span style="color:#ed9366;">-</span><span>mode
-</span><span>  :ensure </span><span style="color:#ff8f40;">t
-</span><span>  :config
-</span><span>  </span><span style="font-style:italic;color:#abb0b6;">;; Set the key binding for rust-format-buffer
-</span><span>  (define</span><span style="color:#ed9366;">-</span><span>key rust</span><span style="color:#ed9366;">-</span><span>mode</span><span style="color:#ed9366;">-</span><span style="color:#f07171;">map </span><span>(kbd </span><span style="color:#86b300;">&quot;C-c C-f&quot;</span><span>) </span><span style="color:#ff8f40;">#&#39;rust-format-buffer</span><span>))
-</span><span>
-</span><span>(</span><span style="color:#f07171;">use-package</span><span> lsp</span><span style="color:#ed9366;">-</span><span>mode
-</span><span>  :init
-</span><span>  (add</span><span style="color:#ed9366;">-</span><span>hook &#39;rust</span><span style="color:#ed9366;">-</span><span>mode</span><span style="color:#ed9366;">-</span><span>hook </span><span style="color:#ff8f40;">#&#39;lsp</span><span>)
-</span><span>  :custom
-</span><span>  (lsp</span><span style="color:#ed9366;">-</span><span>rust</span><span style="color:#ed9366;">-</span><span>server &#39;rust</span><span style="color:#ed9366;">-</span><span>analyzer))
-</span><span>
-</span><span>(</span><span style="color:#f07171;">use-package</span><span> rustic
-</span><span>  :ensure
-</span><span>  :bind (:</span><span style="color:#f07171;">map</span><span> rustic</span><span style="color:#ed9366;">-</span><span>mode</span><span style="color:#ed9366;">-</span><span style="color:#f07171;">map
-</span><span>              (</span><span style="color:#86b300;">&quot;M-j&quot;</span><span> . lsp</span><span style="color:#ed9366;">-</span><span>ui</span><span style="color:#ed9366;">-</span><span>imenu)
-</span><span>              (</span><span style="color:#86b300;">&quot;M-?&quot;</span><span> . lsp</span><span style="color:#ed9366;">-</span><span style="color:#f07171;">find</span><span style="color:#ed9366;">-</span><span>references)
-</span><span>              (</span><span style="color:#86b300;">&quot;C-c C-c a&quot;</span><span> . lsp</span><span style="color:#ed9366;">-</span><span>execute</span><span style="color:#ed9366;">-</span><span>code</span><span style="color:#ed9366;">-</span><span>action)
-</span><span>              (</span><span style="color:#86b300;">&quot;C-c C-c r&quot;</span><span> . lsp</span><span style="color:#ed9366;">-</span><span>rename)
-</span><span>              (</span><span style="color:#86b300;">&quot;C-c C-c q&quot;</span><span> . lsp</span><span style="color:#ed9366;">-</span><span>workspace</span><span style="color:#ed9366;">-</span><span>restart)
-</span><span>              (</span><span style="color:#86b300;">&quot;C-c C-c Q&quot;</span><span> . lsp</span><span style="color:#ed9366;">-</span><span>workspace</span><span style="color:#ed9366;">-</span><span>shutdown)
-</span><span>              (</span><span style="color:#86b300;">&quot;C-c C-c s&quot;</span><span> . lsp</span><span style="color:#ed9366;">-</span><span>rust</span><span style="color:#ed9366;">-</span><span>analyzer</span><span style="color:#ed9366;">-</span><span>status))
-</span><span>  :config
-</span><span>  (add</span><span style="color:#ed9366;">-</span><span>hook &#39;rustic</span><span style="color:#ed9366;">-</span><span>mode</span><span style="color:#ed9366;">-</span><span>hook (</span><span style="color:#f07171;">lambda </span><span>() (flyspell</span><span style="color:#ed9366;">-</span><span>mode </span><span style="color:#ed9366;">-</span><span style="color:#ff8f40;">1</span><span>)))
-</span><span>  )
-</span><span>
-</span><span style="font-style:italic;color:#abb0b6;">;; Stop reformatting every time on save
-</span><span>(rust</span><span style="color:#ed9366;">-</span><span>disable</span><span style="color:#ed9366;">-</span><span style="color:#f07171;">format</span><span style="color:#ed9366;">-</span><span>on</span><span style="color:#ed9366;">-</span><span>save)
-</span></code></pre>
+<pre class="giallo" style="color: #24292E; background-color: #FFFFFF;"><code data-lang="common-lisp"><span class="giallo-l"><span style="color: #6A737D;">;; Ensure that rust-mode is installed</span></span>
+<span class="giallo-l"><span>(</span><span style="color: #005CC5;">use-package</span><span> rust-mode</span></span>
+<span class="giallo-l"><span style="color: #6F42C1;">  :ensure</span><span style="color: #005CC5;"> t</span></span>
+<span class="giallo-l"><span style="color: #6F42C1;">  :config</span></span>
+<span class="giallo-l"><span style="color: #6A737D;">  ;; Set the key binding for rust-format-buffer</span></span>
+<span class="giallo-l"><span>  (define-key rust-mode-map (kbd </span><span style="color: #032F62;">&quot;C-c C-f&quot;</span><span>) </span><span style="color: #005CC5;">#&#39;</span><span>rust-format-buffer))</span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span>(</span><span style="color: #005CC5;">use-package</span><span> lsp-mode</span></span>
+<span class="giallo-l"><span style="color: #6F42C1;">  :init</span></span>
+<span class="giallo-l"><span>  (add-hook </span><span style="color: #005CC5;">&#39;</span><span>rust-mode-hook </span><span style="color: #005CC5;">#&#39;</span><span>lsp)</span></span>
+<span class="giallo-l"><span style="color: #6F42C1;">  :custom</span></span>
+<span class="giallo-l"><span>  (lsp-rust-server </span><span style="color: #005CC5;">&#39;</span><span>rust-analyzer))</span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span>(</span><span style="color: #005CC5;">use-package</span><span> rustic</span></span>
+<span class="giallo-l"><span style="color: #6F42C1;">  :ensure</span></span>
+<span class="giallo-l"><span style="color: #6F42C1;">  :bind</span><span> (</span><span style="color: #6F42C1;">:map</span><span> rustic-mode-map</span></span>
+<span class="giallo-l"><span>              (</span><span style="color: #032F62;">&quot;M-j&quot;</span><span style="color: #005CC5;"> .</span><span> lsp-ui-imenu)</span></span>
+<span class="giallo-l"><span>              (</span><span style="color: #032F62;">&quot;M-?&quot;</span><span style="color: #005CC5;"> .</span><span> lsp-find-references)</span></span>
+<span class="giallo-l"><span>              (</span><span style="color: #032F62;">&quot;C-c C-c a&quot;</span><span style="color: #005CC5;"> .</span><span> lsp-execute-code-action)</span></span>
+<span class="giallo-l"><span>              (</span><span style="color: #032F62;">&quot;C-c C-c r&quot;</span><span style="color: #005CC5;"> .</span><span> lsp-rename)</span></span>
+<span class="giallo-l"><span>              (</span><span style="color: #032F62;">&quot;C-c C-c q&quot;</span><span style="color: #005CC5;"> .</span><span> lsp-workspace-restart)</span></span>
+<span class="giallo-l"><span>              (</span><span style="color: #032F62;">&quot;C-c C-c Q&quot;</span><span style="color: #005CC5;"> .</span><span> lsp-workspace-shutdown)</span></span>
+<span class="giallo-l"><span>              (</span><span style="color: #032F62;">&quot;C-c C-c s&quot;</span><span style="color: #005CC5;"> .</span><span> lsp-rust-analyzer-status))</span></span>
+<span class="giallo-l"><span style="color: #6F42C1;">  :config</span></span>
+<span class="giallo-l"><span>  (add-hook </span><span style="color: #005CC5;">&#39;</span><span>rustic-mode-hook (</span><span style="color: #D73A49;">lambda</span><span> () (flyspell-mode </span><span style="color: #005CC5;">-1</span><span>)))</span></span>
+<span class="giallo-l"><span>  )</span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span style="color: #6A737D;">;; Stop reformatting every time on save</span></span>
+<span class="giallo-l"><span>(rust-disable-format-on-save)</span></span></code></pre>
 <p>We can peek into documentation and <code>fn</code> and <code>struct</code> definitions.</p>
-<pre data-lang="lisp" style="background-color:#fafafa;color:#61676c;" class="language-lisp "><code class="language-lisp" data-lang="lisp"><span>(</span><span style="color:#f07171;">setq</span><span> lsp</span><span style="color:#ed9366;">-</span><span>inlay</span><span style="color:#ed9366;">-</span><span>hint</span><span style="color:#ed9366;">-</span><span>enable </span><span style="color:#ff8f40;">t</span><span>)
-</span><span>(</span><span style="color:#f07171;">setq</span><span> lsp</span><span style="color:#ed9366;">-</span><span>ui</span><span style="color:#ed9366;">-</span><span>peek</span><span style="color:#ed9366;">-</span><span>enable </span><span style="color:#ff8f40;">t</span><span>)
-</span><span>(</span><span style="color:#f07171;">setq</span><span> lsp</span><span style="color:#ed9366;">-</span><span style="color:#f07171;">format</span><span style="color:#ed9366;">-</span><span>on</span><span style="color:#ed9366;">-</span><span>save </span><span style="color:#ff8f40;">nil</span><span>)
-</span><span>(</span><span style="color:#f07171;">setq</span><span> rustic</span><span style="color:#ed9366;">-</span><span style="color:#f07171;">format</span><span style="color:#ed9366;">-</span><span>on</span><span style="color:#ed9366;">-</span><span>save </span><span style="color:#ff8f40;">nil</span><span>)
-</span><span>(</span><span style="color:#f07171;">setq</span><span> rust</span><span style="color:#ed9366;">-</span><span style="color:#f07171;">format</span><span style="color:#ed9366;">-</span><span>on</span><span style="color:#ed9366;">-</span><span>save </span><span style="color:#ff8f40;">nil</span><span>)
-</span><span>
-</span><span>(</span><span style="color:#f07171;">setq</span><span> special</span><span style="color:#ed9366;">-</span><span>display</span><span style="color:#ed9366;">-</span><span>buffer</span><span style="color:#ed9366;">-</span><span>names
-</span><span>      &#39;(</span><span style="color:#86b300;">&quot;*rustic-compilation*&quot;</span><span>))
-</span><span>
-</span><span>(</span><span style="color:#f07171;">setq</span><span> special</span><span style="color:#ed9366;">-</span><span>display</span><span style="color:#ed9366;">-</span><span>function
-</span><span>      (</span><span style="color:#f07171;">lambda </span><span>(buffer &amp;optional args)
-</span><span>        (</span><span style="color:#f07171;">split</span><span style="color:#ed9366;">-</span><span>window)
-</span><span>        (switch</span><span style="color:#ed9366;">-</span><span style="color:#fa6e32;">to</span><span style="color:#ed9366;">-</span><span>buffer buffer)
-</span><span>        (</span><span style="color:#f07171;">get</span><span style="color:#ed9366;">-</span><span>buffer</span><span style="color:#ed9366;">-</span><span>window buffer </span><span style="color:#ff8f40;">0</span><span>)))
-</span><span>
-</span><span>(</span><span style="color:#f07171;">use-package</span><span> company
-</span><span>  :ensure
-</span><span>  :custom
-</span><span>  (company</span><span style="color:#ed9366;">-</span><span>idle</span><span style="color:#ed9366;">-</span><span>delay </span><span style="color:#ff8f40;">0.25</span><span>) </span><span style="font-style:italic;color:#abb0b6;">;; how long to wait until popup
-</span><span>  </span><span style="font-style:italic;color:#abb0b6;">;; (company-begin-commands nil) ;; uncomment to disable popup
-</span><span>  :bind
-</span><span>  (:</span><span style="color:#f07171;">map</span><span> company</span><span style="color:#ed9366;">-</span><span>active</span><span style="color:#ed9366;">-</span><span style="color:#f07171;">map
-</span><span>	(</span><span style="color:#86b300;">&quot;C-n&quot;</span><span>. company</span><span style="color:#ed9366;">-</span><span>select</span><span style="color:#ed9366;">-</span><span>next)
-</span><span>	(</span><span style="color:#86b300;">&quot;C-p&quot;</span><span>. company</span><span style="color:#ed9366;">-</span><span>select</span><span style="color:#ed9366;">-</span><span style="color:#f07171;">previous</span><span>)
-</span><span>	(</span><span style="color:#86b300;">&quot;M-&lt;&quot;</span><span>. company</span><span style="color:#ed9366;">-</span><span>select</span><span style="color:#ed9366;">-</span><span style="color:#f07171;">first</span><span>)
-</span><span>	(</span><span style="color:#86b300;">&quot;M-&gt;&quot;</span><span>. company</span><span style="color:#ed9366;">-</span><span>select</span><span style="color:#ed9366;">-</span><span style="color:#f07171;">last</span><span>)))
-</span><span>
-</span><span>(</span><span style="color:#f07171;">use-package</span><span> yasnippet
-</span><span>  :ensure
-</span><span>  :config
-</span><span>  (yas</span><span style="color:#ed9366;">-</span><span>reload</span><span style="color:#ed9366;">-</span><span>all)
-</span><span>  (add</span><span style="color:#ed9366;">-</span><span>hook &#39;</span><span style="color:#fa6e32;">prog</span><span style="color:#ed9366;">-</span><span>mode</span><span style="color:#ed9366;">-</span><span>hook &#39;yas</span><span style="color:#ed9366;">-</span><span>minor</span><span style="color:#ed9366;">-</span><span>mode)
-</span><span>  (add</span><span style="color:#ed9366;">-</span><span>hook &#39;text</span><span style="color:#ed9366;">-</span><span>mode</span><span style="color:#ed9366;">-</span><span>hook &#39;yas</span><span style="color:#ed9366;">-</span><span>minor</span><span style="color:#ed9366;">-</span><span>mode))
-</span></code></pre>
+<pre class="giallo" style="color: #24292E; background-color: #FFFFFF;"><code data-lang="common-lisp"><span class="giallo-l"><span>(</span><span style="color: #D73A49;">setq</span><span> lsp-inlay-hint-enable </span><span style="color: #005CC5;">t</span><span>)</span></span>
+<span class="giallo-l"><span>(</span><span style="color: #D73A49;">setq</span><span> lsp-ui-peek-enable </span><span style="color: #005CC5;">t</span><span>)</span></span>
+<span class="giallo-l"><span>(</span><span style="color: #D73A49;">setq</span><span> lsp-format-on-save </span><span style="color: #005CC5;">nil</span><span>)</span></span>
+<span class="giallo-l"><span>(</span><span style="color: #D73A49;">setq</span><span> rustic-format-on-save </span><span style="color: #005CC5;">nil</span><span>)</span></span>
+<span class="giallo-l"><span>(</span><span style="color: #D73A49;">setq</span><span> rust-format-on-save </span><span style="color: #005CC5;">nil</span><span>)</span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span>(</span><span style="color: #D73A49;">setq</span><span> special-display-buffer-names</span></span>
+<span class="giallo-l"><span style="color: #005CC5;">      &#39;</span><span>(</span><span style="color: #032F62;">&quot;*rustic-compilation*&quot;</span><span>))</span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span>(</span><span style="color: #D73A49;">setq</span><span> special-display-function</span></span>
+<span class="giallo-l"><span>      (</span><span style="color: #D73A49;">lambda</span><span> (buffer </span><span style="color: #D73A49;">&amp;optional</span><span> args)</span></span>
+<span class="giallo-l"><span>        (split-window)</span></span>
+<span class="giallo-l"><span>        (switch-to-buffer buffer)</span></span>
+<span class="giallo-l"><span>        (get-buffer-window buffer </span><span style="color: #005CC5;">0</span><span>)))</span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span>(</span><span style="color: #005CC5;">use-package</span><span> company</span></span>
+<span class="giallo-l"><span style="color: #6F42C1;">  :ensure</span></span>
+<span class="giallo-l"><span style="color: #6F42C1;">  :custom</span></span>
+<span class="giallo-l"><span>  (company-idle-delay </span><span style="color: #005CC5;">0.25</span><span>) </span><span style="color: #6A737D;">;; how long to wait until popup</span></span>
+<span class="giallo-l"><span style="color: #6A737D;">  ;; (company-begin-commands nil) ;; uncomment to disable popup</span></span>
+<span class="giallo-l"><span style="color: #6F42C1;">  :bind</span></span>
+<span class="giallo-l"><span>  (</span><span style="color: #6F42C1;">:map</span><span> company-active-map</span></span>
+<span class="giallo-l"><span>	(</span><span style="color: #032F62;">&quot;C-n&quot;</span><span>. company-select-next)</span></span>
+<span class="giallo-l"><span>	(</span><span style="color: #032F62;">&quot;C-p&quot;</span><span>. company-select-previous)</span></span>
+<span class="giallo-l"><span>	(</span><span style="color: #032F62;">&quot;M-&lt;&quot;</span><span>. company-select-first)</span></span>
+<span class="giallo-l"><span>	(</span><span style="color: #032F62;">&quot;M-&gt;&quot;</span><span>. company-select-last)))</span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span>(</span><span style="color: #005CC5;">use-package</span><span> yasnippet</span></span>
+<span class="giallo-l"><span style="color: #6F42C1;">  :ensure</span></span>
+<span class="giallo-l"><span style="color: #6F42C1;">  :config</span></span>
+<span class="giallo-l"><span>  (yas-reload-all)</span></span>
+<span class="giallo-l"><span>  (add-hook </span><span style="color: #005CC5;">&#39;</span><span>prog-mode-hook </span><span style="color: #005CC5;">&#39;</span><span>yas-minor-mode)</span></span>
+<span class="giallo-l"><span>  (add-hook </span><span style="color: #005CC5;">&#39;</span><span>text-mode-hook </span><span style="color: #005CC5;">&#39;</span><span>yas-minor-mode))</span></span></code></pre>
 <p>When we deal with multiple projects, unused and leftover workspace caused performance drawback. So, the following wrapper is pretty handy.</p>
-<pre data-lang="lisp" style="background-color:#fafafa;color:#61676c;" class="language-lisp "><code class="language-lisp" data-lang="lisp"><span>(</span><span style="color:#fa6e32;">defun </span><span style="color:#f29718;">cleanup-lsp </span><span>()
-</span><span>  </span><span style="color:#86b300;">&quot;Remove all the workspace folders from LSP&quot;
-</span><span>  (interactive)
-</span><span>  (</span><span style="color:#fa6e32;">let </span><span>((folders (lsp</span><span style="color:#ed9366;">-</span><span>session</span><span style="color:#ed9366;">-</span><span>folders (lsp</span><span style="color:#ed9366;">-</span><span>session))))
-</span><span>    (</span><span style="color:#fa6e32;">while</span><span> folders
-</span><span>      (lsp</span><span style="color:#ed9366;">-</span><span>workspace</span><span style="color:#ed9366;">-</span><span>folders</span><span style="color:#ed9366;">-</span><span style="color:#f07171;">remove </span><span>(</span><span style="color:#f07171;">car</span><span> folders))
-</span><span>      (</span><span style="color:#f07171;">setq</span><span> folders (</span><span style="color:#f07171;">cdr</span><span> folders)))))
-</span></code></pre>
+<pre class="giallo" style="color: #24292E; background-color: #FFFFFF;"><code data-lang="common-lisp"><span class="giallo-l"><span>(</span><span style="color: #D73A49;">defun</span><span style="color: #6F42C1;"> cleanup-lsp</span><span> ()</span></span>
+<span class="giallo-l"><span style="color: #032F62;">  &quot;Remove all the workspace folders from LSP&quot;</span></span>
+<span class="giallo-l"><span>  (interactive)</span></span>
+<span class="giallo-l"><span>  (</span><span style="color: #D73A49;">let</span><span> ((folders (lsp-session-folders (lsp-session))))</span></span>
+<span class="giallo-l"><span>    (while folders</span></span>
+<span class="giallo-l"><span>      (lsp-workspace-folders-remove (</span><span style="color: #005CC5;">car</span><span> folders))</span></span>
+<span class="giallo-l"><span>      (</span><span style="color: #D73A49;">setq</span><span> folders (</span><span style="color: #005CC5;">cdr</span><span> folders)))))</span></span></code></pre>
 <p>Overall, coding Rust is pretty fun, and working with <code>lsp</code>, <code>company</code>, <code>yasnippet</code> can certainly teach me my mistakes interactively. They are quite resource-heavy, but I will need "a tutor" for a while.</p>
 <h3 id="fix-unstable-internet"><a class="zola-anchor" href="#fix-unstable-internet" aria-label="Anchor link for: fix-unstable-internet">Fix unstable Internet</a></h3>
 <p>Working from home for a couple of weeks, I learned that my network is very unstable, especially with the ethernet connection! The problem was my internet service provider is not top-notch, so the download and upload speed shouldn't exceed 100mb/s, but my ethernet device kept on trying to find better speed but couldn't do it. I found a nice solution that the network speed can be simply capped by disabling <code>autoneg</code>:</p>
-<pre data-lang="sh" style="background-color:#fafafa;color:#61676c;" class="language-sh "><code class="language-sh" data-lang="sh"><span style="color:#f29718;">sudo</span><span> lshw</span><span style="color:#ff8f40;"> -C</span><span> network
-</span></code></pre>
-<pre data-lang="sh" style="background-color:#fafafa;color:#61676c;" class="language-sh "><code class="language-sh" data-lang="sh"><span style="color:#f29718;">sudo</span><span> ethtool</span><span style="color:#ff8f40;"> --change </span><span>${eth} speed 100 autoneg off
-</span></code></pre>
-<h3 id="fix-display-issues"><a class="zola-anchor" href="#fix-display-issues" aria-label="Anchor link for: fix-display-issues">Fix display issues</a></h3>
+<pre class="giallo" style="color: #24292E; background-color: #FFFFFF;"><code data-lang="shellscript"><span class="giallo-l"><span style="color: #6F42C1;">sudo</span><span style="color: #032F62;"> lshw</span><span style="color: #005CC5;"> -C</span><span style="color: #032F62;"> network</span></span></code></pre><pre class="giallo" style="color: #24292E; background-color: #FFFFFF;"><code data-lang="shellscript"><span class="giallo-l"><span style="color: #6F42C1;">sudo</span><span style="color: #032F62;"> ethtool</span><span style="color: #005CC5;"> --change</span><span> ${eth}</span><span style="color: #032F62;"> speed</span><span style="color: #005CC5;"> 100</span><span style="color: #032F62;"> autoneg off</span></span></code></pre><h3 id="fix-display-issues"><a class="zola-anchor" href="#fix-display-issues" aria-label="Anchor link for: fix-display-issues">Fix display issues</a></h3>
 <p>Amazon Prime Day got me a new monitor, which is spacious and bulky enough to force me to fold up my laptop screen on my small desk. But I found Ubuntu keeps on activating my laptop screen. I can exclusively switch on my HDMI screen with this command:</p>
-<pre data-lang="sh" style="background-color:#fafafa;color:#61676c;" class="language-sh "><code class="language-sh" data-lang="sh"><span style="color:#f29718;">xrandr</span><span style="color:#ff8f40;"> --output</span><span> eDP-1</span><span style="color:#ff8f40;"> --off --output</span><span> HDMI-1</span><span style="color:#ff8f40;"> --primary --auto
-</span></code></pre>
-
+<pre class="giallo" style="color: #24292E; background-color: #FFFFFF;"><code data-lang="shellscript"><span class="giallo-l"><span style="color: #6F42C1;">xrandr</span><span style="color: #005CC5;"> --output</span><span style="color: #032F62;"> eDP-1</span><span style="color: #005CC5;"> --off --output</span><span style="color: #032F62;"> HDMI-1</span><span style="color: #005CC5;"> --primary --auto</span></span></code></pre>
     </section>
   </article>
 </main>
